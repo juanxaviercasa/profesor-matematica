@@ -6,7 +6,7 @@ const blocks=[
  ["01","Fundamentos","Conjuntos, relaciones, dominio, rango, notación y representaciones.","En construcción"],
  ["02","Análisis de gráficas","Cortes, signo, monotonía, extremos, simetría, periodicidad y asíntotas.","Disponible"],
  ["03","Clasificación","Inyectiva, sobreyectiva, biyectiva, inversa y restricciones.","Disponible"],
- ["04","Familias algebraicas","Lineales, polinómicas, radicales, racionales, exponenciales y logarítmicas.","Iniciado"],
+ ["04","Familias algebraicas","Lineales, polinómicas, radicales, racionales, exponenciales y logarítmicas.","Disponible"],
  ["05","Operaciones e inversas","Operaciones, composición, identidad e inversa.","Disponible"],
  ["06","Trigonometría funcional","Seis funciones trigonométricas, transformaciones e inversas.","Programado"],
  ["07","Límites y continuidad","Laterales, infinitos, técnicas algebraicas, trigonométricos y continuidad.","Iniciado"],

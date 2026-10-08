@@ -139,20 +139,20 @@ En cada familia se estudian fórmula, dominio, rango, ceros, signo, monotonía, 
 9. Lector completo de gráficas.
 10. Operaciones entre funciones.
 11. Atlas interactivo de familias fundamentales.
+12. Explorador de polinomios, raíces y multiplicidad.
+13. Laboratorio de racionales, huecos y asíntotas.
+14. Laboratorio exponencial–logarítmico.
 
 ### Aplicaciones a completar
 
-1. Explorador de polinomios y multiplicidad de raíces.
-2. Laboratorio de racionales y asíntotas.
-3. Laboratorio exponencial–logarítmico.
-4. Circunferencia unitaria dinámica.
-5. Taller de gráficas trigonométricas.
-6. Laboratorio de inversas trigonométricas.
-7. Solucionador visual de ecuaciones trigonométricas.
-8. Calculador razonado de límites algebraicos.
-9. Laboratorio de límites trigonométricos.
-10. Clasificador de discontinuidades y continuidad.
-11. Simulador de tasa media hacia tasa instantánea.
+1. Circunferencia unitaria dinámica.
+2. Taller de gráficas trigonométricas.
+3. Laboratorio de inversas trigonométricas.
+4. Solucionador visual de ecuaciones trigonométricas.
+5. Calculador razonado de límites algebraicos.
+6. Laboratorio de límites trigonométricos.
+7. Clasificador de discontinuidades y continuidad.
+8. Simulador de tasa media hacia tasa instantánea.
 
 ## Orden de implementación
 
