@@ -53,3 +53,4 @@ El símbolo representa una función que asciende hasta un punto máximo y contin
 - `public/brand/youtube-thumbnail-template.svg`: plantilla de miniatura.
 - `public/brand/vertical-cover-template.svg`: portada para TikTok, Reels y Shorts.
 
+Cada recurso social también cuenta con una versión `.png` en su dimensión final para subirla directamente. Los archivos `.svg` quedan como originales editables.
