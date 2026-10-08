@@ -1,3 +1,3 @@
 import type { Metadata } from "next"; import { LimitsLab } from "@/components/advanced-labs"; import { Footer,Header,PageHero } from "@/components/site";
 export const metadata:Metadata={title:"Introducción a límites | Zénit Lab",description:"Explora límites laterales, huecos, saltos y asíntotas como puente hacia cálculo."};
-export default function Page(){return <><Header/><main className="wrap"><PageHero kicker="Zénit Lab · aplicación 08" title="Puente hacia límites" text="Acércate desde ambos lados y construye la intuición central que necesitarás en cálculo."/><LimitsLab/></main><Footer/></>}
+export default function Page(){return <><Header/><main className="wrap"><PageHero kicker="Zénit Lab · aplicación 11" title="Puente hacia límites" text="Acércate desde ambos lados y construye la intuición central que necesitarás en cálculo."/><LimitsLab/></main><Footer/></>}

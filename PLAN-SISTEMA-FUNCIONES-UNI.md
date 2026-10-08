@@ -135,23 +135,24 @@ En cada familia se estudian fórmula, dominio, rango, ceros, signo, monotonía, 
 5. Constructor por tramos.
 6. Espejo de la inversa.
 7. Puente hacia límites.
+8. Clasificador inyectiva–sobreyectiva–biyectiva.
+9. Lector completo de gráficas.
+10. Operaciones entre funciones.
+11. Atlas interactivo de familias fundamentales.
 
 ### Aplicaciones a completar
 
-1. Clasificador inyectiva–sobreyectiva–biyectiva.
-2. Lector completo de gráficas.
-3. Atlas interactivo de familias algebraicas.
-4. Explorador de polinomios y multiplicidad de raíces.
-5. Laboratorio de racionales y asíntotas.
-6. Laboratorio exponencial–logarítmico.
-7. Circunferencia unitaria dinámica.
-8. Taller de gráficas trigonométricas.
-9. Laboratorio de inversas trigonométricas.
-10. Solucionador visual de ecuaciones trigonométricas.
-11. Calculador razonado de límites algebraicos.
-12. Laboratorio de límites trigonométricos.
-13. Clasificador de discontinuidades y continuidad.
-14. Simulador de tasa media hacia tasa instantánea.
+1. Explorador de polinomios y multiplicidad de raíces.
+2. Laboratorio de racionales y asíntotas.
+3. Laboratorio exponencial–logarítmico.
+4. Circunferencia unitaria dinámica.
+5. Taller de gráficas trigonométricas.
+6. Laboratorio de inversas trigonométricas.
+7. Solucionador visual de ecuaciones trigonométricas.
+8. Calculador razonado de límites algebraicos.
+9. Laboratorio de límites trigonométricos.
+10. Clasificador de discontinuidades y continuidad.
+11. Simulador de tasa media hacia tasa instantánea.
 
 ## Orden de implementación
 

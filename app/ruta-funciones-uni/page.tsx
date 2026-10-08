@@ -4,9 +4,9 @@ import { Footer,Header } from "@/components/site";
 export const metadata:Metadata={title:"Ruta completa de funciones y límites · nivel UNI",description:"Plan de estudio de funciones, trigonometría, inversas y límites para secundaria, preparación UNI y primeros ciclos."};
 const blocks=[
  ["01","Fundamentos","Conjuntos, relaciones, dominio, rango, notación y representaciones.","En construcción"],
- ["02","Análisis de gráficas","Cortes, signo, monotonía, extremos, simetría, periodicidad y asíntotas.","Siguiente"],
+ ["02","Análisis de gráficas","Cortes, signo, monotonía, extremos, simetría, periodicidad y asíntotas.","Disponible"],
  ["03","Clasificación","Inyectiva, sobreyectiva, biyectiva, inversa y restricciones.","Disponible"],
- ["04","Familias algebraicas","Lineales, polinómicas, radicales, racionales, exponenciales y logarítmicas.","Programado"],
+ ["04","Familias algebraicas","Lineales, polinómicas, radicales, racionales, exponenciales y logarítmicas.","Iniciado"],
  ["05","Operaciones e inversas","Operaciones, composición, identidad e inversa.","Disponible"],
  ["06","Trigonometría funcional","Seis funciones trigonométricas, transformaciones e inversas.","Programado"],
  ["07","Límites y continuidad","Laterales, infinitos, técnicas algebraicas, trigonométricos y continuidad.","Iniciado"],
