@@ -1,3 +1,3 @@
 import type { Metadata } from "next"; import { CompositionLab } from "@/components/advanced-labs"; import { Footer,Header,PageHero } from "@/components/site";
 export const metadata:Metadata={title:"Composición de funciones | Zénit Lab",description:"Visualiza f(g(x)) y g(f(x)) como máquinas y comprende el orden de composición."};
-export default function Page(){return <><Header/><main className="wrap"><PageHero kicker="Zénit Lab · aplicación 04" title="Máquina de composición" text="Sigue cada entrada por dos funciones y observa por qué el orden cambia el resultado."/><CompositionLab/></main><Footer/></>}
+export default function Page(){return <><Header/><main className="wrap"><PageHero kicker="Zénit Lab · aplicación 05" title="Máquina de composición" text="Sigue cada entrada por dos funciones y observa por qué el orden cambia el resultado."/><CompositionLab/></main><Footer/></>}
