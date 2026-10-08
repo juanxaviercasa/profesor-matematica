@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 116" role="img" aria-labelledby="title">
+  <title id="title">Profesor Juan Xavier · Sistema Zénit</title>
+  <rect width="116" height="116" rx="28" fill="#12372f"/>
+  <path d="M20 85c17-2 20-47 44-50 17-2 20 23 35 29" fill="none" stroke="#f6f1e6" stroke-width="9" stroke-linecap="round"/>
+  <path d="M23 88h73" stroke="#ff5a36" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="64" cy="35" r="9" fill="#ddf277" stroke="#12372f" stroke-width="3"/>
+  <text x="145" y="52" fill="#12372f" font-family="Arial,Helvetica,sans-serif" font-size="33" font-weight="800" letter-spacing="2">JUAN XAVIER</text>
+  <text x="146" y="82" fill="#ff5a36" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="800" letter-spacing="5">SISTEMA ZÉNIT</text>
+  <text x="146" y="106" fill="#65716d" font-family="Arial,Helvetica,sans-serif" font-size="15">Matemática que conecta</text>
+</svg>

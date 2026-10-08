@@ -59,3 +59,14 @@
 
 @media(max-width:850px){.form-heading,.form-grid{grid-template-columns:1fr}.form-heading{gap:12px}.full-field{grid-column:auto}}
 @media(max-width:520px){.conversion-form{padding:24px 18px}.conversion-dock{right:12px;bottom:12px}.conversion-dock b{display:none}.conversion-dock{padding-right:10px}}
+
+/* Sistema de marca Zénit */
+.brand-link{display:block;margin-right:auto}
+.brand{display:flex;align-items:center;gap:11px;margin-right:0;letter-spacing:0}
+.brand>img{display:block;width:42px;height:42px;border-radius:12px}
+.brand span.brand-copy{display:flex;flex-direction:column;place-items:initial;width:auto;height:auto;border-radius:0;background:transparent;color:inherit;font:inherit;line-height:1.05}
+.brand-copy b{font-size:.78rem;letter-spacing:.12em}
+.brand-copy small{margin-top:5px;color:var(--orange);font-size:.57rem;font-weight:800;letter-spacing:.17em}
+.brand.inverse span.brand-copy{background:transparent;color:inherit}
+.brand.inverse .brand-copy b{color:var(--paper)}
+.brand.inverse .brand-copy small{color:var(--lime)}

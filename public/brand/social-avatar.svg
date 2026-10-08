@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" role="img" aria-labelledby="title">
+  <title id="title">Avatar de Sistema Zénit</title>
+  <rect width="1080" height="1080" rx="260" fill="#12372f"/>
+  <path d="M180 785c165-15 190-430 414-462 154-22 185 204 320 258" fill="none" stroke="#f6f1e6" stroke-width="82" stroke-linecap="round"/>
+  <path d="M205 820h670" stroke="#ff5a36" stroke-width="48" stroke-linecap="round"/>
+  <circle cx="594" cy="323" r="82" fill="#ddf277" stroke="#12372f" stroke-width="28"/>
+</svg>
