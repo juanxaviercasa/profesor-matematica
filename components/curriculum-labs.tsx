@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "./safe-link";
 import { LabProgressBar, trackLab, useLabProgress } from "./lab-progress";
 import { MathFormula } from "./math-formula";
+import { CartesianAxes } from "./cartesian-axes";
 
 type Curve=(x:number)=>number;
 function curvePaths(fn:Curve,min=-6,max=6){
@@ -11,7 +12,7 @@ function curvePaths(fn:Curve,min=-6,max=6){
   for(let x=min;x<=max;x+=.05){const y=fn(x),px=210+x*30,py=170-y*24;if(!Number.isFinite(y)||py<-80||py>420){if(current.length>1)paths.push(`M${current.join(" L")}`);current=[]}else current.push(`${px.toFixed(1)},${py.toFixed(1)}`)}
   if(current.length>1)paths.push(`M${current.join(" L")}`);return paths;
 }
-function AxisGraph({fn,label,marks}:{fn:Curve;label:string;marks?:React.ReactNode}){const paths=useMemo(()=>curvePaths(fn),[fn]);return <svg viewBox="0 0 420 340" role="img" aria-label={label}><g stroke="#d4d9d4" strokeWidth="1"><path d="M15 170H405M210 15V325"/>{[-5,-4,-3,-2,-1,1,2,3,4,5].map(v=><path key={`x${v}`} d={`M${210+v*30} 15V325`} opacity=".45"/>)}{[-5,-4,-3,-2,-1,1,2,3,4,5].map(v=><path key={`y${v}`} d={`M15 ${170-v*24}H405`} opacity=".45"/>)}</g>{paths.map((d,i)=><path key={i} d={d} fill="none" stroke="#ff5a36" strokeWidth="5" strokeLinecap="round"/>) }{marks}</svg>}
+function AxisGraph({fn,label,marks}:{fn:Curve;label:string;marks?:React.ReactNode}){const paths=useMemo(()=>curvePaths(fn),[fn]),ticks=Array.from({length:13},(_,i)=>i-6);return <svg className="coordinate-graph" viewBox="0 0 420 340" role="img" aria-label={label}><CartesianAxes width={420} height={340} originX={210} originY={170} xScale={30} yScale={24} xTicks={ticks.filter(Boolean).map(value=>({value,label:value%2===0?String(value):undefined}))} yTicks={ticks.filter(Boolean).map(value=>({value,label:value%2===0?String(value):undefined}))}/>{paths.map((d,i)=><path key={i} d={d} fill="none" stroke="#ff5a36" strokeWidth="5" strokeLinecap="round"/>) }{marks}</svg>}
 function Result({ok,good,bad}:{ok:boolean;good:string;bad:string}){return <div className={`lab-feedback ${ok?"correct":"retry"}`} role="status"><b>{ok?"Lectura correcta":"Vuelve a observar"}</b><p>{ok?good:bad}</p></div>}
 function Option({value,choice,setChoice}:{value:string;choice:string|null;setChoice:(v:string)=>void}){return <button className={`lab-choice${choice===value?" active":""}`} onClick={()=>setChoice(value)}>{value}</button>}
 
