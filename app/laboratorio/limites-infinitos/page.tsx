@@ -1,0 +1,3 @@
+import type { Metadata } from "next"; import { InfiniteLimitsLab } from "@/components/limits-labs"; import { Footer,Header,PageHero } from "@/components/site";
+export const metadata:Metadata={title:"Límites infinitos y al infinito | Zénit Lab",description:"Interpreta límites infinitos, laterales y asíntotas verticales, horizontales y oblicuas."};
+export default function Page(){return <><Header/><main className="wrap"><PageHero kicker="Zénit Lab · aplicación 21" title="Infinito y comportamiento asintótico" text="Distingue crecer sin cota, acercarse a una asíntota y estudiar una función cuando x avanza hacia infinito."/><InfiniteLimitsLab/></main><Footer/></>}

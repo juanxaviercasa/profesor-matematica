@@ -147,13 +147,15 @@ En cada familia se estudian fórmula, dominio, rango, ceros, signo, monotonía, 
 17. Estudio de transformaciones trigonométricas.
 18. Laboratorio de seis inversas trigonométricas.
 19. Solucionador gráfico de ecuaciones e inecuaciones trigonométricas.
+20. Calculador razonado de límites algebraicos.
+21. Laboratorio de límites infinitos, al infinito y asíntotas.
+22. Laboratorio de límites trigonométricos fundamentales.
+23. Clasificador de continuidad y discontinuidades.
+24. Simulador de tasa media hacia tasa instantánea.
 
 ### Aplicaciones a completar
 
-1. Calculador razonado de límites algebraicos.
-2. Laboratorio de límites trigonométricos.
-3. Clasificador de discontinuidades y continuidad.
-4. Simulador de tasa media hacia tasa instantánea.
+El núcleo curricular interactivo de funciones, límites y continuidad está implementado. La siguiente ampliación corresponde al bloque de entrenamiento UNI: banco de problemas, prácticas cronometradas, simulacros y registro de errores.
 
 ## Orden de implementación
 

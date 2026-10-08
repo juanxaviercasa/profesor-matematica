@@ -1,0 +1,3 @@
+import type { Metadata } from "next"; import { TrigonometricLimitsLab } from "@/components/limits-labs"; import { Footer,Header,PageHero } from "@/components/site";
+export const metadata:Metadata={title:"Límites trigonométricos fundamentales | Zénit Lab",description:"Comprende y aplica los límites notables del seno, tangente y coseno con ángulos en radianes."};
+export default function Page(){return <><Header/><main className="wrap"><PageHero kicker="Zénit Lab · aplicación 22" title="Límites trigonométricos" text="Observa la aproximación numérica y transforma cada expresión hasta reconocer un límite notable."/><TrigonometricLimitsLab/></main><Footer/></>}

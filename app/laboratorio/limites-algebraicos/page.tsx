@@ -1,0 +1,3 @@
+import type { Metadata } from "next"; import { AlgebraicLimitsLab } from "@/components/limits-labs"; import { Footer,Header,PageHero } from "@/components/site";
+export const metadata:Metadata={title:"Límites algebraicos paso a paso | Zénit Lab",description:"Practica sustitución, factorización, racionalización y fracciones para resolver indeterminaciones 0/0."};
+export default function Page(){return <><Header/><main className="wrap"><PageHero kicker="Zénit Lab · aplicación 20" title="Técnicas algebraicas de límites" text="Detecta la indeterminación, elige la transformación correcta y justifica el resultado desde ambos lados."/><AlgebraicLimitsLab/></main><Footer/></>}

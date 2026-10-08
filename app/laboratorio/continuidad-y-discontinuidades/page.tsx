@@ -1,0 +1,3 @@
+import type { Metadata } from "next"; import { ContinuityLab } from "@/components/limits-labs"; import { Footer,Header,PageHero } from "@/components/site";
+export const metadata:Metadata={title:"Continuidad y discontinuidades | Zénit Lab",description:"Verifica continuidad y clasifica discontinuidades removibles, de salto e infinitas."};
+export default function Page(){return <><Header/><main className="wrap"><PageHero kicker="Zénit Lab · aplicación 23" title="Continuidad bajo diagnóstico" text="Comprueba las tres condiciones formales, clasifica cada ruptura y descubre cuándo una función puede repararse."/><ContinuityLab/></main><Footer/></>}

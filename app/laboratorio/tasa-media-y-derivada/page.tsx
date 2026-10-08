@@ -1,0 +1,3 @@
+import type { Metadata } from "next"; import { RateDerivativeLab } from "@/components/limits-labs"; import { Footer,Header,PageHero } from "@/components/site";
+export const metadata:Metadata={title:"De tasa media a derivada | Zénit Lab",description:"Visualiza cómo la pendiente secante converge a la pendiente tangente mediante el límite del cociente incremental."};
+export default function Page(){return <><Header/><main className="wrap"><PageHero kicker="Zénit Lab · aplicación 24" title="De la tasa media a la derivada" text="Acerca dos puntos sobre una curva y observa cómo una pendiente promedio se convierte en cambio instantáneo."/><RateDerivativeLab/></main><Footer/></>}

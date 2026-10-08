@@ -23,6 +23,11 @@ const labs = [
   { n:"17", slug:"tramos", href:"/laboratorio/funciones-por-tramos", title:"Constructor por tramos", text:"Decide qué regla se activa y comprende los extremos abiertos y cerrados.", tag:"Intermedio", total:3 },
   { n:"18", slug:"inversa", href:"/laboratorio/funcion-inversa", title:"Espejo de la inversa", text:"Refleja puntos sobre y = x y descubre cuándo una inversa es función.", tag:"Intermedio", total:3 },
   { n:"19", slug:"limites", href:"/laboratorio/introduccion-a-limites", title:"Puente hacia límites", text:"Acércate desde ambos lados para anticipar la idea central del cálculo.", tag:"Puente a cálculo", total:3 },
+  { n:"20", slug:"limites_algebraicos", href:"/laboratorio/limites-algebraicos", title:"Técnicas algebraicas de límites", text:"Resuelve indeterminaciones mediante sustitución, factorización, racionalización y fracciones.", tag:"Límites UNI", total:5 },
+  { n:"21", slug:"limites_infinitos", href:"/laboratorio/limites-infinitos", title:"Infinito y asíntotas", text:"Interpreta límites infinitos y al infinito, con asíntotas verticales, horizontales y oblicuas.", tag:"Límites UNI", total:4 },
+  { n:"22", slug:"limites_trig", href:"/laboratorio/limites-trigonometricos", title:"Límites trigonométricos", text:"Construye y aplica los límites notables de seno, tangente y coseno en radianes.", tag:"Cálculo UNI", total:5 },
+  { n:"23", slug:"continuidad", href:"/laboratorio/continuidad-y-discontinuidades", title:"Continuidad bajo diagnóstico", text:"Verifica las tres condiciones y clasifica discontinuidades removibles, de salto e infinitas.", tag:"Cálculo UNI", total:5 },
+  { n:"24", slug:"tasa_derivada", href:"/laboratorio/tasa-media-y-derivada", title:"De tasa media a derivada", text:"Convierte una pendiente secante en tangente mediante el límite del cociente incremental.", tag:"Puente a derivadas", total:4 },
 ];
 
 export function LabHub(){
