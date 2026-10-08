@@ -70,3 +70,52 @@
 .brand.inverse span.brand-copy{background:transparent;color:inherit}
 .brand.inverse .brand-copy b{color:var(--paper)}
 .brand.inverse .brand-copy small{color:var(--lime)}
+
+/* Oferta Funciones sin Vacíos */
+.offer-hero{background:var(--ink);color:var(--paper);padding-block:95px 105px;overflow:hidden}
+.offer-hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:80px;align-items:center}
+.offer-hero h1{font-size:clamp(4rem,8vw,7.5rem);margin-bottom:25px}
+.offer-hero h1 em{color:var(--lime)}
+.offer-subtitle{max-width:720px;color:#d3ddd9;font-size:clamp(1.1rem,2vw,1.45rem)}
+.offer-primary{background:var(--lime);color:var(--ink)}
+.light-link{color:var(--paper);border-color:var(--orange)}
+.offer-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:30px}
+.offer-chips span{border:1px solid #ffffff38;border-radius:999px;padding:7px 11px;color:#cbd5d1;font-size:.72rem}
+.offer-promise{background:#1a463d;border:1px solid #ffffff1f;border-radius:24px;padding:32px;transform:rotate(1deg)}
+.offer-promise>span{color:var(--lime);font-size:.68rem;font-weight:800;letter-spacing:.16em}
+.offer-promise p{font:500 clamp(1.7rem,3vw,2.8rem)/1.08 Georgia;margin:25px 0}
+.offer-promise svg{width:100%;display:block}
+.offer-problem{display:grid;grid-template-columns:.9fr 1.1fr;gap:90px;padding-block:110px}
+.offer-problem h2{margin-bottom:0}
+.offer-problem>div:last-child{font-size:1.12rem;padding-top:30px}
+.offer-modules{margin-top:60px;border-top:1px solid #ffffff2b}
+.offer-modules article{display:grid;grid-template-columns:90px 1fr;gap:30px;padding:28px 0;border-bottom:1px solid #ffffff2b}
+.offer-modules article>span{font:italic 1.8rem Georgia;color:var(--lime)}
+.offer-modules h3,.offer-modules p{margin:0}.offer-modules p{color:#cbd5d1;margin-top:6px}
+.offer-included{display:grid;grid-template-columns:1fr 1fr;gap:90px;padding-block:110px}
+.offer-included ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.offer-included li{position:relative;padding:18px 10px 18px 40px;border-bottom:1px solid var(--line);font-weight:700}
+.offer-included li::before{content:"✓";position:absolute;left:8px;color:var(--orange);font-weight:900}
+.bonus-section{background:var(--white);padding-block:90px}
+.bonus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.bonus-grid article{border:1px solid var(--line);border-radius:18px;padding:30px}
+.bonus-grid span{color:var(--orange);font-weight:800}.bonus-grid h3{margin:35px 0 12px}
+.offer-price{display:grid;grid-template-columns:1.15fr .85fr;gap:90px;padding-block:110px;align-items:start}
+.price-row{display:grid;grid-template-columns:auto auto 35px auto auto;gap:14px;align-items:baseline;margin:35px 0 18px}
+.price-row strong{font:500 clamp(3rem,6vw,6rem) Georgia;color:var(--orange)}
+.price-row span{font-size:.75rem;font-weight:800;text-transform:uppercase}.price-row i{text-align:center;color:var(--muted)}
+.future-price{color:var(--muted)}
+.offer-price aside{background:var(--lime);border-radius:22px;padding:36px;position:sticky;top:110px}
+.offer-price aside .status{font-size:.7rem;font-weight:800;letter-spacing:.13em}.offer-price aside h3{font:500 2.2rem/1.05 Georgia;margin:22px 0}
+.offer-price aside .button{width:100%;margin-top:15px}.offer-price aside small{display:block;margin-top:14px}
+.guarantee-band{background:var(--orange);color:white;padding-block:85px}
+.guarantee-band .wrap{display:grid;grid-template-columns:150px 1fr;gap:45px;align-items:center}
+.guarantee-mark{display:grid;place-items:center;width:140px;height:140px;border:2px solid white;border-radius:50%;font:italic 6rem Georgia}
+.guarantee-band h2{max-width:900px}.guarantee-band p:last-child{color:#fff3ef;max-width:760px}
+.offer-faq{padding-block:110px}.offer-faq>div{margin-top:45px;border-top:1px solid var(--line)}
+.offer-faq article{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;padding:25px 0;border-bottom:1px solid var(--line)}
+.offer-faq h3,.offer-faq p{margin:0}.offer-faq p{color:var(--muted)}
+.final-offer{text-align:center;padding-block:30px 120px}.final-offer h2{margin-inline:auto;max-width:950px}.final-offer .button{margin-top:20px}
+
+@media(max-width:850px){.offer-hero-grid,.offer-problem,.offer-included,.offer-price{grid-template-columns:1fr}.offer-promise{transform:none}.bonus-grid{grid-template-columns:1fr}.offer-price aside{position:static}.price-row{grid-template-columns:auto auto}.price-row i{display:none}.guarantee-band .wrap{grid-template-columns:1fr}.offer-faq article{grid-template-columns:1fr;gap:8px}}
+@media(max-width:520px){.offer-hero{padding-block:65px}.offer-hero h1{font-size:3.8rem}.offer-modules article{grid-template-columns:55px 1fr}.price-row strong{font-size:3.7rem}.guarantee-mark{width:100px;height:100px;font-size:4rem}}
