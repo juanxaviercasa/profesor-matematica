@@ -1,0 +1,3 @@
+import type { Metadata } from "next"; import { DomainLab } from "@/components/advanced-labs"; import { Footer,Header,PageHero } from "@/components/site";
+export const metadata:Metadata={title:"Detective del dominio | Zénit Lab",description:"Aprende a encontrar el dominio de funciones polinómicas, racionales, radicales y logarítmicas."};
+export default function Page(){return <><Header/><main className="wrap"><PageHero kicker="Zénit Lab · aplicación 03" title="Detective del dominio" text="Descubre qué entradas están permitidas y aprende a justificar cada restricción."/><DomainLab/></main><Footer/></>}
