@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "./safe-link";
 import { useMemo, useState } from "react";
 import { LabProgressBar, trackLab, useLabProgress } from "./lab-progress";
 

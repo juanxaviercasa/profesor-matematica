@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "./safe-link";
 import Image from "next/image";
 function Brand({inverse=false}:{inverse?:boolean}){return <span className={`brand${inverse?" inverse":""}`}><Image src="/brand/zenit-mark.svg" alt="" width={42} height={42}/><span className="brand-copy"><b>JUAN XAVIER</b><small>SISTEMA ZÉNIT</small></span></span>}
 export function Header(){return <header className="site-header"><div className="wrap nav"><Link href="/" className="brand-link" aria-label="Profesor Juan Xavier · Sistema Zénit"><Brand/></Link><nav aria-label="Principal"><Link href="/diagnostico/funciones">Diagnóstico</Link><Link href="/laboratorio">Zénit Lab</Link><Link href="/cursos/funciones-para-calculo">Curso</Link><Link href="/webinars/funciones-antes-del-calculo">Webinar</Link><Link href="/sobre-mi">Sobre mí</Link></nav><Link href="/empieza?utm_source=sitio&utm_medium=nav&utm_campaign=embudo_funciones" className="nav-cta">Empieza aquí</Link></div></header>}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/safe-link";
 import { FunnelLink, FunnelPageView } from "@/components/funnel";
 import { Footer, Header } from "@/components/site";
 

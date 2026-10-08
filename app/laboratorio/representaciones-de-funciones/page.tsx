@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/safe-link";
 import { RepresentationLab } from "@/components/representation-lab";
 import { Footer, Header, PageHero } from "@/components/site";
 

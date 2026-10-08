@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "./safe-link";
 import { ReactNode, useEffect, useMemo, useState } from "react";
 
 declare global {

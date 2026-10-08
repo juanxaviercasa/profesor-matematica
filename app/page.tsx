@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/safe-link";
 import { Footer, Header, FormulaCard } from "@/components/site";
 
 const paths = [

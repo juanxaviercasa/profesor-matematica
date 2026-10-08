@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/safe-link";
 import { Footer, Header, PageHero, PlaceholderNote } from "@/components/site";
 
 export const metadata: Metadata = {title:"Profesor de matemática en Lima · Juan Xavier Cabello",description:"Clases de matemática, álgebra, aritmética y funciones con Juan Xavier Cabello, bachiller en Matemática y docente con experiencia escolar y preuniversitaria en Lima."};

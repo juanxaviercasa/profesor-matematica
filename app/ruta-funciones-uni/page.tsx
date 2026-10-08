@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/safe-link";
 import { Footer,Header } from "@/components/site";
 export const metadata:Metadata={title:"Ruta completa de funciones y límites · nivel UNI",description:"Plan de estudio de funciones, trigonometría, inversas y límites para secundaria, preparación UNI y primeros ciclos."};
 const blocks=[

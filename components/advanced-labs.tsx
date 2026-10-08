@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
+import Link from "./safe-link";
 import { LabProgressBar, trackLab, useLabProgress } from "./lab-progress";
 
 function Feedback({ok,children}:{ok:boolean;children:React.ReactNode}){return <div className={`lab-feedback ${ok?"correct":"retry"}`} role="status"><b>{ok?"¡Bien razonado!":"Revisa la condición"}</b><p>{children}</p></div>}

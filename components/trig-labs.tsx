@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
+import Link from "./safe-link";
 import { LabProgressBar, trackLab, useLabProgress } from "./lab-progress";
 
 type Fn=(x:number)=>number;

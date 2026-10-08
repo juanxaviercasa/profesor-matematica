@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "./safe-link";
 import { useState } from "react";
 
 const questions = [
@@ -37,4 +37,3 @@ export function FunctionDiagnostic(){
 
   return <section className="diagnostic-shell"><div className="diagnostic-intro"><span>{answers.filter(v=>v!==null).length} de {questions.length}</span><div><i style={{width:`${answers.filter(v=>v!==null).length/questions.length*100}%`}}/></div><p>Responde sin calculadora. El objetivo es identificar qué conexión debes trabajar primero.</p></div>{questions.map((item,index)=><fieldset key={item.q}><legend><span>{String(index+1).padStart(2,"0")}</span>{item.q}</legend>{item.options.map((option,optionIndex)=><label key={option}><input type="radio" name={`q-${index}`} checked={answers[index]===optionIndex} onChange={()=>setAnswers(current=>current.map((value,i)=>i===index?optionIndex:value))}/><span>{option}</span></label>)}</fieldset>)}<button className="button diagnostic-submit" disabled={!completed} onClick={finish}>Ver mi resultado</button>{!completed&&<p className="diagnostic-hint">Responde las diez preguntas para obtener tu ruta recomendada.</p>}</section>
 }
-

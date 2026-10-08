@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/safe-link";
 import { Footer, Header } from "@/components/site";
 
 export const metadata:Metadata={title:"Módulo 1 · Leer una función",description:"Primer módulo abierto de Funciones sin Vacíos: entrada, salida, notación, dominio y representaciones."};
