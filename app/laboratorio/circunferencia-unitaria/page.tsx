@@ -1,0 +1,3 @@
+import type { Metadata } from "next"; import { UnitCircleLab } from "@/components/trig-labs"; import { Footer,Header,PageHero } from "@/components/site";
+export const metadata:Metadata={title:"Circunferencia unitaria interactiva | Zénit Lab",description:"Relaciona ángulos, coordenadas y las seis razones trigonométricas."};
+export default function Page(){return <><Header/><main className="wrap"><PageHero kicker="Zénit Lab · aplicación 11" title="Circunferencia unitaria" text="Mueve el ángulo y observa cómo un solo punto produce seno, coseno, tangente y sus recíprocas."/><UnitCircleLab/></main><Footer/></>}

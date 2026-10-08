@@ -14,10 +14,15 @@ const labs = [
   { n:"08", slug:"polinomios", href:"/laboratorio/polinomios-y-multiplicidad", title:"Polinomios y multiplicidad", text:"Conecta raíces, multiplicidad, signo y comportamiento extremo.", tag:"Familia avanzada", total:4 },
   { n:"09", slug:"racionales", href:"/laboratorio/racionales-y-asintotas", title:"Racionales y asíntotas", text:"Distingue restricciones, huecos y asíntotas verticales, horizontales y oblicuas.", tag:"Familia avanzada", total:4 },
   { n:"10", slug:"exp_log", href:"/laboratorio/exponenciales-y-logaritmos", title:"Exponenciales y logaritmos", text:"Comprueba crecimiento, dominio, asíntotas e inversión gráfica.", tag:"Familia avanzada", total:4 },
-  { n:"11", slug:"composicion", href:"/laboratorio/composicion-de-funciones", title:"Máquina de composición", text:"Sigue la entrada por dos máquinas y distingue f(g(x)) de g(f(x)).", tag:"Intermedio", total:3 },
-  { n:"12", slug:"tramos", href:"/laboratorio/funciones-por-tramos", title:"Constructor por tramos", text:"Decide qué regla se activa y comprende los extremos abiertos y cerrados.", tag:"Intermedio", total:3 },
-  { n:"13", slug:"inversa", href:"/laboratorio/funcion-inversa", title:"Espejo de la inversa", text:"Refleja puntos sobre y = x y descubre cuándo una inversa es función.", tag:"Intermedio", total:3 },
-  { n:"14", slug:"limites", href:"/laboratorio/introduccion-a-limites", title:"Puente hacia límites", text:"Acércate desde ambos lados para anticipar la idea central del cálculo.", tag:"Puente a cálculo", total:3 },
+  { n:"11", slug:"circulo", href:"/laboratorio/circunferencia-unitaria", title:"Circunferencia unitaria", text:"Relaciona ángulos, coordenadas y las seis razones trigonométricas.", tag:"Trigonometría", total:4 },
+  { n:"12", slug:"trig_directas", href:"/laboratorio/funciones-trigonometricas", title:"Funciones trigonométricas", text:"Compara seis funciones directas y tres auxiliares del temario UNI.", tag:"Trigonometría UNI", total:6 },
+  { n:"13", slug:"trig_transformaciones", href:"/laboratorio/transformaciones-trigonometricas", title:"Estudio de ondas", text:"Controla amplitud, período, fase y eje medio en seno y coseno.", tag:"Trigonometría", total:4 },
+  { n:"14", slug:"trig_inversas", href:"/laboratorio/inversas-trigonometricas", title:"Inversas trigonométricas", text:"Domina dominios, restricciones y rangos principales de las seis inversas.", tag:"Trigonometría UNI", total:6 },
+  { n:"15", slug:"trig_ecuaciones", href:"/laboratorio/ecuaciones-trigonometricas", title:"Ecuaciones por intersección", text:"Resuelve ecuaciones e inecuaciones sobre un ciclo y generaliza soluciones.", tag:"Trigonometría UNI", total:6 },
+  { n:"16", slug:"composicion", href:"/laboratorio/composicion-de-funciones", title:"Máquina de composición", text:"Sigue la entrada por dos máquinas y distingue f(g(x)) de g(f(x)).", tag:"Intermedio", total:3 },
+  { n:"17", slug:"tramos", href:"/laboratorio/funciones-por-tramos", title:"Constructor por tramos", text:"Decide qué regla se activa y comprende los extremos abiertos y cerrados.", tag:"Intermedio", total:3 },
+  { n:"18", slug:"inversa", href:"/laboratorio/funcion-inversa", title:"Espejo de la inversa", text:"Refleja puntos sobre y = x y descubre cuándo una inversa es función.", tag:"Intermedio", total:3 },
+  { n:"19", slug:"limites", href:"/laboratorio/introduccion-a-limites", title:"Puente hacia límites", text:"Acércate desde ambos lados para anticipar la idea central del cálculo.", tag:"Puente a cálculo", total:3 },
 ];
 
 export function LabHub(){

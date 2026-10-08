@@ -1,0 +1,3 @@
+import type { Metadata } from "next"; import { InverseTrigLab } from "@/components/trig-labs"; import { Footer,Header,PageHero } from "@/components/site";
+export const metadata:Metadata={title:"Funciones trigonométricas inversas | Zénit Lab",description:"Aprende los dominios, rangos principales y restricciones de las seis inversas trigonométricas."};
+export default function Page(){return <><Header/><main className="wrap"><PageHero kicker="Zénit Lab · aplicación 14" title="Inversas trigonométricas" text="Comprende por qué hay que restringir las funciones directas antes de invertirlas."/><InverseTrigLab/></main><Footer/></>}

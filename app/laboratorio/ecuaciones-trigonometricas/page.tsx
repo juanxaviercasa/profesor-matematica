@@ -1,0 +1,3 @@
+import type { Metadata } from "next"; import { TrigEquationsLab } from "@/components/trig-labs"; import { Footer,Header,PageHero } from "@/components/site";
+export const metadata:Metadata={title:"Ecuaciones e inecuaciones trigonométricas | Zénit Lab",description:"Resuelve ecuaciones e inecuaciones trigonométricas mediante intersecciones y gráficas."};
+export default function Page(){return <><Header/><main className="wrap"><PageHero kicker="Zénit Lab · aplicación 15" title="Ecuaciones por intersección" text="Usa un ciclo completo para localizar soluciones particulares y convertirlas en soluciones generales."/><TrigEquationsLab/></main><Footer/></>}

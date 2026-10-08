@@ -8,7 +8,7 @@ const blocks=[
  ["03","Clasificación","Inyectiva, sobreyectiva, biyectiva, inversa y restricciones.","Disponible"],
  ["04","Familias algebraicas","Lineales, polinómicas, radicales, racionales, exponenciales y logarítmicas.","Disponible"],
  ["05","Operaciones e inversas","Operaciones, composición, identidad e inversa.","Disponible"],
- ["06","Trigonometría funcional","Seis funciones trigonométricas, transformaciones e inversas.","Programado"],
+ ["06","Trigonometría funcional","Seis funciones trigonométricas, transformaciones e inversas.","Disponible"],
  ["07","Límites y continuidad","Laterales, infinitos, técnicas algebraicas, trigonométricos y continuidad.","Iniciado"],
  ["08","Entrenamiento UNI","Problemas graduados, prácticas cronometradas y simulacros.","Programado"],
 ];

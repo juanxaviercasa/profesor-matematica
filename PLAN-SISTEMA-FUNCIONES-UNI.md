@@ -142,17 +142,18 @@ En cada familia se estudian fórmula, dominio, rango, ceros, signo, monotonía, 
 12. Explorador de polinomios, raíces y multiplicidad.
 13. Laboratorio de racionales, huecos y asíntotas.
 14. Laboratorio exponencial–logarítmico.
+15. Circunferencia unitaria dinámica.
+16. Atlas de seis funciones trigonométricas y tres auxiliares.
+17. Estudio de transformaciones trigonométricas.
+18. Laboratorio de seis inversas trigonométricas.
+19. Solucionador gráfico de ecuaciones e inecuaciones trigonométricas.
 
 ### Aplicaciones a completar
 
-1. Circunferencia unitaria dinámica.
-2. Taller de gráficas trigonométricas.
-3. Laboratorio de inversas trigonométricas.
-4. Solucionador visual de ecuaciones trigonométricas.
-5. Calculador razonado de límites algebraicos.
-6. Laboratorio de límites trigonométricos.
-7. Clasificador de discontinuidades y continuidad.
-8. Simulador de tasa media hacia tasa instantánea.
+1. Calculador razonado de límites algebraicos.
+2. Laboratorio de límites trigonométricos.
+3. Clasificador de discontinuidades y continuidad.
+4. Simulador de tasa media hacia tasa instantánea.
 
 ## Orden de implementación
 

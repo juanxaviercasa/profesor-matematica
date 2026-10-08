@@ -1,0 +1,3 @@
+import type { Metadata } from "next"; import { TrigFunctionsLab } from "@/components/trig-labs"; import { Footer,Header,PageHero } from "@/components/site";
+export const metadata:Metadata={title:"Seis funciones trigonométricas y sus gráficas | Zénit Lab",description:"Compara seno, coseno, tangente, cotangente, secante, cosecante y funciones auxiliares."};
+export default function Page(){return <><Header/><main className="wrap"><PageHero kicker="Zénit Lab · aplicación 12" title="Funciones trigonométricas" text="Compara dominio, rango, período, paridad, ceros y asíntotas de las seis funciones directas y tres auxiliares."/><TrigFunctionsLab/></main><Footer/></>}

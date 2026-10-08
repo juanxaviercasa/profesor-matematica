@@ -1,0 +1,3 @@
+import type { Metadata } from "next"; import { TrigTransformLab } from "@/components/trig-labs"; import { Footer,Header,PageHero } from "@/components/site";
+export const metadata:Metadata={title:"Transformaciones trigonométricas | Zénit Lab",description:"Controla amplitud, período, fase y eje medio de seno y coseno."};
+export default function Page(){return <><Header/><main className="wrap"><PageHero kicker="Zénit Lab · aplicación 13" title="Estudio de ondas" text="Manipula los parámetros de a·f(b(x−h))+k y comprueba en tiempo real qué cambia en la gráfica."/><TrigTransformLab/></main><Footer/></>}
