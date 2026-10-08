@@ -1,8 +1,7 @@
-import NextLink from "next/link";
-import type { ComponentProps } from "react";
+import type { AnchorHTMLAttributes } from "react";
 
-type SafeLinkProps = ComponentProps<typeof NextLink>;
+type SafeLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> & { href: string };
 
-export default function SafeLink({ prefetch = false, ...props }: SafeLinkProps) {
-  return <NextLink prefetch={prefetch} {...props} />;
+export default function SafeLink(props: SafeLinkProps) {
+  return <a {...props} />;
 }
