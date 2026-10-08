@@ -34,3 +34,28 @@
 .contact-guidance{padding-bottom:100px;max-width:800px}
 
 @media(max-width:850px){.credential-grid{grid-template-columns:1fr}.portrait{min-height:520px;max-width:440px}.experience-list article{grid-template-columns:1fr;gap:8px}}
+
+.conversion-section{padding-block:70px 10px}
+.conversion-form{background:var(--ink);color:white;border-radius:26px;padding:clamp(28px,5vw,58px);box-shadow:0 28px 70px #142c2726}
+.form-heading{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:end;margin-bottom:38px}
+.form-heading h2{margin-bottom:0;color:var(--paper)}
+.form-heading>p{color:#cbd5d1;margin-bottom:8px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.form-grid label>span{display:block;margin-bottom:7px;font-size:.78rem;font-weight:800;letter-spacing:.04em}
+.form-grid input,.form-grid select,.form-grid textarea{width:100%;border:1px solid #ffffff38;border-radius:12px;background:#ffffff0f;color:white;padding:13px 14px;outline:none}
+.form-grid select option{color:var(--ink);background:white}
+.form-grid input::placeholder,.form-grid textarea::placeholder{color:#a9b7b2}
+.form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus{border-color:var(--lime);box-shadow:0 0 0 3px #d9ef7822}
+.full-field{grid-column:1/-1}
+.consent{display:flex;gap:12px;align-items:flex-start;margin:24px 0;color:#cbd5d1;font-size:.78rem}
+.consent input{margin-top:4px;accent-color:var(--lime)}
+.form-action{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.form-action button{border:0;border-radius:999px;padding:15px 22px;background:var(--lime);color:var(--ink);font-weight:800;cursor:pointer}
+.form-action small{color:#a9b7b2}
+.form-success{margin:20px 0 0;padding:13px 16px;border-radius:10px;background:#d9ef781c;color:var(--lime)}
+.conversion-dock{position:fixed;right:22px;bottom:22px;z-index:30;display:flex;align-items:center;gap:9px;background:var(--orange);color:white;padding:10px 16px 10px 10px;border-radius:999px;box-shadow:0 12px 35px #142c2744;font-size:.78rem}
+.conversion-dock span{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:white;color:var(--ink);font-weight:900}
+.buy-card .button{width:100%;text-align:center;margin-top:16px}
+
+@media(max-width:850px){.form-heading,.form-grid{grid-template-columns:1fr}.form-heading{gap:12px}.full-field{grid-column:auto}}
+@media(max-width:520px){.conversion-form{padding:24px 18px}.conversion-dock{right:12px;bottom:12px}.conversion-dock b{display:none}.conversion-dock{padding-right:10px}}
