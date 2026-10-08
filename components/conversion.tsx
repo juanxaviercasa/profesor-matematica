@@ -32,10 +32,13 @@ export function ConversionForm(){
   useEffect(()=>{
     const params=new URLSearchParams(window.location.search);
     const requested=params.get("interes");
-    if(requested && interestLabels[requested]) setInterest(requested);
     const campaign=[params.get("utm_source"),params.get("utm_medium"),params.get("utm_campaign"),params.get("utm_content")].filter(Boolean).join(" / ");
-    if(campaign) setSource(campaign);
     track("lead_form_view",{interest:requested || "clases",source:campaign || "direct"});
+    const frame=window.requestAnimationFrame(()=>{
+      if(requested && interestLabels[requested]) setInterest(requested);
+      if(campaign) setSource(campaign);
+    });
+    return ()=>window.cancelAnimationFrame(frame);
   },[]);
 
   function submit(event:FormEvent<HTMLFormElement>){

@@ -20,7 +20,10 @@ export function trackLab(event: string, lab: string, detail?: string) {
 
 export function useLabProgress(slug: string, total: number) {
   const [completed, setCompleted] = useState(0);
-  useEffect(() => setCompleted(readProgress()[slug] || 0), [slug]);
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => setCompleted(readProgress()[slug] || 0));
+    return () => window.cancelAnimationFrame(frame);
+  }, [slug]);
   const advance = (value: number) => {
     const next = Math.max(completed, Math.min(total, value));
     setCompleted(next);
@@ -40,10 +43,13 @@ export function LabProgressBar({ completed, total }: { completed: number; total:
 export function useAllLabProgress() {
   const [progress, setProgress] = useState<LabProgress>({});
   useEffect(() => {
-    setProgress(readProgress());
+    const frame = window.requestAnimationFrame(() => setProgress(readProgress()));
     const refresh = () => setProgress(readProgress());
     window.addEventListener("storage", refresh);
-    return () => window.removeEventListener("storage", refresh);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("storage", refresh);
+    };
   }, []);
   return progress;
 }

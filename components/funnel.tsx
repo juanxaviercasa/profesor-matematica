@@ -31,7 +31,10 @@ export function FunnelPageView({stage}:{stage:string}){
 
 export function FunnelLink({href,stage,className,children,external=false}:{href:string;stage:string;className?:string;children:ReactNode;external?:boolean}){
   const [attribution,setAttribution]=useState<Record<string,string>>({});
-  useEffect(()=>setAttribution(readAttribution()),[]);
+  useEffect(()=>{
+    const frame=window.requestAnimationFrame(()=>setAttribution(readAttribution()));
+    return ()=>window.cancelAnimationFrame(frame);
+  },[]);
   const destination=useMemo(()=>{
     if(external || !href.startsWith("/")) return href;
     const [path,query=""]=href.split("?");
