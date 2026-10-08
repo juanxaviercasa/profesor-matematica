@@ -33,7 +33,7 @@ export function ConversionForm(){
     const params=new URLSearchParams(window.location.search);
     const requested=params.get("interes");
     if(requested && interestLabels[requested]) setInterest(requested);
-    const campaign=[params.get("utm_source"),params.get("utm_campaign")].filter(Boolean).join(" / ");
+    const campaign=[params.get("utm_source"),params.get("utm_medium"),params.get("utm_campaign"),params.get("utm_content")].filter(Boolean).join(" / ");
     if(campaign) setSource(campaign);
     track("lead_form_view",{interest:requested || "clases",source:campaign || "direct"});
   },[]);
