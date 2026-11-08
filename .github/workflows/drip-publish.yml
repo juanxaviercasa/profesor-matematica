@@ -1,0 +1,51 @@
+name: Publicación Programada Zénit (3x al día)
+
+on:
+  schedule:
+    # 08:00, 14:00 y 20:00 hora Perú (UTC-5 -> 13:00, 19:00, 01:00 UTC)
+    - cron: '0 13,19,1 * * *'
+  workflow_dispatch:
+    inputs:
+      batch_count:
+        description: 'Número de temas a publicar en este lote'
+        required: false
+        default: '3'
+
+permissions:
+  contents: write
+
+jobs:
+  drip-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configurar Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+          cache-dependency-path: 'sitio-profesor-matematica/package-lock.json'
+
+      - name: Procesar lote de publicación programada
+        run: |
+          cd sitio-profesor-matematica
+          node scripts/pipeline/publish-drip.mjs --count=${{ github.event.inputs.batch_count || 3 }}
+          node scripts/pipeline/generate-sitemap-and-graph.mjs
+
+      - name: Guardar y commitear cambios de publicación
+        run: |
+          git config --global user.name 'Zenit Bot'
+          git config --global user.email 'bot@sistemazenit.com'
+          git add sitio-profesor-matematica/content/ sitio-profesor-matematica/public/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(content): publicar lote programado de temas e interactividades" && git push origin main)
+
+      - name: Instalar dependencias y compilar sitio
+        run: |
+          cd sitio-profesor-matematica
+          npm ci
+          npm run build
