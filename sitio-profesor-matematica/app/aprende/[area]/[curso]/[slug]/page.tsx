@@ -3,7 +3,13 @@ import { notFound } from "next/navigation";
 import { Header, Footer } from "@/components/site";
 import Link from "@/components/safe-link";
 import { MathFormula } from "@/components/math-formula";
-import { UniversalInteractiveLab } from "@/components/universal-interactive-lab";
+import { ZenitInteractiveApp, ZENIT_ENGINES, type AppEngineId } from "@/components/zenit-app-engines";
+import { InteractiveExerciseBank } from "@/components/interactive-exercise-bank";
+import {
+  getLessonBySlug,
+  getLessonsByCourse,
+  COURSE_LABELS,
+} from "@/lib/catalog-loader";
 import { CURRICULUM_DATA } from "@/lib/curriculum-data";
 
 type PageProps = {
@@ -11,236 +17,303 @@ type PageProps = {
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { area: areaSlug, curso: cursoSlug, slug: topicSlug } = await params;
-  const area = CURRICULUM_DATA[areaSlug];
-  if (!area) return { title: "Tema no encontrado · Zénit" };
-
-  const course = area.courses.find(c => c.slug === cursoSlug);
-  if (!course) return { title: "Tema no encontrado · Zénit" };
-
-  let foundTopic = null;
-  for (const mod of course.modules) {
-    const t = mod.topics.find(top => top.slug === topicSlug);
-    if (t) {
-      foundTopic = t;
-      break;
-    }
+  const { slug } = await params;
+  const catalogLesson = getLessonBySlug(slug);
+  if (catalogLesson) {
+    return {
+      title: `${catalogLesson.title} (${catalogLesson.gradeLabel}) · Web App y Ejercicios · Zénit`,
+      description: catalogLesson.summary,
+    };
   }
-
-  if (!foundTopic) return { title: "Tema no encontrado · Zénit" };
-
   return {
-    title: `${foundTopic.title} · Explicación y Laboratorio Interactivo · Zénit`,
-    description: foundTopic.summary
+    title: `${slug.replace(/-/g, " ")} · Sistema Zénit`,
   };
 }
 
 export default async function TopicDetailPage({ params }: PageProps) {
   const { area: areaSlug, curso: cursoSlug, slug: topicSlug } = await params;
-  const area = CURRICULUM_DATA[areaSlug];
-  if (!area) notFound();
 
-  const course = area.courses.find(c => c.slug === cursoSlug);
-  if (!course) notFound();
+  // 1. Look up in the 584-lesson extracted catalog first
+  let lesson = getLessonBySlug(topicSlug);
 
-  let targetTopic = null;
-  let targetModule = null;
-
-  for (const mod of course.modules) {
-    const t = mod.topics.find(top => top.slug === topicSlug);
-    if (t) {
-      targetTopic = t;
-      targetModule = mod;
-      break;
+  // 2. Fallback to CURRICULUM_DATA if someone visits an older manual slug
+  if (!lesson) {
+    const areaObj = CURRICULUM_DATA[areaSlug];
+    const courseObj = areaObj?.courses.find(c => c.slug === cursoSlug);
+    for (const mod of courseObj?.modules || []) {
+      const t = mod.topics.find(top => top.slug === topicSlug);
+      if (t) {
+        lesson = {
+          id: t.id,
+          slug: t.slug,
+          baseSlug: t.slug,
+          title: t.title,
+          area: areaSlug,
+          course: cursoSlug,
+          grade: areaSlug === "matematica-universitaria" ? 6 : 5,
+          gradeLabel: areaSlug === "matematica-universitaria" ? "Universidad" : "Preuniversitario",
+          unit: mod.title,
+          difficulty: t.difficulty,
+          appEngine: "FunctionCartesianLab",
+          keyFormula: t.keyFormula || "f(x) = a(x - h)^2 + k",
+          summary: t.summary,
+          tags: [areaSlug, cursoSlug, mod.title, "Web App Interactiva"],
+          onionLayer: 2,
+          publishStatus: "published",
+          scheduledDate: "2026-11-08",
+          dripBatch: 0,
+          slidesCount: 2,
+          f0Count: 2,
+          faCount: 1,
+          theorySlides: [
+            {
+              slideNumber: 1,
+              heading: `Fundamentos de ${t.title}`,
+              content: [t.summary],
+            },
+          ],
+          exercisesF0: [],
+          exercisesFA: [],
+          externalLinks: [],
+          sourceFiles: {},
+          verticalProgressionSlugs: [],
+        };
+        break;
+      }
     }
   }
 
-  if (!targetTopic || !targetModule) {
+  if (!lesson) {
     notFound();
   }
 
-  // Find next and previous topics for navigation
-  const allTopicsInCourse = course.modules.flatMap(m => m.topics);
-  const currentIdx = allTopicsInCourse.findIndex(t => t.slug === topicSlug);
-  const prevTopic = currentIdx > 0 ? allTopicsInCourse[currentIdx - 1] : null;
-  const nextTopic = currentIdx < allTopicsInCourse.length - 1 ? allTopicsInCourse[currentIdx + 1] : null;
+  const courseMeta = COURSE_LABELS[lesson.course] || {
+    title: lesson.course.replace(/-/g, " ").toUpperCase(),
+    icon: "📐",
+    area: lesson.area,
+    desc: "",
+  };
+  const engineMeta = ZENIT_ENGINES[lesson.appEngine as AppEngineId] || ZENIT_ENGINES.FunctionCartesianLab;
+
+  // Find adjacent lessons in the same course
+  const courseLessons = getLessonsByCourse(lesson.course);
+  const currentIdx = courseLessons.findIndex(l => l.slug === lesson!.slug);
+  const prevLesson = currentIdx > 0 ? courseLessons[currentIdx - 1] : null;
+  const nextLesson = currentIdx >= 0 && currentIdx < courseLessons.length - 1 ? courseLessons[currentIdx + 1] : null;
+
+  // Find vertical progression lessons (same base topic in other grades)
+  const verticalLessons = (lesson.verticalProgressionSlugs || [])
+    .map(s => getLessonBySlug(s))
+    .filter(Boolean);
 
   return (
     <>
       <Header />
-      <main className="topic-view wrap my-10 space-y-10 max-w-4xl mx-auto">
+      <main className="topic-view wrap my-10 space-y-10 max-w-5xl mx-auto">
         {/* Breadcrumb */}
         <nav className="breadcrumb text-xs text-stone-400 flex flex-wrap items-center gap-2">
           <Link href="/" className="hover:text-stone-200">Inicio</Link>
           <span>/</span>
-          <Link href="/aprende" className="hover:text-stone-200">Aprende</Link>
+          <Link href="/blog" className="hover:text-stone-200">Blog y Constructor (584)</Link>
           <span>/</span>
-          <Link href={`/aprende/${area.slug}`} className="hover:text-stone-200">{area.title}</Link>
+          <Link href={`/aprende/${lesson.area}/${lesson.course}`} className="hover:text-stone-200">
+            {courseMeta.icon} {courseMeta.title}
+          </Link>
           <span>/</span>
-          <Link href={`/aprende/${area.slug}/${course.slug}`} className="hover:text-stone-200">{course.title}</Link>
-          <span>/</span>
-          <span className="text-emerald-400 font-semibold">{targetTopic.title}</span>
+          <span className="text-emerald-400 font-semibold">{lesson.title}</span>
         </nav>
 
-        {/* Hero */}
-        <section className="space-y-4 border-b border-stone-800 pb-8">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-semibold text-emerald-300">
-              {targetModule.title}
-            </span>
-            <span className={`px-2.5 py-0.5 rounded text-xs font-mono uppercase font-semibold ${
-              targetTopic.difficulty === "básico"
-                ? "bg-sky-950 text-sky-400 border border-sky-800/40"
-                : targetTopic.difficulty === "intermedio"
-                ? "bg-amber-950 text-amber-400 border border-amber-800/40"
-                : "bg-rose-950 text-rose-400 border border-rose-800/40"
-            }`}>
-              Dificultad: {targetTopic.difficulty}
-            </span>
+        {/* Lesson Header & Onion Layer Status */}
+        <section className="rounded-3xl border border-stone-800 bg-stone-900/50 p-6 md:p-10 space-y-5 shadow-xl">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-bold text-emerald-300 border border-emerald-500/30">
+                {lesson.gradeLabel} · {lesson.unit}
+              </span>
+              <span className="rounded-full bg-amber-500/20 px-3 py-1 text-xs font-mono font-semibold text-amber-300 border border-amber-500/30">
+                {courseMeta.icon} {courseMeta.title}
+              </span>
+              <span className="rounded-full bg-sky-500/20 px-3 py-1 text-xs font-mono text-sky-300 border border-sky-500/30">
+                Capa {lesson.onionLayer} (Cebolla)
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2 text-xs font-mono">
+              <span className={`px-3 py-1 rounded-full border ${
+                lesson.publishStatus === "published"
+                  ? "bg-emerald-950 text-emerald-300 border-emerald-700"
+                  : "bg-stone-950 text-stone-300 border-stone-700"
+              }`}>
+                {lesson.publishStatus === "published"
+                  ? "● Publicado en Blog"
+                  : `⏳ Programado Drip: ${lesson.scheduledDate} (Lote #${lesson.dripBatch})`}
+              </span>
+            </div>
           </div>
 
           <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            {targetTopic.title}
+            {lesson.title}
           </h1>
 
-          <p className="text-base text-stone-300 leading-relaxed max-w-3xl">
-            {targetTopic.summary}
+          <p className="text-sm md:text-base text-stone-300 leading-relaxed max-w-3xl">
+            {lesson.summary}
           </p>
-        </section>
 
-        {/* Section 1: Conceptual Intuition */}
-        <article className="prose prose-invert max-w-none space-y-6 text-stone-200 text-sm md:text-base leading-relaxed">
-          <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-            <span>1. Intuición y Significado Geométrico</span>
-          </h2>
-          <p>
-            En el aprendizaje de las matemáticas superiores y las ciencias, el error más común es memorizar fórmulas como algoritmos sin comprender qué objeto geométrico o físico representan. Cuando estudiamos <strong>{targetTopic.title}</strong>, estamos analizando cómo interactúan variables dependientes e independientes ante cambios continuos en el espacio o en el tiempo.
-          </p>
-          <div className="rounded-2xl bg-stone-900/60 p-5 border border-stone-800 text-stone-300">
-            <p className="font-semibold text-emerald-400 mb-2">📌 Idea Fundamental:</p>
-            <p>
-              Toda relación matemática traduce un fenómeno del mundo real: una trayectoria, una tasa de cambio de velocidad, o el balance de reactivos en una reacción. Antes de manipular signos o despejar incógnitas, pregúntate siempre: <em>¿Qué ocurre en los extremos? ¿Dónde deja de tener sentido la expresión?</em>
-            </p>
+          {/* Tags & Source Files */}
+          <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-stone-800/80 text-xs">
+            <div className="flex flex-wrap gap-1.5">
+              {lesson.tags.map((tag, idx) => (
+                <span
+                  key={idx}
+                  className="px-2.5 py-0.5 rounded-md bg-stone-950 text-stone-300 border border-stone-800 font-mono text-[11px]"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
+
+            {Object.keys(lesson.sourceFiles || {}).length > 0 && (
+              <div className="flex flex-wrap items-center gap-2 text-[11px] font-mono text-stone-400">
+                <span>Fuentes base procesadas:</span>
+                {Object.entries(lesson.sourceFiles).map(([k, v]) => (
+                  <span key={k} className="px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-300 border border-emerald-800/50" title={v}>
+                    ✓ {k}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
-        </article>
-
-        {/* Section 2: Universal Interactive Lab */}
-        <section className="my-8">
-          <UniversalInteractiveLab
-            topicTitle={targetTopic.title}
-            keyFormula={targetTopic.keyFormula}
-            interactiveType={targetTopic.interactiveType}
-            crossConnections={targetTopic.crossConnections}
-          />
         </section>
 
-        {/* Section 3: Rigorous Mathematical Foundation */}
-        <article className="space-y-6 text-stone-200 text-sm md:text-base leading-relaxed">
-          <h2 className="text-2xl font-bold text-white">2. Fundamentación Teórica y Teoremas</h2>
-          <p>
-            A continuación se presenta la formulación analítica exacta con sus condiciones de validez y dominio:
-          </p>
+        {/* Specialized Interactive Web App (Embedded Live) */}
+        <ZenitInteractiveApp
+          engineId={lesson.appEngine as AppEngineId}
+          topicTitle={lesson.title}
+          customFormula={lesson.keyFormula}
+        />
 
-          {targetTopic.keyFormula && (
-            <div className="my-6 rounded-2xl bg-stone-950 p-6 border border-stone-800 text-center shadow-inner">
-              <span className="text-xs font-mono uppercase tracking-widest text-stone-400 block mb-2">
-                Ecuación / Teorema Central
+        {/* Extracted Theory & Slides from Teacher's Book / PPTX */}
+        <section className="space-y-6">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-800 pb-4">
+            <div>
+              <span className="text-xs font-mono uppercase tracking-wider text-emerald-400">
+                Marco Teórico Estructurado y Ejemplos Resueltos
               </span>
-              <div className="text-lg md:text-xl py-2">
-                <MathFormula source={targetTopic.keyFormula} displayMode={true} />
+              <h2 className="text-2xl font-bold text-white mt-1">
+                Desarrollo Conceptual: {lesson.title}
+              </h2>
+            </div>
+            <span className="text-xs font-mono text-stone-400">
+              {lesson.theorySlides.length} bloques teóricos extraídos
+            </span>
+          </div>
+
+          {lesson.keyFormula && (
+            <div className="rounded-2xl bg-stone-950 p-6 border border-stone-800 text-center shadow-inner">
+              <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 block mb-2">
+                Fórmula / Propiedad Eje del Tema
+              </span>
+              <div className="text-lg md:text-xl py-2 overflow-x-auto">
+                <MathFormula source={lesson.keyFormula} displayMode={true} />
               </div>
             </div>
           )}
 
-          <p>
-            Para garantizar la consistencia lógica de las deducciones, debemos verificar siempre que las restricciones algebraicas (como la no división entre cero, la no existencia de radicandos negativos para índices pares en los reales $\mathbb{R}$, o la positividad estricta en argumentos de logaritmos) se cumplan rigurosamente.
-          </p>
-        </article>
-
-        {/* Section 4: Graduated Solved Problems */}
-        <section className="space-y-6 border-t border-stone-800 pt-8">
-          <h2 className="text-2xl font-bold text-white flex items-center justify-between">
-            <span>3. Problemas Resueltos Graduados</span>
-            <span className="text-xs font-mono text-stone-400">Método de Análisis Zénit</span>
-          </h2>
-
-          <div className="space-y-6">
-            {/* Problem 1 - Base */}
-            <div className="problem-box rounded-2xl border border-stone-800 bg-stone-900/50 p-6">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-bold text-sky-400 uppercase tracking-wider font-mono">
-                  Problema 1 · Nivel Base / Aplicación Directa
-                </span>
-                <span className="text-xs text-stone-400">Objetivo: Fijación del concepto</span>
-              </div>
-              <p className="text-sm font-semibold text-white">
-                Determine analíticamente la validez de la expresión central de este tema y calcule su valor numérico cuando los parámetros toman sus valores de referencia canónicos.
-              </p>
-              <div className="mt-4 rounded-xl bg-stone-950/80 p-4 border border-stone-800 text-xs text-stone-300 space-y-2">
-                <p className="font-bold text-emerald-400">Resolución Paso a Paso:</p>
-                <p>1. Planteamos la ecuación canónica y sustituimos los coeficientes dados en el enunciado.</p>
-                <p>2. Aplicamos las propiedades de simplificación y respetamos el orden operacional.</p>
-                <p className="text-emerald-300 font-semibold">✓ Conclusión: La solución es consistente con el dominio real especificado.</p>
-              </div>
+          {lesson.theorySlides.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {lesson.theorySlides.map((slide, sIdx) => (
+                <article
+                  key={sIdx}
+                  className="rounded-2xl border border-stone-800 bg-stone-900/50 p-6 space-y-3 flex flex-col justify-between hover:border-stone-700 transition-all"
+                >
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between text-xs font-mono text-emerald-400">
+                      <span>SECCIÓN TEÓRICA #{sIdx + 1}</span>
+                      <span>Diapositiva {slide.slideNumber}</span>
+                    </div>
+                    <h3 className="text-base font-bold text-white leading-snug">
+                      {slide.heading}
+                    </h3>
+                    <div className="space-y-2 text-xs md:text-sm text-stone-300 leading-relaxed">
+                      {slide.content.map((p, pIdx) => (
+                        <p key={pIdx} className="bg-stone-950/50 p-2.5 rounded-lg border border-stone-800/60 font-sans">
+                          {p}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              ))}
             </div>
-
-            {/* Problem 2 - Admission Level */}
-            <div className="problem-box rounded-2xl border border-stone-800 bg-stone-900/50 p-6">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-bold text-amber-400 uppercase tracking-wider font-mono">
-                  Problema 2 · Nivel Intermedio / Examen de Admisión
-                </span>
-                <span className="text-xs text-stone-400">Tipo UNI / San Marcos</span>
-              </div>
-              <p className="text-sm font-semibold text-white">
-                Si se introduce una restricción en el intervalo de definición y se acota el conjunto de soluciones, ¿cuántos valores enteros satisfacen simultáneamente el sistema de condiciones?
+          ) : (
+            <div className="rounded-2xl border border-stone-800 bg-stone-900/40 p-6 text-sm text-stone-300 space-y-3">
+              <p>
+                En el estudio de <strong>{lesson.title}</strong> ({lesson.gradeLabel}), el objetivo central es dominar la relación entre la representación simbólica y su interpretación analítica. Utiliza el simulador interactivo superior (<strong>{engineMeta.title}</strong>) para experimentar con los parámetros antes de abordar los problemas propuestos.
               </p>
-              <div className="mt-4 rounded-xl bg-stone-950/80 p-4 border border-stone-800 text-xs text-stone-300 space-y-2">
-                <p className="font-bold text-amber-400">Resolución Paso a Paso:</p>
-                <p>1. Determinamos primero las restricciones del universo $U \subseteq \mathbb{R}$.</p>
-                <p>2. Intersecamos los subconjuntos obtenidos y eliminamos los puntos frontera no incluidos.</p>
-                <p className="text-amber-300 font-semibold">✓ Conclusión: El número de valores enteros es finito y coincide con los extremos cerrados del intervalo.</p>
-              </div>
             </div>
-
-            {/* Problem 3 - Challenge */}
-            <div className="problem-box rounded-2xl border border-emerald-900/40 bg-stone-900/70 p-6 shadow-md">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider font-mono">
-                  Problema 3 · Reto Zénit / Nivel Universidad
-                </span>
-                <span className="text-xs text-stone-400">Demostración y Rigor</span>
-              </div>
-              <p className="text-sm font-semibold text-white">
-                Demuestre que bajo perturbaciones infinitesimales en los parámetros de entrada, el comportamiento asintótico se mantiene invariante respecto al orden de magnitud.
-              </p>
-              <div className="mt-4 rounded-xl bg-stone-950/90 p-4 border border-stone-800 text-xs text-stone-300 space-y-2">
-                <p className="font-bold text-emerald-400">Demostración Formal:</p>
-                <p>Aplicamos el paso al límite y el criterio de continuidad uniforme. Al verificar que las cotas superiores están estrictamente acotadas por $\varepsilon$, queda demostrado el teorema.</p>
-              </div>
-            </div>
-          </div>
+          )}
         </section>
 
-        {/* Section 5: Strategic Navigation */}
+        {/* Extracted Exercises Bank (F0 + FA) */}
+        <InteractiveExerciseBank
+          f0={lesson.exercisesF0}
+          fa={lesson.exercisesFA}
+          topicTitle={lesson.title}
+        />
+
+        {/* Vertical Spiral Curriculum Connections (Same Topic Across Grades 1° to 5°) */}
+        {verticalLessons.length > 0 && (
+          <section className="rounded-2xl border border-emerald-800/40 bg-emerald-950/20 p-6 space-y-4">
+            <div>
+              <span className="text-xs font-mono uppercase text-emerald-400 font-bold">
+                🔗 Progresión Vertical en Espiral (Mismo Tema en Otros Grados)
+              </span>
+              <h3 className="text-lg font-bold text-white mt-1">
+                Conecta cómo evoluciona «{lesson.title}» a lo largo de la secundaria
+              </h3>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+              {verticalLessons.map((vl) => vl && (
+                <Link
+                  key={vl.id}
+                  href={`/aprende/${vl.area}/${vl.course}/${vl.slug}`}
+                  className="rounded-xl border border-stone-800 bg-stone-950/90 p-3.5 hover:border-emerald-500 transition-all text-xs"
+                >
+                  <span className="text-emerald-400 font-mono font-bold block">{vl.gradeLabel}</span>
+                  <span className="text-stone-200 font-semibold mt-1 block">{vl.title}</span>
+                  <span className="text-[10px] text-stone-400 font-mono mt-1 block">{vl.unit} →</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Next / Prev Navigation in Course */}
         <section className="border-t border-stone-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          {prevTopic ? (
+          {prevLesson ? (
             <Link
-              href={`/aprende/${area.slug}/${course.slug}/${prevTopic.slug}`}
-              className="w-full sm:w-auto rounded-xl border border-stone-800 bg-stone-950 px-5 py-3 text-xs text-stone-300 hover:border-emerald-600/60 transition-all text-left"
+              href={`/aprende/${prevLesson.area}/${prevLesson.course}/${prevLesson.slug}`}
+              className="w-full sm:w-auto rounded-xl border border-stone-800 bg-stone-950 px-5 py-3.5 text-xs text-stone-300 hover:border-emerald-600/60 transition-all text-left"
             >
-              <span className="text-[10px] text-stone-500 block">← Tema Anterior</span>
-              <span className="font-bold text-stone-100">{prevTopic.title}</span>
+              <span className="text-[10px] text-stone-500 font-mono block">← Lección Anterior ({prevLesson.gradeLabel})</span>
+              <span className="font-bold text-stone-100">{prevLesson.title}</span>
             </Link>
           ) : <div />}
 
-          {nextTopic && (
+          <Link
+            href="/blog"
+            className="rounded-xl border border-stone-700 bg-stone-900 px-4 py-2.5 text-xs font-bold text-stone-200 hover:border-emerald-500"
+          >
+            Ver las 584 Lecciones
+          </Link>
+
+          {nextLesson && (
             <Link
-              href={`/aprende/${area.slug}/${course.slug}/${nextTopic.slug}`}
-              className="w-full sm:w-auto rounded-xl border border-emerald-800/60 bg-emerald-950/40 px-5 py-3 text-xs text-emerald-200 hover:bg-emerald-900/60 transition-all text-right ml-auto"
+              href={`/aprende/${nextLesson.area}/${nextLesson.course}/${nextLesson.slug}`}
+              className="w-full sm:w-auto rounded-xl border border-emerald-800/60 bg-emerald-950/40 px-5 py-3.5 text-xs text-emerald-200 hover:bg-emerald-900/60 transition-all text-right"
             >
-              <span className="text-[10px] text-emerald-400 block">Siguiente Tema →</span>
-              <span className="font-bold text-white">{nextTopic.title}</span>
+              <span className="text-[10px] text-emerald-400 font-mono block">Siguiente Lección ({nextLesson.gradeLabel}) →</span>
+              <span className="font-bold text-white">{nextLesson.title}</span>
             </Link>
           )}
         </section>
