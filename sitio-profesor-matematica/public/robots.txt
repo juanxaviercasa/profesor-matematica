@@ -1,5 +1,5 @@
 # Robots.txt - Sistema Educativo Zénit · Profesor Juan Xavier
-# Dominio Base: https://funciones-para-calculo.j76018445.chatgpt.site
+# Dominio Base: https://sistemazenit.com
 
 User-agent: *
 Allow: /
@@ -8,7 +8,7 @@ Disallow: /_next/
 Disallow: /_vinext/
 
 # Sitemaps oficiales
-Sitemap: https://funciones-para-calculo.j76018445.chatgpt.site/sitemap.xml
+Sitemap: https://sistemazenit.com/sitemap.xml
 
 # Answer Engine Optimization (AEO) - Acceso abierto para buscadores de Inteligencia Artificial
 User-agent: GPTBot
