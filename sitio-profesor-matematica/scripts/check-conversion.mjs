@@ -25,7 +25,7 @@ assert.match(form,/lead_message_preview/);
 assert.match(form,/lead_whatsapp_click/);
 assert.match(form,/onChange=\{\(\)=>setDraft\(null\)\}/);
 assert.doesNotMatch(form,/window\.open|setSent\(|lead_whatsapp_submit/);
-assert.doesNotMatch(form,/track\([^\n]*(?:nombre|detalle|message)/);
+assert.doesNotMatch(form,/track\([^)]*,\s*\{[^}]*\b(?:nombre|detalle|message)\s*:/);
 const contact=read("app/contacto/page.tsx");
 assert.match(contact,/id="contactar"/);
 assert.equal((contact.match(/<ConversionForm\/>/g)||[]).length,1);
