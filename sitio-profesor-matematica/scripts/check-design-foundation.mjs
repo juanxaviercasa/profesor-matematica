@@ -59,4 +59,38 @@ for (const page of [
 ]) {
   assert.match(read(page), /learning-view/, `Falta tema educativo: ${page}`);
 }
-console.log("✓ Fundamentos visuales, contraste WCAG 4.5:1 y SEO verificados.");
+
+// Capa 03: controles con nombres accesibles, fórmulas enfocables y botones de respuesta seguros.
+const responsive = read("app/responsive-accessibility.css");
+const formula = read("components/math-formula.tsx");
+const engines = read("components/zenit-app-engines.tsx");
+const blog = read("components/blog-constructor-explorer.tsx");
+const quiz = read("components/interactive-exercise-bank.tsx");
+const generator = read("components/infinite-problem-generator.tsx");
+assert.match(layout, /import "\.\/responsive-accessibility\.css"/);
+assert.match(responsive, /\.math-scroll-region/);
+assert.match(responsive, /input\[type="range"\]/);
+assert.match(responsive, /min-block-size:\s*44px/);
+assert.match(responsive, /max-width:\s*767px/);
+assert.match(formula, /tabIndex=\{displayMode \? 0 : undefined\}/);
+const inputs = [...engines.matchAll(/<input\b[\s\S]*?\/>/g)].map(m => m[0]);
+assert.equal(inputs.length, 27, "Revisar inputs de motores tras introducir nuevos controles");
+for (const [index, input] of inputs.entries()) {
+  assert.match(input, /aria-label=\{?/, "Control " + (index + 1) + " sin etiqueta");
+}
+const svgs = [...engines.matchAll(/<svg\b[^>]*>/g)].map(m => m[0]);
+assert.equal(svgs.length, 8, "Revisar descripciones SVG tras introducir motores");
+for (const [index, svg] of svgs.entries()) {
+  assert.match(svg, /role="img" aria-label="/, "Gráfico " + (index + 1) + " sin descripción");
+}
+assert.match(blog, /htmlFor="zenit-blog-course"/);
+assert.match(blog, /htmlFor="zenit-blog-engine"/);
+assert.match(blog, /htmlFor="zenit-blog-search"/);
+assert.match(blog, /aria-pressed=\{viewMode === "constructor"\}/);
+assert.match(quiz, /aria-pressed=\{isSelected\}/);
+assert.match(quiz, /aria-expanded=\{hintShown\}/);
+assert.match(generator, /if \(selectedIdx !== null\) return;/);
+assert.match(generator, /aria-disabled=\{selectedIdx !== null\}/);
+assert.match(generator, /role="status"/);
+
+console.log("✓ Diseño, contraste, accesibilidad de controles, responsive y SEO verificados.");
