@@ -113,6 +113,9 @@
 
 /* Móvil compacto: recuperar espacio para teoría, gráficas y respuestas. */
 @media (max-width: 640px) {
+  .aprende-hub .page-hero { padding-block: 36px 22px; }
+  .aprende-hub .page-hero .button { text-align: center; }
+
   .zenit-webapp-shell,
   .exercise-bank,
   .infinite-problem-generator {
