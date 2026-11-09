@@ -34,7 +34,7 @@ function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: nu
       distractors = [
         `n(A ∪ B) = ${union + both}  ;  n(A Δ B) = ${onlyA + onlyB}`,
         `n(A ∪ B) = ${union}  ;  n(A Δ B) = ${union - 2}`,
-        `n(A ∪ B) = ${nA + nB}  ;  n(A Δ B) = ${both}`,
+        `n(A ∪ B) = ${nA + nB}  ;  n(A Δ B) = ${nA + nB}`,
         `n(A ∪ B) = ${union - 3}  ;  n(A Δ B) = ${onlyA}`,
       ];
       steps = [
