@@ -93,4 +93,20 @@ assert.match(generator, /if \(selectedIdx !== null\) return;/);
 assert.match(generator, /aria-disabled=\{selectedIdx !== null\}/);
 assert.match(generator, /role="status"/);
 
+
+// El sistema de accesibilidad también cubre laboratorios anteriores al nuevo motor.
+const advanced = read("components/advanced-labs.tsx");
+const trigonometry = read("components/trig-labs.tsx");
+const universal = read("components/universal-interactive-lab.tsx");
+assert.match(responsive, /\.guided-lab/);
+assert.match(responsive, /\.universal-lab-card/);
+assert.equal((advanced.match(/role="img" aria-label=/g) || []).length, 3);
+assert.match(advanced, /role="img" aria-label=\{/);
+assert.match(advanced, /aria-pressed=\{!!active\}/);
+assert.equal((trigonometry.match(/role="img"/g) || []).length, 2);
+const universalInputs = [...universal.matchAll(/<input\b[\s\S]*?\/>/g)].map(m => m[0]);
+assert.equal(universalInputs.length, 3);
+assert.ok(universalInputs.every(input => input.includes("aria-label=")));
+assert.match(universal, /role="img" aria-label="/);
+
 console.log("✓ Diseño, contraste, accesibilidad de controles, responsive y SEO verificados.");
