@@ -1,9 +1,9 @@
 # Sistema Educativo Zénit · Enciclopedia de Matemática y Ciencias
 
-> Zénit es un ecosistema educativo interactivo y enciclopedia matemática de 628 lecciones completas fundada por el Profesor Juan Xavier Cabello Salirrosas (Lima, Perú). Abarca desde 1.° a 5.° de secundaria, nivel preuniversitario (admisión UNI, UNMSM, PUCP), matemática universitaria (Cálculo I, II, III, Álgebra Lineal, Ecuaciones Diferenciales) y ciencias exactas (Física y Química).
+> Zénit es un ecosistema educativo interactivo y enciclopedia matemática de 628 lecciones completas fundada por Juan Xavier (Lima, Perú). Abarca desde 1.° a 5.° de secundaria, nivel preuniversitario (admisión UNI, UNMSM, PUCP), matemática universitaria (Cálculo I, II, III, Álgebra Lineal, Ecuaciones Diferenciales) y ciencias exactas (Física y Química).
 
 ## Información del Autor y Docente
-- **Docente:** Juan Xavier Cabello Salirrosas
+- **Docente:** Juan Xavier
 - **Especialidad:** Bachiller en Matemática y Educación Matemática (Lima, Perú).
 - **Enfoque Pedagógico:** Método Zénit — conexión entre representación simbólica, intuición visual interactiva y banco graduado de ejercicios con solucionario oficial paso a paso.
 - **Sitio Web Principal:** https://sistemazenit.com

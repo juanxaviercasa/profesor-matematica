@@ -21,6 +21,8 @@ for (const p of [home, about, contact, tools, local]) {
 assert.match(home, /home-start-grid/);
 assert.match(home, /home-teacher-portrait/);
 assert.match(home, /alt="Retrato de Juan Xavier/);
+assert.match(layout, /authors: \[\{ name: "Juan Xavier"/);
+assert.doesNotMatch(layout, /Juan Xavier Cabello|Profesor Juan Xavier|profesor Juan Xavier/);
 assert.ok(existsSync(new URL("../public/juan-xavier.jpg", import.meta.url)));
 assert.match(about, /public-method-grid/);
 assert.match(about, /juan-xavier\.jpg/);

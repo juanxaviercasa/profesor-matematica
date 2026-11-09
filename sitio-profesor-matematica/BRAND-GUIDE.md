@@ -1,8 +1,8 @@
-# Sistema de marca · Profesor Juan Xavier
+# Sistema de marca · Juan Xavier
 
 ## Arquitectura
 
-- **Marca personal:** Profesor Juan Xavier. Es el nombre principal en YouTube, el sitio, webinars y ofertas.
+- **Marca personal:** Juan Xavier. Es el nombre principal en YouTube, el sitio, webinars y ofertas.
 - **Método:** Sistema Zénit. Identifica la forma de enseñar y permite nombrar cursos, laboratorios y aplicaciones.
 - **Lema:** Matemática que conecta.
 - **Promesa editorial:** conectar fórmula, gráfica, comportamiento y significado para preparar al estudiante para cálculo.
