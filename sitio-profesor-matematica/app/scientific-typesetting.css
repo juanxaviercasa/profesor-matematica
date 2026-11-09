@@ -10,11 +10,24 @@
 .math-scientific-paragraph .katex,
 .math-prose-line .katex,
 .math-option-button .katex { font-size:1.08em; line-height:1.25; }
+/* Las expresiones de texto siguen la línea base natural del párrafo.
+   Un scroll container inline-block cambia su baseline al borde inferior
+   (CSS), y KaTeX queda visualmente desplazado respecto de Arial. */
 .math-typeset-inline {
-  display:inline-block; max-width:100%; vertical-align:-.12em;
-  padding-inline:.08em; white-space:nowrap;
+  display:inline;
+  vertical-align:baseline;
+  overflow:visible;
+  padding:0;
+  white-space:normal;
+  line-height:inherit;
 }
-.math-typeset-inline > .katex { display:inline-block; white-space:nowrap; }
+.math-typeset-inline > .katex {
+  display:inline;
+  vertical-align:baseline;
+  font-size:1.02em;
+  line-height:1.2;
+  white-space:nowrap;
+}
 .math-typeset-display {
   padding:8px 6px;
   font-size:clamp(.94rem,1.5vw,1.12rem);
@@ -40,7 +53,7 @@
   line-height:1.6;
   overflow-wrap:anywhere;
 }
-.math-option-button .math-typeset-inline { max-width:100%; }
+/* Las fórmulas de bloque conservan su propio scroll horizontal. */
 .zenit-engine-formula-panel {
   flex:0 1 34rem; width:min(100%,34rem);
   min-width:0; overflow:hidden; color:#f1f8ef;
@@ -62,9 +75,4 @@
   color:#d5e5d8; padding:0 8px 5px; font-weight:600;
 }
 @media(max-width:767px) { .math-scroll-hint { display:block; } }
-.math-typeset-inline {
-  overflow-x:auto;
-  overflow-y:hidden;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:thin;
-}
+

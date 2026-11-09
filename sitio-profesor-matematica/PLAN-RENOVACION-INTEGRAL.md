@@ -124,6 +124,7 @@
 - [x] Aplicación a teoría, libros, ejercicios, alternativas, solucionarios, pistas y generador.
 - [x] MathML accesible y fallback visible cuando una expresión no puede interpretarse.
 - [x] Fórmulas largas con scroll horizontal, contraste estable y tamaño de lectura para móviles.
+- [x] Alineación tipográfica de expresiones insertadas: se eliminó el contenedor de scroll de KaTeX inline, se restauró la línea base del párrafo y se equilibró la escala con Arial, preservando el desplazamiento de ecuaciones de bloque.
 - [x] Pruebas automatizadas con fórmulas representativas y auditoría del catálogo.
 - [x] Módulo 1: fracción racional, restricción de dominio, área circular y ejemplos de funciones renderizados explícitamente con KaTeX y comprobados en producción.
 - [x] Primer pase por asignatura (1.º–5.º): 47 reglas semánticamente conservadoras, aplicadas a 268 de 582 lecciones.

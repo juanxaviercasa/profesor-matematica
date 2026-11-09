@@ -143,5 +143,17 @@ console.log("Revisión editorial por grado y asignatura: "+JSON.stringify([...co
 assert.ok(mathPieces>1000,"El análisis de ejercicios no identificó suficientes expresiones");
 assert.ok(malformedPieces/mathPieces<0.11,"Demasiados segmentos matemáticos del catálogo no interpretables");
 assert.match(read("app/scientific-typesetting.css"),/math-scroll-hint/);
+const inlineCSS=read("app/scientific-typesetting.css");
+const inlineRule=inlineCSS.match(/\.math-typeset-inline\s*\{([^}]*)\}/);
+assert.ok(inlineRule,"Falta el estilo de fórmulas insertadas en párrafos");
+assert.match(inlineRule[1],/display:\s*inline\s*;/);
+assert.match(inlineRule[1],/vertical-align:\s*baseline\s*;/);
+assert.match(inlineRule[1],/overflow:\s*visible\s*;/);
+assert.doesNotMatch(inlineRule[1],/overflow-x:\s*auto|vertical-align:\s*-?\.?[0-9]+em/);
+const fontRule=inlineCSS.match(/\.math-typeset-inline\s*>\s*\.katex\s*\{([^}]*)\}/);
+assert.ok(fontRule,"Debe ajustarse la tipografía de KaTeX dentro del párrafo");
+assert.match(fontRule[1],/font-size:\s*1\.02em/);
+assert.match(read("components/math-formula.tsx"),/const Tag=displayMode\?"div":"span"/);
+
 
 console.log("✓ Capa 08: matemáticas con KaTeX y MathML, texto científico y accesibilidad verificados.");
