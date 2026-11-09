@@ -1,4 +1,6 @@
 /* Capa 06: transparencia y accesibilidad de conversiones */
+/* La página de contacto ya ofrece WhatsApp: evitar que el dock tape el formulario. */
+body:has(.contact-page-v2) .conversion-dock{display:none}
 .contact-page-v2 .page-hero{padding-block:clamp(38px,5vw,70px) clamp(28px,3vw,45px)}
 .contact-page-v2 .lead-contact-first{padding-block:clamp(18px,3vw,35px) 0;scroll-margin-top:110px}
 .contact-page-v2 .public-contact-steps{padding-block:clamp(40px,5vw,70px) 20px}
@@ -32,7 +34,7 @@
 .offer-page-v2 .offer-materials-note{margin:12px 0 25px;max-width:78ch;color:#48564c;line-height:1.65}
 .offer-page-v2 .offer-price .future-price{font-size:.98rem;line-height:1.55}
 @media(max-width:640px){
-  .contact-page-v2 .page-hero{padding-block:36px 24px}
+  .contact-page-v2 .page-hero{padding-block:26px 18px}
   .contact-page-v2 .conversion-form{padding:18px;border-radius:18px}
   .conversion-form .form-heading{margin-bottom:22px}
   .conversion-form .form-grid{gap:16px}

@@ -96,6 +96,7 @@
 - [x] Campos obligatorios reducidos, límites de texto y eventos de analítica sin datos personales.
 - [x] Página de privacidad de contacto y referencia desde pie de página y formulario.
 - [x] Contacto colocado antes de las explicaciones en la vista móvil.
+- [x] Encabezado de contacto más compacto y botón flotante oculto dentro del formulario para evitar superposiciones.
 - [x] Datos de contacto centralizados; UTMs coherentes con el origen real, con tolerancia a bloqueo de sessionStorage.
 - [x] Página comercial: precios indicados como referenciales, sin falsas plazas limitadas ni prestaciones no confirmadas.
 - [x] Metadatos SEO: eliminadas cifras obsoletas, calificativos «oficiales» generalizados y coordenadas no verificadas.

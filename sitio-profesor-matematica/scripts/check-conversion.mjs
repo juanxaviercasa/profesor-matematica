@@ -28,6 +28,8 @@ assert.doesNotMatch(form,/window\.open|setSent\(|lead_whatsapp_submit/);
 assert.doesNotMatch(form,/track\([^)]*,\s*\{[^}]*\b(?:nombre|detalle|message)\s*:/);
 const contact=read("app/contacto/page.tsx");
 assert.match(contact,/id="contactar"/);
+assert.match(contact,/Hablemos de tu aprendizaje/);
+assert.match(read("app/conversion-trust.css"),/body:has\(\.contact-page-v2\) \.conversion-dock/);
 assert.equal((contact.match(/<ConversionForm\/>/g)||[]).length,1);
 assert.ok(contact.indexOf("<ConversionForm/>")<contact.indexOf("public-contact-steps"));
 assert.match(read("app/privacidad/page.tsx"),/WhatsApp puede procesar/);
