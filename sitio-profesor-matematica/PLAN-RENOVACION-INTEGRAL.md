@@ -134,6 +134,14 @@
 - [ ] Capturas comparativas y validación funcional en móviles, tabletas y escritorios representativos.
 - [ ] Revisión con lectores de pantalla reales, teclado y alumnos.
 
+## Refinamiento visual posterior — legibilidad en todo el sitio (desktop, tablet y móvil)
+- [x] Eliminada la microtipografía 10/11 px en tarjetas de herramientas y su navegación directa.
+- [x] Escala de lectura: cuerpo 16-18 px, controles 16 px, notas ~14-15 px, encabezados de tarjetas ~18-20 px.
+- [x] Corregidos el catálogo, los laboratorios y las lecciones con reglas semánticamente acotadas; se preserva KaTeX y SVG.
+- [x] Tarjetas con relleno y alturas flexibles; ajustes de columnas a 320, 375, 768, 1024 y 1440 px.
+- [x] Guardas automáticas para la escala tipográfica de herramientas y la hoja de legibilidad.
+- [ ] Revisar capturas después de la publicación y realizar pruebas con zoom del navegador al 200 % sin cortar contenido.
+
 ## Métricas de aceptación pendientes
 Contraste 4.5:1 para texto normal; 3:1 para textos grandes. Sin overflow horizontal. Funcionalidad de rutas y formularios. Validación de build y Worker SSR, con pruebas de regresión.
 

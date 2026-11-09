@@ -42,6 +42,8 @@ jobs:
         run: npm run check:math
       - name: Confirmar identidad pública Juan Xavier
         run: npm run check:branding
+      - name: Comprobar escala tipográfica y tarjetas responsive
+        run: npm run check:readability
       - name: Compilar Vinext y verificar Worker SSR
         run: npm run build
       - name: Verificar salida reproducible

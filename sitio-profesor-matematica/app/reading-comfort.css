@@ -1,0 +1,118 @@
+/*
+ * Sistema Zénit — confort visual transversal
+ * Escala: lectura ~17-18 px, controles >=16 px, metadatos >=14-15 px.
+ * Se aplica a contenidos visibles, no a etiquetas de SVG matemáticos.
+ * Importar después de Tailwind, diseño, páginas y KaTeX.
+ */
+:root {
+  --zenit-reading-body: clamp(1rem, .98rem + .24vw, 1.125rem);
+  --zenit-reading-secondary: .9375rem;
+  --zenit-reading-control: 1rem;
+  --zenit-reading-card-title: 1.125rem;
+}
+body { font-size:var(--zenit-reading-body); line-height:1.68; }
+
+/* Texto de apoyo, marca, navegación y secciones públicas. */
+.site-header .desktop-links a { font-size:1rem; line-height:1.5; }
+.brand-copy b { font-size:.875rem; }
+.brand-copy small { font-size:.78rem; letter-spacing:.05em; }
+.eyebrow { font-size:.9rem; line-height:1.5; }
+:where(.home-page-v2,.about-page-v2,.contact-page-v2,.tools-page-v2,.lima-page-v2,.offer-page-v2,.start-page-v2)
+  :is(p,li) { line-height:1.68; }
+:where(.home-page-v2,.about-page-v2,.contact-page-v2,.tools-page-v2,.lima-page-v2)
+  .lead { font-size:clamp(1.08rem,1rem + .4vw,1.3rem); }
+footer .footer-grid p,footer .footer-grid span,footer .footer-grid a { font-size:.975rem; line-height:1.65; }
+footer .footer-base { font-size:.92rem; line-height:1.55; }
+.home-page-v2 .proof-line span { font-size:.925rem; }
+.about-page-v2 .credential-grid span { font-size:1rem; line-height:1.55; }
+.public-tools-visual-kicker,.public-tools-visual-note { font-size:.9rem; letter-spacing:.08em; }
+.public-tools-benefits b,.public-tools-benefits span { font-size:1rem; }
+:where(.public-action-card,.public-method-grid article) p { font-size:1.025rem; }
+.form-grid label > span,.conversion-form .consent,.conversion-form .lead-privacy-note { font-size:.975rem; }
+:where(.module-meta,.worked-example,.module-layout) :is(p,li) { line-height:1.68; }
+.module-layout > nav > a { font-size:.975rem; line-height:1.5; }
+.module-meta span,.worked-example b { font-size:.88rem; }
+:where(.credential-grid,.curriculum,.diagnostic-result,.proof-line) :is(small,span) { line-height:1.55; }
+
+/* No volver a los tamaños de 10-12 px en el material de enseñanza. */
+:is(.learning-view,.aprende-hub,.blog-view,.zenit-webapp-shell,.exercise-bank,.infinite-problem-generator,
+    .guided-lab,.lab-shell,.trig-browser,.universal-lab-card,.tools-directory,.zenit-tools-directory)
+  :is(.text-xs,[class~="text-[10px]"],[class~="text-[11px]"],[class~="text-[12px]"],[class~="text-[13px]"]) {
+  font-size:clamp(.9rem,.87rem + .15vw,.97rem);
+  line-height:1.55;
+}
+:is(.learning-view,.aprende-hub,.blog-view,.zenit-webapp-shell,.exercise-bank,.infinite-problem-generator,
+    .guided-lab,.lab-shell,.trig-browser,.universal-lab-card,.tools-directory,.zenit-tools-directory)
+  .text-sm {
+  font-size:1.025rem;
+  line-height:1.6;
+}
+:is(.learning-view,.aprende-hub,.blog-view,.zenit-webapp-shell,.exercise-bank,.infinite-problem-generator,
+    .guided-lab,.lab-shell,.trig-browser,.universal-lab-card,.tools-directory,.zenit-tools-directory)
+  :is(input:not([type="range"]):not([type="checkbox"]):not([type="radio"]),select,textarea,button) {
+  font-size:max(var(--zenit-reading-control),1em);
+  line-height:1.5;
+}
+:where(.learning-view,.aprende-hub,.zenit-webapp-shell,.exercise-bank,.infinite-problem-generator) p {
+  line-height:1.7;
+}
+.learning-view :is(.breadcrumb,.lesson-jump-nav a) { font-size:.96rem; line-height:1.55; }
+.learning-view .lesson-jump-nav > span { font-size:.975rem; }
+.lesson-progress-kicker,.lesson-completion-card small,.lesson-progress-overview small { font-size:.925rem; }
+.lab-step,.lab-feedback p,.reasoning-steps li { font-size:1rem; line-height:1.65; }
+:is(.ratio-grid,.wave-metrics,.intersection-key,.trig-facts,.continuity-checks,.inverse-domain,.atlas-facts,
+     .approach-values,.definition-pills,.deep-legend,.poly-data,.sign-strip,.inverse-points) span {
+  font-size:.9375rem; line-height:1.55;
+}
+
+/* En herramientas: tarjetas educativas claramente legibles y sin alturas rígidas. */
+.zenit-tools-directory { min-width:0; }
+.zenit-engine-selector-card { min-width:0; min-height:158px; line-height:1.55; }
+.zenit-engine-selector-card h3 { font-size:1.2rem; line-height:1.35; overflow-wrap:anywhere; }
+.zenit-engine-selector-card :is(span,button) { line-height:1.55; }
+.zenit-curriculum-panel { min-width:0; }
+.zenit-curriculum-panel h3 { font-size:clamp(1.4rem,1.12rem + .85vw,1.85rem); line-height:1.3; }
+.zenit-topic-grid { min-width:0; scrollbar-width:thin; }
+.zenit-topic-card { min-width:0; min-height:155px; line-height:1.55; }
+.zenit-topic-card .zenit-topic-meta { font-size:.93rem; line-height:1.55; }
+.zenit-topic-card .zenit-topic-title { font-size:var(--zenit-reading-card-title); line-height:1.38; text-wrap:pretty; overflow-wrap:anywhere; }
+.zenit-topic-card .zenit-topic-footer { font-size:.94rem; line-height:1.55; }
+.zenit-topic-card :is(.zenit-topic-meta,.zenit-topic-footer) span { max-width:100%; overflow-wrap:anywhere; }
+.zenit-topic-card:hover,.zenit-topic-card:focus-visible { border-color:var(--zenit-lime); }
+.zenit-topic-card:focus-visible { outline:3px solid var(--zenit-lime); outline-offset:2px; }
+.zenit-webapp-shell { line-height:1.65; }
+.zenit-webapp-shell p { font-size:max(1rem,1em); line-height:1.6; }
+.zenit-webapp-shell :is(label,output,summary) { font-size:1rem; line-height:1.55; }
+.zenit-webapp-shell table { font-size:1rem; }
+.zenit-webapp-shell .katex { font-size:1.08em; }
+
+/* Catálogo y páginas de estudio: jerarquía de tarjetas y descripción. */
+.blog-view :is(input,select) { min-height:48px; font-size:1rem; }
+.blog-view .grid h3,.aprende-hub .course-card h3 { font-size:1.16rem; line-height:1.38; }
+.blog-view .grid p,.aprende-hub .course-card p { font-size:1rem; line-height:1.65; }
+.blog-view .grid a { overflow-wrap:anywhere; }
+.exercise-bank :is(button,label),.infinite-problem-generator :is(button,label) { font-size:1rem; line-height:1.6; }
+.exercise-bank :is(p,li),.infinite-problem-generator :is(p,li) { font-size:1rem; line-height:1.7; }
+
+/* No ampliar SVG ni etiquetas numéricas internas de gráficas: respetan la escala de coordenadas. */
+@media (min-width:768px) and (max-width:1100px) {
+  .zenit-engine-selector-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .zenit-topic-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:767px) {
+  body { font-size:1rem; }
+  .site-header .desktop-links a { font-size:.975rem; }
+  .zenit-engine-selector-card { min-height:0; padding:18px; }
+  .zenit-topic-card { min-height:0; padding:18px; }
+  .zenit-topic-grid { max-height:none; padding-right:0; overflow-y:visible; }
+  .zenit-curriculum-panel { padding:clamp(16px,4vw,24px); }
+  .zenit-curriculum-panel h3 { font-size:clamp(1.35rem,3.7vw,1.7rem); }
+  .zenit-webapp-shell { padding:clamp(14px,3.5vw,22px); }
+  .zenit-webapp-shell :is(input:not([type="range"]),select,textarea) { font-size:16px; }
+  .brand-copy small { font-size:.73rem; }
+  .blog-view :is(input,select) { font-size:16px; }
+}
+@media (max-width:380px) {
+  .zenit-engine-selector-grid,.zenit-topic-grid { grid-template-columns:minmax(0,1fr); }
+  .zenit-topic-card .zenit-topic-footer { align-items:flex-start; }
+}

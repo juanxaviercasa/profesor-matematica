@@ -20,7 +20,8 @@
     "check:conversion": "node scripts/check-conversion.mjs",
     "check:seo": "node scripts/check-seo.mjs",
     "check:math": "node scripts/check-math-typography.mjs",
-    "check:branding": "node scripts/check-branding.mjs"
+    "check:branding": "node scripts/check-branding.mjs",
+    "check:readability": "node scripts/check-readability.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

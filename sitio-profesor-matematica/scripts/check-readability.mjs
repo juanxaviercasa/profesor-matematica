@@ -1,0 +1,33 @@
+import assert from "node:assert/strict";
+import {readFileSync} from "node:fs";
+const read=p=>readFileSync(new URL("../"+p,import.meta.url),"utf8");
+const layout=read("app/layout.tsx");
+const stylesheet=read("app/reading-comfort.css");
+const hub=read("components/herramientas-hub.tsx");
+const engine=read("components/zenit-app-engines.tsx");
+assert.match(layout,/import "\.\/reading-comfort\.css"/);
+assert.ok(layout.indexOf('import "./reading-comfort.css"')>layout.indexOf('import "katex/dist/katex.min.css"'));
+for(const css of ["--zenit-reading-body","--zenit-reading-secondary","--zenit-reading-control","--zenit-reading-card-title","zenit-topic-card","zenit-engine-selector-card","zenit-webapp-shell","blog-view","learning-view","aprende-hub","max-width:767px","max-width:380px"]){
+ assert.ok(stylesheet.includes(css),"Falta escala legible: "+css);
+}
+const token=stylesheet.match(/--zenit-reading-card-title:\s*([^;]+);/);
+assert.equal(token?.[1].trim(),"1.125rem");
+const minNote=stylesheet.match(/--zenit-reading-secondary:\s*([^;]+);/);
+assert.equal(minNote?.[1].trim(),".9375rem");
+assert.match(stylesheet,/font-size:\s*1rem/);
+assert.match(stylesheet,/grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
+assert.match(stylesheet,/min-height:155px/);
+assert.match(stylesheet,/overflow-y:visible/);
+assert.match(hub,/className="zenit-tools-directory space-y-10"/);
+assert.match(hub,/zenit-topic-grid/);
+assert.match(hub,/zenit-topic-meta/);
+assert.match(hub,/zenit-topic-title/);
+assert.match(hub,/zenit-topic-footer/);
+assert.match(hub,/zenit-engine-selector-card/);
+assert.doesNotMatch(hub,/text-\[(?:9|10|11|12)px\]/);
+assert.match(engine,/className="zenit-webapp-shell/);
+assert.match(stylesheet,/\.zenit-webapp-shell \.katex/);
+const math=read("app/scientific-typesetting.css");
+assert.match(math,/vertical-align:baseline/);
+assert.match(math,/math-scroll-hint/);
+console.log("✓ Lectura: tarjetas de herramientas, metadatos, controles, cursos, laboratorios, tablet y móvil verificados.");

@@ -12,9 +12,9 @@ export function HerramientasInteractiveHub() {
   const matchingLessons = LESSONS_INDEX.filter(l => l.appEngine === selectedEngine);
 
   return (
-    <div className="space-y-10">
+    <div className="zenit-tools-directory space-y-10">
       {/* Engine Selector Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+      <div className="zenit-engine-selector-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {engineList.map((eng) => {
           const count = LESSONS_INDEX.filter(l => l.appEngine === eng.id).length;
           const active = selectedEngine === eng.id;
@@ -22,7 +22,7 @@ export function HerramientasInteractiveHub() {
             <button
               key={eng.id}
               onClick={() => setSelectedEngine(eng.id)}
-              className={`text-left rounded-2xl p-4 border transition-all flex flex-col justify-between ${
+              className={`zenit-engine-selector-card text-left rounded-2xl p-5 border transition-all flex flex-col justify-between gap-4 ${
                 active
                   ? "bg-emerald-950/80 border-emerald-400 shadow-lg shadow-emerald-950/50"
                   : "bg-stone-950/80 border-stone-800 hover:border-stone-600"
@@ -30,18 +30,18 @@ export function HerramientasInteractiveHub() {
             >
               <div>
                 <div className="flex items-center justify-between gap-2">
-                  <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-stone-900 text-emerald-400 border border-stone-800">
+                  <span className="text-sm font-semibold uppercase tracking-wide px-2.5 py-1 rounded bg-stone-900 text-emerald-400 border border-stone-800">
                     {eng.badge}
                   </span>
-                  <span className="text-[11px] font-mono text-stone-400">
+                  <span className="text-sm text-stone-300">
                     {count} temas
                   </span>
                 </div>
-                <h3 className="mt-2.5 text-sm font-bold text-white leading-snug">
+                <h3 className="mt-2.5 text-lg font-bold text-white leading-snug">
                   {eng.title}
                 </h3>
               </div>
-              <div className="mt-3 pt-2 border-t border-stone-800/80 flex items-center justify-between text-[11px]">
+              <div className="mt-3 pt-3 border-t border-stone-800/80 flex flex-wrap gap-x-3 gap-y-1 items-center justify-between text-sm">
                 <span className={active ? "text-emerald-300 font-bold" : "text-stone-400"}>
                   {active ? "● Activo en constructor" : "Probar Web App"}
                 </span>
@@ -58,38 +58,38 @@ export function HerramientasInteractiveHub() {
       </div>
 
       {/* Connected Topics Using This Engine */}
-      <section className="rounded-3xl border border-stone-800 bg-stone-950/80 p-6 md:p-8 space-y-5">
+      <section className="zenit-curriculum-panel rounded-3xl border border-stone-800 bg-stone-950/80 p-6 md:p-8 space-y-6">
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
           <div>
-            <span className="text-xs font-mono uppercase text-emerald-400">
+            <span className="text-sm font-semibold uppercase tracking-wide text-emerald-300">
               Cobertura Curricular del Motor ({matchingLessons.length} lecciones conectadas)
             </span>
-            <h3 className="text-xl font-bold text-white mt-1">
+            <h3 className="text-2xl font-bold text-white mt-2 leading-snug">
               Temas de Secundaria, Preuniversitario y Universidad que integran esta Web App
             </h3>
           </div>
-          <Link href="/blog" className="button secondary text-xs">
-            Ir al Constructor Total (584 páginas) →
+          <Link href="/blog" className="button secondary text-base">
+            Explorar la biblioteca de lecciones →
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-h-[420px] overflow-y-auto pr-1">
+        <div className="zenit-topic-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-h-[720px] overflow-y-auto pr-2">
           {matchingLessons.slice(0, 36).map((item) => (
             <Link
               key={item.id}
               href={`/aprende/${item.area}/${item.course}/${item.slug}`}
-              className="group rounded-xl border border-stone-800 bg-stone-900/60 p-3.5 hover:border-emerald-500/60 transition-all flex flex-col justify-between"
+              className="zenit-topic-card group rounded-xl border border-stone-700 bg-stone-900/70 p-5 hover:border-emerald-400/80 transition-all flex flex-col justify-between gap-4"
             >
               <div>
-                <div className="flex items-center justify-between text-[10px] font-mono text-stone-400">
+                <div className="zenit-topic-meta flex flex-wrap items-center justify-between gap-2 text-sm text-stone-300">
                   <span className="text-emerald-400">{item.gradeLabel}</span>
                   <span>{item.unit}</span>
                 </div>
-                <h4 className="mt-1 text-xs font-bold text-stone-100 group-hover:text-emerald-300">
+                <h4 className="zenit-topic-title mt-2 text-lg font-bold text-stone-100 group-hover:text-emerald-300 leading-snug">
                   {item.title}
                 </h4>
               </div>
-              <div className="mt-2 pt-2 border-t border-stone-800/60 flex items-center justify-between text-[10px] text-stone-400 font-mono">
+              <div className="zenit-topic-footer mt-3 pt-3 border-t border-stone-700/70 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-sm text-stone-300">
                 <span>{item.slidesCount} diapos · {item.f0Count + item.faCount} ejerc.</span>
                 <span className="text-emerald-400 font-bold">Abrir →</span>
               </div>

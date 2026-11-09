@@ -10,6 +10,7 @@ import "./learning-experience.css";
 import "./conversion-trust.css";
 import "./scientific-typesetting.css";
 import "katex/dist/katex.min.css";
+import "./reading-comfort.css";
 
 
 export const metadata: Metadata = {
