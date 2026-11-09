@@ -284,6 +284,8 @@ export function InteractiveExerciseBank({
                       return (
                         <button
                           key={oIdx}
+                          aria-pressed={isSelected}
+                          aria-label={`Problema ${ex.number}, alternativa ${oIdx + 1}: ${opt}`}
                           onClick={() => setSelectedOptions((prev) => ({ ...prev, [key]: oIdx }))}
                           className={`px-3 py-2.5 rounded-xl text-left text-xs font-mono transition-all border ${btnStyle}`}
                         >
