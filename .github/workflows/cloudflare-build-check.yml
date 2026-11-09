@@ -28,6 +28,8 @@ jobs:
           cache-dependency-path: sitio-profesor-matematica/package-lock.json
       - name: Instalar dependencias fijadas
         run: npm ci --no-audit --no-fund
+      - name: Validar sistema visual y SEO
+        run: npm run check:design
       - name: Compilar Vinext y verificar Worker SSR
         run: npm run build
       - name: Verificar salida reproducible
