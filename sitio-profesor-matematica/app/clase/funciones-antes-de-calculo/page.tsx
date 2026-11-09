@@ -3,6 +3,7 @@ import { FunnelLink, FunnelPageView } from "@/components/funnel";
 import { Footer, Header } from "@/components/site";
 
 export const metadata:Metadata={
+  alternates: { canonical: "/clase/funciones-antes-de-calculo" },
   title:"Funciones antes de cálculo · Material de la clase",
   description:"Resume las tres conexiones que necesitas dominar antes de estudiar límites y derivadas.",
 };

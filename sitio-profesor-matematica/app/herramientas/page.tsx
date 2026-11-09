@@ -4,6 +4,7 @@ import { HerramientasInteractiveHub } from "@/components/herramientas-hub";
 import Link from "@/components/safe-link";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/herramientas" },
   title: "Herramientas Interactivas de Matemática y Ciencias · Sistema Zénit",
   description: "Explora simuladores de conjuntos, álgebra, funciones, geometría, trigonometría, estadística, cálculo y ciencias. Cambia valores, observa gráficas y comprueba resultados."
 };

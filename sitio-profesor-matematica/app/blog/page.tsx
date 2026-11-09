@@ -5,6 +5,7 @@ import { LESSONS_INDEX } from "@/lib/catalog-index";
 import Link from "@/components/safe-link";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/blog" },
   title: "Biblioteca de Matemática y Ciencias · Sistema Zénit",
   description: "Explora el catálogo de temas del Sistema Zénit: matemática de secundaria, nivel preuniversitario y universitario, física y química con recursos y laboratorios interactivos."
 };

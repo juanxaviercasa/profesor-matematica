@@ -5,6 +5,7 @@ import { LESSONS_INDEX, COURSE_LABELS } from "@/lib/catalog-index";
 import { LessonProgressOverview } from "@/components/lesson-completion";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/aprende" },
   title: "Portal de Aprendizaje Zénit · Matemática, Ciencias y Web Apps",
   description: "Explora matemática de secundaria, preparación preuniversitaria, nivel universitario y ciencias exactas, con lecciones y aplicaciones interactivas del Sistema Zénit."
 };

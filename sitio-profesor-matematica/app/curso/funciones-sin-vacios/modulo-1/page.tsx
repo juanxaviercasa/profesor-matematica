@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "@/components/safe-link";
 import { Footer, Header } from "@/components/site";
 
-export const metadata:Metadata={title:"Módulo 1 · Leer una función",description:"Primer módulo abierto de Funciones sin Vacíos: entrada, salida, notación, dominio y representaciones."};
+export const metadata:Metadata={
+  alternates: { canonical: "/curso/funciones-sin-vacios/modulo-1" },title:"Módulo 1 · Leer una función",description:"Primer módulo abierto de Funciones sin Vacíos: entrada, salida, notación, dominio y representaciones."};
 
 const lessons=[
   {id:"entrada-salida",n:"01",title:"Entrada, regla y salida",time:"8 min",body:"Una función no es solo una fórmula. Es una asignación: recibe una entrada permitida, aplica una regla y produce exactamente una salida. La palabra permitida importa, porque la regla también incluye el conjunto de valores que acepta.",example:"Si f(x)=2x+3, entonces f(-1)=1. La entrada es -1; la salida asociada es 1."},
