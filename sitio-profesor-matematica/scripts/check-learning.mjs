@@ -111,5 +111,15 @@ assert.match(lesson, /\.\.\.\(getVerifiedAnswerKey\(ex\) \?/);
 assert.match(read("components/lab-hub.tsx"),/Math\.min\(lab\.total/);
 console.log("✓ "+checkedProblems+" variantes de 12 motores evaluadas: opciones únicas y cálculos clave coherentes.");
 
+
+const completion = read("components/lesson-completion.tsx");
+const home = read("app/aprende/page.tsx");
+assert.match(completion,/STORAGE_KEY = "zenit_studied_lessons_v1"/);
+assert.match(completion,/aria-pressed=\{completed\}/);
+assert.match(completion,/LessonProgressOverview/);
+assert.match(lesson,/<LessonCompletion slug=\{lesson.slug\}/);
+assert.match(home,/<LessonProgressOverview total=\{LESSONS_INDEX.length\}/);
+assert.match(lesson,/const studentSummary = \/\^Estudio completo de /);
+
 console.log("✓ Evaluación sin claves inventadas, examen privado, rutas educativas y progreso: verificados.");
 console.log("Auditoría del catálogo: "+JSON.stringify({total,valid,missing,invalid})+" (las claves ausentes no se califican).");

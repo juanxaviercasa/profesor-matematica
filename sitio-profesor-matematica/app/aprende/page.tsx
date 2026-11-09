@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Header, Footer } from "@/components/site";
 import Link from "@/components/safe-link";
 import { LESSONS_INDEX, COURSE_LABELS } from "@/lib/catalog-loader";
+import { LessonProgressOverview } from "@/components/lesson-completion";
 
 export const metadata: Metadata = {
   title: "Portal de Aprendizaje Zénit · Matemática, Ciencias y Web Apps",
@@ -68,6 +69,8 @@ export default function AprendeIndexPage() {
             </Link>
           </div>
         </section>
+
+        <div className="wrap"><LessonProgressOverview total={LESSONS_INDEX.length}/></div>
 
         <section className="wrap my-12 space-y-12">
           {areaDefinitions.map((area) => {

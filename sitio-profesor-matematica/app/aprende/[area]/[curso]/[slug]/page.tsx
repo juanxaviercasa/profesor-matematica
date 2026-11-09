@@ -8,6 +8,7 @@ import { ZenitInteractiveApp, ZENIT_ENGINES, type AppEngineId } from "@/componen
 import { InteractiveExerciseBank } from "@/components/interactive-exercise-bank";
 import { getVerifiedAnswerKey } from "@/lib/exercise-evaluation.mjs";
 import { InfiniteProblemGenerator } from "@/components/infinite-problem-generator";
+import { LessonCompletion } from "@/components/lesson-completion";
 import { InternalKnowledgeMesh } from "@/components/internal-knowledge-mesh";
 import {
   getLessonBySlug,
@@ -124,6 +125,9 @@ export default async function TopicDetailPage({ params }: PageProps) {
     desc: "",
   };
   const engineMeta = ZENIT_ENGINES[lesson.appEngine as AppEngineId] || ZENIT_ENGINES.FunctionCartesianLab;
+  const studentSummary = /^Estudio completo de /i.test(lesson.summary)
+    ? `Estudia ${lesson.title} con explicaciones, un simulador y práctica guiada. Compara diferentes representaciones y comprueba lo que has aprendido.`
+    : lesson.summary;
 
   // Find adjacent lessons in the same course
   const courseLessons = getLessonsByCourse(lesson.course);
@@ -229,9 +233,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
               <span className="rounded-full bg-amber-500/20 px-3 py-1 text-xs font-mono font-semibold text-amber-300 border border-amber-500/30">
                 {courseMeta.icon} {courseMeta.title}
               </span>
-              <span className="rounded-full bg-sky-500/20 px-3 py-1 text-xs font-mono text-sky-300 border border-sky-500/30">
-                Ruta de aprendizaje
-              </span>
+
             </div>
 
             <div className="flex items-center gap-2 text-xs font-mono">
@@ -252,7 +254,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
           </h1>
 
           <p className="text-sm md:text-base text-stone-300 leading-relaxed max-w-3xl">
-            {lesson.summary}
+            {studentSummary}
           </p>
 
           <p className="lesson-approach">Ruta sugerida: observa un ejemplo en el simulador, estudia la teoría y comprueba tus ideas con ejercicios. Puedes volver a cualquier paso.</p>
@@ -488,6 +490,8 @@ export default async function TopicDetailPage({ params }: PageProps) {
           related={relatedLessons}
         />
         </div>
+
+        <LessonCompletion slug={lesson.slug} title={lesson.title} />
 
         {/* Next / Prev Navigation in Course */}
         <section className="border-t border-stone-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">

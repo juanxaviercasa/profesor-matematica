@@ -85,6 +85,8 @@
 - [x] Corrección de distractores que podían duplicarse en el Teorema del Resto.
 - [x] Datos estructurados: sin respuestas ficticias cuando una clave no consta, y sin atribuir carácter oficial genérico.
 - [x] Progreso de laboratorio limitado al total de retos, incluso con almacenamiento heredado.
+- [x] Marcado voluntario de lecciones estudiadas, con resumen en el portal y persistencia únicamente local.
+- [x] Introducción legible en las lecciones que tenían texto técnico generado automáticamente.
 - [ ] Auditar matemáticamente todos los motores y variantes del generador con casos límite.
 - [ ] Verificar con usuarios reales y lectores de pantalla la usabilidad de todas las lecciones.
 
