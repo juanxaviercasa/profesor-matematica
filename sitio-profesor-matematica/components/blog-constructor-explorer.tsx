@@ -128,6 +128,7 @@ export function BlogConstructorExplorer() {
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setViewMode("constructor")}
+              aria-pressed={viewMode === "constructor"}
               className={`px-4 py-2 rounded-xl text-xs font-bold border transition-all ${
                 viewMode === "constructor"
                   ? "bg-emerald-500 text-stone-950 border-emerald-400 shadow"
@@ -138,6 +139,7 @@ export function BlogConstructorExplorer() {
             </button>
             <button
               onClick={() => setViewMode("drip")}
+              aria-pressed={viewMode === "drip"}
               className={`px-4 py-2 rounded-xl text-xs font-bold border transition-all ${
                 viewMode === "drip"
                   ? "bg-amber-500 text-stone-950 border-amber-400 shadow"
@@ -148,8 +150,10 @@ export function BlogConstructorExplorer() {
             </button>
           </div>
 
-          <div className="flex-1 min-w-[240px] max-w-md">
+          <div className="flex-1 min-w-0 w-full sm:min-w-[240px] max-w-md">
+            <label className="sr-only" htmlFor="zenit-blog-search">Buscar lecciones por tema o palabra clave</label>
             <input
+              id="zenit-blog-search"
               type="search"
               placeholder={`Buscar entre los ${LESSONS_INDEX.length} temas (ej. polinomios, conjuntos, ruffini, circunferencia, límite...)`}
               value={search}
@@ -176,6 +180,7 @@ export function BlogConstructorExplorer() {
           ].map((g) => (
             <button
               key={String(g.id)}
+              aria-pressed={selectedGrade === g.id}
               onClick={() => {
                 setSelectedGrade(g.id as number | "all");
                 setVisibleLimit(48);
@@ -194,8 +199,9 @@ export function BlogConstructorExplorer() {
         {/* Course & Engine Selects */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
           <div>
-            <label className="text-[11px] font-mono text-stone-400 block mb-1">Filtrar por Curso / Rama:</label>
+            <label htmlFor="zenit-blog-course" className="text-[11px] font-mono text-stone-400 block mb-1">Filtrar por Curso / Rama:</label>
             <select
+              id="zenit-blog-course"
               value={selectedCourse}
               onChange={(e) => {
                 setSelectedCourse(e.target.value);
@@ -213,8 +219,9 @@ export function BlogConstructorExplorer() {
           </div>
 
           <div>
-            <label className="text-[11px] font-mono text-stone-400 block mb-1">Filtrar por Motor Web App Interactiva:</label>
+            <label htmlFor="zenit-blog-engine" className="text-[11px] font-mono text-stone-400 block mb-1">Filtrar por Motor Web App Interactiva:</label>
             <select
+              id="zenit-blog-engine"
               value={selectedEngine}
               onChange={(e) => {
                 setSelectedEngine(e.target.value);
@@ -234,7 +241,7 @@ export function BlogConstructorExplorer() {
       </div>
 
       {/* Results Count */}
-      <div className="flex items-center justify-between text-xs text-stone-400 px-1">
+      <div role="status" aria-live="polite" className="flex flex-wrap items-center justify-between gap-2 text-xs text-stone-400 px-1">
         <span>
           Mostrando <strong>{Math.min(visibleLimit, filtered.length)}</strong> de <strong>{filtered.length}</strong> lecciones encontradas
         </span>
