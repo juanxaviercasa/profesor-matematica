@@ -190,6 +190,7 @@ function SetVennLabWidget() {
             <button
               key={btn.id}
               onClick={() => setOperation(btn.id as typeof operation)}
+              aria-pressed={operation === btn.id}
               className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold border transition-all ${
                 operation === btn.id
                   ? "bg-emerald-500 text-stone-950 border-emerald-400 shadow"
@@ -207,28 +208,28 @@ function SetVennLabWidget() {
               <span>Solo A: n(A − B)</span>
               <b className="text-emerald-400 font-mono">{onlyA}</b>
             </div>
-            <input type="range" min={0} max={40} value={onlyA} onChange={e => setOnlyA(+e.target.value)} className="w-full accent-emerald-500" />
+            <input aria-label="Elementos solo en A" type="range" min={0} max={40} value={onlyA} onChange={e => setOnlyA(+e.target.value)} className="w-full accent-emerald-500" />
           </div>
           <div>
             <div className="flex justify-between text-xs text-stone-300">
               <span>Ambos: n(A ∩ B)</span>
               <b className="text-amber-400 font-mono">{bothAB}</b>
             </div>
-            <input type="range" min={0} max={30} value={bothAB} onChange={e => setBothAB(+e.target.value)} className="w-full accent-amber-500" />
+            <input aria-label="Elementos en la intersección de A y B" type="range" min={0} max={30} value={bothAB} onChange={e => setBothAB(+e.target.value)} className="w-full accent-amber-500" />
           </div>
           <div>
             <div className="flex justify-between text-xs text-stone-300">
               <span>Solo B: n(B − A)</span>
               <b className="text-sky-400 font-mono">{onlyB}</b>
             </div>
-            <input type="range" min={0} max={40} value={onlyB} onChange={e => setOnlyB(+e.target.value)} className="w-full accent-sky-500" />
+            <input aria-label="Elementos solo en B" type="range" min={0} max={40} value={onlyB} onChange={e => setOnlyB(+e.target.value)} className="w-full accent-sky-500" />
           </div>
           <div>
             <div className="flex justify-between text-xs text-stone-300">
               <span>Fuera de ambos: n((A ∪ B)')</span>
               <b className="text-stone-400 font-mono">{outside}</b>
             </div>
-            <input type="range" min={0} max={30} value={outside} onChange={e => setOutside(+e.target.value)} className="w-full accent-stone-400" />
+            <input aria-label="Elementos fuera de A y B" type="range" min={0} max={30} value={outside} onChange={e => setOutside(+e.target.value)} className="w-full accent-stone-400" />
           </div>
         </div>
 
@@ -242,7 +243,7 @@ function SetVennLabWidget() {
       </div>
 
       <div className="lg:col-span-7 flex flex-col items-center justify-center rounded-xl bg-stone-950 p-4 border border-stone-800">
-        <svg viewBox="0 0 420 260" className="w-full max-h-[270px]">
+        <svg role="img" aria-label="Diagrama de Venn interactivo de los conjuntos A y B" viewBox="0 0 420 260" className="w-full max-h-[270px]">
           <rect
             x="12"
             y="12"
@@ -373,7 +374,7 @@ function NumberTheoryLabWidget() {
               <span>Número Principal (N):</span>
               <span className="font-mono text-emerald-400 font-bold">{analysis.n}</span>
             </label>
-            <input
+            <input aria-label="Número principal N"
               type="number"
               min={2}
               max={99999}
@@ -387,7 +388,7 @@ function NumberTheoryLabWidget() {
               <span>Segundo Número (M) para MCD/MCM:</span>
               <span className="font-mono text-amber-400 font-bold">{analysis.m}</span>
             </label>
-            <input
+            <input aria-label="Segundo número M"
               type="number"
               min={2}
               max={99999}
@@ -401,7 +402,7 @@ function NumberTheoryLabWidget() {
               <span>Base de Numeración Destino (b):</span>
               <span className="font-mono text-sky-400 font-bold">Base {base}</span>
             </label>
-            <input
+            <input aria-label="Base de numeración destino"
               type="range"
               min={2}
               max={16}
@@ -476,19 +477,19 @@ function PolynomialAlgebraLabWidget() {
         <div className="grid grid-cols-2 gap-3 text-xs">
           <label className="space-y-1">
             <span className="text-stone-400">Coef. x³ (a₃): {a3}</span>
-            <input type="range" min={-5} max={5} value={a3} onChange={e => setA3(+e.target.value || 1)} className="w-full accent-emerald-500" />
+            <input aria-label="Coeficiente cúbico de x" type="range" min={-5} max={5} value={a3} onChange={e => setA3(+e.target.value || 1)} className="w-full accent-emerald-500" />
           </label>
           <label className="space-y-1">
             <span className="text-stone-400">Coef. x² (a₂): {a2}</span>
-            <input type="range" min={-9} max={9} value={a2} onChange={e => setA2(+e.target.value)} className="w-full accent-emerald-500" />
+            <input aria-label="Coeficiente cuadrático de x" type="range" min={-9} max={9} value={a2} onChange={e => setA2(+e.target.value)} className="w-full accent-emerald-500" />
           </label>
           <label className="space-y-1">
             <span className="text-stone-400">Coef. x (a₁): {a1}</span>
-            <input type="range" min={-9} max={9} value={a1} onChange={e => setA1(+e.target.value)} className="w-full accent-emerald-500" />
+            <input aria-label="Coeficiente lineal de x" type="range" min={-9} max={9} value={a1} onChange={e => setA1(+e.target.value)} className="w-full accent-emerald-500" />
           </label>
           <label className="space-y-1">
             <span className="text-stone-400">T. Indep. (a₀): {a0}</span>
-            <input type="range" min={-9} max={9} value={a0} onChange={e => setA0(+e.target.value)} className="w-full accent-emerald-500" />
+            <input aria-label="Término independiente" type="range" min={-9} max={9} value={a0} onChange={e => setA0(+e.target.value)} className="w-full accent-emerald-500" />
           </label>
         </div>
         <div className="pt-2 border-t border-stone-800">
@@ -496,7 +497,7 @@ function PolynomialAlgebraLabWidget() {
             <span>Divisor d(x) = x − ({rootR})</span>
             <span>x = {rootR}</span>
           </label>
-          <input type="range" min={-4} max={4} value={rootR} onChange={e => setRootR(+e.target.value)} className="w-full accent-amber-500 mt-1" />
+          <input aria-label="Raíz del divisor para Ruffini" type="range" min={-4} max={4} value={rootR} onChange={e => setRootR(+e.target.value)} className="w-full accent-amber-500 mt-1" />
         </div>
       </div>
 
@@ -577,6 +578,7 @@ function EquationInequalityLabWidget() {
         <div className="flex gap-2">
           <button
             onClick={() => setIneqSign("ge")}
+            aria-pressed={ineqSign === "ge"}
             className={`flex-1 py-1.5 rounded-lg text-xs font-mono font-bold border ${
               ineqSign === "ge" ? "bg-emerald-500 text-stone-950 border-emerald-400" : "bg-stone-900 text-stone-300 border-stone-700"
             }`}
@@ -585,6 +587,7 @@ function EquationInequalityLabWidget() {
           </button>
           <button
             onClick={() => setIneqSign("le")}
+            aria-pressed={ineqSign === "le"}
             className={`flex-1 py-1.5 rounded-lg text-xs font-mono font-bold border ${
               ineqSign === "le" ? "bg-amber-500 text-stone-950 border-amber-400" : "bg-stone-900 text-stone-300 border-stone-700"
             }`}
@@ -598,14 +601,14 @@ function EquationInequalityLabWidget() {
             <span>Punto Crítico 1 (x₁):</span>
             <b className="text-emerald-400 font-mono">{r1}</b>
           </label>
-          <input type="range" min={-6} max={5} value={r1} onChange={e => setR1(+e.target.value)} className="w-full accent-emerald-500" />
+          <input aria-label="Primer punto crítico" type="range" min={-6} max={5} value={r1} onChange={e => setR1(+e.target.value)} className="w-full accent-emerald-500" />
         </div>
         <div>
           <label className="text-xs text-stone-300 flex justify-between">
             <span>Punto Crítico 2 (x₂):</span>
             <b className="text-amber-400 font-mono">{r2}</b>
           </label>
-          <input type="range" min={-5} max={6} value={r2} onChange={e => setR2(+e.target.value)} className="w-full accent-amber-500" />
+          <input aria-label="Segundo punto crítico" type="range" min={-5} max={6} value={r2} onChange={e => setR2(+e.target.value)} className="w-full accent-amber-500" />
         </div>
 
         <div className="rounded-lg bg-stone-900 p-3 border border-stone-800 text-xs space-y-1">
@@ -619,7 +622,7 @@ function EquationInequalityLabWidget() {
       </div>
 
       <div className="lg:col-span-7 rounded-xl bg-stone-950 p-4 border border-stone-800 flex flex-col items-center">
-        <svg viewBox="0 0 420 210" className="w-full max-h-[220px]">
+        <svg role="img" aria-label="Recta real con curva de signos de una inecuación" viewBox="0 0 420 210" className="w-full max-h-[220px]">
           {/* Real number line */}
           <line x1="20" y1="130" x2="400" y2="130" stroke="#78716c" strokeWidth="2.5" />
           {/* Sign curve waves */}
@@ -687,21 +690,21 @@ function GeometryInteractiveLabWidget() {
             <span>Número de lados del Polígono (n):</span>
             <b className="text-emerald-400 font-mono">{sides} lados</b>
           </label>
-          <input type="range" min={3} max={12} value={sides} onChange={e => setSides(+e.target.value)} className="w-full accent-emerald-500" />
+          <input aria-label="Número de lados del polígono" type="range" min={3} max={12} value={sides} onChange={e => setSides(+e.target.value)} className="w-full accent-emerald-500" />
         </div>
         <div>
           <label className="text-xs text-stone-300 flex justify-between">
             <span>Radio geométrico (R):</span>
             <b className="text-sky-400 font-mono">{radius} u</b>
           </label>
-          <input type="range" min={1} max={10} value={radius} onChange={e => setRadius(+e.target.value)} className="w-full accent-sky-500" />
+          <input aria-label="Radio geométrico" type="range" min={1} max={10} value={radius} onChange={e => setRadius(+e.target.value)} className="w-full accent-sky-500" />
         </div>
         <div>
           <label className="text-xs text-stone-300 flex justify-between">
             <span>Altura para Sólido 3D (h):</span>
             <b className="text-amber-400 font-mono">{height3D} u</b>
           </label>
-          <input type="range" min={1} max={12} value={height3D} onChange={e => setHeight3D(+e.target.value)} className="w-full accent-amber-500" />
+          <input aria-label="Altura del sólido tridimensional" type="range" min={1} max={12} value={height3D} onChange={e => setHeight3D(+e.target.value)} className="w-full accent-amber-500" />
         </div>
 
         <div className="rounded-lg bg-stone-900 p-3 border border-stone-800 text-xs space-y-1.5">
@@ -712,7 +715,7 @@ function GeometryInteractiveLabWidget() {
       </div>
 
       <div className="lg:col-span-7 rounded-xl bg-stone-950 p-4 border border-stone-800 flex flex-col items-center">
-        <svg viewBox="0 0 420 250" className="w-full max-h-[250px]">
+        <svg role="img" aria-label="Polígono geométrico regular con radio ajustable" viewBox="0 0 420 250" className="w-full max-h-[250px]">
           <circle cx="210" cy="125" r="82" fill="none" stroke="#44403c" strokeDasharray="4 4" />
           <polygon
             points={polygonPoints}
@@ -753,7 +756,7 @@ function TrigonometryCircleLabWidget() {
             <span>Ángulo en Posición Normal (θ):</span>
             <b className="text-emerald-400 font-mono">{deg}°</b>
           </label>
-          <input type="range" min={0} max={360} step={5} value={deg} onChange={e => setDeg(+e.target.value)} className="w-full accent-emerald-500" />
+          <input aria-label="Ángulo en posición normal en grados" type="range" min={0} max={360} step={5} value={deg} onChange={e => setDeg(+e.target.value)} className="w-full accent-emerald-500" />
         </div>
 
         <div className="grid grid-cols-3 gap-2 text-center text-xs font-mono">
@@ -780,7 +783,7 @@ function TrigonometryCircleLabWidget() {
       </div>
 
       <div className="lg:col-span-7 rounded-xl bg-stone-950 p-4 border border-stone-800 flex flex-col items-center">
-        <svg viewBox="0 0 420 250" className="w-full max-h-[250px]">
+        <svg role="img" aria-label="Circunferencia trigonométrica y proyecciones de seno y coseno" viewBox="0 0 420 250" className="w-full max-h-[250px]">
           <line x1="30" y1={cy} x2="390" y2={cy} stroke="#57534e" strokeWidth="1.5" />
           <line x1={cx} y1="15" x2={cx} y2="235" stroke="#57534e" strokeWidth="1.5" />
           <circle cx={cx} cy={cy} r={r} fill="none" stroke="#a8a29e" strokeWidth="2" />
@@ -831,7 +834,7 @@ function StatisticsProbabilityLabWidget() {
               <span>{row.label}</span>
               <span className="font-mono text-emerald-400">f_{idx + 1} = {row.val} ({((row.val / totalN) * 100).toFixed(1)}%)</span>
             </div>
-            <input type="range" min={1} max={30} value={row.val} onChange={e => row.set(+e.target.value)} className="w-full accent-emerald-500" />
+            <input aria-label={`${row.label}: frecuencia absoluta`} type="range" min={1} max={30} value={row.val} onChange={e => row.set(+e.target.value)} className="w-full accent-emerald-500" />
           </div>
         ))}
         <div className="rounded-lg bg-stone-900 p-3 border border-stone-800 text-xs font-mono space-y-1">
@@ -842,7 +845,7 @@ function StatisticsProbabilityLabWidget() {
       </div>
 
       <div className="lg:col-span-7 rounded-xl bg-stone-950 p-4 border border-stone-800">
-        <svg viewBox="0 0 420 230" className="w-full max-h-[230px]">
+        <svg role="img" aria-label="Gráfico de barras de frecuencias" viewBox="0 0 420 230" className="w-full max-h-[230px]">
           <line x1="40" y1="195" x2="390" y2="195" stroke="#78716c" strokeWidth="2" />
           {freqs.map((f, idx) => {
             const bh = (f / 30) * 150;
@@ -888,21 +891,21 @@ function LogicalReasoningLabWidget() {
             <span>Hora del Reloj (H):</span>
             <b className="text-emerald-400 font-mono">{hour}:00</b>
           </label>
-          <input type="range" min={1} max={12} value={hour} onChange={e => setHour(+e.target.value)} className="w-full accent-emerald-500" />
+          <input aria-label="Hora del reloj" type="range" min={1} max={12} value={hour} onChange={e => setHour(+e.target.value)} className="w-full accent-emerald-500" />
         </div>
         <div>
           <label className="text-xs text-stone-300 flex justify-between">
             <span>Minutero (M):</span>
             <b className="text-amber-400 font-mono">{String(minute).padStart(2, "0")} min</b>
           </label>
-          <input type="range" min={0} max={59} value={minute} onChange={e => setMinute(+e.target.value)} className="w-full accent-amber-500" />
+          <input aria-label="Minutos del reloj" type="range" min={0} max={59} value={minute} onChange={e => setMinute(+e.target.value)} className="w-full accent-amber-500" />
         </div>
         <div className="pt-2 border-t border-stone-800">
           <label className="text-xs text-stone-300 flex justify-between">
             <span>Espacios simples (n) para Conteo de Figuras:</span>
             <b className="text-sky-400 font-mono">n = {segmentsN}</b>
           </label>
-          <input type="range" min={1} max={15} value={segmentsN} onChange={e => setSegmentsN(+e.target.value)} className="w-full accent-sky-500" />
+          <input aria-label="Número de espacios simples" type="range" min={1} max={15} value={segmentsN} onChange={e => setSegmentsN(+e.target.value)} className="w-full accent-sky-500" />
         </div>
 
         <div className="rounded-lg bg-stone-900 p-3 border border-stone-800 text-xs font-mono space-y-1">
@@ -912,7 +915,7 @@ function LogicalReasoningLabWidget() {
       </div>
 
       <div className="lg:col-span-7 rounded-xl bg-stone-950 p-4 border border-stone-800 flex flex-col items-center">
-        <svg viewBox="0 0 420 230" className="w-full max-h-[230px]">
+        <svg role="img" aria-label="Reloj analógico para estudiar ángulos" viewBox="0 0 420 230" className="w-full max-h-[230px]">
           <circle cx="210" cy="115" r="85" fill="#1c1917" stroke="#57534e" strokeWidth="3" />
           {/* Hour hand */}
           <line x1="210" y1="115" x2={210 + 50 * Math.cos(hAngle)} y2={115 + 50 * Math.sin(hAngle)} stroke="#10b981" strokeWidth="5" strokeLinecap="round" />
@@ -962,14 +965,14 @@ function SciencePhysicsChemLabWidget() {
             <span>Velocidad Inicial (v₀):</span>
             <b className="text-emerald-400 font-mono">{v0} m/s</b>
           </label>
-          <input type="range" min={10} max={35} value={v0} onChange={e => setV0(+e.target.value)} className="w-full accent-emerald-500" />
+          <input aria-label="Velocidad inicial del lanzamiento" type="range" min={10} max={35} value={v0} onChange={e => setV0(+e.target.value)} className="w-full accent-emerald-500" />
         </div>
         <div>
           <label className="text-xs text-stone-300 flex justify-between">
             <span>Ángulo de Lanzamiento (θ):</span>
             <b className="text-amber-400 font-mono">{angle}°</b>
           </label>
-          <input type="range" min={15} max={80} value={angle} onChange={e => setAngle(+e.target.value)} className="w-full accent-amber-500" />
+          <input aria-label="Ángulo de lanzamiento" type="range" min={15} max={80} value={angle} onChange={e => setAngle(+e.target.value)} className="w-full accent-amber-500" />
         </div>
         <div className="rounded-lg bg-stone-900 p-3 border border-stone-800 text-xs font-mono space-y-1">
           <div>Tiempo de vuelo: <b className="text-emerald-300">{tFlight.toFixed(2)} s</b></div>
@@ -979,7 +982,7 @@ function SciencePhysicsChemLabWidget() {
       </div>
 
       <div className="lg:col-span-7 rounded-xl bg-stone-950 p-4 border border-stone-800">
-        <svg viewBox="0 0 420 220" className="w-full max-h-[220px]">
+        <svg role="img" aria-label="Gráfico de trayectoria del movimiento parabólico" viewBox="0 0 420 220" className="w-full max-h-[220px]">
           <line x1="20" y1="195" x2="400" y2="195" stroke="#78716c" strokeWidth="2" />
           <path d={trajPath} fill="none" stroke="#10b981" strokeWidth="3.5" strokeDasharray="6 3" />
           <circle cx="30" cy="195" r="6" fill="#f59e0b" />
@@ -1022,21 +1025,21 @@ function CartesianGenericLabWidget({ mode }: { mode: "function" | "conics" | "ca
             <span>Parámetro Principal / Concavidad (a):</span>
             <b className="text-emerald-400 font-mono">{a}</b>
           </label>
-          <input type="range" min={-3} max={3} step={0.5} value={a} onChange={e => setA(+e.target.value || 0.5)} className="w-full accent-emerald-500" />
+          <input aria-label="Parámetro principal de la función" type="range" min={-3} max={3} step={0.5} value={a} onChange={e => setA(+e.target.value || 0.5)} className="w-full accent-emerald-500" />
         </div>
         <div>
           <label className="text-xs text-stone-300 flex justify-between">
             <span>Desplazamiento Horizontal / Punto x₀ (h):</span>
             <b className="text-amber-400 font-mono">{h}</b>
           </label>
-          <input type="range" min={-4} max={4} step={0.5} value={h} onChange={e => setH(+e.target.value)} className="w-full accent-amber-500" />
+          <input aria-label="Desplazamiento horizontal" type="range" min={-4} max={4} step={0.5} value={h} onChange={e => setH(+e.target.value)} className="w-full accent-amber-500" />
         </div>
         <div>
           <label className="text-xs text-stone-300 flex justify-between">
             <span>Desplazamiento Vertical / Cota (k):</span>
             <b className="text-sky-400 font-mono">{k}</b>
           </label>
-          <input type="range" min={-3} max={3} step={0.5} value={k} onChange={e => setK(+e.target.value)} className="w-full accent-sky-500" />
+          <input aria-label="Desplazamiento vertical" type="range" min={-3} max={3} step={0.5} value={k} onChange={e => setK(+e.target.value)} className="w-full accent-sky-500" />
         </div>
         <div className="rounded-lg bg-stone-900 p-3 border border-stone-800 text-xs font-mono text-stone-300">
           {mode === "calculus"
@@ -1048,7 +1051,7 @@ function CartesianGenericLabWidget({ mode }: { mode: "function" | "conics" | "ca
       </div>
 
       <div className="lg:col-span-7 rounded-xl bg-stone-950 p-4 border border-stone-800 flex flex-col items-center">
-        <svg viewBox="0 0 420 270" className="w-full max-h-[270px]">
+        <svg role="img" aria-label="Plano cartesiano interactivo con la función actual" viewBox="0 0 420 270" className="w-full max-h-[270px]">
           <CartesianAxes width={420} height={270} originX={210} originY={135} xScale={25} yScale={25} xTicks={xTicks} yTicks={yTicks} pad={14} />
           {pathD && <path d={pathD} fill="none" stroke="#10b981" strokeWidth="3.5" />}
           <circle cx={210 + h * 25} cy={135 - k * 25} r="6" fill="#f59e0b" stroke="#0c0a09" strokeWidth="2" />
