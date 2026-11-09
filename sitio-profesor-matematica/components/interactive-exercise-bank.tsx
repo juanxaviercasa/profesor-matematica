@@ -81,6 +81,7 @@ export function InteractiveExerciseBank({
               setExamMode(!examMode);
               setExamSubmitted(false);
             }}
+            aria-pressed={examMode}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all ${
               examMode
                 ? "bg-purple-500/20 border-purple-500 text-purple-300"
@@ -116,6 +117,7 @@ export function InteractiveExerciseBank({
         {f0.length > 0 && (
           <button
             onClick={() => setActiveTab("f0")}
+             aria-pressed={activeTab === "f0"}
             className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all border ${
               activeTab === "f0"
                 ? "bg-emerald-500 text-stone-950 border-emerald-400 shadow-lg"
@@ -128,6 +130,7 @@ export function InteractiveExerciseBank({
         {fa.length > 0 && (
           <button
             onClick={() => setActiveTab("fa")}
+             aria-pressed={activeTab === "fa"}
             className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all border ${
               activeTab === "fa"
                 ? "bg-amber-500 text-stone-950 border-amber-400 shadow-lg"
@@ -140,6 +143,7 @@ export function InteractiveExerciseBank({
         {workedSolutions.length > 0 && (
           <button
             onClick={() => setActiveTab("worked")}
+             aria-pressed={activeTab === "worked"}
             className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all border ${
               activeTab === "worked"
                 ? "bg-sky-400 text-stone-950 border-sky-300 shadow-lg"
@@ -245,6 +249,8 @@ export function InteractiveExerciseBank({
 
                   <button
                     onClick={() => setRevealedHints((prev) => ({ ...prev, [key]: !prev[key] }))}
+                     aria-expanded={hintShown}
+                     aria-label={hintShown ? `Ocultar la pista del problema ${ex.number}` : `Mostrar la pista del problema ${ex.number}`}
                     className="text-xs text-emerald-400 hover:text-emerald-300 font-semibold"
                   >
                     {hintShown ? "Ocultar pista y clave" : "💡 Ver pista / resolución"}
@@ -290,6 +296,8 @@ export function InteractiveExerciseBank({
 
                 {showFeedback && (
                   <div
+                    role="status"
+                    aria-live="polite"
                     className={`rounded-xl p-3 text-xs flex flex-wrap items-center justify-between gap-2 border ${
                       isCorrect
                         ? "bg-emerald-950/40 border-emerald-700/50 text-emerald-200"
