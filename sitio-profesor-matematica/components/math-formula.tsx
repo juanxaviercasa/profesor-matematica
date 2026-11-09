@@ -1,4 +1,5 @@
 import katex from "katex";
+import { splitMathText, stripMathDelimiters } from "@/lib/math-text-segments.mjs";
 
 const exact:Record<string,string>={
   "(1/x − 1/2)/(x − 2)":String.raw`\frac{\frac1x-\frac12}{x-2}`,
@@ -44,7 +45,7 @@ function topLevelSlash(value:string){
 
 function symbols(value:string){
   return value
-    .replace(/arcsen|arccos|arctan|arccot|arcsec|arccsc|sen|cos|tan|cot|sec|csc|log₂|log|ln/g, name => { const names:Record<string,string>={arcsen:"arcsin",arccos:"arccos",arctan:"arctan",sen:"sin","log₂":"log_{2}"}; return "\\"+(names[name]||(["arccot","arcsec","arccsc"].includes(name)?`operatorname{${name}}`:name))+" "; })
+    .replace(/(^|[^\\\p{L}])(?:arcsen|arccos|arctan|arccot|arcsec|arccsc|sen|cos|tan|cot|sec|csc|log₂|log|ln)(?=\s*[(0-9xθ^²³])/gu, (whole,prefix) => { const name=whole.slice(prefix.length); const names:Record<string,string>={arcsen:"operatorname{arcsen}",sen:"operatorname{sen}","log₂":"log_{2}"}; return prefix+"\\"+(names[name]||(["arccot","arcsec","arccsc"].includes(name)?`operatorname{${name}}`:name))+" "; })
     .replace(/√\(([^()]*)\)/g,String.raw`\sqrt{$1}`).replace(/√([A-Za-z0-9]+)/g,String.raw`\sqrt{$1}`)
     .replace(/²/g,"^{2}").replace(/³/g,"^{3}").replace(/ˣ/g,"^{x}").replace(/₂/g,"_{2}")
     .replace(/ℝ/g,String.raw`\mathbb{R}`).replace(/∖/g,String.raw`\setminus `).replace(/∪/g,String.raw`\cup `).replace(/∞/g,String.raw`\infty`)
@@ -68,7 +69,9 @@ function expression(value:string):string{
 }
 
 export function toLatex(source:string){
-  if(exact[source])return exact[source];
+  const cleaned=stripMathDelimiters(source);
+  if(exact[cleaned])return exact[cleaned];
+  source=cleaned;
   if(source.includes("\\"))return source;
   if(source.includes("∖")||source.includes("∪")||source==="ℝ")return symbols(source.replace(/\{/g,"\\{").replace(/\}/g,"\\}"));
   const limit=source.match(/^lim x→([^ ]+) (.+)$/);
@@ -77,8 +80,26 @@ export function toLatex(source:string){
 }
 
 export function MathFormula({source,className="math-formula",displayMode=true,label}:{source:string;className?:string;displayMode?:boolean;label?:string}){
-  const tex=toLatex(source);
-  const html=katex.renderToString(tex,{throwOnError:false,strict:false,displayMode,output:"htmlAndMathml"});
+  let html:string|null=null;
+  try {
+    html=katex.renderToString(toLatex(source),{
+      throwOnError:true,strict:"warn",displayMode,output:"htmlAndMathml",trust:false,maxExpand:500,maxSize:10
+    });
+  } catch {
+    // No mostramos código TeX en rojo ni inyectamos contenido sin escapar.
+  }
   const Tag=displayMode?"div":"span";
-  return <Tag className={`${className}${displayMode ? " math-scroll-region" : ""}`} role={displayMode ? "group" : undefined} tabIndex={displayMode ? 0 : undefined} aria-label={label || source} dangerouslySetInnerHTML={{__html:html}}/>;
+  const classes=className+(displayMode?" math-scroll-region math-typeset-display":" math-typeset-inline");
+  if(!html)return <Tag className={classes+" math-typeset-fallback"} title="Expresión pendiente de revisar">{source}</Tag>;
+  return <Tag className={classes} role={displayMode?"group":undefined} tabIndex={displayMode?0:undefined}
+    aria-label={label||undefined} dangerouslySetInnerHTML={{__html:html}}/>;
+}
+
+/** Matemáticas integradas en texto académico: compatible con LaTeX y notación Unicode. */
+export function MathText({source,inlineOnly=false}:{source:string;inlineOnly?:boolean}){
+  const tokens=splitMathText(source);
+  return <>{tokens.map((piece,i)=>piece.type==="math"
+    ? <MathFormula key={i} source={piece.value} displayMode={!!piece.display&&!inlineOnly} className="math-text-expression"/>
+    : <span key={i}>{piece.value}</span>
+  )}</>;
 }
