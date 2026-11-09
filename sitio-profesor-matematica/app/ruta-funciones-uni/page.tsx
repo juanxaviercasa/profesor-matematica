@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "@/components/safe-link";
 import { Footer,Header } from "@/components/site";
-export const metadata:Metadata={title:"Ruta completa de funciones y límites · nivel UNI",description:"Plan de estudio de funciones, trigonometría, inversas y límites para secundaria, preparación UNI y primeros ciclos."};
+export const metadata:Metadata={title:"Ruta completa de funciones y límites · nivel UNI",description:"Mapa temático de funciones, trigonometría y límites para preparación preuniversitaria.",robots:{index:false,follow:true}};
 const blocks=[
  ["01","Fundamentos","Conjuntos, relaciones, dominio, rango, notación y representaciones.","En construcción"],
  ["02","Análisis de gráficas","Cortes, signo, monotonía, extremos, simetría, periodicidad y asíntotas.","Disponible"],

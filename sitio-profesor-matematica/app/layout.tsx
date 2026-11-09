@@ -34,6 +34,7 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
   openGraph: {
     title: "Profesor Juan Xavier · Sistema Zénit",
+    images: [{ url: `${BASE_URL}/brand/social-avatar.png`, alt: "Identidad visual de Sistema Zénit" }],
     description:
       "Biblioteca de matemática y ciencias con simuladores interactivos, ejercicios graduados y materiales de aprendizaje.",
     type: "website",
@@ -41,7 +42,8 @@ export const metadata: Metadata = {
     siteName: "Sistema Educativo Zénit",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
+    images: [`${BASE_URL}/brand/social-avatar.png`],
     title: "Profesor Juan Xavier · Sistema Zénit",
     description:
       "Matemática que conecta: teoría, herramientas interactivas y práctica guiada.",

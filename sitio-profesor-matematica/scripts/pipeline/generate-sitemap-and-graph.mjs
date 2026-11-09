@@ -20,8 +20,6 @@ const staticUrls = [
   "/empieza",
   "/clase/funciones-antes-de-calculo",
   "/recursos",
-  "/ruta-funciones-uni",
-  "/aprende/funciones",
   "/curso/funciones-sin-vacios/modulo-1",
   "/sobre-mi",
   "/profesor-matematicas-lima"
