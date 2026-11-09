@@ -5,6 +5,7 @@ import { ConversionDock } from "@/components/conversion";
 import "./globals.css";
 import "./design-system.css";
 import "./responsive-accessibility.css";
+import "./public-pages.css";
 import "katex/dist/katex.min.css";
 
 
