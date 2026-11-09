@@ -17,7 +17,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${area?.title || areaMeta.title} · Zénit`,
-    description: area?.description || areaMeta.description
+    description: area?.description || areaMeta.description,
+    alternates: { canonical: `/aprende/${areaSlug}` }
   };
 }
 

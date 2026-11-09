@@ -26,7 +26,9 @@ type PageProps = {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { area: areaSlug, curso: cursoSlug, slug } = await params;
   const catalogLesson = getLessonBySlug(slug);
-  const canonicalUrl = `${BASE_URL}/aprende/${areaSlug}/${cursoSlug}/${slug}`;
+  const canonicalUrl = catalogLesson
+    ? `${BASE_URL}/aprende/${catalogLesson.area}/${catalogLesson.course}/${catalogLesson.slug}`
+    : `${BASE_URL}/aprende/${areaSlug}/${cursoSlug}/${slug}`;
 
   if (catalogLesson) {
     const courseMeta = COURSE_LABELS[catalogLesson.course];
@@ -37,6 +39,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: pageTitle,
       description: pageDesc,
       keywords: catalogLesson.tags,
+      robots: { index: catalogLesson.publishStatus === "published", follow: true },
       alternates: {
         canonical: canonicalUrl,
       },
@@ -58,6 +61,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${slug.replace(/-/g, " ")} · Sistema Zénit`,
+    robots: { index:false, follow:true },
   };
 }
 

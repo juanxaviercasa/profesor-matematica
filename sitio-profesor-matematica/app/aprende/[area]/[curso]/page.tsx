@@ -9,13 +9,14 @@ type PageProps = {
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { curso } = await params;
+  const { area, curso } = await params;
   const info = COURSE_LABELS[curso];
-  if (!info) return { title: "Curso · Sistema Zénit" };
+  if (!info || info.area !== area) return { title: "Curso no encontrado · Sistema Zénit", robots: { index:false, follow:true } };
 
   return {
     title: `${info.title} · Temario Completo y Web Apps · Zénit`,
     description: info.desc,
+    alternates: { canonical: `/aprende/${area}/${curso}` },
   };
 }
 
@@ -24,7 +25,7 @@ export default async function CoursePage({ params }: PageProps) {
   const courseInfo = COURSE_LABELS[cursoSlug];
   const lessons = getLessonsByCourse(cursoSlug);
 
-  if (!courseInfo && lessons.length === 0) {
+  if (!courseInfo || courseInfo.area !== areaSlug || lessons.length === 0) {
     notFound();
   }
 
