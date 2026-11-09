@@ -99,7 +99,7 @@ export function UniversalInteractiveLab({
                 <span>Parámetro de Escala (a)</span>
                 <span className="font-mono text-emerald-400">{a}</span>
               </div>
-              <input
+              <input aria-label="Parámetro de escala de la gráfica"
                 type="range"
                 min="-3"
                 max="3"
@@ -115,7 +115,7 @@ export function UniversalInteractiveLab({
                 <span>Desplazamiento Horizontal (h)</span>
                 <span className="font-mono text-emerald-400">{h}</span>
               </div>
-              <input
+              <input aria-label="Desplazamiento horizontal de la gráfica"
                 type="range"
                 min="-4"
                 max="4"
@@ -131,7 +131,7 @@ export function UniversalInteractiveLab({
                 <span>Desplazamiento Vertical (k)</span>
                 <span className="font-mono text-emerald-400">{k}</span>
               </div>
-              <input
+              <input aria-label="Desplazamiento vertical de la gráfica"
                 type="range"
                 min="-3"
                 max="3"
@@ -150,7 +150,7 @@ export function UniversalInteractiveLab({
 
         {/* Visual Grapher SVG Stage */}
         <div className="lg:col-span-7 flex flex-col items-center justify-center rounded-xl bg-stone-950 p-4 border border-stone-800 shadow-inner overflow-hidden">
-          <svg viewBox="0 0 420 280" className="w-full h-auto max-h-[300px]">
+          <svg role="img" aria-label="Plano cartesiano de la función transformada con sus parámetros actuales" viewBox="0 0 420 280" className="w-full h-auto max-h-[300px]">
             <CartesianAxes
               width={420}
               height={280}
