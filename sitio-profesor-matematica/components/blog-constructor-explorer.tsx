@@ -151,7 +151,7 @@ export function BlogConstructorExplorer() {
           <div className="flex-1 min-w-[240px] max-w-md">
             <input
               type="search"
-              placeholder="Buscar entre los 584 temas (ej. polinomios, conjuntos, ruffini, circunferencia, límite...)"
+              placeholder={`Buscar entre los ${LESSONS_INDEX.length} temas (ej. polinomios, conjuntos, ruffini, circunferencia, límite...)`}
               value={search}
               onChange={(e) => {
                 setSearch(e.target.value);
@@ -166,7 +166,7 @@ export function BlogConstructorExplorer() {
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-xs font-mono text-stone-400 mr-1">Grado / Nivel:</span>
           {[
-            { id: "all", label: "Todos (584)" },
+            { id: "all", label: `Todos (${LESSONS_INDEX.length})` },
             { id: 1, label: "1.° Secundaria" },
             { id: 2, label: "2.° Secundaria" },
             { id: 3, label: "3.° Secundaria" },
