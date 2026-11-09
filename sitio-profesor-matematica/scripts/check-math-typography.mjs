@@ -57,4 +57,39 @@ assert.match(page,/<MathText source=\{p\}/);
 assert.match(page,/<MathText source=\{par\}/);
 assert.match(read("app/layout.tsx"),/scientific-typesetting\.css/);
 assert.match(read("components/zenit-app-engines.tsx"),/zenit-engine-formula-panel/);
+const complete=JSON.parse(read("content/catalog/lessons-full.json"));
+let inspectedText=0, mathPieces=0, malformedPieces=0;
+const samples=[];
+function inspectText(value,location){
+  if(typeof value!=="string"||!value.trim())return;
+  inspectedText++;
+  for(const part of splitMathText(value)){
+    if(part.type!=="math")continue;
+    mathPieces++;
+    try{katex.renderToString(toLatex(part.value),{throwOnError:true,strict:false,trust:false});}
+    catch(err){
+      malformedPieces++;
+      if(samples.length<14)samples.push({location,tex:part.value.slice(0,90),reason:String(err.message||err).slice(0,100)});
+    }
+  }
+}
+for(const l of complete){
+  for(const slide of l.theorySlides||[]){
+    inspectText(slide.heading,"heading:"+l.slug);
+    for(const p of slide.content||[])inspectText(p,"theory:"+l.slug);
+  }
+  for(const ex of [...(l.exercisesF0||[]),...(l.exercisesFA||[])]){
+    inspectText(ex.statement,"question:"+l.slug);
+    for(const opt of ex.options||[])inspectText(opt,"option:"+l.slug);
+    inspectText(ex.hint,"hint:"+l.slug);
+  }
+  for(const ws of l.workedSolutions||[]){
+    for(const step of ws.steps||[])inspectText(step,"solution:"+l.slug);
+  }
+  for(const section of l.areaBookBlocks||[]){
+    for(const paragraph of section.paragraphs||[])inspectText(paragraph,"book:"+l.slug);
+  }
+}
+console.log("Auditoría de textos completos: "+JSON.stringify({inspectedText,mathPieces,malformedPieces,samples}));
+
 console.log("✓ Capa 08: matemáticas con KaTeX y MathML, texto científico y accesibilidad verificados.");
