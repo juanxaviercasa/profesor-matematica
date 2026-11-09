@@ -402,7 +402,7 @@ export function InfiniteProblemGenerator({
               <button
                 key={idx}
                 onClick={() => handleSelectOption(idx)}
-                disabled={selectedIdx !== null}
+                aria-disabled={selectedIdx !== null}
                 aria-label={`Alternativa ${idx + 1}: ${opt}`}
                 aria-pressed={isSelected}
                 className={`px-3.5 py-2.5 rounded-xl text-left text-xs font-mono border transition-all ${style}`}
