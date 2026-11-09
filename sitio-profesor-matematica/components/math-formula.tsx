@@ -80,5 +80,5 @@ export function MathFormula({source,className="math-formula",displayMode=true,la
   const tex=toLatex(source);
   const html=katex.renderToString(tex,{throwOnError:false,strict:false,displayMode,output:"htmlAndMathml"});
   const Tag=displayMode?"div":"span";
-  return <Tag className={className} aria-label={label||source} dangerouslySetInnerHTML={{__html:html}}/>;
+  return <Tag className={`${className}${displayMode ? " math-scroll-region" : ""}`} role={displayMode ? "group" : undefined} tabIndex={displayMode ? 0 : undefined} aria-label={label || source} dangerouslySetInnerHTML={{__html:html}}/>;
 }
