@@ -142,3 +142,56 @@
 @media (prefers-reduced-motion: reduce) {
   .math-scroll-region { scroll-behavior: auto; }
 }
+
+/* Laboratorios clásicos: controles equivalentes a los motores nuevos. */
+:where(.guided-lab, .lab-shell, .circle-layout, .trig-browser, .transform-studio, .universal-lab-card) {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+:where(.guided-lab, .lab-shell, .circle-layout, .trig-browser, .transform-studio, .universal-lab-card)
+  :is(button, select) {
+  min-block-size: 44px;
+  touch-action: manipulation;
+}
+:where(.guided-lab, .lab-shell, .circle-layout, .trig-browser, .transform-studio, .universal-lab-card)
+  input[type="range"] {
+  display: block;
+  inline-size: 100%;
+  min-inline-size: 0;
+  block-size: 44px;
+  cursor: pointer;
+}
+:where(.guided-lab, .lab-shell, .circle-layout, .trig-browser, .transform-studio, .universal-lab-card)
+  :is(input, button, select, textarea):focus-visible {
+  outline: 3px solid var(--zenit-lime);
+  outline-offset: 3px;
+}
+:where(.guided-lab, .lab-shell, .circle-layout, .trig-browser, .transform-studio, .universal-lab-card)
+  :is(svg, img) {
+  display: block;
+  max-inline-size: 100%;
+}
+:where(.guided-grid, .circle-layout, .transform-studio) > *,
+:where(.guided-lab, .lab-shell, .trig-browser, .universal-lab-card) .grid > * {
+  min-inline-size: 0;
+}
+.lab-step { font-size: max(.8rem, 12px); line-height: 1.5; }
+.lab-slider { min-inline-size: 0; }
+.lab-slider output { margin-inline-start: 12px; }
+.lab-choice { min-block-size: 44px; line-height: 1.45; }
+.family-tabs button, .trig-tabs button { min-block-size: 44px; }
+.ratio-grid span, .wave-metrics span, .intersection-key span { font-size: max(.78rem, 12px); line-height: 1.45; }
+@media (max-width: 640px) {
+  .guided-grid, .lab-shell, .circle-layout, .transform-studio {
+    min-inline-size: 0;
+  }
+  .lab-stage, .lab-controls, .circle-control {
+    padding: clamp(16px, 4vw, 24px);
+  }
+  .lab-graph, .graph-panel, .unit-circle, .wave-graph {
+    min-inline-size: 0;
+    padding: clamp(14px, 4vw, 24px);
+  }
+  .universal-lab-card { padding: 16px; }
+  .lab-slider input[type="range"] { block-size: 48px; }
+}
