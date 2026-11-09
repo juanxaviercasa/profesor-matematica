@@ -65,11 +65,11 @@ export function HerramientasInteractiveHub() {
               Cobertura Curricular del Motor ({matchingLessons.length} lecciones conectadas)
             </span>
             <h3 className="text-2xl font-bold text-white mt-2 leading-snug">
-              Temas de Secundaria, Preuniversitario y Universidad que integran esta Web App
+              Temas que puedes estudiar con esta Web App
             </h3>
           </div>
           <Link href="/blog" className="button secondary text-base">
-            Explorar la biblioteca de lecciones →
+            Ver todas las lecciones →
           </Link>
         </div>
 

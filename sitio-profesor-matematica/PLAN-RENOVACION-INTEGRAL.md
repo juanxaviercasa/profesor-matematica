@@ -140,6 +140,7 @@
 - [x] Corregidos el catálogo, los laboratorios y las lecciones con reglas semánticamente acotadas; se preserva KaTeX y SVG.
 - [x] Tarjetas con relleno y alturas flexibles; ajustes de columnas a 320, 375, 768, 1024 y 1440 px.
 - [x] Guardas automáticas para la escala tipográfica de herramientas y la hoja de legibilidad.
+- [x] Revisión visual de la versión publicada: tarjetas con rótulos legibles en escritorio (1536px) y móvil (390px); corregidos título demasiado largo, CTA partida y WhatsApp flotante que tapa tarjetas.
 - [ ] Revisar capturas después de la publicación y realizar pruebas con zoom del navegador al 200 % sin cortar contenido.
 
 ## Métricas de aceptación pendientes

@@ -18,6 +18,13 @@ assert.match(stylesheet,/font-size:\s*1rem/);
 assert.match(stylesheet,/grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
 assert.match(stylesheet,/min-height:155px/);
 assert.match(stylesheet,/overflow-y:visible/);
+assert.match(stylesheet,/\.offer-chips span/);
+assert.match(stylesheet,/\.diagnostic-hint/);
+assert.match(stylesheet,/\.limit-live-values span/);
+assert.match(stylesheet,/body:has\(\.tools-page-v2\) \.conversion-dock\s*\{\s*display:none;/);
+assert.match(hub,/Ver todas las lecciones →/);
+assert.match(hub,/Temas que puedes estudiar con esta Web App/);
+
 assert.match(hub,/className="zenit-tools-directory space-y-10"/);
 assert.match(hub,/zenit-topic-grid/);
 assert.match(hub,/zenit-topic-meta/);

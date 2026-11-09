@@ -116,3 +116,26 @@ footer .footer-base { font-size:.92rem; line-height:1.55; }
   .zenit-engine-selector-grid,.zenit-topic-grid { grid-template-columns:minmax(0,1fr); }
   .zenit-topic-card .zenit-topic-footer { align-items:flex-start; }
 }
+
+/* Completitud: retirar microtipografía de módulos antiguos, badges y avisos. */
+:where(.curriculum) li p,
+.placeholder-note,
+.formula-top,.formula-bottom,
+.offer-chips span,.offer-promise > span,.price-row span,.funnel-proof p,.funnel-map i,
+.mvp-strip a,.diagnostic-intro > span,.diagnostic-hint,.diagnostic-result > span,
+.representation-caption,.lab-card-top > b,.lab-progress > div,.machine-panel span,
+.legend span,.limit-sim-heading span,.limit-sim-heading > b,.limit-live-values span,
+.limit-simulator > p,.route-grid article > b,.analysis-reveal span,
+.operation-panel > div span,.atlas-list button span,.trig-tabs > b,
+.limit-workbench > span,.approach-graph > div span,.continuity-visual > span {
+  font-size:.9375rem;
+  line-height:1.55;
+}
+:where(.module-layout,.lab-shell,.guided-lab,.lab-hub,.curriculum,.funnel-page,.diagnostic) p {
+  line-height:1.7;
+}
+/* El panel de herramientas ya incluye navegación propia: el flotante no debe
+   cubrir los botones de tarjetas en 320-767 px. */
+@media(max-width:767px) {
+  body:has(.tools-page-v2) .conversion-dock { display:none; }
+}
