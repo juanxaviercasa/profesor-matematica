@@ -202,7 +202,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Header />
-      <main className="topic-view wrap my-10 space-y-10 max-w-5xl mx-auto">
+      <main className="learning-view topic-view wrap my-10 space-y-10 max-w-5xl mx-auto">
         {/* Breadcrumb */}
         <nav className="breadcrumb text-xs text-stone-400 flex flex-wrap items-center gap-2">
           <Link href="/" className="hover:text-stone-200">Inicio</Link>
