@@ -20,10 +20,10 @@ for (const p of [home, about, contact, tools, local]) {
 }
 assert.match(home, /home-start-grid/);
 assert.match(home, /home-teacher-portrait/);
-assert.match(home, /alt="Retrato del profesor Juan Xavier/);
-assert.ok(existsSync(new URL("../public/juan-xavier-cabello.jpg", import.meta.url)));
+assert.match(home, /alt="Retrato de Juan Xavier/);
+assert.ok(existsSync(new URL("../public/juan-xavier.jpg", import.meta.url)));
 assert.match(about, /public-method-grid/);
-assert.match(about, /juan-xavier-cabello\.jpg/);
+assert.match(about, /juan-xavier\.jpg/);
 assert.match(contact, /public-contact-steps/);
 assert.match(contact, /<ConversionForm\/>/);
 assert.match(tools, /<HerramientasInteractiveHub/);

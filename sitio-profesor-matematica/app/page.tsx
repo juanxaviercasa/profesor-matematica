@@ -6,7 +6,7 @@ import { Footer, Header, FormulaCard } from "@/components/site";
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
   title: "Funciones, precálculo y aprendizaje visual | Sistema Zénit",
-  description: "Aprende a comprender funciones con diagnóstico gratuito, lecciones y laboratorios interactivos. Profesor Juan Xavier, matemática en Lima.",
+  description: "Aprende a comprender funciones con diagnóstico gratuito, lecciones y laboratorios interactivos. Juan Xavier, matemática en Lima.",
 };
 
 const paths = [
@@ -27,12 +27,12 @@ export default function Home() {
       <div className="hero-copy">
         <p className="eyebrow">Sistema Zénit · Matemática que conecta</p>
         <h1 id="home-title">Entiende funciones.<br/><em>Prepárate para cálculo.</em></h1>
-        <p className="lead">Aprende con el profesor Juan Xavier, bachiller en Matemática y docente con experiencia escolar y preuniversitaria. Relaciona fórmulas, gráficas y comportamiento antes de entrar a cálculo.</p>
+        <p className="lead">Aprende con Juan Xavier, bachiller en Matemática y docente con experiencia escolar y preuniversitaria. Relaciona fórmulas, gráficas y comportamiento antes de entrar a cálculo.</p>
         <div className="actions">
           <Link className="button" href="/empieza?utm_source=sitio&utm_medium=home&utm_campaign=embudo_funciones">Empezar la ruta gratuita</Link>
           <Link className="text-link" href="/diagnostico/funciones?utm_source=sitio&utm_medium=home&utm_campaign=embudo_funciones">Hacer diagnóstico</Link>
         </div>
-        <div className="proof-line" aria-label="Formación y metodología del profesor"><span>Bachiller en Matemática</span><span>Docencia desde 2018</span><span>Aprendizaje visual</span></div>
+        <div className="proof-line" aria-label="Formación y metodología de Juan Xavier"><span>Bachiller en Matemática</span><span>Docencia desde 2018</span><span>Aprendizaje visual</span></div>
       </div>
       <FormulaCard/>
     </section>
@@ -74,11 +74,11 @@ export default function Home() {
     </section>
 
     <section className="wrap trust home-trust" aria-labelledby="home-teacher-title">
-      <div className="home-teacher-portrait"><Image src="/juan-xavier-cabello.jpg" width={423} height={573} alt="Retrato del profesor Juan Xavier Cabello Salirrosas" sizes="(max-width: 850px) 100vw, 360px"/></div>
+      <div className="home-teacher-portrait"><Image src="/juan-xavier.jpg" width={423} height={573} alt="Retrato de Juan Xavier" sizes="(max-width: 850px) 100vw, 360px"/></div>
       <div className="home-teacher-copy">
-        <p className="eyebrow">Conoce a tu profesor</p>
+        <p className="eyebrow">Conoce a Juan Xavier</p>
         <h2 id="home-teacher-title">Aprende con una persona, no solo con fórmulas.</h2>
-        <p>Soy Juan Xavier Cabello Salirrosas, bachiller en Matemática por la Universidad Nacional de Educación Enrique Guzmán y Valle. He enseñado en secundaria y preparación preuniversitaria en Lima.</p>
+        <p>Soy Juan Xavier, bachiller en Matemática por la Universidad Nacional de Educación Enrique Guzmán y Valle. He enseñado en secundaria y preparación preuniversitaria en Lima.</p>
         <p>Mi enfoque combina explicaciones, práctica guiada y herramientas digitales para comprender lo que representa cada resultado.</p>
         <div className="actions"><Link className="button" href="/sobre-mi">Conocer mi trayectoria</Link><Link className="text-link" href="/profesor-matematicas-lima">Clases en Lima</Link></div>
       </div>

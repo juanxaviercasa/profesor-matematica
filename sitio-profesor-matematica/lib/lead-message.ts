@@ -1,5 +1,5 @@
 export const CONTACT_WHATSAPP = "51925475034";
-export const CONTACT_EMAIL = "cabellosalirrosas@gmail.com";
+export const CONTACT_EMAIL = "contacto@sistemazenit.com";
 export const interestLabels = {
   clases: "Clases de matemática",
   curso: "Programa Funciones sin Vacíos",
@@ -16,7 +16,7 @@ export function parseLeadInterest(value:string|null):LeadInterest {
 }
 export function buildLeadMessage(data:LeadFields):string {
   const lines=[
-    "Hola, quisiera consultar con el profesor Juan Xavier.",
+    "Hola, quisiera consultar con el Juan Xavier.",
     "Nombre: "+cleanLeadField(data.nombre,80),
     "Interés: "+interestLabels[data.interes],
     "Nivel: "+cleanLeadField(data.nivel),

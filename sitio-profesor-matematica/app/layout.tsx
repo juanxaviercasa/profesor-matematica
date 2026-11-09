@@ -15,11 +15,11 @@ import "katex/dist/katex.min.css";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Profesor Juan Xavier · Sistema Zénit",
-    template: "%s · Profesor Juan Xavier",
+    default: "Juan Xavier · Sistema Zénit",
+    template: "%s · Juan Xavier",
   },
   description:
-    "Matemática que conecta: explora lecciones, laboratorios y ejercicios de secundaria, nivel preuniversitario y universitario con el profesor Juan Xavier.",
+    "Matemática que conecta: explora lecciones, laboratorios y ejercicios de secundaria, nivel preuniversitario y universitario con Juan Xavier.",
   keywords: [
     "profesor de matemática en Lima",
     "clases de matemática Lima",
@@ -31,10 +31,10 @@ export const metadata: Metadata = {
     "algebra lineal",
     "web apps matematicas",
   ],
-  authors: [{ name: "Juan Xavier Cabello Salirrosas", url: BASE_URL }],
+  authors: [{ name: "Juan Xavier", url: BASE_URL }],
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
   openGraph: {
-    title: "Profesor Juan Xavier · Sistema Zénit",
+    title: "Juan Xavier · Sistema Zénit",
     images: [{ url: `${BASE_URL}/brand/social-avatar.png`, alt: "Identidad visual de Sistema Zénit" }],
     description:
       "Biblioteca de matemática y ciencias con simuladores interactivos, ejercicios graduados y materiales de aprendizaje.",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     images: [`${BASE_URL}/brand/social-avatar.png`],
-    title: "Profesor Juan Xavier · Sistema Zénit",
+    title: "Juan Xavier · Sistema Zénit",
     description:
       "Matemática que conecta: teoría, herramientas interactivas y práctica guiada.",
   },
@@ -57,8 +57,8 @@ const rootSchema = {
     {
       "@type": "Person",
       "@id": `${BASE_URL}/#docente`,
-      name: "Juan Xavier Cabello Salirrosas",
-      jobTitle: "Profesor de Matemática y Fundador del Sistema Zénit",
+      name: "Juan Xavier",
+      jobTitle: "Docente de Matemática y fundador del Sistema Zénit",
       description:
         "Bachiller en Matemática, con experiencia docente escolar y preuniversitaria en Lima.",
       url: BASE_URL,
@@ -73,7 +73,6 @@ const rootSchema = {
       },
       sameAs: [
         "https://www.tiktok.com/@sistemazenit",
-        "https://www.linkedin.com/in/xaviercabello/",
       ],
     },
     {

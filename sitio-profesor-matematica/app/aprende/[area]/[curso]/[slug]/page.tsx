@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         title: pageTitle,
         description: pageDesc,
         url: canonicalUrl,
-        siteName: "Ecosistema Educativo Zénit · Profesor Juan Xavier",
+        siteName: "Ecosistema Educativo Zénit · Juan Xavier",
         type: "article",
         locale: "es_PE",
       },
@@ -162,7 +162,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
     inLanguage: "es",
     provider: {
       "@type": "Person",
-      name: "Juan Xavier Cabello Salirrosas",
+      name: "Juan Xavier",
       jobTitle: "Docente y Asesor de Matemática Preuniversitaria y Universitaria",
       url: BASE_URL,
     },
