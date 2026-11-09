@@ -42,7 +42,7 @@ export default async function CoursePage({ params }: PageProps) {
   return (
     <>
       <Header />
-      <main className="course-view wrap my-10 space-y-10">
+      <main className="learning-view course-view wrap my-10 space-y-10">
         {/* Breadcrumb */}
         <nav className="breadcrumb text-xs text-stone-400 flex flex-wrap items-center gap-2">
           <Link href="/" className="hover:text-stone-200">Inicio</Link>
