@@ -32,7 +32,7 @@ const labs = [
 
 export function LabHub(){
   const progress=useAllLabProgress();
-  return <div className="lab-catalog">{labs.map(lab=>{const done=progress[lab.slug]||0;return <Link href={lab.href} className="lab-card" key={lab.slug}>
+  return <div className="lab-catalog">{labs.map(lab=>{const done=Math.min(lab.total,Math.max(0,progress[lab.slug]||0));return <Link href={lab.href} className="lab-card" key={lab.slug}>
     <div className="lab-card-top"><span>{lab.n}</span><b>{lab.tag}</b></div><h2>{lab.title}</h2><p>{lab.text}</p>
     <div className="lab-card-progress"><i><span style={{width:`${Math.round(done/lab.total*100)}%`}}/></i><small>{done ? `${done} de ${lab.total} retos` : "Empezar laboratorio"}</small></div>
   </Link>})}</div>;

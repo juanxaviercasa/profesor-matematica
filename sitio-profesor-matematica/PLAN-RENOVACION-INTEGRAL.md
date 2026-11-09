@@ -81,6 +81,10 @@
 - [x] Progreso local: tolerar almacenamiento bloqueado o datos corruptos y actualizar el catálogo en la misma pestaña.
 - [x] Generador: enunciado preciso de conteo de segmentos, sin confundirlo con triángulos.
 - [x] Pruebas automatizadas de evaluación, lecciones y análisis real del catálogo.
+- [x] Pruebas de 6000 ejercicios generados en 12 motores, verificando alternativas distintas y resultados matemáticos seleccionados.
+- [x] Corrección de distractores que podían duplicarse en el Teorema del Resto.
+- [x] Datos estructurados: sin respuestas ficticias cuando una clave no consta, y sin atribuir carácter oficial genérico.
+- [x] Progreso de laboratorio limitado al total de retos, incluso con almacenamiento heredado.
 - [ ] Auditar matemáticamente todos los motores y variantes del generador con casos límite.
 - [ ] Verificar con usuarios reales y lectores de pantalla la usabilidad de todas las lecciones.
 

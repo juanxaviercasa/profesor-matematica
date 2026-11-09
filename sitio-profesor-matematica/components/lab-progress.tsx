@@ -25,9 +25,9 @@ export function trackLab(event: string, lab: string, detail?: string) {
 export function useLabProgress(slug: string, total: number) {
   const [completed, setCompleted] = useState(0);
   useEffect(() => {
-    const frame = window.requestAnimationFrame(() => setCompleted(readProgress()[slug] || 0));
+    const frame = window.requestAnimationFrame(() => setCompleted(Math.min(total,readProgress()[slug] || 0)));
     return () => window.cancelAnimationFrame(frame);
-  }, [slug]);
+  }, [slug, total]);
   const advance = (value: number) => {
     const next = Math.max(completed, Math.min(Math.max(0, total), value));
     setCompleted(next);

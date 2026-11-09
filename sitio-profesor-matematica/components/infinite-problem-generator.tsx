@@ -81,7 +81,7 @@ function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: nu
         `R = ${rem + r1}`,
         `R = ${2 * c * c + r1 * c + r3}`,
         `R = ${rem - 4}`,
-        `R = ${-rem}`,
+        `R = ${rem - (r1 + 6)}`,
       ];
       steps = [
         `Paso 1: Igualamos el divisor a cero: x - ${c} = 0 ⇒ x = ${c}.`,

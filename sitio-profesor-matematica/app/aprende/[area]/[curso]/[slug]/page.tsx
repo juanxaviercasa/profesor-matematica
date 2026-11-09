@@ -168,15 +168,17 @@ export default async function TopicDetailPage({ params }: PageProps) {
       },
       {
         "@type": "Quiz",
-        name: `Banco Oficial de Ejercicios: ${lesson.title}`,
+        name: `Banco de ejercicios: ${lesson.title}`,
         hasPart: (lesson.exercisesF0 || []).slice(0, 3).map((ex) => ({
           "@type": "Question",
           name: `Problema #${ex.number}`,
           text: ex.statement,
-          suggestedAnswer: {
-            "@type": "Answer",
-            text: `Respuesta indicada: ${getVerifiedAnswerKey(ex)?.toUpperCase() || "Sin clave verificada"}`,
-          },
+          ...(getVerifiedAnswerKey(ex) ? {
+            suggestedAnswer: {
+              "@type": "Answer",
+              text: `Clave indicada: ${getVerifiedAnswerKey(ex)?.toUpperCase()}`,
+            },
+          } : {}),
         })),
       },
     ],
