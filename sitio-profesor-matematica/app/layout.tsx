@@ -4,6 +4,7 @@ import { Analytics } from "@/components/analytics";
 import { ConversionDock } from "@/components/conversion";
 import "./globals.css";
 import "./design-system.css";
+import "./responsive-accessibility.css";
 import "katex/dist/katex.min.css";
 
 
