@@ -1093,6 +1093,7 @@ export function ZenitInteractiveApp({
 
         <div className="zenit-engine-formula-panel rounded-xl bg-stone-900/90 px-3 py-2 border border-stone-800">
           <MathFormula source={formulaToDisplay} displayMode={true} />
+          <small className="math-scroll-hint">Desliza horizontalmente para ver la fórmula completa ↔</small>
         </div>
       </div>
 

@@ -90,7 +90,7 @@ export function MathFormula({source,className="math-formula",displayMode=true,la
   }
   const Tag=displayMode?"div":"span";
   const classes=className+(displayMode?" math-scroll-region math-typeset-display":" math-typeset-inline");
-  if(!html)return <Tag className={classes+" math-typeset-fallback"} title="Expresión pendiente de revisar">{source}</Tag>;
+  if(!html)return <Tag className={classes+" math-typeset-fallback"} title="Texto original conservado; notación pendiente de revisión">{source}</Tag>;
   return <Tag className={classes} role={displayMode?"group":undefined} tabIndex={displayMode ? 0 : undefined}
     aria-label={label||undefined} dangerouslySetInnerHTML={{__html:html}}/>;
 }

@@ -330,6 +330,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
               </span>
               <div className="text-lg md:text-xl py-2 overflow-x-auto">
                 <MathFormula source={lesson.keyFormula} displayMode={true} />
+                <small className="math-scroll-hint">En móvil, desliza horizontalmente para ver fórmulas largas ↔</small>
               </div>
             </div>
           )}

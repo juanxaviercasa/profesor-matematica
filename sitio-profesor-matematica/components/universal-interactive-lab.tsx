@@ -81,6 +81,7 @@ export function UniversalInteractiveLab({
         {keyFormula && (
           <div className="zenit-engine-formula-panel rounded-lg bg-stone-950/80 px-3 py-2 border border-stone-800">
             <MathFormula source={keyFormula} displayMode={true} />
+            <small className="math-scroll-hint">Desliza para ver la fórmula completa ↔</small>
           </div>
         )}
       </div>

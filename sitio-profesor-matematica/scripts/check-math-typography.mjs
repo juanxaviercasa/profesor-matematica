@@ -91,5 +91,8 @@ for(const l of complete){
   }
 }
 console.log("Auditoría de textos completos: "+JSON.stringify({inspectedText,mathPieces,malformedPieces,samples:corpusFailures}));
+assert.ok(mathPieces>10000,"El análisis de ejercicios no cubrió el banco completo");
+assert.ok(malformedPieces/mathPieces<0.11,"Demasiados segmentos matemáticos del catálogo no interpretables");
+assert.match(read("app/scientific-typesetting.css"),/math-scroll-hint/);
 
 console.log("✓ Capa 08: matemáticas con KaTeX y MathML, texto científico y accesibilidad verificados.");
