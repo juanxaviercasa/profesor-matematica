@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import { SITE_URL as BASE_URL } from "@/lib/site-config";
 import { Analytics } from "@/components/analytics";
 import { ConversionDock } from "@/components/conversion";
 import "./globals.css";
 import "katex/dist/katex.min.css";
 
-const BASE_URL = "https://funciones-para-calculo.j76018445.chatgpt.site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -74,7 +74,7 @@ const rootSchema = {
       "@id": `${BASE_URL}/#organizacion`,
       name: "Sistema Educativo Zénit",
       url: BASE_URL,
-      logo: `${BASE_URL}/brand/logo.svg`,
+      logo: `${BASE_URL}/brand/zenit-lockup.svg`,
       description:
         "Plataforma y enciclopedia matemática de 628 temas con Web Apps interactivas, solucionarios oficiales y banco graduado de problemas.",
       address: {
