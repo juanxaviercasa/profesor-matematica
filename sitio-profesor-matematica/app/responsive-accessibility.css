@@ -113,6 +113,10 @@
 
 /* Móvil compacto: recuperar espacio para teoría, gráficas y respuestas. */
 @media (max-width: 640px) {
+  .blog-view > section:first-child { padding: 22px; }
+  .blog-view > section:first-child h1 { font-size: clamp(2rem, 8vw, 2.65rem); line-height: 1.13; }
+  .blog-view > section:first-child p { font-size: 1rem; line-height: 1.6; }
+  .blog-view > section:first-child .button { width: 100%; min-height: 44px; }
   .aprende-hub .page-hero { padding-block: 36px 22px; }
   .aprende-hub .page-hero .button { text-align: center; }
 
