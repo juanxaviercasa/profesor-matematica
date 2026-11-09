@@ -201,3 +201,29 @@
 .visual-workbench h3{margin-top:12px}.approach-graph svg,.continuity-visual svg{display:block;width:100%;margin-top:14px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(180deg,#fff 0%,#fbfaf4 100%)}.calculus-grid path{fill:none;stroke:#dfe4df;stroke-width:1}.calculus-axis{fill:none;stroke:#82908b;stroke-width:2}.calculus-target,.calculus-asymptote{fill:none;stroke:var(--orange);stroke-width:3;stroke-dasharray:7 7}.calculus-curve path{fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}.calculus-guides path{fill:none;stroke:#9da9a5;stroke-width:2;stroke-dasharray:5 5}.calculus-hole{fill:var(--white);stroke:var(--orange);stroke-width:5}.calculus-closed{fill:var(--orange);stroke:var(--white);stroke-width:3}.calculus-candidate{fill:var(--lime);stroke:var(--ink);stroke-width:4}.calculus-point{stroke:var(--ink);stroke-width:4}.calculus-point.left{fill:var(--orange)}.calculus-point.right{fill:var(--lime)}.calculus-label{font:800 19px Arial;fill:var(--ink)}.approach-graph>div{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}.approach-graph>div span{padding:9px 10px;border-radius:9px;background:var(--paper);font-size:.72rem}.approach-graph>div i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--orange);margin-right:5px}.approach-graph>div span+span i{background:var(--lime);border:1px solid var(--ink)}.continuity-visual{padding:clamp(26px,4vw,46px);display:flex;flex-direction:column;justify-content:center}.continuity-visual>span{color:var(--orange);font-size:.75rem;font-weight:800;letter-spacing:.14em}.continuity-visual h3{font:500 clamp(1.75rem,3vw,2.45rem) Georgia;margin:10px 0 0}.continuity-visual>p{color:var(--muted);margin:13px 0 0}
 .lab-stage:has(.continuity-checks) .formula-display{font-size:clamp(1.55rem,2.7vw,2rem)}
 @media(max-width:520px){.continuity-checks{grid-template-columns:1fr}.rate-equation{align-items:flex-start;flex-direction:column}.approach-graph>div{grid-template-columns:1fr}.visual-workbench,.continuity-visual{padding:20px}.calculus-label{font-size:24px}}
+/* Zénit: navegación adaptable, contraste y accesibilidad global */
+:root{--accent-ink:#a9311b;--focus-outline:#17745c}
+html{scroll-padding-top:95px}
+h1,h2,h3{overflow-wrap:break-word}
+em{color:var(--accent-ink)}
+.eyebrow:not(.light),.resource-grid article>span,.curriculum li>span,.contact-card span,.experience-list>article>span{color:var(--accent-ink)}
+.dark-section em,.funnel-hero em,.offer-hero em,.lab-hub-hero em,.dark-section .eyebrow,.conversion-form .eyebrow{color:var(--lime)}
+.eyebrow{font-size:max(.78rem,12px);letter-spacing:.1em;line-height:1.45}
+:where(a,button,input,textarea,select,summary,[role="button"]):focus-visible{outline:3px solid var(--focus-outline);outline-offset:3px}
+.dark-section :where(a,button,summary):focus-visible,.conversion-form :where(input,textarea,select,button):focus-visible{outline-color:var(--lime)}
+.button,.nav-cta{min-height:44px}
+.nav{position:relative}
+.nav nav.desktop-links{flex-wrap:nowrap;white-space:nowrap}
+.mobile-menu{display:none;position:relative;margin-left:auto}
+.mobile-menu summary{display:flex;align-items:center;justify-content:center;gap:9px;min-height:44px;min-width:86px;padding:8px 13px;border:1px solid var(--ink);border-radius:999px;font-size:.88rem;font-weight:800;color:var(--ink);background:var(--white);cursor:pointer;list-style:none}
+.mobile-menu summary::-webkit-details-marker{display:none}
+.mobile-menu summary::marker{content:""}
+.mobile-menu[open] summary{background:var(--ink);color:var(--white)}
+.mobile-menu .menu-icon{font-size:1.2rem;line-height:1}
+.mobile-menu nav.mobile-links{display:flex;position:absolute;top:calc(100% + 12px);right:0;z-index:30;width:min(340px,calc(100vw - 28px));flex-direction:column;gap:2px;padding:12px;border:1px solid var(--line);border-radius:18px;background:var(--white);box-shadow:0 18px 45px #142c2733;white-space:normal}
+.mobile-menu .mobile-links a{display:flex;align-items:center;min-height:44px;padding:10px 12px;border-radius:9px;font-size:.95rem;font-weight:700;color:var(--ink)}
+.mobile-menu .mobile-links a:hover{background:var(--paper)}
+.mobile-menu .mobile-links a.mobile-start{background:var(--ink);color:var(--white);margin-top:5px}
+@media(max-width:1050px){.nav nav.desktop-links{display:none}.mobile-menu{display:block}.nav{gap:12px}.nav-cta{margin-left:auto;display:inline-flex;align-items:center}}
+@media(max-width:520px){.site-header .nav-cta{display:none}.brand>img{width:38px;height:38px}.brand-copy b{font-size:.72rem}.mobile-menu summary{min-width:75px}.offer-hero h1{font-size:clamp(2.65rem,10.5vw,3.7rem)}.funnel-hero h1{font-size:clamp(2.5rem,9vw,3.5rem)}.hero{gap:35px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
