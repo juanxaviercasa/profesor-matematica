@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import type { ExtractedExercise, WorkedSolution } from "@/lib/catalog-loader";
+import { getVerifiedAnswerKey, scoreExerciseAnswers } from "@/lib/exercise-evaluation.mjs";
 
 const OPTION_LETTERS = ["a", "b", "c", "d", "e"];
 
@@ -35,22 +36,10 @@ export function InteractiveExerciseBank({
     ...fa.map((ex, idx) => ({ tab: "fa", ex, idx })),
   ];
 
-  let answeredCount = 0;
-  let correctCount = 0;
-  for (const item of allExercisesWithTab) {
-    const key = `${item.tab}-${item.ex.number}-${item.idx}`;
-    const chosenIdx = selectedOptions[key];
-    if (chosenIdx !== undefined) {
-      answeredCount++;
-      const chosenLetter = OPTION_LETTERS[chosenIdx];
-      const expected = (item.ex.answerKey || "a").toLowerCase();
-      if (chosenLetter === expected) {
-        correctCount++;
-      }
-    }
-  }
-
-  const accuracy = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+  const { answeredCount, gradedCount, correctCount, ungradedCount, accuracy } =
+    scoreExerciseAnswers(allExercisesWithTab, selectedOptions);
+  const totalQuestions = allExercisesWithTab.filter(({ ex }) => ex.options?.length > 0).length;
+  const revealResults = !examMode || examSubmitted;
 
   return (
     <section className="exercise-bank my-10 rounded-3xl border border-stone-800 bg-stone-900/50 p-6 md:p-8 space-y-6 shadow-xl">
@@ -59,7 +48,7 @@ export function InteractiveExerciseBank({
         <div>
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold">
-              ● CAPA 2 ACTIVA · SIMULADOR CON CLAVES OFICIALES Y SOLUCIONARIO
+              Práctica guiada · Resultados y soluciones
             </span>
           </div>
           <h2 className="text-2xl font-bold text-white mt-1">
@@ -70,16 +59,22 @@ export function InteractiveExerciseBank({
         {/* Live Score Widget */}
         <div className="flex flex-wrap items-center gap-3 bg-stone-950/90 border border-stone-800 rounded-2xl px-4 py-2.5">
           <div className="text-xs font-mono">
-            <span className="text-stone-400 block text-[10px] uppercase">Puntaje en Vivo</span>
-            <span className="text-emerald-400 font-bold text-sm">
-              {correctCount} / {answeredCount} aciertos ({accuracy}%)
+            <span className="text-stone-300 block text-xs uppercase">{examMode && !examSubmitted ? "Examen en curso" : "Progreso de práctica"}</span>
+            <span className="text-emerald-300 font-bold text-sm" role="status" aria-live="polite">
+              {examMode && !examSubmitted
+                ? `Respondidas: ${answeredCount} / ${totalQuestions}`
+                : gradedCount ? `${correctCount} / ${gradedCount} aciertos (${accuracy}%)` : "Aún no hay respuestas calificables"}
             </span>
+            {revealResults && ungradedCount > 0 && <span className="block text-xs text-amber-200">{ungradedCount} sin clave comprobable, no calificadas</span>}
           </div>
           <div className="h-6 w-px bg-stone-800" />
           <button
             onClick={() => {
               setExamMode(!examMode);
               setExamSubmitted(false);
+              setSelectedOptions({});
+              setRevealedHints({});
+              setActiveTab(initialTab);
             }}
             aria-pressed={examMode}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all ${
@@ -88,11 +83,11 @@ export function InteractiveExerciseBank({
                 : "bg-stone-900 border-stone-700 text-stone-300 hover:border-stone-500"
             }`}
           >
-            {examMode ? "⏱ Modo Examen (Ocultar Claves)" : "⚡ Modo Estudio (Feedback Inmediato)"}
+            {examMode ? "Salir del modo examen" : "Iniciar examen sin pistas"}
           </button>
-          {examMode && answeredCount > 0 && !examSubmitted && (
+          {examMode && totalQuestions > 0 && !examSubmitted && (
             <button
-              onClick={() => setExamSubmitted(true)}
+              onClick={() => { setExamSubmitted(true); setRevealedHints({}); }}
               className="px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-stone-950 hover:bg-emerald-400"
             >
               Calificar Examen
@@ -124,7 +119,7 @@ export function InteractiveExerciseBank({
                 : "bg-stone-950 text-stone-300 border-stone-800 hover:border-stone-700"
             }`}
           >
-            1. Ficha Nivel Cero ({f0.length} problemas + Claves)
+            1. Práctica inicial ({f0.length} problemas)
           </button>
         )}
         {fa.length > 0 && (
@@ -137,10 +132,10 @@ export function InteractiveExerciseBank({
                 : "bg-stone-950 text-stone-300 border-stone-800 hover:border-stone-700"
             }`}
           >
-            2. Ficha Adicional / Avanzada ({fa.length} problemas + Claves)
+            2. Práctica avanzada ({fa.length} problemas)
           </button>
         )}
-        {workedSolutions.length > 0 && (
+        {workedSolutions.length > 0 && revealResults && (
           <button
             onClick={() => setActiveTab("worked")}
              aria-pressed={activeTab === "worked"}
@@ -150,17 +145,17 @@ export function InteractiveExerciseBank({
                 : "bg-stone-950 text-sky-300 border-sky-900/60 hover:border-sky-600"
             }`}
           >
-            3. Solucionario Paso a Paso ({workedSolutions.length} desarrollos oficiales)
+            3. Soluciones paso a paso ({workedSolutions.length})
           </button>
         )}
       </div>
 
       {/* Tab Content: Worked Step-by-Step Solutions */}
-      {activeTab === "worked" ? (
+      {activeTab === "worked" && revealResults ? (
         <div className="space-y-4">
           <div className="rounded-2xl bg-sky-950/30 border border-sky-800/50 p-4 text-xs text-sky-200 flex flex-wrap items-center justify-between gap-2">
             <span>
-              📘 <strong>Solucionario Oficial del Docente (Libro de Actividades y Razonamiento Matemático):</strong> Resoluciones algebraicas y geométricas paso a paso con clave verificada.
+              📘 <strong>Material de resolución:</strong> Desarrollos de referencia para revisar el procedimiento y contrastar tus respuestas.
             </span>
             <span className="font-mono text-sky-300 font-bold">
               {workedSolutions.length} ejercicios desarrollados
@@ -194,9 +189,9 @@ export function InteractiveExerciseBank({
                 </div>
 
                 <div className="pt-2 flex items-center justify-between text-xs font-mono">
-                  <span className="text-stone-400">Verificación completada</span>
+                  <span className="text-stone-300">Revisa cada paso</span>
                   <span className="px-3 py-1 rounded-lg bg-emerald-950/80 text-emerald-300 border border-emerald-700/60 font-bold">
-                    ✓ Clave Oficial: {ws.answerKey.toUpperCase()}
+                    Clave indicada: {ws.answerKey.toUpperCase()}
                   </span>
                 </div>
               </div>
@@ -210,16 +205,17 @@ export function InteractiveExerciseBank({
             const key = `${activeTab}-${ex.number}-${idx}`;
             const chosen = selectedOptions[key];
             const hintShown = revealedHints[key];
-            const expectedLetter = (ex.answerKey || "a").toLowerCase();
+            const expectedLetter = getVerifiedAnswerKey(ex);
             const chosenLetter = chosen !== undefined ? OPTION_LETTERS[chosen] : null;
-            const isCorrect = chosenLetter === expectedLetter;
-            const showFeedback = chosen !== undefined && (!examMode || examSubmitted);
+            const isCorrect = expectedLetter !== null && chosenLetter === expectedLetter;
+            const showFeedback = chosen !== undefined && revealResults;
+            const isGradable = expectedLetter !== null;
 
             return (
               <div
                 key={key}
                 className={`rounded-2xl border p-5 space-y-4 transition-all ${
-                  showFeedback
+                  showFeedback && isGradable
                     ? isCorrect
                       ? "border-emerald-600/60 bg-emerald-950/15"
                       : "border-amber-600/60 bg-amber-950/10"
@@ -240,21 +236,21 @@ export function InteractiveExerciseBank({
                     <span className="text-[11px] text-stone-400 font-mono">
                       {activeTab === "f0" ? "Nivel Cero (Fijación)" : "Nivel Adicional (Competencia)"}
                     </span>
-                    {ex.isOfficialKey && (
+                    {ex.isOfficialKey && isGradable && revealResults && (
                       <span className="text-[10px] font-mono bg-stone-900 text-emerald-400 px-2 py-0.5 rounded border border-stone-800">
                         ✓ Clave Solucionario
                       </span>
                     )}
                   </div>
 
-                  <button
+                  {revealResults && <button
                     onClick={() => setRevealedHints((prev) => ({ ...prev, [key]: !prev[key] }))}
                      aria-expanded={hintShown}
                      aria-label={hintShown ? `Ocultar la pista del problema ${ex.number}` : `Mostrar la pista del problema ${ex.number}`}
                     className="text-xs text-emerald-400 hover:text-emerald-300 font-semibold"
                   >
-                    {hintShown ? "Ocultar pista y clave" : "💡 Ver pista / resolución"}
-                  </button>
+                    {hintShown ? "Ocultar explicación" : "💡 Ver orientación"}
+                  </button>}
                 </div>
 
                 <p className="text-sm md:text-base text-stone-100 leading-relaxed font-medium">
@@ -273,10 +269,10 @@ export function InteractiveExerciseBank({
                       if (isSelected && !showFeedback) {
                         btnStyle = "bg-sky-950 border-sky-500 text-sky-200 font-bold shadow";
                       } else if (showFeedback) {
-                        if (isOptionCorrect) {
+                        if (isOptionCorrect && isGradable) {
                           btnStyle =
                             "bg-emerald-950 border-emerald-500 text-emerald-200 font-bold shadow";
-                        } else if (isSelected && !isOptionCorrect) {
+                        } else if (isSelected && isGradable && !isOptionCorrect) {
                           btnStyle = "bg-rose-950/80 border-rose-500 text-rose-200 font-bold";
                         }
                       }
@@ -286,7 +282,8 @@ export function InteractiveExerciseBank({
                           key={oIdx}
                           aria-pressed={isSelected}
                           aria-label={`Problema ${ex.number}, alternativa ${oIdx + 1}: ${opt}`}
-                          onClick={() => setSelectedOptions((prev) => ({ ...prev, [key]: oIdx }))}
+                          onClick={() => { if (!examMode || !examSubmitted) setSelectedOptions((prev) => ({ ...prev, [key]: oIdx })); }}
+                          aria-disabled={examMode && examSubmitted}
                           className={`px-3 py-2.5 rounded-xl text-left text-xs font-mono transition-all border ${btnStyle}`}
                         >
                           {opt}
@@ -301,25 +298,27 @@ export function InteractiveExerciseBank({
                     role="status"
                     aria-live="polite"
                     className={`rounded-xl p-3 text-xs flex flex-wrap items-center justify-between gap-2 border ${
-                      isCorrect
+                      !isGradable
+                        ? "bg-sky-950/40 border-sky-700/50 text-sky-200"
+                        : isCorrect
                         ? "bg-emerald-950/40 border-emerald-700/50 text-emerald-200"
                         : "bg-amber-950/40 border-amber-700/50 text-amber-200"
                     }`}
                   >
                     <div>
-                      {isCorrect ? (
+                      {!isGradable ? (<span>Esta pregunta no tiene una clave de respuesta comprobable. Tu selección se conserva, pero no se califica.</span>) : isCorrect ? (
                         <span>
                           ✓ <strong>¡Respuesta Correcta!</strong> Marcaste la alternativa{" "}
-                          <strong className="uppercase">{chosenLetter}</strong> (Clave oficial verificada).
+                          <strong className="uppercase">{chosenLetter}</strong> ({ex.isOfficialKey ? "Clave del solucionario" : "Clave del banco de ejercicios"}).
                         </span>
                       ) : (
                         <span>
-                          ✗ Marcaste <strong className="uppercase">{chosenLetter}</strong> · La Clave Oficial verificada es la alternativa{" "}
+                          ✗ Marcaste <strong className="uppercase">{chosenLetter}</strong> · La respuesta indicada es la alternativa{" "}
                           <strong className="uppercase underline">{expectedLetter}</strong>.
                         </span>
                       )}
                     </div>
-                    {workedSolutions.length > 0 && (
+                    {workedSolutions.length > 0 && revealResults && (
                       <button
                         onClick={() => setActiveTab("worked")}
                         className="text-[11px] font-mono font-bold text-sky-300 hover:underline"
@@ -330,17 +329,17 @@ export function InteractiveExerciseBank({
                   </div>
                 )}
 
-                {hintShown && (
+                {hintShown && revealResults && (
                   <div className="rounded-xl bg-stone-900/95 border border-stone-700 p-4 text-xs text-stone-300 space-y-2">
                     <div className="flex items-center justify-between">
                       <strong className="text-amber-400">Guía Metodológica Zénit:</strong>
                       <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 font-mono font-bold border border-emerald-800">
-                        Clave Oficial: {expectedLetter.toUpperCase()}
+                        {expectedLetter ? `Clave de referencia: ${expectedLetter.toUpperCase()}` : "Sin clave comprobable"}
                       </span>
                     </div>
                     <p className="leading-relaxed">
                       {ex.hint ||
-                        `Identifica los datos principales del enunciado de ${topicTitle}, aplica la propiedad del marco teórico y comprueba con el simulador interactivo superior hasta obtener la alternativa ${expectedLetter.toUpperCase()}.`}
+                        `Identifica los datos principales del enunciado de ${topicTitle}, aplica la propiedad del marco teórico y comprueba con el simulador interactivo superior y justifica el resultado con un razonamiento verificable.`}
                     </p>
                   </div>
                 )}

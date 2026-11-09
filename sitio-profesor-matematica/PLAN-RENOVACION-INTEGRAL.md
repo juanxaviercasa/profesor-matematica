@@ -71,6 +71,19 @@
 - [ ] Revisar disponibilidad, precio y condiciones del curso con información comercial confirmada.
 - [ ] Auditar de extremo a extremo el envío a WhatsApp y todas las conversiones (capa 6).
 
+## Quinta intervención — aprendizaje y evaluación (fase inicial)
+- [x] Banco de ejercicios: calificar solo cuando existe una clave explícita y válida; nunca suponer alternativa A.
+- [x] Modo examen: esconder puntaje y pistas antes de calificar; bloquear cambios tras la entrega.
+- [x] Resultados: distinguir ejercicios sin clave de errores reales; mensajes honestos sobre referencias.
+- [x] Datos estructurados de lecciones: eliminar respuesta A ficticia y corregir identificación del profesor.
+- [x] Navegación rápida entre simulación, teoría, práctica, materiales y recomendaciones.
+- [x] Diagnóstico: recomendaciones por competencias falladas en lugar de basarse solo en el total.
+- [x] Progreso local: tolerar almacenamiento bloqueado o datos corruptos y actualizar el catálogo en la misma pestaña.
+- [x] Generador: enunciado preciso de conteo de segmentos, sin confundirlo con triángulos.
+- [x] Pruebas automatizadas de evaluación, lecciones y análisis real del catálogo.
+- [ ] Auditar matemáticamente todos los motores y variantes del generador con casos límite.
+- [ ] Verificar con usuarios reales y lectores de pantalla la usabilidad de todas las lecciones.
+
 ## Métricas de aceptación pendientes
 Contraste 4.5:1 para texto normal; 3:1 para textos grandes. Sin overflow horizontal. Funcionalidad de rutas y formularios. Validación de build y Worker SSR, con pruebas de regresión.
 

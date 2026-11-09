@@ -227,7 +227,7 @@ function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: nu
     case "LogicalReasoningLab": {
       const n = r1 + 4; // 7..13
       const totalTri = (n * (n + 1)) / 2;
-      statement = `[Generado #${seed}] Aplicando razonamiento inductivo («${topicTitle}»), determina el número total de segmentos o triángulos elementales que se pueden contar en una figura cuyos espacios consecutivos en la base están numerados del 1 al n = ${n}.`;
+      statement = `[Generado #${seed}] Aplicando razonamiento inductivo («${topicTitle}»), se marcan ${n + 1} puntos distintos sobre una recta. Determina cuántos segmentos diferentes se pueden formar al elegir dos de esos puntos.`;
       correctVal = `${totalTri}`;
       distractors = [
         `${n * n}`,
@@ -236,8 +236,8 @@ function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: nu
         `${n * (n - 1)}`,
       ];
       steps = [
-        `Paso 1: Identificamos el número de espacios simples consecutivos: n = ${n}.`,
-        `Paso 2: Aplicamos la fórmula inductiva de Gauss: N = n(n + 1) / 2.`,
+        `Paso 1: Entre ${n + 1} puntos consecutivos hay ${n} espacios simples.`,
+        `Paso 2: Cada par de puntos determina un segmento: N = C(n + 1, 2) = n(n + 1) / 2.`,
         `Paso 3: N = ${n} × ${n + 1} / 2 = ${totalTri}.`,
       ];
       break;
@@ -344,13 +344,13 @@ export function InfiniteProblemGenerator({
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
         <div>
           <span className="inline-block rounded-full bg-amber-500/20 border border-amber-500/40 px-3 py-0.5 text-[11px] font-mono font-bold text-amber-300 uppercase">
-            🎲 CAPA 3 · GENERADOR ALGORÍTMICO INFINITO DE PROBLEMAS
+            Práctica adicional · Ejercicios generados
           </span>
           <h3 className="text-xl md:text-2xl font-bold text-white mt-1.5">
-            Entrenador Infinito con Semilla Dinámica
+            Entrenador de ejercicios con nuevos datos
           </h3>
           <p className="text-xs text-stone-400 mt-0.5">
-            ¿Terminaste las fichas del libro? Genera variaciones ilimitadas con nuevos datos numéricos y solución paso a paso al instante.
+            Practica nuevas variaciones numéricas, responde y revisa cada procedimiento paso a paso.
           </p>
         </div>
 
@@ -370,7 +370,7 @@ export function InfiniteProblemGenerator({
 
       <div className="rounded-2xl border border-stone-800 bg-stone-950/90 p-5 space-y-4">
         <div className="flex items-center justify-between text-xs font-mono text-stone-400">
-          <span className="text-amber-300 font-bold">Semilla Algorítmica #{problem.seed}</span>
+          <span className="text-amber-300 font-bold">Ejercicio generado #{problem.seed}</span>
           <button
             onClick={() => setShowSteps((s) => !s)}
              aria-expanded={showSteps}

@@ -32,6 +32,8 @@ jobs:
         run: npm run check:design
       - name: Validar las páginas públicas
         run: npm run check:public
+      - name: Validar evaluación y navegación educativa
+        run: npm run check:learning
       - name: Compilar Vinext y verificar Worker SSR
         run: npm run build
       - name: Verificar salida reproducible

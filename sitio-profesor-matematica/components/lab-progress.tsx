@@ -8,7 +8,11 @@ export type LabProgress = Record<string, number>;
 
 function readProgress(): LabProgress {
   if (typeof window === "undefined") return {};
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); } catch { return {}; }
+  try {
+    const parsed: unknown = JSON.parse(window.localStorage.getItem(STORAGE_KEY) || "{}");
+    if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) return {};
+    return Object.fromEntries(Object.entries(parsed).filter(([slug, value]) => typeof slug === "string" && Number.isInteger(value) && typeof value === "number" && value >= 0));
+  } catch { return {}; }
 }
 
 export function trackLab(event: string, lab: string, detail?: string) {
@@ -25,19 +29,20 @@ export function useLabProgress(slug: string, total: number) {
     return () => window.cancelAnimationFrame(frame);
   }, [slug]);
   const advance = (value: number) => {
-    const next = Math.max(completed, Math.min(total, value));
+    const next = Math.max(completed, Math.min(Math.max(0, total), value));
     setCompleted(next);
     const all = readProgress();
     all[slug] = next;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
-    trackLab(next === total ? "lab_completed" : "lab_progress", slug, `${next}/${total}`);
+    try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(all)); } catch { /* El laboratorio sigue funcionando sin almacenamiento disponible. */ }
+    window.dispatchEvent(new Event("zenit:lab-progress"));
+    if (next !== completed) trackLab(next === total ? "lab_completed" : "lab_progress", slug, `${next}/${total}`);
   };
   return { completed, advance, percent: Math.round((completed / total) * 100) };
 }
 
 export function LabProgressBar({ completed, total }: { completed: number; total: number }) {
-  const percent = Math.round((completed / total) * 100);
-  return <div className="lab-progress" aria-label={`Progreso: ${percent}%`}><div><span>Tu progreso</span><b>{completed}/{total} retos</b></div><i><span style={{ width: `${percent}%` }} /></i></div>;
+  const percent = total > 0 ? Math.round((Math.min(total, Math.max(0, completed)) / total) * 100) : 0;
+  return <div className="lab-progress" role="progressbar" aria-label="Progreso del laboratorio" aria-valuemin={0} aria-valuemax={total} aria-valuenow={Math.min(total, Math.max(0, completed))} aria-valuetext={`${percent}% completado`}><div><span>Tu progreso</span><b>{completed}/{total} retos</b></div><i><span style={{ width: `${percent}%` }} /></i></div>;
 }
 
 export function useAllLabProgress() {
@@ -46,9 +51,11 @@ export function useAllLabProgress() {
     const frame = window.requestAnimationFrame(() => setProgress(readProgress()));
     const refresh = () => setProgress(readProgress());
     window.addEventListener("storage", refresh);
+    window.addEventListener("zenit:lab-progress", refresh);
     return () => {
       window.cancelAnimationFrame(frame);
       window.removeEventListener("storage", refresh);
+      window.removeEventListener("zenit:lab-progress", refresh);
     };
   }, []);
   return progress;

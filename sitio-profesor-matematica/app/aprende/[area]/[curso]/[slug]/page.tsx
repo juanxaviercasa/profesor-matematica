@@ -6,6 +6,7 @@ import Link from "@/components/safe-link";
 import { MathFormula } from "@/components/math-formula";
 import { ZenitInteractiveApp, ZENIT_ENGINES, type AppEngineId } from "@/components/zenit-app-engines";
 import { InteractiveExerciseBank } from "@/components/interactive-exercise-bank";
+import { getVerifiedAnswerKey } from "@/lib/exercise-evaluation.mjs";
 import { InfiniteProblemGenerator } from "@/components/infinite-problem-generator";
 import { InternalKnowledgeMesh } from "@/components/internal-knowledge-mesh";
 import {
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (catalogLesson) {
     const courseMeta = COURSE_LABELS[catalogLesson.course];
     const pageTitle = `${catalogLesson.title} (${catalogLesson.gradeLabel}) · Teoría, Ejercicios y Web App · Zénit`;
-    const pageDesc = `${catalogLesson.summary} Incluye calculadora interactiva, fórmulas clave, banco graduado de ejercicios F0/FA con solucionario oficial y generador infinito.`;
+    const pageDesc = `${catalogLesson.summary} Incluye simulador interactivo, teoría, ejercicios graduados, materiales de resolución cuando están disponibles y práctica adicional.`;
 
     return {
       title: pageTitle,
@@ -153,7 +154,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
     inLanguage: "es",
     provider: {
       "@type": "Person",
-      name: "Profesor Juan Xavier Casa",
+      name: "Juan Xavier Cabello Salirrosas",
       jobTitle: "Docente y Asesor de Matemática Preuniversitaria y Universitaria",
       url: BASE_URL,
     },
@@ -174,7 +175,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
           text: ex.statement,
           suggestedAnswer: {
             "@type": "Answer",
-            text: `Clave oficial verificada: ${ex.answerKey?.toUpperCase() || "A"}`,
+            text: `Respuesta indicada: ${getVerifiedAnswerKey(ex)?.toUpperCase() || "Sin clave verificada"}`,
           },
         })),
       },
@@ -207,7 +208,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
         <nav className="breadcrumb text-xs text-stone-400 flex flex-wrap items-center gap-2">
           <Link href="/" className="hover:text-stone-200">Inicio</Link>
           <span>/</span>
-          <Link href="/blog" className="hover:text-stone-200">Blog y Constructor (628)</Link>
+          <Link href="/blog" className="hover:text-stone-200">Biblioteca de lecciones</Link>
           <span>/</span>
           <Link href={`/aprende/${lesson.area}/${lesson.course}`} className="hover:text-stone-200">
             {courseMeta.icon} {courseMeta.title}
@@ -227,7 +228,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
                 {courseMeta.icon} {courseMeta.title}
               </span>
               <span className="rounded-full bg-sky-500/20 px-3 py-1 text-xs font-mono text-sky-300 border border-sky-500/30">
-                Capa {lesson.onionLayer} (Cebolla)
+                Ruta de aprendizaje
               </span>
             </div>
 
@@ -238,8 +239,8 @@ export default async function TopicDetailPage({ params }: PageProps) {
                   : "bg-stone-950 text-stone-300 border-stone-700"
               }`}>
                 {lesson.publishStatus === "published"
-                  ? "● Publicado en Blog"
-                  : `⏳ Programado Drip: ${lesson.scheduledDate} (Lote #${lesson.dripBatch})`}
+                  ? "● Lección publicada"
+                  : "Material de estudio"}
               </span>
             </div>
           </div>
@@ -252,6 +253,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
             {lesson.summary}
           </p>
 
+          <p className="lesson-approach">Ruta sugerida: observa un ejemplo en el simulador, estudia la teoría y comprueba tus ideas con ejercicios. Puedes volver a cualquier paso.</p>
           {/* Tags & Source Files */}
           <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-stone-800/80 text-xs">
             <div className="flex flex-wrap gap-1.5">
@@ -278,15 +280,27 @@ export default async function TopicDetailPage({ params }: PageProps) {
           </div>
         </section>
 
+        <nav className="lesson-jump-nav" aria-label="Secciones de esta lección">
+          <span>Ir directamente a:</span>
+          <a href="#lesson-simulator">Simulador</a>
+          <a href="#lesson-theory">Teoría</a>
+          {(lesson.exercisesF0.length > 0 || lesson.exercisesFA.length > 0 || (lesson.workedSolutions?.length || 0) > 0) && <a href="#lesson-exercises">Ejercicios</a>}
+          <a href="#lesson-practice">Práctica adicional</a>
+          {(lesson.areaBookBlocks?.length || 0) > 0 && <a href="#lesson-deep-reading">Lectura ampliada</a>}
+          <a href="#lesson-related">Siguientes temas</a>
+        </nav>
+
         {/* Specialized Interactive Web App (Embedded Live) */}
+        <div id="lesson-simulator" className="lesson-anchor">
         <ZenitInteractiveApp
           engineId={lesson.appEngine as AppEngineId}
           topicTitle={lesson.title}
           customFormula={lesson.keyFormula}
         />
+        </div>
 
         {/* Extracted Theory & Slides from Teacher's Book / PPTX */}
-        <section className="space-y-6">
+        <section id="lesson-theory" className="lesson-anchor space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-800 pb-4">
             <div>
               <span className="text-xs font-mono uppercase tracking-wider text-emerald-400">
@@ -348,22 +362,26 @@ export default async function TopicDetailPage({ params }: PageProps) {
         </section>
 
         {/* Extracted Exercises Bank (F0 + FA + Worked Solutions) */}
+        <div id="lesson-exercises" className="lesson-anchor">
         <InteractiveExerciseBank
           f0={lesson.exercisesF0}
           fa={lesson.exercisesFA}
           workedSolutions={lesson.workedSolutions || []}
           topicTitle={lesson.title}
         />
+        </div>
 
         {/* Layer 3: Infinite Algorithmic Problem Generator */}
+        <div id="lesson-practice" className="lesson-anchor">
         <InfiniteProblemGenerator
           engineId={lesson.appEngine as AppEngineId}
           topicTitle={lesson.title}
         />
+        </div>
 
         {/* Layer 3: Extended Textbook Theory (Libro del Área / RM) */}
         {lesson.areaBookBlocks && lesson.areaBookBlocks.length > 0 && (
-          <section className="rounded-3xl border border-stone-800 bg-stone-900/40 p-6 md:p-8 space-y-5">
+          <section id="lesson-deep-reading" className="lesson-anchor rounded-3xl border border-stone-800 bg-stone-900/40 p-6 md:p-8 space-y-5">
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-800 pb-4">
               <div>
                 <span className="text-xs font-mono uppercase tracking-wider text-sky-400 font-bold">
@@ -462,10 +480,12 @@ export default async function TopicDetailPage({ params }: PageProps) {
         )}
 
         {/* Layer 4: Interlinking Knowledge Mesh */}
+        <div id="lesson-related" className="lesson-anchor">
         <InternalKnowledgeMesh
           currentTitle={lesson.title}
           related={relatedLessons}
         />
+        </div>
 
         {/* Next / Prev Navigation in Course */}
         <section className="border-t border-stone-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -483,7 +503,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
             href="/blog"
             className="rounded-xl border border-stone-700 bg-stone-900 px-4 py-2.5 text-xs font-bold text-stone-200 hover:border-emerald-500"
           >
-            Ver las 628 Lecciones
+            Volver a la biblioteca
           </Link>
 
           {nextLesson && (

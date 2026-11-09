@@ -15,7 +15,8 @@
     "check:cloudflare": "node scripts/verify-worker-output.mjs",
     "deploy": "node scripts/deploy-cloudflare.mjs",
     "check:design": "node scripts/check-design-foundation.mjs",
-    "check:public": "node scripts/check-public-pages.mjs"
+    "check:public": "node scripts/check-public-pages.mjs",
+    "check:learning": "node scripts/check-learning.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
