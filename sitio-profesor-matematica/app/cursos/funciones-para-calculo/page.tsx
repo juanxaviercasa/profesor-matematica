@@ -6,7 +6,7 @@ import { Footer, Header } from "@/components/site";
 export const metadata: Metadata = {
   alternates: { canonical: "/cursos/funciones-para-calculo" },
   title:"Funciones sin Vacíos · Curso puente hacia cálculo",
-  description:"Curso de cuatro semanas para interpretar, representar y transformar funciones antes de iniciar cálculo. Edición fundadora del profesor Juan Xavier.",
+  description:"Curso de cuatro semanas para interpretar, representar y transformar funciones antes de iniciar cálculo. Edición fundadora de Juan Xavier.",
 };
 
 const modules=[
