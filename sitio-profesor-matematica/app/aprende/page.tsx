@@ -4,8 +4,8 @@ import Link from "@/components/safe-link";
 import { LESSONS_INDEX, COURSE_LABELS } from "@/lib/catalog-loader";
 
 export const metadata: Metadata = {
-  title: "Portal de Aprendizaje Zénit · 584 Lecciones y 12 Web Apps",
-  description: "Explora la base de conocimiento completa del Profesor Juan Xavier: 584 temas desde 1.° a 5.° de secundaria, matemática preuniversitaria, matemática universitaria y ciencias exactas con Web Apps interactivas."
+  title: "Portal de Aprendizaje Zénit · Matemática, Ciencias y Web Apps",
+  description: "Explora matemática de secundaria, preparación preuniversitaria, nivel universitario y ciencias exactas, con lecciones y aplicaciones interactivas del Sistema Zénit."
 };
 
 export default function AprendeIndexPage() {
