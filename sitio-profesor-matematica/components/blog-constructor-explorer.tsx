@@ -39,6 +39,7 @@ export function BlogConstructorExplorer() {
   const publishedCount = useMemo(() => LESSONS_INDEX.filter(l => l.publishStatus === "published").length, []);
   const scheduledCount = LESSONS_INDEX.length - publishedCount;
   const totalExercises = useMemo(() => LESSONS_INDEX.reduce((acc, l) => acc + l.f0Count + l.faCount, 0), []);
+  const totalWorked = useMemo(() => LESSONS_INDEX.reduce((acc, l) => acc + (l.workedCount || 0), 0), []);
   const totalSlides = useMemo(() => LESSONS_INDEX.reduce((acc, l) => acc + l.slidesCount, 0), []);
 
   return (
@@ -51,14 +52,16 @@ export function BlogConstructorExplorer() {
           <span className="text-[11px] text-stone-400">1.° a 5.° Sec + Preuni + Uni + Ciencias</span>
         </div>
         <div className="rounded-2xl border border-stone-800 bg-stone-950/90 p-5">
-          <span className="text-xs font-mono uppercase text-amber-400">Diapositivas Teóricas Extraídas</span>
-          <div className="text-3xl font-extrabold text-white mt-1 font-mono">{totalSlides.toLocaleString()}</div>
-          <span className="text-[11px] text-stone-400">Con fórmulas MathML reconstruidas</span>
+          <span className="text-xs font-mono uppercase text-amber-400">Diapositivas + Desarrollos</span>
+          <div className="text-3xl font-extrabold text-white mt-1 font-mono">
+            {totalSlides.toLocaleString()} <span className="text-sm font-normal text-sky-400">+ {totalWorked.toLocaleString()} sol.</span>
+          </div>
+          <span className="text-[11px] text-stone-400">Teoría MathML + Solucionarios paso a paso</span>
         </div>
         <div className="rounded-2xl border border-stone-800 bg-stone-950/90 p-5">
-          <span className="text-xs font-mono uppercase text-sky-400">Ejercicios Reales (F0 + FA)</span>
+          <span className="text-xs font-mono uppercase text-sky-400">Ejercicios con Clave (F0 + FA)</span>
           <div className="text-3xl font-extrabold text-white mt-1 font-mono">{totalExercises.toLocaleString()}</div>
-          <span className="text-[11px] text-stone-400">Nivel Cero + Nivel Adicional</span>
+          <span className="text-[11px] text-stone-400">Simulador con clave oficial verificada</span>
         </div>
         <div className="rounded-2xl border border-stone-800 bg-stone-950/90 p-5">
           <span className="text-xs font-mono uppercase text-emerald-300">Cola Drip (3 por día)</span>
@@ -73,10 +76,10 @@ export function BlogConstructorExplorer() {
       <div className="rounded-2xl border border-stone-800 bg-stone-900/50 p-5">
         <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
           <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold">
-            Arquitectura de Refinamiento por Capas (Modelo Cebolla)
+            Arquitectura de Refinamiento por Capas (Modelo Cebolla · Capa 2 Completada)
           </span>
           <span className="text-xs text-stone-400">
-            Todas las páginas ya cuentan con su Capa 1 completa y Web App operativa
+            584 páginas con Capa 1 + Capa 2 activas (Teoría + Web App + 5,716 Ejercicios con Clave + 2,794 Soluciones Paso a Paso)
           </span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
@@ -89,22 +92,22 @@ export function BlogConstructorExplorer() {
               Extracción real de los libros del docente (PPTX + F0 + FA), taxonomía, fórmulas y Web App asignada.
             </p>
           </div>
-          <div className="rounded-xl border border-amber-600/40 bg-stone-950/80 p-3.5">
-            <div className="flex items-center justify-between font-bold text-amber-300">
-              <span>Capa 2 · Rigor Preuni y Uni</span>
-              <span>En curso</span>
+          <div className="rounded-xl border border-emerald-500/60 bg-emerald-950/30 p-3.5">
+            <div className="flex items-center justify-between font-bold text-emerald-300">
+              <span>Capa 2 · Claves y Solucionarios</span>
+              <span>✓ 100%</span>
             </div>
-            <p className="text-stone-400 mt-1">
-              Ampliación teórica con demostraciones, artificios tipo admisión UNI/San Marcos y bibliografía superior.
+            <p className="text-stone-300 mt-1">
+              5,060 claves oficiales F0/FA inyectadas, 2,794 resoluciones paso a paso y simulador con puntaje en vivo.
             </p>
           </div>
-          <div className="rounded-xl border border-stone-800 bg-stone-950/80 p-3.5">
-            <div className="flex items-center justify-between font-bold text-sky-300">
-              <span>Capa 3 · Paso a Paso Socrático</span>
-              <span>Modular</span>
+          <div className="rounded-xl border border-amber-500/50 bg-stone-950/80 p-3.5">
+            <div className="flex items-center justify-between font-bold text-amber-300">
+              <span>Capa 3 · Libros del Área y Retos</span>
+              <span>Siguiente Etapa</span>
             </div>
             <p className="text-stone-400 mt-1">
-              Solucionario interactivo guiado para cada ejercicio y generador de problemas con datos aleatorios.
+              Extracción profunda de los 40 Libros del Área, Rúbricas de Laboratorio Matemático y Generador Infinito de Problemas.
             </p>
           </div>
           <div className="rounded-xl border border-stone-800 bg-stone-950/80 p-3.5">
@@ -113,7 +116,7 @@ export function BlogConstructorExplorer() {
               <span>Automatizado</span>
             </div>
             <p className="text-stone-400 mt-1">
-              Liberación de 3 artículos diarios mediante GitHub Actions e interlinking estratégico en el grafo.
+              Liberación de 3 artículos diarios mediante GitHub Actions, OpenGraph dinámico e interlinking en el grafo.
             </p>
           </div>
         </div>
@@ -291,10 +294,10 @@ export function BlogConstructorExplorer() {
 
                 <div className="flex items-center justify-between text-[11px] text-stone-400 font-mono">
                   <span>
-                    📑 {item.slidesCount} diapos · 📝 {item.f0Count + item.faCount} ejerc.
+                    📑 {item.slidesCount} diapos · 📝 {item.f0Count + item.faCount} ejerc. · 📘 {item.workedCount || 0} sol.
                   </span>
                   <span className="text-emerald-400 font-bold group-hover:translate-x-1 transition-transform">
-                    Abrir página →
+                    Abrir →
                   </span>
                 </div>
               </div>

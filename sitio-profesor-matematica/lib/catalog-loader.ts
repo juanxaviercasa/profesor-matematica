@@ -12,6 +12,16 @@ export interface ExtractedExercise {
   number: number;
   statement: string;
   options: string[];
+  answerKey?: string;
+  isOfficialKey?: boolean;
+  hint?: string;
+}
+
+export interface WorkedSolution {
+  number: number;
+  level: string;
+  steps: string[];
+  answerKey: string;
 }
 
 export interface CatalogLessonIndex {
@@ -36,12 +46,14 @@ export interface CatalogLessonIndex {
   slidesCount: number;
   f0Count: number;
   faCount: number;
+  workedCount?: number;
 }
 
 export interface CatalogLessonFull extends CatalogLessonIndex {
   theorySlides: TheorySlide[];
   exercisesF0: ExtractedExercise[];
   exercisesFA: ExtractedExercise[];
+  workedSolutions?: WorkedSolution[];
   externalLinks: { label: string; url: string }[];
   sourceFiles: Record<string, string>;
   verticalProgressionSlugs?: string[];

@@ -254,10 +254,11 @@ export default async function TopicDetailPage({ params }: PageProps) {
           )}
         </section>
 
-        {/* Extracted Exercises Bank (F0 + FA) */}
+        {/* Extracted Exercises Bank (F0 + FA + Worked Solutions) */}
         <InteractiveExerciseBank
           f0={lesson.exercisesF0}
           fa={lesson.exercisesFA}
+          workedSolutions={lesson.workedSolutions || []}
           topicTitle={lesson.title}
         />
 
