@@ -76,10 +76,10 @@ export function BlogConstructorExplorer() {
       <div className="rounded-2xl border border-stone-800 bg-stone-900/50 p-5">
         <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
           <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold">
-            Arquitectura de Refinamiento por Capas (Modelo Cebolla · Capa 2 Completada)
+            Arquitectura de Refinamiento por Capas (Modelo Cebolla · Capa 3 Completada)
           </span>
           <span className="text-xs text-stone-400">
-            584 páginas con Capa 1 + Capa 2 activas (Teoría + Web App + 5,716 Ejercicios con Clave + 2,794 Soluciones Paso a Paso)
+            {LESSONS_INDEX.length} páginas con Capa 1 + 2 + 3 activas (Teoría + Web App + Fichas F0/FA + Claves Oficiales + Solucionarios + Libro del Área + STEAM + Generador Infinito)
           </span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
@@ -89,7 +89,7 @@ export function BlogConstructorExplorer() {
               <span>✓ 100%</span>
             </div>
             <p className="text-stone-300 mt-1">
-              Extracción real de los libros del docente (PPTX + F0 + FA), taxonomía, fórmulas y Web App asignada.
+              Extracción de diapositivas PPTX, fichas F0/FA, taxonomía curricular y asignación de 12 Web Apps interactivas.
             </p>
           </div>
           <div className="rounded-xl border border-emerald-500/60 bg-emerald-950/30 p-3.5">
@@ -98,25 +98,25 @@ export function BlogConstructorExplorer() {
               <span>✓ 100%</span>
             </div>
             <p className="text-stone-300 mt-1">
-              5,060 claves oficiales F0/FA inyectadas, 2,794 resoluciones paso a paso y simulador con puntaje en vivo.
+              5,060 claves oficiales inyectadas, 2,910 resoluciones paso a paso y simulador con puntaje y modos en vivo.
+            </p>
+          </div>
+          <div className="rounded-xl border border-emerald-500/60 bg-emerald-950/30 p-3.5">
+            <div className="flex items-center justify-between font-bold text-emerald-300">
+              <span>Capa 3 · Libros del Área y STEAM</span>
+              <span>✓ 100%</span>
+            </div>
+            <p className="text-stone-300 mt-1">
+              1,714 lecturas del Libro del Área, 1,757 proyectos STEAM (.docx), 72 temas Uni/Ciencias y Generador Infinito.
             </p>
           </div>
           <div className="rounded-xl border border-amber-500/50 bg-stone-950/80 p-3.5">
             <div className="flex items-center justify-between font-bold text-amber-300">
-              <span>Capa 3 · Libros del Área y Retos</span>
-              <span>Siguiente Etapa</span>
-            </div>
-            <p className="text-stone-400 mt-1">
-              Extracción profunda de los 40 Libros del Área, Rúbricas de Laboratorio Matemático y Generador Infinito de Problemas.
-            </p>
-          </div>
-          <div className="rounded-xl border border-stone-800 bg-stone-950/80 p-3.5">
-            <div className="flex items-center justify-between font-bold text-stone-200">
               <span>Capa 4 · Lanzamiento Drip SEO</span>
-              <span>Automatizado</span>
+              <span>En Automatización</span>
             </div>
             <p className="text-stone-400 mt-1">
-              Liberación de 3 artículos diarios mediante GitHub Actions, OpenGraph dinámico e interlinking en el grafo.
+              Drip publish de 3 páginas/día mediante GitHub Actions, grafo de conocimiento, sitemap dinámico y meta tags.
             </p>
           </div>
         </div>

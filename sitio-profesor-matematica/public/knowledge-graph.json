@@ -1,8 +1,8 @@
 {
   "version": "2.0.0",
-  "generatedAt": "2026-11-09T01:08:27.339Z",
-  "totalLessons": 584,
-  "publishedLessons": 46,
+  "generatedAt": "2026-11-09T01:29:37.592Z",
+  "totalLessons": 628,
+  "publishedLessons": 90,
   "scheduledLessons": 538,
   "baseUrl": "https://funciones-para-calculo.j76018445.chatgpt.site",
   "nodes": [
@@ -15,7 +15,7 @@
       "grade": 1,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "published",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -27,7 +27,7 @@
       "grade": 1,
       "appEngine": "SetVennLab",
       "publishStatus": "published",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -39,7 +39,7 @@
       "grade": 1,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "published",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -51,7 +51,7 @@
       "grade": 1,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "published",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -63,7 +63,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "published",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -75,7 +75,7 @@
       "grade": 1,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "published",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -87,7 +87,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "published",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -99,7 +99,7 @@
       "grade": 1,
       "appEngine": "SetVennLab",
       "publishStatus": "published",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 14
     },
     {
@@ -111,7 +111,7 @@
       "grade": 1,
       "appEngine": "SetVennLab",
       "publishStatus": "published",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -123,7 +123,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "published",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 1
     },
     {
@@ -135,7 +135,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "published",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -147,7 +147,7 @@
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "published",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -159,7 +159,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "published",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 6
     },
     {
@@ -171,7 +171,7 @@
       "grade": 1,
       "appEngine": "SetVennLab",
       "publishStatus": "published",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -183,7 +183,7 @@
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "published",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -195,7 +195,7 @@
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "published",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -207,7 +207,7 @@
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "published",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -219,7 +219,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "published",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -231,7 +231,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 7
     },
     {
@@ -243,7 +243,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -255,7 +255,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -267,7 +267,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -279,7 +279,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -291,7 +291,7 @@
       "grade": 1,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -303,7 +303,7 @@
       "grade": 1,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -315,7 +315,7 @@
       "grade": 1,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -327,7 +327,7 @@
       "grade": 1,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -339,7 +339,7 @@
       "grade": 1,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -351,7 +351,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 4
     },
     {
@@ -363,7 +363,7 @@
       "grade": 1,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 4
     },
     {
@@ -375,7 +375,7 @@
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -387,7 +387,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -399,7 +399,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -411,7 +411,7 @@
       "grade": 1,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 9
     },
     {
@@ -423,7 +423,7 @@
       "grade": 1,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -435,7 +435,7 @@
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -447,7 +447,7 @@
       "grade": 1,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -459,7 +459,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -471,7 +471,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -483,7 +483,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -495,7 +495,7 @@
       "grade": 1,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -507,7 +507,7 @@
       "grade": 1,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -519,7 +519,7 @@
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -531,7 +531,7 @@
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 13
     },
     {
@@ -543,7 +543,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -555,7 +555,7 @@
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -567,7 +567,7 @@
       "grade": 1,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -579,7 +579,7 @@
       "grade": 1,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -591,7 +591,7 @@
       "grade": 1,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 6
     },
     {
@@ -603,7 +603,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -615,7 +615,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -627,7 +627,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -639,7 +639,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -651,7 +651,7 @@
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -663,7 +663,7 @@
       "grade": 1,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -675,7 +675,7 @@
       "grade": 1,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -687,7 +687,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -699,7 +699,7 @@
       "grade": 1,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -711,7 +711,7 @@
       "grade": 1,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -723,7 +723,7 @@
       "grade": 1,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -735,7 +735,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -747,7 +747,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -759,7 +759,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -771,7 +771,7 @@
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -783,7 +783,7 @@
       "grade": 1,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -795,7 +795,7 @@
       "grade": 1,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -807,7 +807,7 @@
       "grade": 1,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -819,7 +819,7 @@
       "grade": 1,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 5
     },
     {
@@ -831,7 +831,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -843,7 +843,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -855,7 +855,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -867,7 +867,7 @@
       "grade": 1,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -879,7 +879,7 @@
       "grade": 1,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -891,7 +891,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -903,7 +903,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -915,7 +915,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -927,7 +927,7 @@
       "grade": 1,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -939,7 +939,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -951,7 +951,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -963,7 +963,7 @@
       "grade": 1,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -975,7 +975,7 @@
       "grade": 1,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -987,7 +987,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -999,7 +999,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -1011,7 +1011,7 @@
       "grade": 1,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -1023,7 +1023,7 @@
       "grade": 1,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -1035,7 +1035,7 @@
       "grade": 1,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -1047,7 +1047,7 @@
       "grade": 1,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1059,7 +1059,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1071,7 +1071,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1083,7 +1083,7 @@
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -1095,7 +1095,7 @@
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1107,7 +1107,7 @@
       "grade": 1,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1119,7 +1119,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -1131,7 +1131,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1143,7 +1143,7 @@
       "grade": 1,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 15
     },
     {
@@ -1155,7 +1155,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1167,7 +1167,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1179,7 +1179,7 @@
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 14
     },
     {
@@ -1191,7 +1191,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -1203,7 +1203,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1215,7 +1215,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1227,7 +1227,7 @@
       "grade": 1,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1239,7 +1239,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1251,7 +1251,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1263,7 +1263,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1275,7 +1275,7 @@
       "grade": 1,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1287,7 +1287,7 @@
       "grade": 1,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -1299,7 +1299,7 @@
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 12
     },
     {
@@ -1311,7 +1311,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1323,7 +1323,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -1335,7 +1335,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1347,7 +1347,7 @@
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1359,7 +1359,7 @@
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -1371,7 +1371,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1383,7 +1383,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1395,7 +1395,7 @@
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1407,7 +1407,7 @@
       "grade": 1,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1419,7 +1419,7 @@
       "grade": 1,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1431,7 +1431,7 @@
       "grade": 1,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1443,7 +1443,7 @@
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1455,7 +1455,7 @@
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1467,7 +1467,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -1479,7 +1479,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1491,7 +1491,7 @@
       "grade": 1,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1503,7 +1503,7 @@
       "grade": 2,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1515,7 +1515,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1527,7 +1527,7 @@
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1539,7 +1539,7 @@
       "grade": 2,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -1551,7 +1551,7 @@
       "grade": 2,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1563,7 +1563,7 @@
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -1575,7 +1575,7 @@
       "grade": 2,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 11
     },
     {
@@ -1587,7 +1587,7 @@
       "grade": 2,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1599,7 +1599,7 @@
       "grade": 2,
       "appEngine": "SetVennLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 12
     },
     {
@@ -1611,7 +1611,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1623,7 +1623,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1635,7 +1635,7 @@
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1647,7 +1647,7 @@
       "grade": 2,
       "appEngine": "SetVennLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -1659,7 +1659,7 @@
       "grade": 2,
       "appEngine": "SetVennLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1671,7 +1671,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 3
     },
     {
@@ -1683,7 +1683,7 @@
       "grade": 2,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 3
     },
     {
@@ -1695,7 +1695,7 @@
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1707,7 +1707,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1719,7 +1719,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -1731,7 +1731,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1743,7 +1743,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1755,7 +1755,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1767,7 +1767,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1779,7 +1779,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1791,7 +1791,7 @@
       "grade": 2,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 9
     },
     {
@@ -1803,7 +1803,7 @@
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1815,7 +1815,7 @@
       "grade": 2,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -1827,7 +1827,7 @@
       "grade": 2,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1839,7 +1839,7 @@
       "grade": 2,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1851,7 +1851,7 @@
       "grade": 2,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -1863,7 +1863,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1875,7 +1875,7 @@
       "grade": 2,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1887,7 +1887,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1899,7 +1899,7 @@
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -1911,7 +1911,7 @@
       "grade": 2,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1923,7 +1923,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1935,7 +1935,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -1947,7 +1947,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1959,7 +1959,7 @@
       "grade": 2,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1971,7 +1971,7 @@
       "grade": 2,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -1983,7 +1983,7 @@
       "grade": 2,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -1995,7 +1995,7 @@
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 6
     },
     {
@@ -2007,7 +2007,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 2
     },
     {
@@ -2019,7 +2019,7 @@
       "grade": 2,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 3
     },
     {
@@ -2031,7 +2031,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2043,7 +2043,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2055,7 +2055,7 @@
       "grade": 2,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 13
     },
     {
@@ -2067,7 +2067,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2079,7 +2079,7 @@
       "grade": 2,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2091,7 +2091,7 @@
       "grade": 2,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2103,7 +2103,7 @@
       "grade": 2,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 3
     },
     {
@@ -2115,7 +2115,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -2127,7 +2127,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -2139,7 +2139,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2151,7 +2151,7 @@
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2163,7 +2163,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -2175,7 +2175,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2187,7 +2187,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2199,7 +2199,7 @@
       "grade": 2,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2211,7 +2211,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2223,7 +2223,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2235,7 +2235,7 @@
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -2247,7 +2247,7 @@
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2259,7 +2259,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2271,7 +2271,7 @@
       "grade": 2,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2283,7 +2283,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2295,7 +2295,7 @@
       "grade": 2,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2307,7 +2307,7 @@
       "grade": 2,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2319,7 +2319,7 @@
       "grade": 2,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 14
     },
     {
@@ -2331,7 +2331,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2343,7 +2343,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2355,7 +2355,7 @@
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2367,7 +2367,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2379,7 +2379,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -2391,7 +2391,7 @@
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2403,7 +2403,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2415,7 +2415,7 @@
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 2
     },
     {
@@ -2427,7 +2427,7 @@
       "grade": 2,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2439,7 +2439,7 @@
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -2451,7 +2451,7 @@
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2463,7 +2463,7 @@
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2475,7 +2475,7 @@
       "grade": 2,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2487,7 +2487,7 @@
       "grade": 2,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 9
     },
     {
@@ -2499,7 +2499,7 @@
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2511,7 +2511,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2523,7 +2523,7 @@
       "grade": 2,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2535,7 +2535,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2547,7 +2547,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2559,7 +2559,7 @@
       "grade": 2,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2571,7 +2571,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2583,7 +2583,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2595,7 +2595,7 @@
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2607,7 +2607,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2619,7 +2619,7 @@
       "grade": 2,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2631,7 +2631,7 @@
       "grade": 2,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2643,7 +2643,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2655,7 +2655,7 @@
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 15
     },
     {
@@ -2667,7 +2667,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2679,7 +2679,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2691,7 +2691,7 @@
       "grade": 2,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2703,7 +2703,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -2715,7 +2715,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2727,7 +2727,7 @@
       "grade": 2,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2739,7 +2739,7 @@
       "grade": 2,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -2751,7 +2751,7 @@
       "grade": 2,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2763,7 +2763,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2775,7 +2775,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2787,7 +2787,7 @@
       "grade": 2,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2799,7 +2799,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2811,7 +2811,7 @@
       "grade": 2,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 13
     },
     {
@@ -2823,7 +2823,7 @@
       "grade": 2,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2835,7 +2835,7 @@
       "grade": 2,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2847,7 +2847,7 @@
       "grade": 2,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2859,7 +2859,7 @@
       "grade": 2,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2871,7 +2871,7 @@
       "grade": 2,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -2883,7 +2883,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2895,7 +2895,7 @@
       "grade": 3,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -2907,7 +2907,7 @@
       "grade": 3,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2919,7 +2919,7 @@
       "grade": 3,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2931,7 +2931,7 @@
       "grade": 3,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2943,7 +2943,7 @@
       "grade": 3,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2955,7 +2955,7 @@
       "grade": 3,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2967,7 +2967,7 @@
       "grade": 3,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -2979,7 +2979,7 @@
       "grade": 3,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -2991,7 +2991,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3003,7 +3003,7 @@
       "grade": 3,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3015,7 +3015,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3027,7 +3027,7 @@
       "grade": 3,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 6
     },
     {
@@ -3039,7 +3039,7 @@
       "grade": 3,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3051,7 +3051,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3063,7 +3063,7 @@
       "grade": 3,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 14
     },
     {
@@ -3075,7 +3075,7 @@
       "grade": 3,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3087,7 +3087,7 @@
       "grade": 3,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3099,7 +3099,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -3111,7 +3111,7 @@
       "grade": 3,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3123,7 +3123,7 @@
       "grade": 3,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 7
     },
     {
@@ -3135,7 +3135,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3147,7 +3147,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3159,7 +3159,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3171,7 +3171,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3183,7 +3183,7 @@
       "grade": 3,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 5
     },
     {
@@ -3195,7 +3195,7 @@
       "grade": 3,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3207,7 +3207,7 @@
       "grade": 3,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3219,7 +3219,7 @@
       "grade": 3,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3231,7 +3231,7 @@
       "grade": 3,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3243,7 +3243,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3255,7 +3255,7 @@
       "grade": 3,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 6
     },
     {
@@ -3267,7 +3267,7 @@
       "grade": 3,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3279,7 +3279,7 @@
       "grade": 3,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3291,7 +3291,7 @@
       "grade": 3,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3303,7 +3303,7 @@
       "grade": 3,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 10
     },
     {
@@ -3315,7 +3315,7 @@
       "grade": 3,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3327,7 +3327,7 @@
       "grade": 3,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3339,7 +3339,7 @@
       "grade": 3,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3351,7 +3351,7 @@
       "grade": 3,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3363,7 +3363,7 @@
       "grade": 3,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -3375,7 +3375,7 @@
       "grade": 3,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3387,7 +3387,7 @@
       "grade": 3,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3399,7 +3399,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3411,7 +3411,7 @@
       "grade": 3,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -3423,7 +3423,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3435,7 +3435,7 @@
       "grade": 3,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3447,7 +3447,7 @@
       "grade": 3,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3459,7 +3459,7 @@
       "grade": 3,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 14
     },
     {
@@ -3471,7 +3471,7 @@
       "grade": 3,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3483,7 +3483,7 @@
       "grade": 3,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3495,7 +3495,7 @@
       "grade": 3,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3507,7 +3507,7 @@
       "grade": 3,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -3519,7 +3519,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3531,7 +3531,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3543,7 +3543,7 @@
       "grade": 3,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -3555,7 +3555,7 @@
       "grade": 3,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3567,7 +3567,7 @@
       "grade": 3,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3579,7 +3579,7 @@
       "grade": 3,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3591,7 +3591,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -3603,7 +3603,7 @@
       "grade": 3,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3615,7 +3615,7 @@
       "grade": 3,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -3627,7 +3627,7 @@
       "grade": 3,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3639,7 +3639,7 @@
       "grade": 3,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3651,7 +3651,7 @@
       "grade": 3,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 6
     },
     {
@@ -3663,7 +3663,7 @@
       "grade": 3,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3675,7 +3675,7 @@
       "grade": 3,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 9
     },
     {
@@ -3687,7 +3687,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3699,7 +3699,7 @@
       "grade": 3,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3711,7 +3711,7 @@
       "grade": 3,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3723,7 +3723,7 @@
       "grade": 3,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -3735,7 +3735,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3747,7 +3747,7 @@
       "grade": 3,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3759,7 +3759,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3771,7 +3771,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 7
     },
     {
@@ -3783,7 +3783,7 @@
       "grade": 3,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3795,7 +3795,7 @@
       "grade": 3,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 7
     },
     {
@@ -3807,7 +3807,7 @@
       "grade": 3,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3819,7 +3819,7 @@
       "grade": 3,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3831,7 +3831,7 @@
       "grade": 3,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3843,7 +3843,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -3855,7 +3855,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3867,7 +3867,7 @@
       "grade": 3,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3879,7 +3879,7 @@
       "grade": 3,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3891,7 +3891,7 @@
       "grade": 3,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3903,7 +3903,7 @@
       "grade": 3,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3915,7 +3915,7 @@
       "grade": 3,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3927,7 +3927,7 @@
       "grade": 3,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3939,7 +3939,7 @@
       "grade": 3,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3951,7 +3951,7 @@
       "grade": 3,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3963,7 +3963,7 @@
       "grade": 3,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3975,7 +3975,7 @@
       "grade": 3,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -3987,7 +3987,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -3999,7 +3999,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4011,7 +4011,7 @@
       "grade": 3,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4023,7 +4023,7 @@
       "grade": 3,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4035,7 +4035,7 @@
       "grade": 3,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4047,7 +4047,7 @@
       "grade": 3,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4059,7 +4059,7 @@
       "grade": 4,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -4071,7 +4071,7 @@
       "grade": 4,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 7
     },
     {
@@ -4083,7 +4083,7 @@
       "grade": 4,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 4
     },
     {
@@ -4095,7 +4095,7 @@
       "grade": 4,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 4
     },
     {
@@ -4107,7 +4107,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4119,7 +4119,7 @@
       "grade": 4,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4131,7 +4131,7 @@
       "grade": 4,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4143,7 +4143,7 @@
       "grade": 4,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4155,7 +4155,7 @@
       "grade": 4,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4167,7 +4167,7 @@
       "grade": 4,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -4179,7 +4179,7 @@
       "grade": 4,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4191,7 +4191,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4203,7 +4203,7 @@
       "grade": 4,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -4215,7 +4215,7 @@
       "grade": 4,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4227,7 +4227,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4239,7 +4239,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -4251,7 +4251,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4263,7 +4263,7 @@
       "grade": 4,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4275,7 +4275,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4287,7 +4287,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -4299,7 +4299,7 @@
       "grade": 4,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -4311,7 +4311,7 @@
       "grade": 4,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -4323,7 +4323,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -4335,7 +4335,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4347,7 +4347,7 @@
       "grade": 4,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 5
     },
     {
@@ -4359,7 +4359,7 @@
       "grade": 4,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 3
     },
     {
@@ -4371,7 +4371,7 @@
       "grade": 4,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4383,7 +4383,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 15
     },
     {
@@ -4395,7 +4395,7 @@
       "grade": 4,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4407,7 +4407,7 @@
       "grade": 4,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 14
     },
     {
@@ -4419,7 +4419,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -4431,7 +4431,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4443,7 +4443,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -4455,7 +4455,7 @@
       "grade": 4,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -4467,7 +4467,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4479,7 +4479,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -4491,7 +4491,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -4503,7 +4503,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -4515,7 +4515,7 @@
       "grade": 4,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4527,7 +4527,7 @@
       "grade": 4,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4539,7 +4539,7 @@
       "grade": 4,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -4551,7 +4551,7 @@
       "grade": 4,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -4563,7 +4563,7 @@
       "grade": 4,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 11
     },
     {
@@ -4575,7 +4575,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4587,7 +4587,7 @@
       "grade": 4,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -4599,7 +4599,7 @@
       "grade": 4,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4611,7 +4611,7 @@
       "grade": 4,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4623,7 +4623,7 @@
       "grade": 4,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4635,7 +4635,7 @@
       "grade": 4,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -4647,7 +4647,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -4659,7 +4659,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4671,7 +4671,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -4683,7 +4683,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -4695,7 +4695,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -4707,7 +4707,7 @@
       "grade": 4,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -4719,7 +4719,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4731,7 +4731,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4743,7 +4743,7 @@
       "grade": 4,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4755,7 +4755,7 @@
       "grade": 4,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -4767,7 +4767,7 @@
       "grade": 4,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4779,7 +4779,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4791,7 +4791,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 13
     },
     {
@@ -4803,7 +4803,7 @@
       "grade": 4,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -4815,7 +4815,7 @@
       "grade": 4,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -4827,7 +4827,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4839,7 +4839,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4851,7 +4851,7 @@
       "grade": 4,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4863,7 +4863,7 @@
       "grade": 4,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -4875,7 +4875,7 @@
       "grade": 4,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -4887,7 +4887,7 @@
       "grade": 4,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -4899,7 +4899,7 @@
       "grade": 4,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4911,7 +4911,7 @@
       "grade": 4,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4923,7 +4923,7 @@
       "grade": 4,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4935,7 +4935,7 @@
       "grade": 4,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -4947,7 +4947,7 @@
       "grade": 4,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -4959,7 +4959,7 @@
       "grade": 4,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 6
     },
     {
@@ -4971,7 +4971,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -4983,7 +4983,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -4995,7 +4995,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5007,7 +5007,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5019,7 +5019,7 @@
       "grade": 4,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5031,7 +5031,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5043,7 +5043,7 @@
       "grade": 4,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5055,7 +5055,7 @@
       "grade": 4,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5067,7 +5067,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5079,7 +5079,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5091,7 +5091,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5103,7 +5103,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5115,7 +5115,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5127,7 +5127,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5139,7 +5139,7 @@
       "grade": 4,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5151,7 +5151,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 7
     },
     {
@@ -5163,7 +5163,7 @@
       "grade": 4,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5175,7 +5175,7 @@
       "grade": 4,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -5187,7 +5187,7 @@
       "grade": 4,
       "appEngine": "AnalyticConicsLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5199,7 +5199,7 @@
       "grade": 4,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5211,7 +5211,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5223,7 +5223,7 @@
       "grade": 4,
       "appEngine": "AnalyticConicsLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5235,7 +5235,7 @@
       "grade": 4,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5247,7 +5247,7 @@
       "grade": 4,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5259,7 +5259,7 @@
       "grade": 4,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5271,7 +5271,7 @@
       "grade": 4,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5283,7 +5283,7 @@
       "grade": 4,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5295,7 +5295,7 @@
       "grade": 5,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5307,7 +5307,7 @@
       "grade": 5,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5319,7 +5319,7 @@
       "grade": 5,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 7
     },
     {
@@ -5331,7 +5331,7 @@
       "grade": 5,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5343,7 +5343,7 @@
       "grade": 5,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5355,7 +5355,7 @@
       "grade": 5,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5367,7 +5367,7 @@
       "grade": 5,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5379,7 +5379,7 @@
       "grade": 5,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5391,7 +5391,7 @@
       "grade": 5,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -5403,7 +5403,7 @@
       "grade": 5,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5415,7 +5415,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -5427,7 +5427,7 @@
       "grade": 5,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5439,7 +5439,7 @@
       "grade": 5,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 7
     },
     {
@@ -5451,7 +5451,7 @@
       "grade": 5,
       "appEngine": "PolynomialAlgebraLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5463,7 +5463,7 @@
       "grade": 5,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5475,7 +5475,7 @@
       "grade": 5,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5487,7 +5487,7 @@
       "grade": 5,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5499,7 +5499,7 @@
       "grade": 5,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5511,7 +5511,7 @@
       "grade": 5,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5523,7 +5523,7 @@
       "grade": 5,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5535,7 +5535,7 @@
       "grade": 5,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5547,7 +5547,7 @@
       "grade": 5,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5559,7 +5559,7 @@
       "grade": 5,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5571,7 +5571,7 @@
       "grade": 5,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -5583,7 +5583,7 @@
       "grade": 5,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -5595,7 +5595,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5607,7 +5607,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5619,7 +5619,7 @@
       "grade": 5,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 5
     },
     {
@@ -5631,7 +5631,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5643,7 +5643,7 @@
       "grade": 5,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5655,7 +5655,7 @@
       "grade": 5,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -5667,7 +5667,7 @@
       "grade": 5,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5679,7 +5679,7 @@
       "grade": 5,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5691,7 +5691,7 @@
       "grade": 5,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -5703,7 +5703,7 @@
       "grade": 5,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5715,7 +5715,7 @@
       "grade": 5,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -5727,7 +5727,7 @@
       "grade": 5,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 13
     },
     {
@@ -5739,7 +5739,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -5751,7 +5751,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5763,7 +5763,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5775,7 +5775,7 @@
       "grade": 5,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5787,7 +5787,7 @@
       "grade": 5,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5799,7 +5799,7 @@
       "grade": 5,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5811,7 +5811,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -5823,7 +5823,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5835,7 +5835,7 @@
       "grade": 5,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5847,7 +5847,7 @@
       "grade": 5,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -5859,7 +5859,7 @@
       "grade": 5,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5871,7 +5871,7 @@
       "grade": 5,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 14
     },
     {
@@ -5883,7 +5883,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5895,7 +5895,7 @@
       "grade": 5,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5907,7 +5907,7 @@
       "grade": 5,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5919,7 +5919,7 @@
       "grade": 5,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -5931,7 +5931,7 @@
       "grade": 5,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5943,7 +5943,7 @@
       "grade": 5,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5955,7 +5955,7 @@
       "grade": 5,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -5967,7 +5967,7 @@
       "grade": 5,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -5979,7 +5979,7 @@
       "grade": 5,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -5991,7 +5991,7 @@
       "grade": 5,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6003,7 +6003,7 @@
       "grade": 5,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6015,7 +6015,7 @@
       "grade": 5,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 14
     },
     {
@@ -6027,7 +6027,7 @@
       "grade": 5,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6039,7 +6039,7 @@
       "grade": 5,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -6051,7 +6051,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6063,7 +6063,7 @@
       "grade": 5,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6075,7 +6075,7 @@
       "grade": 5,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6087,7 +6087,7 @@
       "grade": 5,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6099,7 +6099,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6111,7 +6111,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 5
     },
     {
@@ -6123,7 +6123,7 @@
       "grade": 5,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6135,7 +6135,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -6147,7 +6147,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6159,7 +6159,7 @@
       "grade": 5,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6171,7 +6171,7 @@
       "grade": 5,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -6183,7 +6183,7 @@
       "grade": 5,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6195,7 +6195,7 @@
       "grade": 5,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6207,7 +6207,7 @@
       "grade": 5,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 5
     },
     {
@@ -6219,7 +6219,7 @@
       "grade": 5,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6231,7 +6231,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6243,7 +6243,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6255,7 +6255,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6267,7 +6267,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6279,7 +6279,7 @@
       "grade": 5,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6291,7 +6291,7 @@
       "grade": 5,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -6303,7 +6303,7 @@
       "grade": 5,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6315,7 +6315,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 5
     },
     {
@@ -6327,7 +6327,7 @@
       "grade": 5,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6339,7 +6339,7 @@
       "grade": 5,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -6351,7 +6351,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6363,7 +6363,7 @@
       "grade": 5,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6375,7 +6375,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6387,7 +6387,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6399,7 +6399,7 @@
       "grade": 5,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6411,7 +6411,7 @@
       "grade": 5,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6423,7 +6423,7 @@
       "grade": 5,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6435,7 +6435,7 @@
       "grade": 5,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -6447,7 +6447,7 @@
       "grade": 5,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6459,7 +6459,7 @@
       "grade": 5,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6471,7 +6471,7 @@
       "grade": 5,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6483,7 +6483,7 @@
       "grade": 5,
       "appEngine": "GeometryInteractiveLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6495,7 +6495,7 @@
       "grade": 5,
       "appEngine": "AnalyticConicsLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6507,7 +6507,7 @@
       "grade": 5,
       "appEngine": "AnalyticConicsLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6519,7 +6519,7 @@
       "grade": 5,
       "appEngine": "AnalyticConicsLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6531,7 +6531,7 @@
       "grade": 5,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6543,7 +6543,7 @@
       "grade": 5,
       "appEngine": "AnalyticConicsLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 0
     },
     {
@@ -6555,7 +6555,7 @@
       "grade": 5,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 15
     },
     {
@@ -6567,7 +6567,7 @@
       "grade": 5,
       "appEngine": "TrigonometryCircleLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6579,7 +6579,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6591,7 +6591,7 @@
       "grade": 5,
       "appEngine": "AnalyticConicsLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6603,7 +6603,7 @@
       "grade": 5,
       "appEngine": "FunctionCartesianLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6615,7 +6615,7 @@
       "grade": 5,
       "appEngine": "StatisticsProbabilityLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 14
     },
     {
@@ -6627,7 +6627,7 @@
       "grade": 5,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6639,7 +6639,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 16
     },
     {
@@ -6651,7 +6651,7 @@
       "grade": 5,
       "appEngine": "NumberTheoryLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6663,7 +6663,7 @@
       "grade": 5,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6675,7 +6675,7 @@
       "grade": 5,
       "appEngine": "LogicalReasoningLab",
       "publishStatus": "scheduled",
-      "onionLayer": 2,
+      "onionLayer": 3,
       "exerciseCount": 8
     },
     {
@@ -6687,8 +6687,8 @@
       "grade": 6,
       "appEngine": "CalculusAnalysisLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-calculo-1-limites-laterales-infinitos-y-asintotas",
@@ -6699,8 +6699,8 @@
       "grade": 6,
       "appEngine": "CalculusAnalysisLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-calculo-1-limites-trigonometricos-notables-y-asintotas",
@@ -6711,8 +6711,8 @@
       "grade": 6,
       "appEngine": "CalculusAnalysisLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-calculo-1-continuidad-y-teorema-de-bolzano",
@@ -6723,8 +6723,8 @@
       "grade": 6,
       "appEngine": "CalculusAnalysisLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-calculo-1-definicion-de-la-derivada-y-regla-de-la-cadena",
@@ -6735,8 +6735,8 @@
       "grade": 6,
       "appEngine": "CalculusAnalysisLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-calculo-1-derivacion-implicita-y-orden-superior",
@@ -6747,56 +6747,152 @@
       "grade": 6,
       "appEngine": "CalculusAnalysisLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-calculo-1-diferenciales-y-aproximacion-lineal",
+      "slug": "diferenciales-y-aproximacion-lineal",
+      "title": "Diferenciales, Aproximación Lineal y Polinomio de Taylor Local",
+      "area": "matematica-universitaria",
+      "course": "calculo-1",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-calculo-1-razones-de-cambio-relacionadas",
+      "slug": "razones-de-cambio-relacionadas",
+      "title": "Razones de Cambio Relacionadas en Física e Ingeniería",
+      "area": "matematica-universitaria",
+      "course": "calculo-1",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-calculo-1-teoremas-de-rolle-lagrange-y-lhopital",
       "slug": "teoremas-de-rolle-lagrange-y-lhopital",
-      "title": "Teoremas de Rolle, Valor Medio de Lagrange y Regla de L'Hôpital",
+      "title": "Teoremas de Rolle, Valor Medio de Lagrange y Cauchy",
       "area": "matematica-universitaria",
       "course": "calculo-1",
       "grade": 6,
       "appEngine": "CalculusAnalysisLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-calculo-1-regla-de-lhopital-formas-indeterminadas",
+      "slug": "regla-de-lhopital-formas-indeterminadas",
+      "title": "Regla de L'Hôpital y Formas Indeterminadas Avanzadas",
+      "area": "matematica-universitaria",
+      "course": "calculo-1",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-calculo-1-trazado-de-curvas-y-concavidad",
+      "slug": "trazado-de-curvas-y-concavidad",
+      "title": "Monotonía, Concavidad, Puntos de Inflexión y Trazado de Curvas",
+      "area": "matematica-universitaria",
+      "course": "calculo-1",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-calculo-1-optimizacion-y-trazado-de-curvas",
       "slug": "optimizacion-y-trazado-de-curvas",
-      "title": "Trazado de Curvas, Concavidad y Optimización con Derivadas",
+      "title": "Optimización Aplicada con Restricciones en una Variable",
       "area": "matematica-universitaria",
       "course": "calculo-1",
       "grade": 6,
       "appEngine": "CalculusAnalysisLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-calculo-2-sumas-de-riemann-e-integral-definida",
+      "slug": "sumas-de-riemann-e-integral-definida",
+      "title": "Sumas de Riemann, Integral de Darboux y Propiedades de la Integral Definida",
+      "area": "matematica-universitaria",
+      "course": "calculo-2",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-calculo-2-teorema-fundamental-del-calculo-y-sumas-de-riemann",
       "slug": "teorema-fundamental-del-calculo-y-sumas-de-riemann",
-      "title": "Sumas de Riemann, Integral de Darboux y Teorema Fundamental del Cálculo",
+      "title": "Primer y Segundo Teorema Fundamental del Cálculo",
       "area": "matematica-universitaria",
       "course": "calculo-2",
       "grade": 6,
       "appEngine": "CalculusAnalysisLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-calculo-2-metodos-de-integracion-por-partes-y-fracciones-parciales",
       "slug": "metodos-de-integracion-por-partes-y-fracciones-parciales",
-      "title": "Integración por Partes, Sustitución Trigonométrica y Fracciones Parciales",
+      "title": "Integración por Sustitución Algebraica e Integración por Partes",
       "area": "matematica-universitaria",
       "course": "calculo-2",
       "grade": 6,
       "appEngine": "CalculusAnalysisLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-calculo-2-integrales-trigonometricas-y-sustitucion",
+      "slug": "integrales-trigonometricas-y-sustitucion",
+      "title": "Integrales Trigonométricas y Sustitución Trigonométrica",
+      "area": "matematica-universitaria",
+      "course": "calculo-2",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-calculo-2-integracion-por-fracciones-parciales",
+      "slug": "integracion-por-fracciones-parciales",
+      "title": "Integración de Funciones Racionales por Fracciones Parciales y Ostrogradski",
+      "area": "matematica-universitaria",
+      "course": "calculo-2",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-calculo-2-area-entre-curvas-cartesianas-y-polares",
+      "slug": "area-entre-curvas-cartesianas-y-polares",
+      "title": "Área entre Curvas en Coordenadas Cartesianas, Paramétricas y Polares",
+      "area": "matematica-universitaria",
+      "course": "calculo-2",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-calculo-2-volumenes-de-solidos-de-revolucion",
@@ -6807,212 +6903,644 @@
       "grade": 6,
       "appEngine": "CalculusAnalysisLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
-      "id": "ext-calculo-2-integrales-impropias-y-series-infinitas",
-      "slug": "integrales-impropias-y-series-infinitas",
-      "title": "Integrales Impropias y Criterios de Convergencia de Series Infinitas",
+      "id": "ext-calculo-2-longitud-de-arco-y-centroide-pappus",
+      "slug": "longitud-de-arco-y-centroide-pappus",
+      "title": "Longitud de Arco, Superficies de Revolución y Teoremas de Pappus-Guldin",
       "area": "matematica-universitaria",
       "course": "calculo-2",
       "grade": 6,
       "appEngine": "CalculusAnalysisLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-calculo-2-integrales-impropias-gamma-y-beta",
+      "slug": "integrales-impropias-gamma-y-beta",
+      "title": "Integrales Impropias de Primera y Segunda Especie y Funciones Gamma/Beta",
+      "area": "matematica-universitaria",
+      "course": "calculo-2",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-calculo-2-integrales-impropias-y-series-infinitas",
+      "slug": "integrales-impropias-y-series-infinitas",
+      "title": "Series Numéricas Infinitas, Series de Potencias y Series de Taylor/Maclaurin",
+      "area": "matematica-universitaria",
+      "course": "calculo-2",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-calculo-3-superficies-cuadricas-y-geometria-r3",
+      "slug": "superficies-cuadricas-y-geometria-r3",
+      "title": "Geometría en R^3, Planos, Rectas y Superficies Cuádricas",
+      "area": "matematica-universitaria",
+      "course": "calculo-3",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-calculo-3-funciones-vectoriales-y-triedro-de-frenet",
+      "slug": "funciones-vectoriales-y-triedro-de-frenet",
+      "title": "Funciones Vectoriales, Curvatura, Torsión y Triedro Móvil de Frenet-Serret",
+      "area": "matematica-universitaria",
+      "course": "calculo-3",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-calculo-3-limites-y-derivadas-parciales-multivariable",
+      "slug": "limites-y-derivadas-parciales-multivariable",
+      "title": "Límites, Continuidad y Derivadas Parciales de Funciones de Varias Variables",
+      "area": "matematica-universitaria",
+      "course": "calculo-3",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-calculo-3-derivadas-parciales-gradiente-y-plano-tangente",
       "slug": "derivadas-parciales-gradiente-y-plano-tangente",
-      "title": "Derivadas Parciales, Vector Gradiente y Plano Tangente en R^3",
+      "title": "Diferenciabilidad, Vector Gradiente, Derivada Direccional y Plano Tangente",
       "area": "matematica-universitaria",
       "course": "calculo-3",
       "grade": 6,
       "appEngine": "CalculusAnalysisLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-calculo-3-optimizacion-multivariable-y-multiplicadores-de-lagrange",
       "slug": "optimizacion-multivariable-y-multiplicadores-de-lagrange",
-      "title": "Matriz Hessiana y Optimización con Multiplicadores de Lagrange",
+      "title": "Matriz Hessiana, Extremos Libres y Multiplicadores de Lagrange",
       "area": "matematica-universitaria",
       "course": "calculo-3",
       "grade": 6,
       "appEngine": "CalculusAnalysisLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-calculo-3-integrales-dobles-fubini-y-polares",
+      "slug": "integrales-dobles-fubini-y-polares",
+      "title": "Integrales Dobles, Teorema de Fubini y Cambio a Coordenadas Polares",
+      "area": "matematica-universitaria",
+      "course": "calculo-3",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-calculo-3-integrales-multiples-y-jacobiano",
       "slug": "integrales-multiples-y-jacobiano",
-      "title": "Integrales Dobles, Triples y Matriz Jacobiana de Cambio de Variables",
+      "title": "Integrales Triples en Coordenadas Cilíndricas, Esféricas y Matriz Jacobiana",
       "area": "matematica-universitaria",
       "course": "calculo-3",
       "grade": 6,
       "appEngine": "CalculusAnalysisLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-calculo-3-teoremas-de-green-stokes-y-gauss",
+      "slug": "teoremas-de-green-stokes-y-gauss",
+      "title": "Campos Vectoriales, Integrales de Línea y Teoremas de Green, Stokes y Gauss",
+      "area": "matematica-universitaria",
+      "course": "calculo-3",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-algebra-lineal-eliminacion-gauss-jordan-y-rango",
+      "slug": "eliminacion-gauss-jordan-y-rango",
+      "title": "Sistemas Lineales, Eliminación Gauss-Jordan y Rango Matricial",
+      "area": "matematica-universitaria",
+      "course": "algebra-lineal",
+      "grade": 6,
+      "appEngine": "EquationInequalityLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-algebra-lineal-espacios-vectoriales-bases-y-dimension",
       "slug": "espacios-vectoriales-bases-y-dimension",
-      "title": "Espacios Vectoriales, Independencia Lineal, Base y Dimensión",
+      "title": "Espacios y Subespacios Vectoriales, Combinación e Independencia Lineal",
       "area": "matematica-universitaria",
       "course": "algebra-lineal",
       "grade": 6,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-algebra-lineal-cambio-de-base-y-matriz-de-transicion",
+      "slug": "cambio-de-base-y-matriz-de-transicion",
+      "title": "Cambio de Base, Matriz de Transición y Coordenadas de un Vector",
+      "area": "matematica-universitaria",
+      "course": "algebra-lineal",
+      "grade": 6,
+      "appEngine": "EquationInequalityLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-algebra-lineal-transformaciones-lineales-nucleo-e-imagen",
+      "slug": "transformaciones-lineales-nucleo-e-imagen",
+      "title": "Transformaciones Lineales, Núcleo (Kernel), Imagen y Teorema de la Dimensión",
+      "area": "matematica-universitaria",
+      "course": "algebra-lineal",
+      "grade": 6,
+      "appEngine": "EquationInequalityLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-algebra-lineal-producto-interno-y-gram-schmidt",
+      "slug": "producto-interno-y-gram-schmidt",
+      "title": "Producto Interno, Ortogonalidad, Proyecciones y Proceso de Gram-Schmidt",
+      "area": "matematica-universitaria",
+      "course": "algebra-lineal",
+      "grade": 6,
+      "appEngine": "EquationInequalityLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-algebra-lineal-autovalores-autovectores-y-diagonalizacion",
       "slug": "autovalores-autovectores-y-diagonalizacion",
-      "title": "Valores Propios (Autovalores), Vectores Propios y Diagonalización",
+      "title": "Valores Propios (Autovalores), Vectores Propios y Polinomio Característico",
       "area": "matematica-universitaria",
       "course": "algebra-lineal",
       "grade": 6,
       "appEngine": "EquationInequalityLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-algebra-lineal-diagonalizacion-y-cayley-hamilton",
+      "slug": "diagonalizacion-y-cayley-hamilton",
+      "title": "Diagonalización de Matrices, Teorema de Cayley-Hamilton y Potencias de Matrices",
+      "area": "matematica-universitaria",
+      "course": "algebra-lineal",
+      "grade": 6,
+      "appEngine": "EquationInequalityLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-algebra-lineal-diagonalizacion-ortogonal-y-svd",
+      "slug": "diagonalizacion-ortogonal-y-svd",
+      "title": "Matrices Simétricas, Diagonalización Ortogonal, Formas Cuadráticas y SVD",
+      "area": "matematica-universitaria",
+      "course": "algebra-lineal",
+      "grade": 6,
+      "appEngine": "EquationInequalityLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-ecuaciones-diferenciales-edo-variables-separables-y-homogeneas",
+      "slug": "edo-variables-separables-y-homogeneas",
+      "title": "EDOs de Primer Orden: Variables Separables y Ecuaciones Homogéneas",
+      "area": "matematica-universitaria",
+      "course": "ecuaciones-diferenciales",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-ecuaciones-diferenciales-edo-primer-orden-lineales-y-exactas",
       "slug": "edo-primer-orden-lineales-y-exactas",
-      "title": "Ecuaciones Diferenciales de Primer Orden, Lineales y Exactas",
+      "title": "EDOs Exactas, Factores Integrantes y Ecuaciones Lineales de Primer Orden",
       "area": "matematica-universitaria",
       "course": "ecuaciones-diferenciales",
       "grade": 6,
       "appEngine": "CalculusAnalysisLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-ecuaciones-diferenciales-ecuaciones-de-bernoulli-riccati-y-aplicaciones",
+      "slug": "ecuaciones-de-bernoulli-riccati-y-aplicaciones",
+      "title": "Ecuaciones de Bernoulli, Riccati y Clairaut y Aplicaciones Geométricas/Físicas",
+      "area": "matematica-universitaria",
+      "course": "ecuaciones-diferenciales",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-ecuaciones-diferenciales-edo-orden-superior-wronskiano-y-reduccion",
+      "slug": "edo-orden-superior-wronskiano-y-reduccion",
+      "title": "EDOs Lineales de Orden Superior, Wronskiano y Reducción de Orden",
+      "area": "matematica-universitaria",
+      "course": "ecuaciones-diferenciales",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-ecuaciones-diferenciales-coeficientes-indeterminados-y-variacion-de-parametros",
+      "slug": "coeficientes-indeterminados-y-variacion-de-parametros",
+      "title": "Coeficientes Indeterminados, Operador Anulador y Variación de Parámetros",
+      "area": "matematica-universitaria",
+      "course": "ecuaciones-diferenciales",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-ecuaciones-diferenciales-vibraciones-mecanicas-y-circuitos-rlc",
+      "slug": "vibraciones-mecanicas-y-circuitos-rlc",
+      "title": "Modelado de Vibraciones Mecánicas y Circuitos Eléctricos RLC (Resonancia)",
+      "area": "matematica-universitaria",
+      "course": "ecuaciones-diferenciales",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-ecuaciones-diferenciales-transformada-de-laplace-y-sistemas",
       "slug": "transformada-de-laplace-y-sistemas",
-      "title": "Transformada de Laplace y Sistemas Dinámicos Lineales",
+      "title": "Transformada de Laplace, Función Escalón de Heaviside, Delta de Dirac y Convolución",
       "area": "matematica-universitaria",
       "course": "ecuaciones-diferenciales",
       "grade": 6,
       "appEngine": "CalculusAnalysisLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-ecuaciones-diferenciales-sistemas-de-edo-y-plano-de-fase",
+      "slug": "sistemas-de-edo-y-plano-de-fase",
+      "title": "Sistemas de EDOs Lineales, Exponencial Matricial y Estabilidad en el Plano de Fase",
+      "area": "matematica-universitaria",
+      "course": "ecuaciones-diferenciales",
+      "grade": 6,
+      "appEngine": "CalculusAnalysisLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-fisica-analisis-dimensional-y-vectores",
+      "slug": "analisis-dimensional-y-vectores",
+      "title": "Análisis Dimensional, Ecuaciones Dimensionales y Vectores en R^2 y R^3",
+      "area": "ciencias",
+      "course": "fisica",
+      "grade": 5,
+      "appEngine": "SciencePhysicsChemLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-fisica-cinematica-mru-mruv-y-caida-libre",
+      "slug": "cinematica-mru-mruv-y-caida-libre",
+      "title": "Cinemática Unidimensional: MRU, MRUV y Caída Libre Vertical",
+      "area": "ciencias",
+      "course": "fisica",
+      "grade": 5,
+      "appEngine": "SciencePhysicsChemLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-fisica-cinematica-velocidad-y-aceleracion-instantanea",
       "slug": "cinematica-velocidad-y-aceleracion-instantanea",
-      "title": "Cinemática Vectorial: MRU, MRUV, Caída Libre y Movimiento Parabólico",
+      "title": "Movimiento Parabólico de Proyectiles y Movimiento Circular (MCU y MCUV)",
       "area": "ciencias",
       "course": "fisica",
       "grade": 5,
       "appEngine": "SciencePhysicsChemLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-fisica-estatica-equilibrio-y-torque",
+      "slug": "estatica-equilibrio-y-torque",
+      "title": "Estática: Primera y Segunda Condición de Equilibrio, Torque y Cupla",
+      "area": "ciencias",
+      "course": "fisica",
+      "grade": 5,
+      "appEngine": "SciencePhysicsChemLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-fisica-leyes-de-newton-y-diagrama-de-cuerpo-libre",
       "slug": "leyes-de-newton-y-diagrama-de-cuerpo-libre",
-      "title": "Leyes de Newton, Diagrama de Cuerpo Libre (DCL) y Rozamiento",
+      "title": "Dinámica Lineal y Circular: Leyes de Newton y Fuerza de Rozamiento",
       "area": "ciencias",
       "course": "fisica",
       "grade": 5,
       "appEngine": "SciencePhysicsChemLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-fisica-gravitacion-universal-y-leyes-de-kepler",
+      "slug": "gravitacion-universal-y-leyes-de-kepler",
+      "title": "Gravitación Universal de Newton, Satélites y Leyes de Kepler",
+      "area": "ciencias",
+      "course": "fisica",
+      "grade": 5,
+      "appEngine": "SciencePhysicsChemLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-fisica-trabajo-mecanico-y-potencia",
+      "slug": "trabajo-mecanico-y-potencia",
+      "title": "Trabajo Mecánico, Potencia, Eficiencia y Fuerzas Conservativas",
+      "area": "ciencias",
+      "course": "fisica",
+      "grade": 5,
+      "appEngine": "SciencePhysicsChemLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-fisica-trabajo-energia-mecanica-y-conservacion",
       "slug": "trabajo-energia-mecanica-y-conservacion",
-      "title": "Trabajo Mecánico, Energía Cinética, Potencial y Conservación",
+      "title": "Energía Mecánica: Cinética, Potencial Gravitatoria, Elástica y Conservación",
       "area": "ciencias",
       "course": "fisica",
       "grade": 5,
       "appEngine": "SciencePhysicsChemLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-fisica-cantidad-de-movimiento-impulso-y-choques",
+      "slug": "cantidad-de-movimiento-impulso-y-choques",
+      "title": "Cantidad de Movimiento Lineal, Impulso, Choques Elásticos e Inelásticos",
+      "area": "ciencias",
+      "course": "fisica",
+      "grade": 5,
+      "appEngine": "SciencePhysicsChemLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-fisica-movimiento-armonico-simple-y-frecuencia",
       "slug": "movimiento-armonico-simple-y-frecuencia",
-      "title": "Movimiento Armónico Simple (MAS), Péndulo y Ondas Mecánicas",
+      "title": "Movimiento Armónico Simple (MAS), Péndulo Simple y Ondas Mecánicas",
       "area": "ciencias",
       "course": "fisica",
       "grade": 5,
       "appEngine": "SciencePhysicsChemLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-fisica-hidrostatica-pascal-y-arquimedes",
+      "slug": "hidrostatica-pascal-y-arquimedes",
+      "title": "Hidrostática: Presión, Principio de Pascal, Vasos Comunicantes y Empuje de Arquímedes",
+      "area": "ciencias",
+      "course": "fisica",
+      "grade": 5,
+      "appEngine": "SciencePhysicsChemLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-fisica-calorimetria-y-termodinamica",
+      "slug": "calorimetria-y-termodinamica",
+      "title": "Calorimetría, Dilatación Térmica, Gases Ideales y Leyes de la Termodinámica",
+      "area": "ciencias",
+      "course": "fisica",
+      "grade": 5,
+      "appEngine": "SciencePhysicsChemLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-fisica-electrostatica-campo-electrico-y-circuitos",
       "slug": "electrostatica-campo-electrico-y-circuitos",
-      "title": "Electrostática, Ley de Coulomb, Campo Eléctrico y Circuitos de Ohm-Kirchhoff",
+      "title": "Electrostática: Ley de Coulomb, Campo Eléctrico, Potencial y Condensadores",
       "area": "ciencias",
       "course": "fisica",
       "grade": 5,
       "appEngine": "SciencePhysicsChemLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-fisica-electrodinamica-y-electromagnetismo",
+      "slug": "electrodinamica-y-electromagnetismo",
+      "title": "Electrodinámica (Ohm-Kirchhoff) y Electromagnetismo (Lorentz y Faraday-Lenz)",
+      "area": "ciencias",
+      "course": "fisica",
+      "grade": 5,
+      "appEngine": "SciencePhysicsChemLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-quimica-materia-energia-y-cambios-de-estado",
+      "slug": "materia-energia-y-cambios-de-estado",
+      "title": "Materia, Energía, Clasificación de Sustancias y Ecuación de Einstein",
+      "area": "ciencias",
+      "course": "quimica",
+      "grade": 5,
+      "appEngine": "SciencePhysicsChemLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-quimica-estructura-atomica-nuclidos-e-iones",
+      "slug": "estructura-atomica-nuclidos-e-iones",
+      "title": "Estructura Atómica, Núclidos (Isótopos, Isóbaros, Isótonos) e Iones",
+      "area": "ciencias",
+      "course": "quimica",
+      "grade": 5,
+      "appEngine": "SciencePhysicsChemLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-quimica-estructura-atomica-numeros-cuanticos-y-configuracion",
       "slug": "estructura-atomica-numeros-cuanticos-y-configuracion",
-      "title": "Estructura Atómica Moderna, Números Cuánticos y Configuración Electrónica",
+      "title": "Números Cuánticos, Principio de Aufbau, Regla de Hund y Paramagnetismo",
       "area": "ciencias",
       "course": "quimica",
       "grade": 5,
       "appEngine": "SciencePhysicsChemLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-quimica-tabla-periodica-y-enlace-quimico",
       "slug": "tabla-periodica-y-enlace-quimico",
-      "title": "Tabla Periódica, Enlace Químico, Hibridación y Geometría Molecular RPECV",
+      "title": "Tabla Periódica Moderna: Ubicación de Grupo/Periodo y Propiedades Periódicas",
       "area": "ciencias",
       "course": "quimica",
       "grade": 5,
       "appEngine": "SciencePhysicsChemLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-quimica-enlace-quimico-hibridacion-y-geometria",
+      "slug": "enlace-quimico-hibridacion-y-geometria",
+      "title": "Enlace Químico (Iónico, Covalente, Metálico), Hibridación y Geometría RPECV",
+      "area": "ciencias",
+      "course": "quimica",
+      "grade": 5,
+      "appEngine": "SciencePhysicsChemLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-quimica-nomenclatura-quimica-inorganica",
+      "slug": "nomenclatura-quimica-inorganica",
+      "title": "Nomenclatura Química Inorgánica: Estados de Oxidación, Óxidos, Ácidos y Sales",
+      "area": "ciencias",
+      "course": "quimica",
+      "grade": 5,
+      "appEngine": "SciencePhysicsChemLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-quimica-unidades-quimicas-de-masa-y-formula-empirica",
+      "slug": "unidades-quimicas-de-masa-y-formula-empirica",
+      "title": "Unidades Químicas de Masa (Mol, Número de Avogadro), Composición Centesimal y Fórmulas",
+      "area": "ciencias",
+      "course": "quimica",
+      "grade": 5,
+      "appEngine": "SciencePhysicsChemLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-quimica-estado-gaseoso-y-mezcla-de-gases",
+      "slug": "estado-gaseoso-y-mezcla-de-gases",
+      "title": "Estado Gaseoso: Ecuación Universal (PV=nRT), Procesos Restringidos y Mezcla de Gases",
+      "area": "ciencias",
+      "course": "quimica",
+      "grade": 5,
+      "appEngine": "SciencePhysicsChemLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-quimica-reacciones-quimicas-y-balance-redox",
+      "slug": "reacciones-quimicas-y-balance-redox",
+      "title": "Reacciones Químicas y Balance por Tanteo, Método Redox e Ión-Electrón",
+      "area": "ciencias",
+      "course": "quimica",
+      "grade": 5,
+      "appEngine": "SciencePhysicsChemLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-quimica-estequiometria-reactivo-limitante-y-rendimiento",
       "slug": "estequiometria-reactivo-limitante-y-rendimiento",
-      "title": "Estequiometría, Balance Redox, Reactivo Limitante y Rendimiento",
+      "title": "Estequiometría: Leyes Ponderales, Volumétricas, Reactivo Limitante, Pureza y Rendimiento",
       "area": "ciencias",
       "course": "quimica",
       "grade": 5,
       "appEngine": "SciencePhysicsChemLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
+    },
+    {
+      "id": "ext-quimica-soluciones-quimicas-molaridad-y-normalidad",
+      "slug": "soluciones-quimicas-molaridad-y-normalidad",
+      "title": "Soluciones Químicas: Unidades de Concentración (Molaridad, Normalidad), Dilución y Neutralización",
+      "area": "ciencias",
+      "course": "quimica",
+      "grade": 5,
+      "appEngine": "SciencePhysicsChemLab",
+      "publishStatus": "published",
+      "onionLayer": 3,
+      "exerciseCount": 4
     },
     {
       "id": "ext-quimica-soluciones-equilibrio-quimico-y-ph",
       "slug": "soluciones-equilibrio-quimico-y-ph",
-      "title": "Soluciones, Molaridad, Cinética, Equilibrio Químico (Kc, Kp) y pH",
+      "title": "Cinética Química, Equilibrio Químico (Kc, Kp), Le Chatelier, pH y Electroquímica",
       "area": "ciencias",
       "course": "quimica",
       "grade": 5,
       "appEngine": "SciencePhysicsChemLab",
       "publishStatus": "published",
-      "onionLayer": 2,
-      "exerciseCount": 3
+      "onionLayer": 3,
+      "exerciseCount": 4
     }
   ]
 }

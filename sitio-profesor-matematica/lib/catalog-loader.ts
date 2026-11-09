@@ -24,6 +24,18 @@ export interface WorkedSolution {
   answerKey: string;
 }
 
+export interface AreaBookBlock {
+  page: number;
+  heading: string;
+  paragraphs: string[];
+}
+
+export interface SteamProject {
+  type: string;
+  title: string;
+  summary: string;
+}
+
 export interface CatalogLessonIndex {
   id: string;
   slug: string;
@@ -51,6 +63,8 @@ export interface CatalogLessonIndex {
 
 export interface CatalogLessonFull extends CatalogLessonIndex {
   theorySlides: TheorySlide[];
+  areaBookBlocks?: AreaBookBlock[];
+  steamProjects?: SteamProject[];
   exercisesF0: ExtractedExercise[];
   exercisesFA: ExtractedExercise[];
   workedSolutions?: WorkedSolution[];

@@ -301,13 +301,43 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-1/diferenciales-y-aproximacion-lineal</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-1/razones-de-cambio-relacionadas</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-1/teoremas-de-rolle-lagrange-y-lhopital</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-1/regla-de-lhopital-formas-indeterminadas</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-1/trazado-de-curvas-y-concavidad</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-1/optimizacion-y-trazado-de-curvas</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-2/sumas-de-riemann-e-integral-definida</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -325,13 +355,61 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-2/integrales-trigonometricas-y-sustitucion</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-2/integracion-por-fracciones-parciales</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-2/area-entre-curvas-cartesianas-y-polares</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-2/volumenes-de-solidos-de-revolucion</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-2/longitud-de-arco-y-centroide-pappus</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-2/integrales-impropias-gamma-y-beta</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-2/integrales-impropias-y-series-infinitas</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-3/superficies-cuadricas-y-geometria-r3</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-3/funciones-vectoriales-y-triedro-de-frenet</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-3/limites-y-derivadas-parciales-multivariable</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -349,7 +427,25 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-3/integrales-dobles-fubini-y-polares</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-3/integrales-multiples-y-jacobiano</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/calculo-3/teoremas-de-green-stokes-y-gauss</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/algebra-lineal/eliminacion-gauss-jordan-y-rango</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -361,7 +457,43 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/algebra-lineal/cambio-de-base-y-matriz-de-transicion</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/algebra-lineal/transformaciones-lineales-nucleo-e-imagen</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/algebra-lineal/producto-interno-y-gram-schmidt</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/algebra-lineal/autovalores-autovectores-y-diagonalizacion</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/algebra-lineal/diagonalizacion-y-cayley-hamilton</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/algebra-lineal/diagonalizacion-ortogonal-y-svd</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/ecuaciones-diferenciales/edo-variables-separables-y-homogeneas</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -373,7 +505,49 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/ecuaciones-diferenciales/ecuaciones-de-bernoulli-riccati-y-aplicaciones</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/ecuaciones-diferenciales/edo-orden-superior-wronskiano-y-reduccion</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/ecuaciones-diferenciales/coeficientes-indeterminados-y-variacion-de-parametros</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/ecuaciones-diferenciales/vibraciones-mecanicas-y-circuitos-rlc</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/ecuaciones-diferenciales/transformada-de-laplace-y-sistemas</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/matematica-universitaria/ecuaciones-diferenciales/sistemas-de-edo-y-plano-de-fase</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/fisica/analisis-dimensional-y-vectores</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/fisica/cinematica-mru-mruv-y-caida-libre</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -385,7 +559,25 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/fisica/estatica-equilibrio-y-torque</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/fisica/leyes-de-newton-y-diagrama-de-cuerpo-libre</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/fisica/gravitacion-universal-y-leyes-de-kepler</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/fisica/trabajo-mecanico-y-potencia</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -397,13 +589,49 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/fisica/cantidad-de-movimiento-impulso-y-choques</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/fisica/movimiento-armonico-simple-y-frecuencia</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/fisica/hidrostatica-pascal-y-arquimedes</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/fisica/calorimetria-y-termodinamica</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/fisica/electrostatica-campo-electrico-y-circuitos</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/fisica/electrodinamica-y-electromagnetismo</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/quimica/materia-energia-y-cambios-de-estado</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/quimica/estructura-atomica-nuclidos-e-iones</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -421,7 +649,43 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/quimica/enlace-quimico-hibridacion-y-geometria</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/quimica/nomenclatura-quimica-inorganica</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/quimica/unidades-quimicas-de-masa-y-formula-empirica</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/quimica/estado-gaseoso-y-mezcla-de-gases</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/quimica/reacciones-quimicas-y-balance-redox</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/quimica/estequiometria-reactivo-limitante-y-rendimiento</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://funciones-para-calculo.j76018445.chatgpt.site/aprende/ciencias/quimica/soluciones-quimicas-molaridad-y-normalidad</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>

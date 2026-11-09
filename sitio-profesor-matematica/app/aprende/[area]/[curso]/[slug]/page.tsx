@@ -5,6 +5,7 @@ import Link from "@/components/safe-link";
 import { MathFormula } from "@/components/math-formula";
 import { ZenitInteractiveApp, ZENIT_ENGINES, type AppEngineId } from "@/components/zenit-app-engines";
 import { InteractiveExerciseBank } from "@/components/interactive-exercise-bank";
+import { InfiniteProblemGenerator } from "@/components/infinite-problem-generator";
 import {
   getLessonBySlug,
   getLessonsByCourse,
@@ -261,6 +262,85 @@ export default async function TopicDetailPage({ params }: PageProps) {
           workedSolutions={lesson.workedSolutions || []}
           topicTitle={lesson.title}
         />
+
+        {/* Layer 3: Infinite Algorithmic Problem Generator */}
+        <InfiniteProblemGenerator
+          engineId={lesson.appEngine as AppEngineId}
+          topicTitle={lesson.title}
+        />
+
+        {/* Layer 3: Extended Textbook Theory (Libro del Área / RM) */}
+        {lesson.areaBookBlocks && lesson.areaBookBlocks.length > 0 && (
+          <section className="rounded-3xl border border-stone-800 bg-stone-900/40 p-6 md:p-8 space-y-5">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-800 pb-4">
+              <div>
+                <span className="text-xs font-mono uppercase tracking-wider text-sky-400 font-bold">
+                  📘 CAPA 3 · LECTURA PROFUNDA DEL LIBRO DEL ÁREA Y RAZONAMIENTO
+                </span>
+                <h2 className="text-xl md:text-2xl font-bold text-white mt-1">
+                  Ampliación Conceptual y Casos Resueltos del Texto Oficial
+                </h2>
+              </div>
+              <span className="text-xs font-mono text-stone-400">
+                {lesson.areaBookBlocks.length} páginas de texto integradas
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {lesson.areaBookBlocks.map((ab, abIdx) => (
+                <div
+                  key={abIdx}
+                  className="rounded-2xl border border-stone-800 bg-stone-950/85 p-5 space-y-3 flex flex-col justify-between"
+                >
+                  <div className="space-y-2.5">
+                    <div className="flex items-center justify-between text-[11px] font-mono text-sky-400">
+                      <span>LIBRO DEL ÁREA</span>
+                      <span>Pág. ref #{ab.page}</span>
+                    </div>
+                    <h3 className="text-sm font-bold text-white leading-snug">
+                      {ab.heading}
+                    </h3>
+                    <div className="space-y-2 text-xs text-stone-300 leading-relaxed">
+                      {ab.paragraphs.map((par, pIdx) => (
+                        <p key={pIdx} className="bg-stone-900/60 p-2.5 rounded-lg border border-stone-800/60">
+                          {par}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Layer 3: Real-World STEAM Projects & Rubrics (.docx) */}
+        {lesson.steamProjects && lesson.steamProjects.length > 0 && (
+          <section className="rounded-3xl border border-emerald-800/40 bg-stone-900/40 p-6 md:p-8 space-y-4">
+            <div>
+              <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold">
+                🔬 LABORATORIO MATEMÁTICO, MATERIAL CONCRETO Y CONTEXTO ODS
+              </span>
+              <h2 className="text-xl font-bold text-white mt-1">
+                Proyectos Aplicados a la Realidad ({lesson.unit})
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {lesson.steamProjects.map((sp, spIdx) => (
+                <div
+                  key={spIdx}
+                  className="rounded-2xl border border-stone-800 bg-stone-950/90 p-4 space-y-2"
+                >
+                  <span className="inline-block px-2.5 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800/50 text-[10px] font-mono font-bold">
+                    {sp.type}
+                  </span>
+                  <h3 className="text-sm font-bold text-white">{sp.title}</h3>
+                  <p className="text-xs text-stone-400 leading-relaxed">{sp.summary}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Vertical Spiral Curriculum Connections (Same Topic Across Grades 1° to 5°) */}
         {verticalLessons.length > 0 && (
