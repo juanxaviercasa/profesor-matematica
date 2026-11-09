@@ -15,7 +15,14 @@ const staticUrls = [
   "/diagnostico/funciones",
   "/laboratorio",
   "/cursos/funciones-para-calculo",
-  "/webinars/funciones-antes-del-calculo",
+  "/contacto",
+  "/privacidad",
+  "/empieza",
+  "/clase/funciones-antes-de-calculo",
+  "/recursos",
+  "/ruta-funciones-uni",
+  "/aprende/funciones",
+  "/curso/funciones-sin-vacios/modulo-1",
   "/sobre-mi",
   "/profesor-matematicas-lima"
 ];
@@ -37,11 +44,10 @@ for (const lesson of publishedLessons) {
   allUrls.add(`/aprende/${lesson.area}/${lesson.course}/${lesson.slug}`);
 }
 
-const today = new Date().toISOString().split("T")[0];
 let sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
 
 for (const u of allUrls) {
-  sitemap += `  <url>\n    <loc>${baseUrl}${u}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${u === "" ? "1.0" : "0.8"}</priority>\n  </url>\n`;
+  sitemap += `  <url><loc>${baseUrl}${u}</loc></url>\n`;
 }
 
 sitemap += `</urlset>\n`;

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { LESSONS_INDEX, COURSE_LABELS } from "@/lib/catalog-loader";
+import { LESSONS_INDEX, COURSE_LABELS } from "@/lib/catalog-index";
 import { ZENIT_ENGINES } from "./zenit-app-engines";
 import Link from "./safe-link";
 

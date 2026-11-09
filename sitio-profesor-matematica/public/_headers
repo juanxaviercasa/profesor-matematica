@@ -1,0 +1,12 @@
+# Solo recursos estáticos servidos por Cloudflare Static Assets.
+# HTML, RSC y rutas de alumno conservan su caché propia gestionada por el framework.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+/brand/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/*.svg
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/*.jpg
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/*.png
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800

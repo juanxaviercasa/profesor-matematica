@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { Header, Footer } from "@/components/site";
 import Link from "@/components/safe-link";
 import { CURRICULUM_DATA } from "@/lib/curriculum-data";
-import { LESSONS_INDEX, AREA_LABELS, COURSE_LABELS } from "@/lib/catalog-loader";
+import { LESSONS_INDEX, AREA_LABELS, COURSE_LABELS } from "@/lib/catalog-index";
 
 type PageProps = {
   params: Promise<{ area: string }>;

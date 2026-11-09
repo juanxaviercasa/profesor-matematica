@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Header, Footer } from "@/components/site";
 import Link from "@/components/safe-link";
-import { LESSONS_INDEX, COURSE_LABELS } from "@/lib/catalog-loader";
+import { LESSONS_INDEX, COURSE_LABELS } from "@/lib/catalog-index";
 import { LessonProgressOverview } from "@/components/lesson-completion";
 
 export const metadata: Metadata = {

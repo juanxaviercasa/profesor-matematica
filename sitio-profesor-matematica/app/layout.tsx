@@ -38,7 +38,6 @@ export const metadata: Metadata = {
       "Biblioteca de matemática y ciencias con simuladores interactivos, ejercicios graduados y materiales de aprendizaje.",
     type: "website",
     locale: "es_PE",
-    url: BASE_URL,
     siteName: "Sistema Educativo Zénit",
   },
   twitter: {

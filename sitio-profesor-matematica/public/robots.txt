@@ -1,43 +1,7 @@
-# Robots.txt - Sistema Educativo Zénit · Profesor Juan Xavier
-# Dominio Base: https://sistemazenit.com
-
+# Sistema Zénit — Política de rastreo del sitio público
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /_next/
-Disallow: /_vinext/
 
-# Sitemaps oficiales
+# Los recursos /_next/ y /_vinext/ no se bloquean: permiten renderizar correctamente.
 Sitemap: https://sistemazenit.com/sitemap.xml
-
-# Answer Engine Optimization (AEO) - Acceso abierto para buscadores de Inteligencia Artificial
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: Anthropic-AI
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-User-agent: Cohere-AI
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-# Archivo de contexto semántico para LLMs (AEO)
-# Especificación: https://llmstxt.org
-# Ubicación: /llms.txt

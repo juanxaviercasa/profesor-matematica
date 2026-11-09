@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "@/components/safe-link";
-import { COURSE_LABELS, type CatalogLessonIndex } from "@/lib/catalog-loader";
+import { COURSE_LABELS, type CatalogLessonIndex } from "@/lib/catalog-index";
 import { ZENIT_ENGINES, type AppEngineId } from "./zenit-app-engines";
 
 export function InternalKnowledgeMesh({

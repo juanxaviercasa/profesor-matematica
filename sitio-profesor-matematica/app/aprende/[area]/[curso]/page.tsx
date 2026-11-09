@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Header, Footer } from "@/components/site";
 import Link from "@/components/safe-link";
-import { getLessonsByCourse, COURSE_LABELS } from "@/lib/catalog-loader";
+import { getLessonsByCourse, COURSE_LABELS } from "@/lib/catalog-index";
 
 type PageProps = {
   params: Promise<{ area: string; curso: string }>;

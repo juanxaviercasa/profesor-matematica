@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Header, Footer } from "@/components/site";
 import { BlogConstructorExplorer } from "@/components/blog-constructor-explorer";
-import { LESSONS_INDEX } from "@/lib/catalog-loader";
+import { LESSONS_INDEX } from "@/lib/catalog-index";
 import Link from "@/components/safe-link";
 
 export const metadata: Metadata = {
