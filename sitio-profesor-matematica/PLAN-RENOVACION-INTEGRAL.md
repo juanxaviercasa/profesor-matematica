@@ -90,6 +90,20 @@
 - [ ] Auditar matemáticamente todos los motores y variantes del generador con casos límite.
 - [ ] Verificar con usuarios reales y lectores de pantalla la usabilidad de todas las lecciones.
 
+## Sexta intervención — confianza y conversiones
+- [x] Formulario en dos pasos: vista previa del mensaje y apertura voluntaria de WhatsApp.
+- [x] Eliminar mensajes que confundían «preparado» con «enviado»; no se envía automáticamente.
+- [x] Campos obligatorios reducidos, límites de texto y eventos de analítica sin datos personales.
+- [x] Página de privacidad de contacto y referencia desde pie de página y formulario.
+- [x] Contacto colocado antes de las explicaciones en la vista móvil.
+- [x] Datos de contacto centralizados; UTMs coherentes con el origen real, con tolerancia a bloqueo de sessionStorage.
+- [x] Página comercial: precios indicados como referenciales, sin falsas plazas limitadas ni prestaciones no confirmadas.
+- [x] Metadatos SEO: eliminadas cifras obsoletas, calificativos «oficiales» generalizados y coordenadas no verificadas.
+- [x] Prueba de regresión de mensajes, redirecciones, atribución y oferta integrada en CI.
+- [ ] Confirmar comercialmente precios, acceso, política de cancelación, calendario y sesiones ofrecidas.
+- [ ] Probar el recorrido real de consulta y WhatsApp sin enviar mensajes a terceros.
+- [ ] Confirmar eventos GTM si existe contenedor activo.
+
 ## Métricas de aceptación pendientes
 Contraste 4.5:1 para texto normal; 3:1 para textos grandes. Sin overflow horizontal. Funcionalidad de rutas y formularios. Validación de build y Worker SSR, con pruebas de regresión.
 

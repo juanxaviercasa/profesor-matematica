@@ -59,9 +59,9 @@ export function BlogConstructorExplorer() {
           <span className="text-[11px] text-stone-400">Teoría MathML + Solucionarios paso a paso</span>
         </div>
         <div className="rounded-2xl border border-stone-800 bg-stone-950/90 p-5">
-          <span className="text-xs font-mono uppercase text-sky-400">Ejercicios con Clave (F0 + FA)</span>
+          <span className="text-xs font-mono uppercase text-sky-400">Ejercicios disponibles (F0 + FA)</span>
           <div className="text-3xl font-extrabold text-white mt-1 font-mono">{totalExercises.toLocaleString()}</div>
-          <span className="text-[11px] text-stone-400">Simulador con clave oficial verificada</span>
+          <span className="text-[11px] text-stone-400">Claves ausentes o inválidas: sin calificación</span>
         </div>
         <div className="rounded-2xl border border-stone-800 bg-stone-950/90 p-5">
           <span className="text-xs font-mono uppercase text-emerald-300">Cola Drip (3 por día)</span>

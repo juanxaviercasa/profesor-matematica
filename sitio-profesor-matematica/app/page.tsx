@@ -64,7 +64,7 @@ export default function Home() {
 
     <section className="course-strip">
       <div className="wrap course-grid">
-        <div><p className="eyebrow">Ruta guiada de funciones</p><h2>Funciones sin Vacíos</h2><p>Una propuesta de cuatro semanas para conectar conceptos, practicar y prepararte mejor para cálculo.</p></div>
+        <div><p className="eyebrow">Ruta guiada de funciones</p><h2>Funciones sin Vacíos</h2><p>Una ruta propuesta para conectar conceptos, practicar y prepararte mejor para cálculo. Consulta el calendario y las condiciones actuales.</p></div>
         <div className="course-meta">
           <span>Secundaria avanzada y primeros ciclos</span><span>Diagnóstico, laboratorios y ejercicios guiados</span><span>Consulta el programa y las condiciones actuales</span>
           <Link className="button" href="/cursos/funciones-para-calculo">Conocer el programa</Link>
