@@ -25,6 +25,9 @@ export function verifyWorkerOutput() {
       const cfg = JSON.parse(readFileSync(configPath, "utf8"));
       if (cfg.name !== "profesor-matematica") throw new Error("Nombre Worker incorrecto: " + cfg.name);
       if (!cfg.compatibility_flags?.includes("nodejs_compat")) throw new Error("Falta nodejs_compat");
+      if (new Set(cfg.compatibility_flags).size !== cfg.compatibility_flags.length) {
+        throw new Error("Banderas de compatibilidad duplicadas: " + cfg.compatibility_flags.join(", "));
+      }
       if (!cfg.main || typeof cfg.main !== "string") throw new Error("Worker SSR ausente");
       const server = resolve(dirname(configPath), cfg.main);
       if (!existsSync(server) || !statSync(server).isFile()) throw new Error("No existe servidor: " + server);
