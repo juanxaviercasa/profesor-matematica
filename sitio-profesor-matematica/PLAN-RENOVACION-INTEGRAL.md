@@ -105,6 +105,18 @@
 - [ ] Probar el recorrido real de consulta y WhatsApp sin enviar mensajes a terceros.
 - [ ] Confirmar eventos GTM si existe contenedor activo.
 
+## Séptima intervención — SEO, rendimiento y estabilidad Cloudflare
+- [x] Separar el índice que usa el navegador de las lecciones completas (9,4 MB) cargadas en el servidor.
+- [x] Permitir que rastreadores accedan a recursos JS/CSS de Next/Vinext.
+- [x] Sitemap con URLs únicas, rutas públicas, 96 lecciones publicadas y sin fechas de modificación inventadas.
+- [x] Marcar como no indexables las 532 lecciones programadas y los itinerarios con contenido pendiente.
+- [x] Canónicas individuales en páginas públicas y rutas dinámicas; imagen social existente.
+- [x] Cache-Control para recursos estáticos: versión larga de assets compilados y 1 día para imágenes no versionadas; HTML SSR sin caché global nueva.
+- [x] Pruebas de indexación, sitemap, metadatos y división del catálogo en CI.
+- [ ] Medir Core Web Vitals (LCP, INP, CLS) con datos reales y dispositivos móviles.
+- [ ] Comprobar el alta y la cobertura de Google Search Console.
+- [ ] Revisar la integración histórica fallida de Cloudflare Pages antes de desactivarla.
+
 ## Métricas de aceptación pendientes
 Contraste 4.5:1 para texto normal; 3:1 para textos grandes. Sin overflow horizontal. Funcionalidad de rutas y formularios. Validación de build y Worker SSR, con pruebas de regresión.
 

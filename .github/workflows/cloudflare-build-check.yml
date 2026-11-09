@@ -36,6 +36,8 @@ jobs:
         run: npm run check:learning
       - name: Validar conversiones y contacto
         run: npm run check:conversion
+      - name: Validar indexación, canónicas y presupuesto de datos
+        run: npm run check:seo
       - name: Compilar Vinext y verificar Worker SSR
         run: npm run build
       - name: Verificar salida reproducible
