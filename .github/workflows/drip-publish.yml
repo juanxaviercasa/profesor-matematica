@@ -35,7 +35,6 @@ jobs:
         run: |
           cd sitio-profesor-matematica
           node scripts/pipeline/publish-drip.mjs --count=${{ github.event.inputs.batch_count || 3 }}
-          node scripts/pipeline/generate-sitemap-and-graph.mjs
 
       - name: Guardar y commitear cambios de publicación
         run: |

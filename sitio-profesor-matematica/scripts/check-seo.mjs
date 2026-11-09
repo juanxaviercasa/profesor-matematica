@@ -32,6 +32,18 @@ assert.match(robots,/Sitemap: https:\/\/sistemazenit\.com\/sitemap\.xml/);
 assert.doesNotMatch(robots,/^Disallow:\s*\/_next\/|^Disallow:\s*\/_vinext\//m);
 const generator=read("scripts/pipeline/generate-sitemap-and-graph.mjs");
 assert.doesNotMatch(generator,/<lastmod>|const today =/);
+const staticGroup=generator.match(/const staticUrls = \[([\s\S]*?)\];/);
+assert.ok(staticGroup,"No está la lista de páginas estáticas");
+const staticPages=JSON.parse("["+staticGroup[1]+"]");
+const expected=new Set(staticPages.map(p=>base+p));
+for(const l of index){
+  expected.add(base+"/aprende/"+l.area);
+  expected.add(base+"/aprende/"+l.area+"/"+l.course);
+  if(l.publishStatus==="published")expected.add(base+"/aprende/"+l.area+"/"+l.course+"/"+l.slug);
+}
+assert.deepEqual([...urlset].sort(),[...expected].sort(),"Sitemap y catálogo no coinciden");
+assert.match(read("scripts/pipeline/publish-drip.mjs"),/newlyPublishedSlugs\.length === 0/);
+
 assert.match(generator,/publishStatus === "published"/);
 for(const p of ["/aprende/funciones","/ruta-funciones-uni"]){assert.ok(!generator.includes('"'+p+'"'));}
 const light=read("lib/catalog-index.ts");

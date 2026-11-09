@@ -115,7 +115,8 @@
 - [x] Pruebas de indexación, sitemap, metadatos y división del catálogo en CI.
 - [ ] Medir Core Web Vitals (LCP, INP, CLS) con datos reales y dispositivos móviles.
 - [ ] Comprobar el alta y la cobertura de Google Search Console.
-- [ ] Revisar la integración histórica fallida de Cloudflare Pages antes de desactivarla.
+- [x] Desactivados los builds automáticos de Pages sin eliminar el proyecto, tras verificar que solamente conservaba `profesor-matematica.pages.dev` y la web pública usa Workers.
+- [x] Evitada la doble generación del sitemap y del grafo en cada lote, y evitados commits vacíos cuando finalice la cola de lecciones programadas.
 
 ## Métricas de aceptación pendientes
 Contraste 4.5:1 para texto normal; 3:1 para textos grandes. Sin overflow horizontal. Funcionalidad de rutas y formularios. Validación de build y Worker SSR, con pruebas de regresión.

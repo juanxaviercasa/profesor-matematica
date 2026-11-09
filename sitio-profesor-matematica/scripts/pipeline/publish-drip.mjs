@@ -33,6 +33,11 @@ for (const item of lessonsFull) {
   }
 }
 
+if (newlyPublishedSlugs.length === 0) {
+  console.log("✓ [Zénit Drip] No quedan lecciones programadas: no se modificaron archivos.");
+  process.exit(0);
+}
+
 const slugSet = new Set(newlyPublishedSlugs);
 for (const idxItem of lessonsIndex) {
   if (slugSet.has(idxItem.slug)) {
