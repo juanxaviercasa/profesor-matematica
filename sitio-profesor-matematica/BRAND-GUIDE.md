@@ -21,9 +21,19 @@ Clara, exigente, cercana y visual. Evita promesas grandilocuentes, lenguaje infa
 
 ### Tipografía
 
-- **Titulares:** Georgia. Expresa rigor académico sin frialdad.
-- **Texto e interfaz:** Arial o Helvetica. Favorece lectura rápida en móvil.
-- **Etiquetas:** mayúsculas, peso alto y espaciado amplio.
+- **Texto e interfaz:** pila nativa del sistema (system-ui / Segoe UI / Arial), sin dependencia de fuentes externas; base de 16 px y altura de línea 1,65.
+- **Titulares:** Georgia con interlineado de 1,12 y jerarquía fluida; las expresiones matemáticas se renderizan con KaTeX.
+- **Etiquetas:** mayúsculas moderadas, peso alto y tamaño mínimo práctico de 12–13 px; las métricas y descripciones del portal se muestran preferentemente a 13–16 px.
+
+## Contraste y estados de interfaz (capa 01)
+
+- **Coral de marca `#FF5A36`:** acento y fondo de botones; **no** usar texto blanco normal encima (contraste aproximado 3,1:1).
+- **Tinta `#142C27` sobre coral:** aproximadamente **4,77:1**, válida para texto normal.
+- **Coral de texto `#A9311B` sobre papel `#F7F3E9`:** aproximadamente **6,03:1**.
+- **Modo educativo:** fondo opaco `#0E241E` con texto `#F4F8F5` y secundarios `#D0DAD5`; evitar tarjetas oscuras translúcidas sobre papel claro.
+- **Texto:** contraste mínimo 4,5:1 para tamaños normales y 3:1 para texto grande; no depender solo del color para indicar errores.
+- **Estados interactivos:** foco visible, hover, activo, deshabilitado y movimiento reducido; comprobar teclado y touch.
+- **Código fuente del diseño:** `app/design-system.css`; `app/globals.css` se mantiene para compatibilidad y se irá depurando por capas.
 
 ## Uso del logotipo
 
