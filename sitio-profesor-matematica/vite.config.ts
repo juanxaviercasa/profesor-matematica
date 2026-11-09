@@ -16,7 +16,7 @@ const managedLinux = readExecutionProfile() === "managed-linux";
 
 const localBindingConfig = {
   main: "./build/sites-worker.ts",
-  compatibility_flags: ["nodejs_compat"],
+  // Compatibility flags are declared only in wrangler.json, not twice.
   d1_databases: d1
     ? [
         {
