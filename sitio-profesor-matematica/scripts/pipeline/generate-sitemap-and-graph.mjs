@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, "../..");
 
-const baseUrl = "https://funciones-para-calculo.j76018445.chatgpt.site";
+const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://sistemazenit.com").replace(/\/+$/, "");
 const staticUrls = [
   "",
   "/aprende",
