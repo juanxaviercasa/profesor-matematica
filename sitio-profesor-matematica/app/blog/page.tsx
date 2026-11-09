@@ -12,7 +12,7 @@ export default function BlogPage() {
   return (
     <>
       <Header />
-      <main className="wrap my-10 space-y-10">
+      <main className="learning-view blog-view wrap my-10 space-y-10">
         <section className="rounded-3xl border border-stone-800 bg-gradient-to-br from-stone-900 via-stone-950 to-emerald-950/30 p-8 md:p-12 shadow-2xl">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="max-w-3xl space-y-3">
