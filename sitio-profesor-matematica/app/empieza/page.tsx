@@ -3,6 +3,7 @@ import { FunnelLink, FunnelPageView } from "@/components/funnel";
 import { Footer, Header } from "@/components/site";
 
 export const metadata:Metadata={
+  alternates: { canonical: "/empieza" },
   title:"Empieza aquí · Ruta gratuita de funciones",
   description:"Clase completa, diagnóstico y módulo abierto para descubrir qué necesitas dominar antes de cálculo.",
 };

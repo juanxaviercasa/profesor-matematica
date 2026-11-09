@@ -3,6 +3,7 @@ import { Footer, Header, PageHero } from "@/components/site";
 import { ConversionForm } from "@/components/conversion";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contacto" },
   title: "Contacto y orientación en matemática | Sistema Zénit",
   description: "Consulta por clases de matemática y recursos educativos. Prepara un mensaje por WhatsApp con tu nivel, dificultad y horario preferido.",
 };

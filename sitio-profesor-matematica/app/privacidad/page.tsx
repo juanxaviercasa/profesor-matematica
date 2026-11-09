@@ -3,6 +3,7 @@ import { Footer, Header, PageHero } from "@/components/site";
 import Link from "@/components/safe-link";
 import { CONTACT_EMAIL } from "@/lib/lead-message";
 export const metadata:Metadata={
+  alternates: { canonical: "/privacidad" },
   title:"Privacidad del formulario y contacto · Sistema Zénit",
   description:"Cómo funciona la preparación de consultas para WhatsApp y qué información comparte el visitante."
 };

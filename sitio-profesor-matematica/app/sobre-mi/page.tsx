@@ -10,6 +10,7 @@ const experience = [
 ];
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/sobre-mi" },
   title: "Sobre el profesor Juan Xavier Cabello | Sistema Zénit",
   description: "Conoce la formación, trayectoria docente y método de enseñanza de Juan Xavier Cabello Salirrosas, bachiller en Matemática.",
 };
