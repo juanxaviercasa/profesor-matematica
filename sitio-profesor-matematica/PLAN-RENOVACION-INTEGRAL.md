@@ -48,6 +48,9 @@
 - [x] Cuestionarios con rejilla de respuestas adaptable para tabletas.
 - [x] Mensajes de resultado dinámico con `role="status"` donde corresponde.
 - [x] Nuevas pruebas estáticas de accesibilidad integradas en `npm run check:design`.
+- [x] Laboratorios clásicos cubiertos por controles táctiles compartidos y descripciones SVG.
+- [x] Deslizadores del laboratorio universal con nombres accesibles.
+- [x] Revisión ampliada de regresión en laboratorios antiguos y nuevos.
 - [ ] Verificar capturas en 320/375/390/768/1024/1440 px para las principales rutas.
 - [ ] Comprobar interacción táctil y teclado real en cada motor, más lector de pantalla.
 - [ ] Revisar formularios especiales y laboratorios no incluidos en los doce motores.
