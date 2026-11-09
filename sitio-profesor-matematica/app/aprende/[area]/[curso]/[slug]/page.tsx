@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL as BASE_URL } from "@/lib/site-config";
 import { notFound } from "next/navigation";
 import { Header, Footer } from "@/components/site";
 import Link from "@/components/safe-link";
@@ -19,7 +20,6 @@ type PageProps = {
   params: Promise<{ area: string; curso: string; slug: string }>;
 };
 
-const BASE_URL = "https://funciones-para-calculo.j76018445.chatgpt.site";
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { area: areaSlug, curso: cursoSlug, slug } = await params;
