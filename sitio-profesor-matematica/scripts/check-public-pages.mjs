@@ -25,6 +25,8 @@ assert.match(layout, /authors: \[\{ name: "Juan Xavier"/);
 assert.doesNotMatch(layout, /Juan Xavier Cabello|Profesor Juan Xavier|profesor Juan Xavier/);
 assert.ok(existsSync(new URL("../public/juan-xavier.jpg", import.meta.url)));
 assert.match(about, /public-method-grid/);
+assert.match(about, /Grado Académico de Licenciado en Ciencias de la Educación con Especialidad en Matemática/);
+assert.doesNotMatch(about, /Bachiller en Matemática|bachiller en Matemática/);
 assert.match(about, /juan-xavier\.jpg/);
 assert.match(contact, /public-contact-steps/);
 assert.match(contact, /<ConversionForm\/>/);
