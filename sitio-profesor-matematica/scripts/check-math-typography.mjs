@@ -59,7 +59,7 @@ assert.match(read("app/layout.tsx"),/scientific-typesetting\.css/);
 assert.match(read("components/zenit-app-engines.tsx"),/zenit-engine-formula-panel/);
 const complete=JSON.parse(read("content/catalog/lessons-full.json"));
 let inspectedText=0, mathPieces=0, malformedPieces=0;
-const samples=[];
+const corpusFailures=[];
 function inspectText(value,location){
   if(typeof value!=="string"||!value.trim())return;
   inspectedText++;
@@ -69,7 +69,7 @@ function inspectText(value,location){
     try{katex.renderToString(toLatex(part.value),{throwOnError:true,strict:false,trust:false});}
     catch(err){
       malformedPieces++;
-      if(samples.length<14)samples.push({location,tex:part.value.slice(0,90),reason:String(err.message||err).slice(0,100)});
+      if(corpusFailures.length<14)corpusFailures.push({location,tex:part.value.slice(0,90),reason:String(err.message||err).slice(0,100)});
     }
   }
 }
@@ -90,6 +90,6 @@ for(const l of complete){
     for(const paragraph of section.paragraphs||[])inspectText(paragraph,"book:"+l.slug);
   }
 }
-console.log("Auditoría de textos completos: "+JSON.stringify({inspectedText,mathPieces,malformedPieces,samples}));
+console.log("Auditoría de textos completos: "+JSON.stringify({inspectedText,mathPieces,malformedPieces,samples:corpusFailures}));
 
 console.log("✓ Capa 08: matemáticas con KaTeX y MathML, texto científico y accesibilidad verificados.");
