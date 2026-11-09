@@ -118,6 +118,17 @@
 - [x] Desactivados los builds automáticos de Pages sin eliminar el proyecto, tras verificar que solamente conservaba `profesor-matematica.pages.dev` y la web pública usa Workers.
 - [x] Evitada la doble generación del sitemap y del grafo en cada lote, y evitados commits vacíos cuando finalice la cola de lecciones programadas.
 
+## Octava intervención — tipografía matemática y auditoría general
+- [x] Análisis del sistema de render: las fórmulas aisladas usaban KaTeX; enunciados y explicaciones seguían como texto plano.
+- [x] Soporte para expresiones TeX dentro de textos y notación Unicode reconocible.
+- [x] Aplicación a teoría, libros, ejercicios, alternativas, solucionarios, pistas y generador.
+- [x] MathML accesible y fallback visible cuando una expresión no puede interpretarse.
+- [x] Fórmulas largas con scroll horizontal, contraste estable y tamaño de lectura para móviles.
+- [x] Pruebas automatizadas con fórmulas representativas y auditoría del catálogo.
+- [ ] Rectificar expresiones ambiguas de los archivos de origen y comprobar su equivalencia algebraica.
+- [ ] Capturas comparativas y validación funcional en móviles, tabletas y escritorios representativos.
+- [ ] Revisión con lectores de pantalla reales, teclado y alumnos.
+
 ## Métricas de aceptación pendientes
 Contraste 4.5:1 para texto normal; 3:1 para textos grandes. Sin overflow horizontal. Funcionalidad de rutas y formularios. Validación de build y Worker SSR, con pruebas de regresión.
 

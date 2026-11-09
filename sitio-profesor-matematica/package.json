@@ -18,7 +18,8 @@
     "check:public": "node scripts/check-public-pages.mjs",
     "check:learning": "node scripts/check-learning.mjs",
     "check:conversion": "node scripts/check-conversion.mjs",
-    "check:seo": "node scripts/check-seo.mjs"
+    "check:seo": "node scripts/check-seo.mjs",
+    "check:math": "node scripts/check-math-typography.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
