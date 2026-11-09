@@ -1,4 +1,5 @@
 import lessonsIndexRaw from "@/content/catalog/lessons-index.json";
+import { resolveEditorialKeyFormula } from "@/lib/editorial-key-formulas.mjs";
 import type { AppEngineId } from "@/components/zenit-app-engines";
 
 export interface TheorySlide {
@@ -72,7 +73,7 @@ export interface CatalogLessonFull extends CatalogLessonIndex {
   verticalProgressionSlugs?: string[];
 }
 
-export const LESSONS_INDEX: CatalogLessonIndex[] = lessonsIndexRaw as CatalogLessonIndex[];
+export const LESSONS_INDEX: CatalogLessonIndex[] = (lessonsIndexRaw as CatalogLessonIndex[]).map(lesson=>({ ...lesson, keyFormula:resolveEditorialKeyFormula(lesson) }));
 export function getLessonsByCourse(courseSlug: string): CatalogLessonIndex[] {
   return LESSONS_INDEX.filter(l => l.course === courseSlug);
 }

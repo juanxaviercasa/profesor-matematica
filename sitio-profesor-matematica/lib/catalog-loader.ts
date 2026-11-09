@@ -1,8 +1,9 @@
 /* Este módulo se utiliza solo desde páginas de servidor. Evitar importarlo en componentes "use client". */
 import lessonsFullRaw from "@/content/catalog/lessons-full.json";
+import { resolveEditorialKeyFormula } from "@/lib/editorial-key-formulas.mjs";
 import { type CatalogLessonFull } from "@/lib/catalog-index";
 export * from "@/lib/catalog-index";
-export const LESSONS_FULL: CatalogLessonFull[] = lessonsFullRaw as CatalogLessonFull[];
+export const LESSONS_FULL: CatalogLessonFull[] = (lessonsFullRaw as CatalogLessonFull[]).map(lesson=>({ ...lesson, keyFormula:resolveEditorialKeyFormula(lesson) }));
 
 const SLUG_MAP = new Map<string, CatalogLessonFull>();
 for (const l of LESSONS_FULL) {
