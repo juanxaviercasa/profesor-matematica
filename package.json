@@ -1,0 +1,13 @@
+{
+  "name": "profesor-matematica-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "npm --prefix sitio-profesor-matematica run build",
+    "dev": "npm --prefix sitio-profesor-matematica run dev",
+    "start": "npm --prefix sitio-profesor-matematica start"
+  }
+}
