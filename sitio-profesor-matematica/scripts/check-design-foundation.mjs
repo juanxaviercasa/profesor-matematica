@@ -100,7 +100,7 @@ const trigonometry = read("components/trig-labs.tsx");
 const universal = read("components/universal-interactive-lab.tsx");
 assert.match(responsive, /\.guided-lab/);
 assert.match(responsive, /\.universal-lab-card/);
-assert.equal((advanced.match(/role="img" aria-label=/g) || []).length, 3);
+assert.equal((advanced.match(/role="img" aria-label=/g) || []).length, 4);
 assert.match(advanced, /role="img" aria-label=\{/);
 assert.match(advanced, /aria-pressed=\{!!active\}/);
 assert.equal((trigonometry.match(/role="img"/g) || []).length, 2);
