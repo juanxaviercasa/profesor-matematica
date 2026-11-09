@@ -135,7 +135,7 @@ export function BlogConstructorExplorer() {
                   : "bg-stone-900 text-stone-300 border-stone-700"
               }`}
             >
-              🛠️ Modo Constructor Total ({LESSONS_INDEX.length} páginas)
+              📚 Explorar catálogo ({LESSONS_INDEX.length} temas)
             </button>
             <button
               onClick={() => setViewMode("drip")}
@@ -146,7 +146,7 @@ export function BlogConstructorExplorer() {
                   : "bg-stone-900 text-stone-300 border-stone-700"
               }`}
             >
-              🚀 Publicados Hoy en Blog ({publishedCount})
+              ✓ Lecciones publicadas ({publishedCount})
             </button>
           </div>
 
