@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import type { ExtractedExercise, WorkedSolution } from "@/lib/catalog-loader";
+import type { ExtractedExercise, WorkedSolution } from "@/lib/catalog-index";
 import { getVerifiedAnswerKey, scoreExerciseAnswers } from "@/lib/exercise-evaluation.mjs";
 
 const OPTION_LETTERS = ["a", "b", "c", "d", "e"];

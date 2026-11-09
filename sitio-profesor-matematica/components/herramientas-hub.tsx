@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { ZENIT_ENGINES, ZenitInteractiveApp, type AppEngineId } from "./zenit-app-engines";
-import { LESSONS_INDEX } from "@/lib/catalog-loader";
+import { LESSONS_INDEX } from "@/lib/catalog-index";
 import Link from "./safe-link";
 
 export function HerramientasInteractiveHub() {
