@@ -27,5 +27,16 @@
     ],
     "totalPublishedNow": 96,
     "remainingScheduled": 532
+  },
+  {
+    "timestamp": "2026-11-09T22:50:00.256Z",
+    "countPublished": 3,
+    "publishedSlugs": [
+      "operaciones-con-polinomios-1sec-unidad2",
+      "sistemas-de-medidas-angulares-1sec-unidad2",
+      "sistemas-de-medidas-angulares-i-1sec-unidad2"
+    ],
+    "totalPublishedNow": 99,
+    "remainingScheduled": 529
   }
 ]
