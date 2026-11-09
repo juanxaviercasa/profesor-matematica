@@ -7,6 +7,7 @@ import "./design-system.css";
 import "./responsive-accessibility.css";
 import "./public-pages.css";
 import "./learning-experience.css";
+import "./conversion-trust.css";
 import "katex/dist/katex.min.css";
 
 
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s · Profesor Juan Xavier",
   },
   description:
-    "Matemática que conecta: 628 lecciones interactivas desde 1.° de secundaria hasta cálculo universitario y ciencias. Aprende con el profesor Juan Xavier, bachiller en Matemática y docente en Lima.",
+    "Matemática que conecta: explora lecciones, laboratorios y ejercicios de secundaria, nivel preuniversitario y universitario con el profesor Juan Xavier.",
   keywords: [
     "profesor de matemática en Lima",
     "clases de matemática Lima",
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Profesor Juan Xavier · Sistema Zénit",
     description:
-      "Enciclopedia matemática interactiva de 628 lecciones, 12 Web Apps y banco de ejercicios graduados con solucionario oficial.",
+      "Biblioteca de matemática y ciencias con simuladores interactivos, ejercicios graduados y materiales de aprendizaje.",
     type: "website",
     locale: "es_PE",
     url: BASE_URL,
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Profesor Juan Xavier · Sistema Zénit",
     description:
-      "Matemática que conecta: teoría estructurada, Web Apps interactivas y 628 lecciones completas.",
+      "Matemática que conecta: teoría, herramientas interactivas y práctica guiada.",
   },
 };
 
@@ -57,7 +58,7 @@ const rootSchema = {
       name: "Juan Xavier Cabello Salirrosas",
       jobTitle: "Profesor de Matemática y Fundador del Sistema Zénit",
       description:
-        "Bachiller en Matemática y docente con amplia experiencia en preparación secundaria, preuniversitaria (UNI, UNMSM, PUCP) y primeros ciclos universitarios.",
+        "Bachiller en Matemática, con experiencia docente escolar y preuniversitaria en Lima.",
       url: BASE_URL,
       address: {
         "@type": "PostalAddress",
@@ -80,17 +81,12 @@ const rootSchema = {
       url: BASE_URL,
       logo: `${BASE_URL}/brand/zenit-lockup.svg`,
       description:
-        "Plataforma y enciclopedia matemática de 628 temas con Web Apps interactivas, solucionarios oficiales y banco graduado de problemas.",
+        "Plataforma educativa de matemática y ciencias con lecciones, simuladores y ejercicios graduados.",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Lima",
         addressRegion: "Lima",
         addressCountry: "PE",
-      },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: -12.046374,
-        longitude: -77.042793,
       },
       areaServed: [
         { "@type": "AdministrativeArea", name: "Lima, Perú" },
@@ -110,14 +106,6 @@ const rootSchema = {
       publisher: {
         "@id": `${BASE_URL}/#organizacion`,
       },
-      potentialAction: {
-        "@type": "SearchAction",
-        target: {
-          "@type": "EntryPoint",
-          urlTemplate: `${BASE_URL}/blog?search={search_term_string}`,
-        },
-        "query-input": "required name=search_term_string",
-      },
     },
   ],
 };
@@ -127,11 +115,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="es">
       <head>
         <link rel="author" href={BASE_URL} />
-        {/* Geographic Local SEO (GEO) */}
         <meta name="geo.region" content="PE-LMA" />
         <meta name="geo.placename" content="Lima, Perú" />
-        <meta name="geo.position" content="-12.046374;-77.042793" />
-        <meta name="ICBM" content="-12.046374, -77.042793" />
       </head>
       <body>
         <Analytics />
