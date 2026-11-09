@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useCallback } from "react";
+import { MathText } from "./math-formula";
 import type { AppEngineId } from "./zenit-app-engines";
 
 interface GeneratedProblem {
@@ -381,7 +382,7 @@ export function InfiniteProblemGenerator({
         </div>
 
         <p className="text-sm md:text-base text-stone-100 font-medium leading-relaxed">
-          {problem.statement}
+          <MathText source={problem.statement} inlineOnly />
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-2.5">
@@ -405,9 +406,9 @@ export function InfiniteProblemGenerator({
                 aria-disabled={selectedIdx !== null}
                 aria-label={`Alternativa ${idx + 1}: ${opt}`}
                 aria-pressed={isSelected}
-                className={`px-3.5 py-2.5 rounded-xl text-left text-xs font-mono border transition-all ${style}`}
+                className={`math-option-button px-3.5 py-2.5 rounded-xl text-left text-sm font-sans border transition-all ${style}`}
               >
-                {opt}
+                <MathText source={opt} inlineOnly />
               </button>
             );
           })}
@@ -426,7 +427,7 @@ export function InfiniteProblemGenerator({
             <span>
               {selectedIdx === problem.correctIndex
                 ? "✓ ¡Excelente! Cálculo verificado correctamente."
-                : `✗ Respuesta incorrecta. La alternativa exacta es ${problem.options[problem.correctIndex]}.`}
+                : "✗ Respuesta incorrecta. Revisa la alternativa correcta resaltada en verde."}
             </span>
             <button
               onClick={() => setShowSteps(true)}
@@ -445,7 +446,7 @@ export function InfiniteProblemGenerator({
             {problem.steps.map((st, i) => (
               <div key={i} className="flex items-start gap-2 leading-relaxed">
                 <span className="text-emerald-400">▸</span>
-                <span>{st}</span>
+                <div className="math-prose-line"><MathText source={st}/></div>
               </div>
             ))}
           </div>

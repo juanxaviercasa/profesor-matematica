@@ -3,7 +3,7 @@ import { SITE_URL as BASE_URL } from "@/lib/site-config";
 import { notFound } from "next/navigation";
 import { Header, Footer } from "@/components/site";
 import Link from "@/components/safe-link";
-import { MathFormula } from "@/components/math-formula";
+import { MathFormula, MathText } from "@/components/math-formula";
 import { ZenitInteractiveApp, ZENIT_ENGINES, type AppEngineId } from "@/components/zenit-app-engines";
 import { InteractiveExerciseBank } from "@/components/interactive-exercise-bank";
 import { getVerifiedAnswerKey } from "@/lib/exercise-evaluation.mjs";
@@ -347,13 +347,13 @@ export default async function TopicDetailPage({ params }: PageProps) {
                       <span>Diapositiva {slide.slideNumber}</span>
                     </div>
                     <h3 className="text-base font-bold text-white leading-snug">
-                      {slide.heading}
+                      <MathText source={slide.heading} inlineOnly />
                     </h3>
                     <div className="space-y-2 text-xs md:text-sm text-stone-300 leading-relaxed">
                       {slide.content.map((p, pIdx) => (
-                        <p key={pIdx} className="bg-stone-950/50 p-2.5 rounded-lg border border-stone-800/60 font-sans">
-                          {p}
-                        </p>
+                        <div key={pIdx} className="math-scientific-paragraph bg-stone-950/50 p-3 rounded-lg border border-stone-800/60 font-sans">
+                          <MathText source={p}/>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -416,13 +416,13 @@ export default async function TopicDetailPage({ params }: PageProps) {
                       <span>Pág. ref #{ab.page}</span>
                     </div>
                     <h3 className="text-sm font-bold text-white leading-snug">
-                      {ab.heading}
+                      <MathText source={ab.heading} inlineOnly />
                     </h3>
                     <div className="space-y-2 text-xs text-stone-300 leading-relaxed">
                       {ab.paragraphs.map((par, pIdx) => (
-                        <p key={pIdx} className="bg-stone-900/60 p-2.5 rounded-lg border border-stone-800/60">
-                          {par}
-                        </p>
+                        <div key={pIdx} className="math-scientific-paragraph bg-stone-900/60 p-3 rounded-lg border border-stone-800/60">
+                          <MathText source={par}/>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -453,7 +453,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
                     {sp.type}
                   </span>
                   <h3 className="text-sm font-bold text-white">{sp.title}</h3>
-                  <p className="text-xs text-stone-400 leading-relaxed">{sp.summary}</p>
+                  <p className="text-xs text-stone-300 leading-relaxed"><MathText source={sp.summary} inlineOnly /></p>
                 </div>
               ))}
             </div>

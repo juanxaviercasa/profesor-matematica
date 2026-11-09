@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { MathText } from "./math-formula";
 import type { ExtractedExercise, WorkedSolution } from "@/lib/catalog-index";
 import { getVerifiedAnswerKey, scoreExerciseAnswers } from "@/lib/exercise-evaluation.mjs";
 
@@ -182,7 +183,7 @@ export function InteractiveExerciseBank({
                     {ws.steps.map((step, sIdx) => (
                       <div key={sIdx} className="leading-relaxed flex items-start gap-2">
                         <span className="text-sky-400 select-none">▸</span>
-                        <span>{step}</span>
+                        <div className="math-prose-line"><MathText source={step}/></div>
                       </div>
                     ))}
                   </div>
@@ -254,7 +255,7 @@ export function InteractiveExerciseBank({
                 </div>
 
                 <p className="text-sm md:text-base text-stone-100 leading-relaxed font-medium">
-                  {ex.statement}
+                  <MathText source={ex.statement} inlineOnly />
                 </p>
 
                 {ex.options && ex.options.length > 0 && (
@@ -284,9 +285,9 @@ export function InteractiveExerciseBank({
                           aria-label={`Problema ${ex.number}, alternativa ${oIdx + 1}: ${opt}`}
                           onClick={() => { if (!examMode || !examSubmitted) setSelectedOptions((prev) => ({ ...prev, [key]: oIdx })); }}
                           aria-disabled={examMode && examSubmitted}
-                          className={`px-3 py-2.5 rounded-xl text-left text-xs font-mono transition-all border ${btnStyle}`}
+                          className={`math-option-button px-3 py-2.5 rounded-xl text-left text-sm font-sans transition-all border ${btnStyle}`}
                         >
-                          {opt}
+                          <MathText source={opt} inlineOnly />
                         </button>
                       );
                     })}
@@ -338,8 +339,7 @@ export function InteractiveExerciseBank({
                       </span>
                     </div>
                     <p className="leading-relaxed">
-                      {ex.hint ||
-                        `Identifica los datos principales del enunciado de ${topicTitle}, aplica la propiedad del marco teórico y comprueba con el simulador interactivo superior y justifica el resultado con un razonamiento verificable.`}
+                      <MathText source={ex.hint || `Identifica los datos principales del enunciado de ${topicTitle}, aplica la propiedad del marco teórico, comprueba con el simulador y justifica tu respuesta.`} />
                     </p>
                   </div>
                 )}
