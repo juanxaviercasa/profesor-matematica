@@ -3,10 +3,10 @@
 import { useMemo, useState } from "react";
 import Link from "./safe-link";
 import { LabProgressBar, trackLab, useLabProgress } from "./lab-progress";
-import { MathFormula } from "./math-formula";
+import { MathFormula, MathText } from "./math-formula";
 
-function Feedback({ok,children}:{ok:boolean;children:React.ReactNode}){return <div className={`lab-feedback ${ok?"correct":"retry"}`} role="status"><b>{ok?"¡Bien razonado!":"Revisa la condición"}</b><p>{children}</p></div>}
-function Choice({children,onClick,active}:{children:React.ReactNode;onClick:()=>void;active?:boolean}){return <button className={`lab-choice${active?" active":""}`} aria-pressed={!!active} onClick={onClick}>{children}</button>}
+function Feedback({ok,children}:{ok:boolean;children:React.ReactNode}){return <div className={`lab-feedback ${ok?"correct":"retry"}`} role="status"><b>{ok?"¡Bien razonado!":"Revisa la condición"}</b><p>{typeof children==="string"?<MathText source={children} inlineOnly />:children}</p></div>}
+function Choice({children,onClick,active}:{children:React.ReactNode;onClick:()=>void;active?:boolean}){return <button className={`lab-choice${active?" active":""}`} aria-pressed={!!active} onClick={onClick}>{typeof children==="string"?<MathText source={children} inlineOnly />:children}</button>}
 function Finish({next}:{next:string}){return <div className="lab-finish"><b>Reto completado</b><p>Ya tienes una conexión más para avanzar hacia cálculo.</p><Link className="button" href={next}>Siguiente laboratorio →</Link></div>}
 
 const domains=[

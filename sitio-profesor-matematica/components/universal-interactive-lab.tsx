@@ -79,8 +79,8 @@ export function UniversalInteractiveLab({
           <h3 className="mt-1 text-xl font-bold text-white">{topicTitle}</h3>
         </div>
         {keyFormula && (
-          <div className="rounded-lg bg-stone-950/80 px-4 py-2 border border-stone-800">
-            <MathFormula source={keyFormula} displayMode={false} />
+          <div className="zenit-engine-formula-panel rounded-lg bg-stone-950/80 px-3 py-2 border border-stone-800">
+            <MathFormula source={keyFormula} displayMode={true} />
           </div>
         )}
       </div>

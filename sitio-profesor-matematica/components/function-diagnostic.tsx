@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "./safe-link";
+import { MathText } from "./math-formula";
 import { useState } from "react";
 
 const questions = [
@@ -44,5 +45,5 @@ export function FunctionDiagnostic(){
     <div className="actions"><Link className="button" href={profile.href}>{profile.next}</Link><button className="text-button" onClick={reset}>Repetir diagnóstico</button></div><small>Este resultado es orientativo y no sustituye una evaluación académica completa.</small></section>
   }
 
-  return <section className="diagnostic-shell"><div className="diagnostic-intro"><span>{answers.filter(v=>v!==null).length} de {questions.length}</span><div role="progressbar" aria-label="Preguntas respondidas" aria-valuemin={0} aria-valuemax={questions.length} aria-valuenow={answers.filter(v=>v!==null).length}><i style={{width:`${answers.filter(v=>v!==null).length/questions.length*100}%`}}/></div><p>Responde sin calculadora. El objetivo es identificar qué conexión debes trabajar primero.</p></div>{questions.map((item,index)=><fieldset key={item.q}><legend><span>{String(index+1).padStart(2,"0")}</span>{item.q}</legend>{item.options.map((option,optionIndex)=><label key={option}><input type="radio" name={`q-${index}`} checked={answers[index]===optionIndex} onChange={()=>setAnswers(current=>current.map((value,i)=>i===index?optionIndex:value))}/><span>{option}</span></label>)}</fieldset>)}<button className="button diagnostic-submit" disabled={!completed} onClick={finish}>Ver mi resultado</button>{!completed&&<p className="diagnostic-hint">Responde las diez preguntas para obtener tu ruta recomendada.</p>}</section>
+  return <section className="diagnostic-shell"><div className="diagnostic-intro"><span>{answers.filter(v=>v!==null).length} de {questions.length}</span><div role="progressbar" aria-label="Preguntas respondidas" aria-valuemin={0} aria-valuemax={questions.length} aria-valuenow={answers.filter(v=>v!==null).length}><i style={{width:`${answers.filter(v=>v!==null).length/questions.length*100}%`}}/></div><p>Responde sin calculadora. El objetivo es identificar qué conexión debes trabajar primero.</p></div>{questions.map((item,index)=><fieldset key={item.q}><legend><span>{String(index+1).padStart(2,"0")}</span><MathText source={item.q} inlineOnly /></legend>{item.options.map((option,optionIndex)=><label key={option}><input type="radio" name={`q-${index}`} checked={answers[index]===optionIndex} onChange={()=>setAnswers(current=>current.map((value,i)=>i===index?optionIndex:value))}/><span><MathText source={option} inlineOnly /></span></label>)}</fieldset>)}<button className="button diagnostic-submit" disabled={!completed} onClick={finish}>Ver mi resultado</button>{!completed&&<p className="diagnostic-hint">Responde las diez preguntas para obtener tu ruta recomendada.</p>}</section>
 }
