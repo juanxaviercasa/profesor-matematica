@@ -30,7 +30,7 @@ export const EDITORIAL_RULES = [
   {course:"aritmetica",pattern:/m[uú]ltiplos y divisores|divisibilidad/,tex:String.raw`a\mid b\iff b=ak,\quad k\in\mathbb Z`},
 
   // GEOMETRÍA
-  {course:"geometria",pattern:/segmento/,tex:String.raw`AB+BC=AC\quad\text{si }B\text{ est\acute a entre }A\text{ y }C`},
+  {course:"geometria",pattern:/segmento/,tex:String.raw`AB+BC=AC\quad\text{si }B\text{ está entre }A\text{ y }C`},
   {course:"geometria",pattern:/[aá]ngulos? (?:determinados|formados).*paralela/,tex:String.raw`\alpha=\beta\quad\text{(alternos internos entre paralelas)}`},
   {course:"geometria",pattern:/[aá]ngulo/,tex:String.raw`m\angle AOB+m\angle BOC=m\angle AOC`},
   {course:"geometria",pattern:/tri[aá]ngulos? rect[aá]ngulos?|pit[aá]goras/,tex:String.raw`a^2+b^2=c^2`},
@@ -39,7 +39,7 @@ export const EDITORIAL_RULES = [
   {course:"geometria",pattern:/pol[ií]gono/,tex:String.raw`S_i=(n-2)\cdot180^\circ`},
   {course:"geometria",pattern:/circunferencia|c[ií]rculo/,tex:String.raw`L=2\pi r,\qquad A=\pi r^2`},
   {course:"geometria",pattern:/prisma/,tex:String.raw`V_{\text{prisma}}=A_bh`},
-  {course:"geometria",pattern:/pir[aá]mide/,tex:String.raw`V_{\text{pir\acute amide}}=\frac{A_bh}{3}`},
+  {course:"geometria",pattern:/pir[aá]mide/,tex:String.raw`V_{\text{pirámide}}=\frac{A_bh}{3}`},
 
   // TRIGONOMETRÍA
   {course:"trigonometria",pattern:/sistema(?:s)? (?:de )?medida(?:s)? angular|sistema(?:s)? angular/,tex:String.raw`\frac{S}{180}=\frac{C}{200}=\frac{R}{\pi}`},
