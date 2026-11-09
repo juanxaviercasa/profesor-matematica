@@ -96,6 +96,54 @@ export function getLessonsByGrade(grade: number): CatalogLessonIndex[] {
   return LESSONS_INDEX.filter(l => l.grade === grade);
 }
 
+export function getRelatedLessons(
+  lesson: CatalogLessonIndex | CatalogLessonFull,
+  limit = 6
+): CatalogLessonIndex[] {
+  const results: CatalogLessonIndex[] = [];
+  const seenSlugs = new Set<string>([lesson.slug]);
+
+  // 1. Vertical equivalents across other grades (same baseSlug)
+  for (const item of LESSONS_INDEX) {
+    if (item.baseSlug === lesson.baseSlug && !seenSlugs.has(item.slug)) {
+      results.push(item);
+      seenSlugs.add(item.slug);
+      if (results.length >= 2) break;
+    }
+  }
+
+  // 2. Same course topics
+  for (const item of LESSONS_INDEX) {
+    if (item.course === lesson.course && !seenSlugs.has(item.slug)) {
+      results.push(item);
+      seenSlugs.add(item.slug);
+      if (results.length >= 4) break;
+    }
+  }
+
+  // 3. Same interactive Web App engine (sharing mathematical tools)
+  for (const item of LESSONS_INDEX) {
+    if (item.appEngine === lesson.appEngine && !seenSlugs.has(item.slug)) {
+      results.push(item);
+      seenSlugs.add(item.slug);
+      if (results.length >= limit) break;
+    }
+  }
+
+  // 4. Fill with other high-relevance lessons if needed
+  if (results.length < limit) {
+    for (const item of LESSONS_INDEX) {
+      if (!seenSlugs.has(item.slug)) {
+        results.push(item);
+        seenSlugs.add(item.slug);
+        if (results.length >= limit) break;
+      }
+    }
+  }
+
+  return results.slice(0, limit);
+}
+
 export const AREA_LABELS: Record<string, { title: string; badge: string; description: string }> = {
   "matematica-preuniversitaria": {
     title: "Matemática Secundaria (1.° a 5.°) y Preuniversitaria",

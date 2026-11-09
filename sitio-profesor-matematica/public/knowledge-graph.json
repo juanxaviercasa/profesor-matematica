@@ -1,9 +1,9 @@
 {
   "version": "2.0.0",
-  "generatedAt": "2026-11-09T01:29:37.592Z",
+  "generatedAt": "2026-11-09T03:05:39.521Z",
   "totalLessons": 628,
-  "publishedLessons": 90,
-  "scheduledLessons": 538,
+  "publishedLessons": 93,
+  "scheduledLessons": 535,
   "baseUrl": "https://funciones-para-calculo.j76018445.chatgpt.site",
   "nodes": [
     {
@@ -230,7 +230,7 @@
       "course": "razonamiento-matematico",
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 7
     },
@@ -242,7 +242,7 @@
       "course": "razonamiento-matematico",
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 0
     },
@@ -254,7 +254,7 @@
       "course": "razonamiento-matematico",
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 8
     },

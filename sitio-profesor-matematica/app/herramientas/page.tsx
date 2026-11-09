@@ -23,12 +23,12 @@ export default function HerramientasPage() {
                 Constructor y Suite de Web Apps Zénit
               </h1>
               <p className="text-sm md:text-base text-stone-300 leading-relaxed">
-                Cada tema de nuestra enciclopedia matemática cuenta con su propia herramienta interactiva responsiva. Aquí puedes probar, validar y utilizar desde el primer día los <strong>12 motores especializados</strong> que alimentan las <strong>584 páginas</strong> del ecosistema.
+                Cada tema de nuestra enciclopedia matemática cuenta con su propia herramienta interactiva responsiva. Aquí puedes probar, validar y utilizar desde el primer día los <strong>12 motores especializados</strong> que alimentan las <strong>628 páginas</strong> del ecosistema.
               </p>
             </div>
             <div className="flex flex-col gap-3">
               <Link href="/blog" className="button primary text-center">
-                Explorar las 584 Lecciones (Blog / Capas) →
+                Explorar las 628 Lecciones (Blog / Capas) →
               </Link>
               <Link href="/laboratorio" className="button secondary text-center">
                 Ver Zénit Labs de Funciones

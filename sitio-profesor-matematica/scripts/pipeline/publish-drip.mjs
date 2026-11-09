@@ -68,3 +68,14 @@ fs.writeFileSync(historyFile, JSON.stringify(history, null, 2), "utf-8");
 console.log(
   `✓ [Zénit Drip] Publicadas ${newlyPublishedSlugs.length} nuevas lecciones (${totalPublished} publicadas / ${totalScheduled} en cola).`
 );
+
+// Auto-regenerate sitemap and knowledge graph
+import { execSync } from "node:child_process";
+try {
+  execSync(`node "${path.join(__dirname, "generate-sitemap-and-graph.mjs")}"`, {
+    stdio: "inherit",
+    cwd: rootDir,
+  });
+} catch (err) {
+  console.warn("No se pudo regenerar sitemap y graph automáticamente:", err.message);
+}

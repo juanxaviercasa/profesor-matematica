@@ -4,8 +4,8 @@ import { BlogConstructorExplorer } from "@/components/blog-constructor-explorer"
 import Link from "@/components/safe-link";
 
 export const metadata: Metadata = {
-  title: "Blog & Constructor por Capas (584 Temas) · Sistema Zénit",
-  description: "Explora las 584 lecciones interactivas extraídas y estructuradas desde 1.° a 5.° de secundaria, nivel preuniversitario, universitario y ciencias exactas, con publicación programada 3x al día y Web Apps interactivas."
+  title: "Blog & Constructor por Capas (628 Temas) · Sistema Zénit",
+  description: "Explora las 628 lecciones interactivas extraídas y estructuradas desde 1.° a 5.° de secundaria, nivel preuniversitario, universitario y ciencias exactas, con publicación programada 3x al día y Web Apps interactivas."
 };
 
 export default function BlogPage() {
@@ -17,7 +17,7 @@ export default function BlogPage() {
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="max-w-3xl space-y-3">
               <span className="inline-block rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-300">
-                ECOSISTEMA PULPO · 584 PÁGINAS CON WEB APP INTERACTIVA
+                ECOSISTEMA PULPO · 628 PÁGINAS CON WEB APP INTERACTIVA
               </span>
               <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
                 Blog Enciclopédico y Constructor por Capas

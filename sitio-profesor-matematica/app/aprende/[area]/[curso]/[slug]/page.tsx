@@ -6,9 +6,11 @@ import { MathFormula } from "@/components/math-formula";
 import { ZenitInteractiveApp, ZENIT_ENGINES, type AppEngineId } from "@/components/zenit-app-engines";
 import { InteractiveExerciseBank } from "@/components/interactive-exercise-bank";
 import { InfiniteProblemGenerator } from "@/components/infinite-problem-generator";
+import { InternalKnowledgeMesh } from "@/components/internal-knowledge-mesh";
 import {
   getLessonBySlug,
   getLessonsByCourse,
+  getRelatedLessons,
   COURSE_LABELS,
 } from "@/lib/catalog-loader";
 import { CURRICULUM_DATA } from "@/lib/curriculum-data";
@@ -17,15 +19,41 @@ type PageProps = {
   params: Promise<{ area: string; curso: string; slug: string }>;
 };
 
+const BASE_URL = "https://funciones-para-calculo.j76018445.chatgpt.site";
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { area: areaSlug, curso: cursoSlug, slug } = await params;
   const catalogLesson = getLessonBySlug(slug);
+  const canonicalUrl = `${BASE_URL}/aprende/${areaSlug}/${cursoSlug}/${slug}`;
+
   if (catalogLesson) {
+    const courseMeta = COURSE_LABELS[catalogLesson.course];
+    const pageTitle = `${catalogLesson.title} (${catalogLesson.gradeLabel}) · Teoría, Ejercicios y Web App · Zénit`;
+    const pageDesc = `${catalogLesson.summary} Incluye calculadora interactiva, fórmulas clave, banco graduado de ejercicios F0/FA con solucionario oficial y generador infinito.`;
+
     return {
-      title: `${catalogLesson.title} (${catalogLesson.gradeLabel}) · Web App y Ejercicios · Zénit`,
-      description: catalogLesson.summary,
+      title: pageTitle,
+      description: pageDesc,
+      keywords: catalogLesson.tags,
+      alternates: {
+        canonical: canonicalUrl,
+      },
+      openGraph: {
+        title: pageTitle,
+        description: pageDesc,
+        url: canonicalUrl,
+        siteName: "Ecosistema Educativo Zénit · Profesor Juan Xavier",
+        type: "article",
+        locale: "es_PE",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: pageTitle,
+        description: pageDesc,
+      },
     };
   }
+
   return {
     title: `${slug.replace(/-/g, " ")} · Sistema Zénit`,
   };
@@ -107,15 +135,79 @@ export default async function TopicDetailPage({ params }: PageProps) {
     .map(s => getLessonBySlug(s))
     .filter(Boolean);
 
+  // Layer 4: Intelligent Related Lessons (Interlinking Mesh)
+  const relatedLessons = getRelatedLessons(lesson, 6);
+
+  // Layer 4: Structured Data (JSON-LD) for Schema.org
+  const canonicalUrl = `${BASE_URL}/aprende/${lesson.area}/${lesson.course}/${lesson.slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": ["LearningResource", "Course"],
+    name: `${lesson.title} - ${lesson.gradeLabel}`,
+    description: lesson.summary,
+    educationalLevel: lesson.gradeLabel,
+    learningResourceType: "Interactive Lesson & Practice",
+    teaches: lesson.title,
+    keywords: lesson.tags.join(", "),
+    url: canonicalUrl,
+    inLanguage: "es",
+    provider: {
+      "@type": "Person",
+      name: "Profesor Juan Xavier Casa",
+      jobTitle: "Docente y Asesor de Matemática Preuniversitaria y Universitaria",
+      url: BASE_URL,
+    },
+    hasPart: [
+      {
+        "@type": "SoftwareApplication",
+        name: `Simulador Interactivo: ${lesson.title}`,
+        applicationCategory: "EducationalApplication",
+        operatingSystem: "All",
+        url: canonicalUrl,
+      },
+      {
+        "@type": "Quiz",
+        name: `Banco Oficial de Ejercicios: ${lesson.title}`,
+        hasPart: (lesson.exercisesF0 || []).slice(0, 3).map((ex) => ({
+          "@type": "Question",
+          name: `Problema #${ex.number}`,
+          text: ex.statement,
+          suggestedAnswer: {
+            "@type": "Answer",
+            text: `Clave oficial verificada: ${ex.answerKey?.toUpperCase() || "A"}`,
+          },
+        })),
+      },
+    ],
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Inicio", item: BASE_URL },
+        { "@type": "ListItem", position: 2, name: "Aprende", item: `${BASE_URL}/aprende` },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: courseMeta.title,
+          item: `${BASE_URL}/aprende/${lesson.area}/${lesson.course}`,
+        },
+        { "@type": "ListItem", position: 4, name: lesson.title, item: canonicalUrl },
+      ],
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
       <main className="topic-view wrap my-10 space-y-10 max-w-5xl mx-auto">
         {/* Breadcrumb */}
         <nav className="breadcrumb text-xs text-stone-400 flex flex-wrap items-center gap-2">
           <Link href="/" className="hover:text-stone-200">Inicio</Link>
           <span>/</span>
-          <Link href="/blog" className="hover:text-stone-200">Blog y Constructor (584)</Link>
+          <Link href="/blog" className="hover:text-stone-200">Blog y Constructor (628)</Link>
           <span>/</span>
           <Link href={`/aprende/${lesson.area}/${lesson.course}`} className="hover:text-stone-200">
             {courseMeta.icon} {courseMeta.title}
@@ -369,6 +461,12 @@ export default async function TopicDetailPage({ params }: PageProps) {
           </section>
         )}
 
+        {/* Layer 4: Interlinking Knowledge Mesh */}
+        <InternalKnowledgeMesh
+          currentTitle={lesson.title}
+          related={relatedLessons}
+        />
+
         {/* Next / Prev Navigation in Course */}
         <section className="border-t border-stone-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           {prevLesson ? (
@@ -385,7 +483,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
             href="/blog"
             className="rounded-xl border border-stone-700 bg-stone-900 px-4 py-2.5 text-xs font-bold text-stone-200 hover:border-emerald-500"
           >
-            Ver las 584 Lecciones
+            Ver las 628 Lecciones
           </Link>
 
           {nextLesson && (
