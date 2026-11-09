@@ -1,10 +1,10 @@
 {
   "version": "2.0.0",
-  "generatedAt": "2026-11-09T03:05:39.521Z",
+  "generatedAt": "2026-11-09T07:33:13.345Z",
   "totalLessons": 628,
-  "publishedLessons": 93,
-  "scheduledLessons": 535,
-  "baseUrl": "https://funciones-para-calculo.j76018445.chatgpt.site",
+  "publishedLessons": 96,
+  "scheduledLessons": 532,
+  "baseUrl": "https://sistemazenit.com",
   "nodes": [
     {
       "id": "sec1-unidad_1-angulo-trigonometrico",
@@ -266,7 +266,7 @@
       "course": "aritmetica",
       "grade": 1,
       "appEngine": "NumberTheoryLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 16
     },
@@ -278,7 +278,7 @@
       "course": "aritmetica",
       "grade": 1,
       "appEngine": "NumberTheoryLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 16
     },
@@ -290,7 +290,7 @@
       "course": "algebra",
       "grade": 1,
       "appEngine": "PolynomialAlgebraLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 8
     },

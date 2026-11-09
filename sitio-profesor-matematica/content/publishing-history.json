@@ -16,5 +16,16 @@
     ],
     "totalPublishedNow": 93,
     "remainingScheduled": 535
+  },
+  {
+    "timestamp": "2026-11-09T07:33:13.257Z",
+    "countPublished": 3,
+    "publishedSlugs": [
+      "multiplos-y-divisores-de-un-numero-1sec-unidad2",
+      "numeros-naturales-1sec-unidad2",
+      "operaciones-con-monomios-y-polinomios-1sec-unidad2"
+    ],
+    "totalPublishedNow": 96,
+    "remainingScheduled": 532
   }
 ]
