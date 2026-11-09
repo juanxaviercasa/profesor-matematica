@@ -45,7 +45,7 @@ export function BlogConstructorExplorer() {
   return (
     <div className="space-y-8">
       {/* Onion Layer & Stats Banner */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="rounded-2xl border border-emerald-800/40 bg-stone-950/90 p-5">
           <span className="text-xs font-mono uppercase text-emerald-400">Total Páginas Generadas</span>
           <div className="text-3xl font-extrabold text-white mt-1 font-mono">{LESSONS_INDEX.length}</div>
@@ -125,7 +125,7 @@ export function BlogConstructorExplorer() {
       {/* Filter Bar */}
       <div className="rounded-3xl border border-stone-800 bg-stone-950/90 p-6 space-y-5 shadow-xl">
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setViewMode("constructor")}
               className={`px-4 py-2 rounded-xl text-xs font-bold border transition-all ${
