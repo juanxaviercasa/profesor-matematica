@@ -47,7 +47,7 @@ export function BlogConstructorExplorer() {
       {/* Onion Layer & Stats Banner */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="rounded-2xl border border-emerald-800/40 bg-stone-950/90 p-5">
-          <span className="text-xs font-mono uppercase text-emerald-400">Total Páginas Generadas</span>
+          <span className="text-xs font-mono uppercase text-emerald-400">Temas del catálogo</span>
           <div className="text-3xl font-extrabold text-white mt-1 font-mono">{LESSONS_INDEX.length}</div>
           <span className="text-[11px] text-stone-400">1.° a 5.° Sec + Preuni + Uni + Ciencias</span>
         </div>
@@ -79,7 +79,7 @@ export function BlogConstructorExplorer() {
             Arquitectura de Refinamiento por Capas (Modelo Cebolla · Capa 3 Completada)
           </span>
           <span className="text-xs text-stone-400">
-            {LESSONS_INDEX.length} páginas con Capa 1 + 2 + 3 activas (Teoría + Web App + Fichas F0/FA + Claves Oficiales + Solucionarios + Libro del Área + STEAM + Generador Infinito)
+            {LESSONS_INDEX.length} páginas con teoría, simulador y ejercicios para practicar
           </span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">

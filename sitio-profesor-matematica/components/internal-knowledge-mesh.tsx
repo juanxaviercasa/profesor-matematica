@@ -17,7 +17,7 @@ export function InternalKnowledgeMesh({
       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-800 pb-4">
         <div>
           <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold">
-            🕸️ MALLA DE CONOCIMIENTO INTERCONECTADO · SEO & INTERLINKING
+            SIGUE APRENDIENDO · TEMAS RELACIONADOS
           </span>
           <h2 className="text-xl md:text-2xl font-bold text-white mt-1">
             Rutas de Aprendizaje y Temas Relacionados con «{currentTitle}»
@@ -30,7 +30,7 @@ export function InternalKnowledgeMesh({
           href="/blog"
           className="text-xs font-mono text-emerald-400 hover:text-emerald-300 font-semibold"
         >
-          Explorar Grafo Completo (628 Nodos) →
+          Explorar la biblioteca →
         </Link>
       </div>
 

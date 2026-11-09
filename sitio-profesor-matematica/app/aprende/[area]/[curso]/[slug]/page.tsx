@@ -262,30 +262,6 @@ export default async function TopicDetailPage({ params }: PageProps) {
           </p>
 
           <p className="lesson-approach">Ruta sugerida: observa un ejemplo en el simulador, estudia la teoría y comprueba tus ideas con ejercicios. Puedes volver a cualquier paso.</p>
-          {/* Tags & Source Files */}
-          <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-stone-800/80 text-xs">
-            <div className="flex flex-wrap gap-1.5">
-              {lesson.tags.map((tag, idx) => (
-                <span
-                  key={idx}
-                  className="px-2.5 py-0.5 rounded-md bg-stone-950 text-stone-300 border border-stone-800 font-mono text-[11px]"
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
-
-            {Object.keys(lesson.sourceFiles || {}).length > 0 && (
-              <div className="flex flex-wrap items-center gap-2 text-[11px] font-mono text-stone-400">
-                <span>Fuentes base procesadas:</span>
-                {Object.entries(lesson.sourceFiles).map(([k, v]) => (
-                  <span key={k} className="px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-300 border border-emerald-800/50" title={v}>
-                    ✓ {k}
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
         </section>
 
         <nav className="lesson-jump-nav" aria-label="Secciones de esta lección">
@@ -394,10 +370,10 @@ export default async function TopicDetailPage({ params }: PageProps) {
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-800 pb-4">
               <div>
                 <span className="text-xs font-mono uppercase tracking-wider text-sky-400 font-bold">
-                  📘 CAPA 3 · LECTURA PROFUNDA DEL LIBRO DEL ÁREA Y RAZONAMIENTO
+                  📘 LECTURA AMPLIADA Y EJEMPLOS
                 </span>
                 <h2 className="text-xl md:text-2xl font-bold text-white mt-1">
-                  Ampliación Conceptual y Casos Resueltos del Texto Oficial
+                  Amplía tus conocimientos con ejemplos
                 </h2>
               </div>
               <span className="text-xs font-mono text-stone-400">
@@ -438,7 +414,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
           <section className="rounded-3xl border border-emerald-800/40 bg-stone-900/40 p-6 md:p-8 space-y-4">
             <div>
               <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold">
-                🔬 LABORATORIO MATEMÁTICO, MATERIAL CONCRETO Y CONTEXTO ODS
+                🔬 MATEMÁTICAS APLICADAS A SITUACIONES REALES
               </span>
               <h2 className="text-xl font-bold text-white mt-1">
                 Proyectos Aplicados a la Realidad ({lesson.unit})

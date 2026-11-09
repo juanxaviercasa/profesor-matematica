@@ -50,7 +50,7 @@ export default async function CoursePage({ params }: PageProps) {
           <span>/</span>
           <Link href="/aprende" className="hover:text-stone-200">Aprende</Link>
           <span>/</span>
-          <Link href="/blog" className="hover:text-stone-200">Constructor (584)</Link>
+          <Link href="/blog" className="hover:text-stone-200">Biblioteca de lecciones</Link>
           <span>/</span>
           <span className="text-emerald-400 font-semibold">{courseInfo?.title || cursoSlug}</span>
         </nav>
