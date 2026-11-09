@@ -1,0 +1,58 @@
+/* CAPA 8 · composición matemática consistente en móviles, tablets y escritorio. */
+.math-scientific-paragraph {
+  min-width:0;
+  color:#e2e8e4;
+  font-size:clamp(.94rem,1.2vw,1.04rem);
+  line-height:1.8;
+  font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  overflow-wrap:break-word;
+}
+.math-scientific-paragraph .katex,
+.math-prose-line .katex,
+.math-option-button .katex { font-size:1.08em; line-height:1.25; }
+.math-typeset-inline {
+  display:inline-block; max-width:100%; vertical-align:-.12em;
+  padding-inline:.08em; white-space:nowrap;
+}
+.math-typeset-inline > .katex { display:inline-block; white-space:nowrap; }
+.math-typeset-display {
+  padding:8px 6px;
+  font-size:clamp(.94rem,1.5vw,1.12rem);
+  color:inherit;
+}
+.math-typeset-display > .katex-display {
+  min-inline-size:max-content; margin-block:.25em; text-align:center;
+}
+.math-typeset-fallback {
+  font:inherit; white-space:pre-wrap; overflow-wrap:anywhere;
+  border-bottom:1px dashed currentColor;
+}
+.math-prose-line {
+  min-width:0; flex:1;
+  line-height:1.75;
+  font-size:clamp(.9rem,1.1vw,1rem);
+  font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+}
+.math-prose-line .math-typeset-display { margin-block:8px; }
+.math-option-button {
+  min-width:0; min-height:48px;
+  font-size:clamp(.875rem,1.2vw,1rem);
+  line-height:1.6;
+  overflow-wrap:anywhere;
+}
+.math-option-button .math-typeset-inline { max-width:100%; }
+.zenit-engine-formula-panel {
+  flex:0 1 34rem; width:min(100%,34rem);
+  min-width:0; overflow:hidden; color:#f1f8ef;
+}
+.zenit-engine-formula-panel .math-typeset-display { text-align:center; }
+@media(max-width:640px) {
+  .math-scientific-paragraph { line-height:1.75; }
+  .math-scroll-region { padding-block:4px; }
+  .math-scroll-region .katex-display { min-width:max-content; }
+  .math-option-button { padding:12px 14px; }
+  .zenit-engine-formula-panel { flex-basis:100%; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .math-scroll-region { scroll-behavior:auto; }
+}

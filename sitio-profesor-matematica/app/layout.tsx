@@ -8,6 +8,7 @@ import "./responsive-accessibility.css";
 import "./public-pages.css";
 import "./learning-experience.css";
 import "./conversion-trust.css";
+import "./scientific-typesetting.css";
 import "katex/dist/katex.min.css";
 
 

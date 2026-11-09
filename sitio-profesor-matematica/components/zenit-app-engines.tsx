@@ -1091,8 +1091,8 @@ export function ZenitInteractiveApp({
           <p className="text-xs text-stone-400 mt-1">{meta.description}</p>
         </div>
 
-        <div className="rounded-xl bg-stone-900/90 px-4 py-2.5 border border-stone-800">
-          <MathFormula source={formulaToDisplay} displayMode={false} />
+        <div className="zenit-engine-formula-panel rounded-xl bg-stone-900/90 px-3 py-2 border border-stone-800">
+          <MathFormula source={formulaToDisplay} displayMode={true} />
         </div>
       </div>
 
