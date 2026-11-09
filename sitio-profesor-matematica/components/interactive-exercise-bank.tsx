@@ -262,7 +262,7 @@ export function InteractiveExerciseBank({
                 </p>
 
                 {ex.options && ex.options.length > 0 && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2.5 pt-1">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-2.5 pt-1">
                     {ex.options.map((opt, oIdx) => {
                       const optLetter = OPTION_LETTERS[oIdx];
                       const isSelected = chosen === oIdx;
