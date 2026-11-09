@@ -330,6 +330,7 @@ export function InfiniteProblemGenerator({
   }, []);
 
   const handleSelectOption = (idx: number) => {
+    if (selectedIdx !== null) return;
     setSelectedIdx(idx);
     if (idx === problem.correctIndex) {
       setStreak((s) => s + 1);
@@ -339,7 +340,7 @@ export function InfiniteProblemGenerator({
   };
 
   return (
-    <section className="rounded-3xl border border-amber-500/40 bg-gradient-to-br from-stone-900/90 via-stone-950 to-amber-950/20 p-6 md:p-8 space-y-5 shadow-xl">
+    <section className="infinite-problem-generator rounded-3xl border border-amber-500/40 bg-gradient-to-br from-stone-900/90 via-stone-950 to-amber-950/20 p-6 md:p-8 space-y-5 shadow-xl">
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
         <div>
           <span className="inline-block rounded-full bg-amber-500/20 border border-amber-500/40 px-3 py-0.5 text-[11px] font-mono font-bold text-amber-300 uppercase">
@@ -372,6 +373,7 @@ export function InfiniteProblemGenerator({
           <span className="text-amber-300 font-bold">Semilla Algorítmica #{problem.seed}</span>
           <button
             onClick={() => setShowSteps((s) => !s)}
+             aria-expanded={showSteps}
             className="text-emerald-400 hover:underline font-semibold"
           >
             {showSteps ? "Ocultar desarrollo paso a paso" : "📐 Ver resolución paso a paso"}
@@ -400,6 +402,9 @@ export function InfiniteProblemGenerator({
               <button
                 key={idx}
                 onClick={() => handleSelectOption(idx)}
+                disabled={selectedIdx !== null}
+                aria-label={`Alternativa ${idx + 1}: ${opt}`}
+                aria-pressed={isSelected}
                 className={`px-3.5 py-2.5 rounded-xl text-left text-xs font-mono border transition-all ${style}`}
               >
                 {opt}
@@ -410,6 +415,8 @@ export function InfiniteProblemGenerator({
 
         {selectedIdx !== null && (
           <div
+            role="status"
+            aria-live="polite"
             className={`rounded-xl p-3 text-xs flex flex-wrap items-center justify-between gap-2 border ${
               selectedIdx === problem.correctIndex
                 ? "bg-emerald-950/40 border-emerald-700/60 text-emerald-200"
