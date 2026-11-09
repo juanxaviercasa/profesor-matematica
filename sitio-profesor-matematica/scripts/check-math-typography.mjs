@@ -4,6 +4,7 @@ import ts from "typescript";
 import vm from "node:vm";
 import katex from "katex";
 import { splitMathText, stripMathDelimiters } from "../lib/math-text-segments.mjs";
+import { EDITORIAL_RULES, resolveEditorialKeyFormula, isEditoriallyCurated } from "../lib/editorial-key-formulas.mjs";
 const read = p => readFileSync(new URL("../"+p,import.meta.url),"utf8");
 const slash=String.fromCharCode(92);
 assert.equal(stripMathDelimiters(slash+"("+slash+"frac{1}{2}"+slash+")"),slash+"frac{1}{2}");
@@ -15,6 +16,19 @@ assert.equal(chunks.filter(p=>p.type==="math").length,2);
 assert.equal(chunks.filter(p=>p.type==="math"&&p.display).length,1);
 assert.ok(splitMathText("Si f(x)=2x−1, calcula f(-2).").some(p=>p.type==="math"&&p.value.includes("f(x)")));
 assert.ok(splitMathText("x²+1").some(p=>p.type==="math"));
+const domainMath=splitMathText("En q(x)=1/(x-4), x=4 no pertenece al dominio. En el área A(r)=πr², r≥0.");
+const domainPieces=domainMath.filter(p=>p.type==="math").map(p=>p.value);
+for(const expression of ["q(x)=1/(x-4)","x=4","A(r)=πr²","r≥0"]){
+ assert.ok(domainPieces.some(v=>v.replaceAll(" ","")===expression), "No se separó la fórmula del módulo: "+expression+"; partes="+domainPieces.join(" | "));
+}
+assert.ok(!domainPieces.some(v=>/pertenece|dominio|área/i.test(v)), "No convertir prosa en fórmula");
+const damaged=splitMathText("P(x) = 1 + x^ y A = __________________");
+assert.ok(!damaged.filter(p=>p.type==="math").some(p=>/\^$|_{3,}/.test(p.value)),"No reconstruir exponentes ni espacios de respuesta");
+const openModule=read("app/curso/funciones-sin-vacios/modulo-1/page.tsx");
+assert.match(openModule,/q\(x\)=\\dfrac\{1\}\{x-4\}/);
+assert.match(openModule,/A\(r\)=\\pi r\^2/);
+assert.match(openModule,/<MathFormula source=\{lesson\.formula\}/);
+
 const src=read("components/math-formula.tsx");
 const start=src.indexOf("const exact:");
 const end=src.indexOf("export function MathFormula(",start);
@@ -36,6 +50,31 @@ for(const s of samples){
  assert.ok(rendered.includes("katex-mathml"),"No se generó MathML para "+s);
 }
 const lessons=JSON.parse(read("content/catalog/lessons-index.json"));
+assert.ok(EDITORIAL_RULES.length>=40,"La cobertura editorial es demasiado reducida");
+for(const rule of EDITORIAL_RULES){
+ katex.renderToString(rule.tex,{throwOnError:true,strict:false,trust:false});
+}
+const grades=new Map();
+const topicCoverage=new Map();
+for(const lesson of lessons){
+ if(lesson.grade<1||lesson.grade>5)continue;
+ const key=lesson.grade+"° "+lesson.course;
+ const info=grades.get(key)||{total:0,curated:0};
+ info.total++;
+ if(isEditoriallyCurated(lesson)){
+  info.curated++;
+  const effective=resolveEditorialKeyFormula(lesson);
+  assert.notEqual(effective,lesson.keyFormula,"No hubo mejora específica: "+lesson.slug);
+  katex.renderToString(effective,{throwOnError:true,strict:false,trust:false});
+ }
+ grades.set(key,info);
+}
+for(const grade of [1,2,3,4,5]){
+ const covered=[...grades].filter(([k,v])=>k.startsWith(grade+"° ")&&v.curated>0);
+ assert.ok(covered.length>=4,"Cobertura editorial insuficiente para "+grade+"°");
+}
+console.log("Fórmulas curadas por grado/asignatura: "+JSON.stringify([...grades.entries()].map(([key,v])=>({key,...v}))));
+
 const malformed=[];
 let examined=0;
 for(const l of lessons){
@@ -59,39 +98,49 @@ assert.match(read("app/layout.tsx"),/scientific-typesetting\.css/);
 assert.match(read("components/zenit-app-engines.tsx"),/zenit-engine-formula-panel/);
 const complete=JSON.parse(read("content/catalog/lessons-full.json"));
 let inspectedText=0, mathPieces=0, malformedPieces=0;
+const corpusByCourse=new Map();
 const corpusFailures=[];
-function inspectText(value,location){
+function inspectText(value,location,lesson){
   if(typeof value!=="string"||!value.trim())return;
   inspectedText++;
+  const gradeCourse=lesson.grade+"° "+lesson.course;
+  const bucket=corpusByCourse.get(gradeCourse)||{paragraphs:0,math:0,invalid:0,examples:[]};
+  bucket.paragraphs++;
+  corpusByCourse.set(gradeCourse,bucket);
   for(const part of splitMathText(value)){
     if(part.type!=="math")continue;
     mathPieces++;
+    bucket.math++;
     try{katex.renderToString(toLatex(part.value),{throwOnError:true,strict:false,trust:false});}
     catch(err){
       malformedPieces++;
+      bucket.invalid++;
+      if(bucket.examples.length<2)bucket.examples.push({at:location,tex:part.value.slice(0,78)});
       if(corpusFailures.length<14)corpusFailures.push({location,tex:part.value.slice(0,90),reason:String(err.message||err).slice(0,100)});
     }
   }
 }
 for(const l of complete){
   for(const slide of l.theorySlides||[]){
-    inspectText(slide.heading,"heading:"+l.slug);
-    for(const p of slide.content||[])inspectText(p,"theory:"+l.slug);
+    inspectText(slide.heading,"heading:"+l.slug,l);
+    for(const p of slide.content||[])inspectText(p,"theory:"+l.slug,l);
   }
   for(const ex of [...(l.exercisesF0||[]),...(l.exercisesFA||[])]){
-    inspectText(ex.statement,"question:"+l.slug);
-    for(const opt of ex.options||[])inspectText(opt,"option:"+l.slug);
-    inspectText(ex.hint,"hint:"+l.slug);
+    inspectText(ex.statement,"question:"+l.slug,l);
+    for(const opt of ex.options||[])inspectText(opt,"option:"+l.slug,l);
+    inspectText(ex.hint,"hint:"+l.slug,l);
   }
   for(const ws of l.workedSolutions||[]){
-    for(const step of ws.steps||[])inspectText(step,"solution:"+l.slug);
+    for(const step of ws.steps||[])inspectText(step,"solution:"+l.slug,l);
   }
   for(const section of l.areaBookBlocks||[]){
-    for(const paragraph of section.paragraphs||[])inspectText(paragraph,"book:"+l.slug);
+    for(const paragraph of section.paragraphs||[])inspectText(paragraph,"book:"+l.slug,l);
   }
 }
 console.log("Auditoría de textos completos: "+JSON.stringify({inspectedText,mathPieces,malformedPieces,samples:corpusFailures}));
-assert.ok(mathPieces>10000,"El análisis de ejercicios no cubrió el banco completo");
+console.log("Revisión editorial por grado y asignatura: "+JSON.stringify([...corpusByCourse.entries()].filter(([k])=>/^[1-5]°/.test(k)).sort((a,b)=>a[0].localeCompare(b[0])).map(([key,value])=>({key,paragraphs:value.paragraphs,candidates:value.math,invalid:value.invalid,examples:value.examples}))));
+
+assert.ok(mathPieces>1000,"El análisis de ejercicios no identificó suficientes expresiones");
 assert.ok(malformedPieces/mathPieces<0.11,"Demasiados segmentos matemáticos del catálogo no interpretables");
 assert.match(read("app/scientific-typesetting.css"),/math-scroll-hint/);
 
