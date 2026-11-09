@@ -35,6 +35,23 @@
 - [ ] Auditoría visual mediante capturas verificadas de todas las pantallas publicadas.
 - [ ] Validación WCAG y contraste de cada elemento heredado y de cada Web App.
 
+## Tercera intervención — responsive y accesibilidad de laboratorios
+
+- [x] Capa independiente `app/responsive-accessibility.css` importada tras el sistema de diseño.
+- [x] Fórmulas KaTeX de bloque desplazables horizontalmente, también con teclado y foco visible.
+- [x] Los 27 campos de los motores interactivos ahora tienen un nombre accesible.
+- [x] Los 8 gráficos SVG principales de los motores incluyen una descripción accesible.
+- [x] Deslizadores y botones educativos con superficie de interacción mínima de 44 px.
+- [x] Buscador y desplegables del blog enlazados a sus etiquetas.
+- [x] Modos de filtrado, pestañas y respuestas anuncian su estado de selección o expansión.
+- [x] Evitar que una respuesta repetida aumente artificialmente la racha del generador.
+- [x] Cuestionarios con rejilla de respuestas adaptable para tabletas.
+- [x] Mensajes de resultado dinámico con `role="status"` donde corresponde.
+- [x] Nuevas pruebas estáticas de accesibilidad integradas en `npm run check:design`.
+- [ ] Verificar capturas en 320/375/390/768/1024/1440 px para las principales rutas.
+- [ ] Comprobar interacción táctil y teclado real en cada motor, más lector de pantalla.
+- [ ] Revisar formularios especiales y laboratorios no incluidos en los doce motores.
+
 ## Métricas de aceptación pendientes
 Contraste 4.5:1 para texto normal; 3:1 para textos grandes. Sin overflow horizontal. Funcionalidad de rutas y formularios. Validación de build y Worker SSR, con pruebas de regresión.
 
