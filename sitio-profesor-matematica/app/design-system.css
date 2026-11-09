@@ -1,0 +1,168 @@
+/*
+ * Sistema Zénit — capa 01: tokens y armonización visual.
+ * Este archivo se carga después de globals.css. Mantiene estilos heredados
+ * y concentra las correcciones transversales de tipografía y contraste.
+ */
+:root {
+  --zenit-forest: #12372f;
+  --zenit-ink: #142c27;
+  --zenit-canvas: #f7f3e9;
+  --zenit-surface: #fffdf8;
+  --zenit-coral: #ff5a36;
+  --zenit-coral-text: #a9311b;
+  --zenit-lime: #d9ef78;
+  --zenit-muted: #52645e;
+  --zenit-night: #0e241e;
+  --zenit-night-card: #19362e;
+  --zenit-night-text: #f4f8f5;
+  --zenit-night-muted: #d0dad5;
+  --zenit-font-ui: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --zenit-font-heading: Georgia, "Times New Roman", serif;
+  --zenit-measure: 70ch;
+  --zenit-space-section: clamp(3.5rem, 7vw, 7rem);
+}
+
+body {
+  font-family: var(--zenit-font-ui);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2 {
+  font-family: var(--zenit-font-heading);
+  line-height: 1.12;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+h3 { line-height: 1.3; text-wrap: balance; }
+p, li { overflow-wrap: break-word; }
+.lead { line-height: 1.55; color: #42534e; }
+.brand-copy b { font-size: .83rem; }
+.brand-copy small { font-size: .7rem; color: var(--zenit-coral-text); letter-spacing: .09em; }
+.site-header .desktop-links a { font-size: .93rem; font-weight: 650; }
+.footer-grid a { line-height: 1.5; }
+footer .footer-grid p, footer .footer-grid span { color: #c4d0ca; font-size: .875rem; }
+footer .footer-base { color: #b3c3bb; font-size: .8rem; }
+
+/* Textos coral sobre papel: 5.9:1. Coral original reservado para acentos. */
+:where(.feature-band, .trust, .bonus-section, .offer-included, .offer-price, .resource-grid, .contact-card) em,
+:where(.feature-band, .trust, .bonus-section, .offer-included, .offer-price) .eyebrow,
+.price-row strong,
+.bonus-grid span,
+.trig-facts span,
+.wave-metrics b {
+  color: var(--zenit-coral-text);
+}
+/* Botones coral: texto tinta sobre coral = 4.77:1; blanco sobre coral = 3.1:1. */
+.button.secondary, .complete-lab, .conversion-dock {
+  color: var(--zenit-ink);
+  background-color: var(--zenit-coral);
+}
+.button.secondary:hover, .complete-lab:hover { filter: brightness(.95); }
+.guarantee-band { color: var(--zenit-ink); }
+.guarantee-band .eyebrow,
+.guarantee-band p:last-child { color: var(--zenit-ink); }
+.guarantee-mark { border-color: var(--zenit-ink); }
+.conversion-dock span { background: var(--zenit-surface); color: var(--zenit-ink); }
+
+/* Superficies educativas: prohibido combinar blanco con fondos beige translúcidos. */
+.aprende-hub .area-section {
+  background: var(--zenit-forest);
+  color: var(--zenit-night-text);
+  border-color: #45665b;
+}
+.aprende-hub .course-card {
+  background: var(--zenit-night);
+  border-color: #37564b;
+  color: var(--zenit-night-text);
+  min-width: 0;
+}
+.aprende-hub .course-card:hover,
+.aprende-hub .course-card:focus-within {
+  border-color: var(--zenit-lime);
+  box-shadow: 0 12px 32px #0b211c33;
+}
+.aprende-hub .course-card a { display: inline-flex; min-height: 44px; align-items: center; }
+.aprende-hub .area-section h2 { line-height: 1.2; }
+
+/* Portal, curso, lección y blog usan una superficie continua y opaca.
+   El encabezado y el pie mantienen el lenguaje claro de la marca. */
+.learning-view {
+  background: var(--zenit-night);
+  color: var(--zenit-night-text);
+  border: 1px solid #335249;
+  border-radius: 24px;
+  padding: clamp(20px, 3.8vw, 46px);
+  isolation: isolate;
+}
+.learning-view .breadcrumb {
+  color: var(--zenit-night-muted);
+  line-height: 1.6;
+}
+.learning-view .breadcrumb a {
+  color: var(--zenit-night-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.learning-view .breadcrumb a:hover { color: var(--zenit-lime); }
+.learning-view :is(h1, h2, h3) { overflow-wrap: anywhere; }
+.learning-view .text-stone-400,
+.aprende-hub .area-section .text-stone-400 { color: var(--zenit-night-muted); }
+.learning-view .text-stone-500,
+.aprende-hub .area-section .text-stone-500 { color: #becac4; }
+.learning-view .text-stone-300,
+.aprende-hub .area-section .text-stone-300 { color: #e1e9e4; }
+.learning-view .text-xs,
+.aprende-hub .area-section .text-xs { font-size: .85rem; line-height: 1.5; }
+.learning-view .text-sm,
+.aprende-hub .area-section .text-sm { font-size: .965rem; line-height: 1.55; }
+.learning-view [class~="text-[10px]"],
+.learning-view [class~="text-[11px]"],
+.aprende-hub .area-section [class~="text-[10px]"],
+.aprende-hub .area-section [class~="text-[11px]"] {
+  font-size: .8rem;
+  line-height: 1.45;
+}
+.learning-view :where(button, input, select, textarea, a):focus-visible,
+.aprende-hub .area-section :where(button, a):focus-visible {
+  outline-color: var(--zenit-lime);
+}
+.learning-view .katex-display { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+.learning-view .grid > * { min-width: 0; }
+.learning-view button { min-height: 40px; }
+.learning-view :where(input, select, textarea) { min-height: 42px; font-size: max(.9rem, 14px); }
+.learning-view input::placeholder { color: #c0ccc4; }
+
+/* Constructor de blog y tarjetas: encabezados grandes pero contenidos no microscópicos. */
+.blog-view .text-3xl { line-height: 1.2; }
+.blog-view .grid > * { min-width: 0; }
+.blog-view .button { white-space: normal; text-align: center; }
+.aprende-hub .area-section .grid > * { min-width: 0; }
+
+/* Las fórmulas siempre pueden desplazarse horizontalmente, nunca cortarse. */
+.math-formula, .formula-display, .active-formula {
+  scrollbar-width: thin;
+  scrollbar-color: #647b70 transparent;
+}
+.math-formula .katex { max-width: 100%; }
+:where(.learning-view, .aprende-hub) .katex-display > .katex {
+  white-space: nowrap;
+}
+
+/* Formularios y targets en pantallas táctiles. */
+:where(.learning-view, .aprende-hub) :is(button, select, input[type="button"], input[type="submit"]) {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .learning-view { border-radius: 18px; padding: clamp(18px, 3vw, 28px); }
+  .aprende-hub .area-section { padding: clamp(18px, 3vw, 28px); }
+}
+@media (max-width: 520px) {
+  .learning-view { border-radius: 14px; padding: 16px; }
+  .learning-view .grid { min-width: 0; }
+  .learning-view :is(h1, h2, h3) { overflow-wrap: break-word; }
+  .aprende-hub .area-section { padding: 18px; }
+  .aprende-hub .course-card { padding: 18px; }
+  .brand-copy small { font-size: .67rem; }
+}
