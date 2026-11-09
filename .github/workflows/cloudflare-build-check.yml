@@ -1,0 +1,36 @@
+name: Validar despliegue Cloudflare Worker
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'sitio-profesor-matematica/**'
+      - 'package.json'
+      - '.github/workflows/cloudflare-build-check.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: cloudflare-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  worker-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    defaults:
+      run:
+        working-directory: sitio-profesor-matematica
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: sitio-profesor-matematica/package-lock.json
+      - name: Instalar dependencias fijadas
+        run: npm ci --no-audit --no-fund
+      - name: Compilar Vinext y verificar Worker SSR
+        run: npm run build
+      - name: Verificar salida reproducible
+        run: npm run check:cloudflare
+      - name: Ensayar empaquetado sin publicar
+        run: npm run deploy -- --dry-run
