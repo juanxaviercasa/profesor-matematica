@@ -58,13 +58,13 @@ export default function AprendeIndexPage() {
           </p>
           <div className="flex flex-wrap gap-4 mt-6">
             <Link href="/blog" className="button primary">
-              Abrir Blog y Constructor ({LESSONS_INDEX.length} Páginas) →
+              Explorar {LESSONS_INDEX.length} temas →
             </Link>
             <Link href="/herramientas" className="button secondary">
-              Probar Suite de 12 Web Apps Interactivas →
+              Probar 12 Web Apps →
             </Link>
             <Link href="/laboratorio" className="button secondary">
-              Ver Zénit Labs de Funciones
+              Explorar laboratorios →
             </Link>
           </div>
         </section>
