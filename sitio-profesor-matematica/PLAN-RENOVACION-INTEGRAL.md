@@ -125,6 +125,10 @@
 - [x] MathML accesible y fallback visible cuando una expresión no puede interpretarse.
 - [x] Fórmulas largas con scroll horizontal, contraste estable y tamaño de lectura para móviles.
 - [x] Pruebas automatizadas con fórmulas representativas y auditoría del catálogo.
+- [x] Módulo 1: fracción racional, restricción de dominio, área circular y ejemplos de funciones renderizados explícitamente con KaTeX y comprobados en producción.
+- [x] Primer pase por asignatura (1.º–5.º): 47 reglas semánticamente conservadoras, aplicadas a 268 de 582 lecciones.
+- [x] Detector de fórmulas ajustado para no confundir prosa con álgebra; auditoría estructurada por grado/curso: 14.108 candidatos y 69 fragmentos sintácticamente ambiguos, preservados sin inventar símbolos.
+- [x] Informe reproducible de prioridades: AUDITORIA-EDITORIAL-SECUNDARIA.md.
 - [ ] Rectificar expresiones ambiguas de los archivos de origen y comprobar su equivalencia algebraica.
 - [ ] Capturas comparativas y validación funcional en móviles, tabletas y escritorios representativos.
 - [ ] Revisión con lectores de pantalla reales, teclado y alumnos.

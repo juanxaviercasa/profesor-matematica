@@ -8,8 +8,8 @@ Se revisaron componentes React del portal de aprendizaje, ejercicios F0/FA, solu
 ## Resultados del análisis automático
 - 628 de 628 fórmulas principales del catálogo aceptadas sintácticamente por KaTeX. Esto NO garantiza que el contenido sea matemáticamente correcto.
 - 88.874 fragmentos textuales analizados en el catálogo completo.
-- 19.725 segmentos seleccionados como posibles expresiones matemáticas.
-- 1.865 candidatos no interpretables automáticamente con seguridad (aprox. 9,45 %); ejemplos: exponentes truncados, llaves incompletas y espacios de respuesta representados por guiones bajos. No son necesariamente 1.865 errores matemáticos: algunos son falsos positivos del detector o restos de extracción OCR.
+- 14.108 segmentos seleccionados conservadoramente como posibles expresiones matemáticas.
+- 69 fragmentos que el detector conservador no logra interpretar con KaTeX (aprox. 0,49 % de los candidatos). El texto original se conserva. No equivalen necesariamente a 69 errores conceptuales; proceden de extracción OCR o sintaxis ambigua.
 - En la capa 5 se identificaron 375 ejercicios de 5.920 que carecían de una clave de opción utilizable; permanecen sin calificación automática, en lugar de inventar una.
 - La compilación del cliente emitió advertencia por chunks superiores a 500 kB. Esto no es una medida de Core Web Vitals; se requiere analizar el desglose de bundles en una etapa posterior.
 
@@ -30,7 +30,7 @@ Se revisaron componentes React del portal de aprendizaje, ejercicios F0/FA, solu
 La revisión visual no representa una prueba exhaustiva de todas las URLs, equipos físicos, orientaciones y navegadores.
 
 ## Pendientes priorizados
-**P1 — Corrección del material de origen.** Clasificar los 1.865 fragmentos no interpretables, revisar el archivo original y transformar manualmente o mediante reglas verificadas los casos de OCR; no convertir expresiones ambiguas en soluciones supuestas.
+**P1 — Corrección del material de origen.** Clasificar los 69 fragmentos que aún no pasan KaTeX, revisar el archivo original y transformar manualmente o mediante reglas verificadas los casos de OCR; no convertir expresiones ambiguas en soluciones supuestas.
 
 **P1 — Revisión académica de claves.** Investigar los 375 ejercicios no calificables, cotejar con la fuente docente y corregir la información estructurada.
 
@@ -52,3 +52,6 @@ La revisión visual no representa una prueba exhaustiva de todas las URLs, equip
 - https://katex.org/docs/autorender
 - https://katex.org/docs/options
 - Código, CI y pruebas: https://github.com/juanxaviercasa/profesor-matematica
+
+## Actualización editorial por grado y asignatura
+La revisión del 9 de noviembre añadió 47 reglas conservadoras y sustituyó fórmulas genéricas en 268 de 582 lecciones de 1.º a 5.º de secundaria. El detalle de cobertura por asignatura y la cola de OCR se conservan en [AUDITORIA-EDITORIAL-SECUNDARIA.md](./AUDITORIA-EDITORIAL-SECUNDARIA.md).
