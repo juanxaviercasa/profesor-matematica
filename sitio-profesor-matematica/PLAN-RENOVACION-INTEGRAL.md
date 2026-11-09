@@ -55,6 +55,22 @@
 - [ ] Comprobar interacción táctil y teclado real en cada motor, más lector de pantalla.
 - [ ] Revisar formularios especiales y laboratorios no incluidos en los doce motores.
 
+## Cuarta intervención — páginas públicas y credibilidad
+
+- [x] Portada: tres rutas de inicio, fotografía real del docente, metodología y siguientes pasos claros.
+- [x] Sobre mí: presentación verificable del profesor, formación, trayectoria, método y CTA.
+- [x] Contacto: explicación del proceso real del formulario de WhatsApp y opciones.
+- [x] Herramientas: encabezado comprensible y guía para explorar los motores, sin copy de despliegue.
+- [x] Empieza aquí: llamada a un recurso interno existente en vez de resultados de búsqueda en YouTube.
+- [x] Clases en Lima: sustituido aviso interno sobre datos pendientes por consulta de disponibilidad.
+- [x] Curso: FAQ accesible y sustitución de la garantía no establecida por una invitación a probar recursos gratuitos.
+- [x] Estilos exclusivos de páginas públicas para no introducir regresiones en laboratorios.
+- [x] SEO descriptivo para inicio, presentación y contacto.
+- [x] Comprobación estática de rutas de las páginas y copys sensibles.
+- [ ] Revisar todas las páginas públicas con capturas reales en móvil, tablet y escritorio.
+- [ ] Revisar disponibilidad, precio y condiciones del curso con información comercial confirmada.
+- [ ] Auditar de extremo a extremo el envío a WhatsApp y todas las conversiones (capa 6).
+
 ## Métricas de aceptación pendientes
 Contraste 4.5:1 para texto normal; 3:1 para textos grandes. Sin overflow horizontal. Funcionalidad de rutas y formularios. Validación de build y Worker SSR, con pruebas de regresión.
 

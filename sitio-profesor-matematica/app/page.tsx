@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "@/components/safe-link";
 import { Footer, Header, FormulaCard } from "@/components/site";
+
+export const metadata: Metadata = {
+  title: "Funciones, precálculo y aprendizaje visual | Sistema Zénit",
+  description: "Aprende a comprender funciones con diagnóstico gratuito, lecciones y laboratorios interactivos. Profesor Juan Xavier, matemática en Lima.",
+};
 
 const paths = [
   { n: "01", title: "Lee una función", text: "Conecta la notación con entradas, salidas y restricciones.", href: "/aprende/funciones" },

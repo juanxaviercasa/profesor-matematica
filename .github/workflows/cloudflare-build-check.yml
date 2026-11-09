@@ -30,6 +30,8 @@ jobs:
         run: npm ci --no-audit --no-fund
       - name: Validar sistema visual y SEO
         run: npm run check:design
+      - name: Validar las páginas públicas
+        run: npm run check:public
       - name: Compilar Vinext y verificar Worker SSR
         run: npm run build
       - name: Verificar salida reproducible

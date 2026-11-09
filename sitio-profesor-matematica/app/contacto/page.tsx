@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import { Footer, Header, PageHero } from "@/components/site";
 import { ConversionForm } from "@/components/conversion";
+
+export const metadata: Metadata = {
+  title: "Contacto y orientación en matemática | Sistema Zénit",
+  description: "Consulta por clases de matemática y recursos educativos. Prepara un mensaje por WhatsApp con tu nivel, dificultad y horario preferido.",
+};
 
 export default function Contact(){return <><Header/><main className="contact-page-v2"><PageHero kicker="Contacto directo" title="Cuéntame qué parte de matemática necesitas trabajar" text="Indica tu nivel, el tema y tu horario. Prepararemos una consulta ordenada para conversar por WhatsApp sobre clases, recursos o el curso digital."/><section className="wrap public-contact-steps" aria-labelledby="contact-steps-title">
   <div className="public-section-head"><p className="eyebrow">Contacto sencillo</p><h2 id="contact-steps-title">Así funciona tu consulta.</h2></div>
