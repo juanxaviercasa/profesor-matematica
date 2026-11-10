@@ -76,8 +76,11 @@ try {
           addIssue("warning", key, "Simulador sin controles numéricos editables");
         }
         const v = await shell.evaluate(el => {
+          // Excluir símbolos internos de KaTeX, donde los exponentes y
+          // denominadores deben ser proporcionalmente menores por notación.
           const fontSizes = [...el.querySelectorAll("p,label,button,small,span")]
             .filter(e => {
+              if (e.closest(".katex,.katex-mathml,[aria-hidden='true'],.sr-only")) return false;
               const r = e.getBoundingClientRect();
               return r.width > 0 && r.height > 0 &&
                 Number.parseFloat(getComputedStyle(e).fontSize) < 14;
@@ -86,7 +89,14 @@ try {
             .filter(e => e.scrollWidth - e.clientWidth > 12);
           return { shellWidth: Math.round(el.getBoundingClientRect().width),
             pageOverflow: Math.max(0, document.documentElement.scrollWidth - innerWidth),
-            tiny: fontSizes.length, formulaScroll: formulas.length,
+            tiny: fontSizes.length,
+            tinyExamples: fontSizes.slice(0,8).map(e => ({
+              text: (e.textContent||"").trim().slice(0,55),
+              font: getComputedStyle(e).fontSize,
+              selector: e.tagName.toLowerCase() + (e.className && typeof e.className === "string"
+                ? "." + e.className.trim().replace(/\\s+/g,".") : "")
+            })),
+            formulaScroll: formulas.length,
             formulaExamples: formulas.slice(0,3).map(e => e.scrollWidth-e.clientWidth)
           };
         });
@@ -94,7 +104,9 @@ try {
         entry.tiny = v.tiny;
         entry.formulaScroll = v.formulaScroll;
         if (v.pageOverflow > 4) addIssue("error", key, "Desbordamiento horizontal de " + v.pageOverflow + " px");
-        if (v.tiny) addIssue("warning", key, v.tiny + " textos de simulador menores de 14 px");
+        if (v.tiny) addIssue("warning", key,
+          v.tiny + " textos visibles menores de 14 px: " +
+          v.tinyExamples.map(x => x.font + " “" + x.text + "”").join("; "));
         if (v.formulaScroll) addIssue("warning", key,
           v.formulaScroll + " fórmulas aún requieren desplazamiento horizontal");
         if (size.width === 390) {
