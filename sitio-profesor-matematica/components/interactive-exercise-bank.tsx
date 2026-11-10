@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { MathText } from "./math-formula";
 import type { ExtractedExercise, WorkedSolution } from "@/lib/catalog-index";
-import { getVerifiedAnswerKey, getExerciseOptionLetter, scoreExerciseAnswers } from "@/lib/exercise-evaluation.mjs";
+import { getVerifiedAnswerKey, getExerciseOptionLetter, getExerciseDisplayOptions, scoreExerciseAnswers } from "@/lib/exercise-evaluation.mjs";
 
 export function InteractiveExerciseBank({
   f0,
@@ -216,6 +216,7 @@ export function InteractiveExerciseBank({
             const showFeedback = chosen !== undefined && revealResults;
             const isGradable = expectedLetter !== null;
             const hasOptions = Array.isArray(ex.options) && ex.options.length >= 2;
+            const displayOptions = getExerciseDisplayOptions(ex);
 
             return (
               <div
@@ -265,7 +266,7 @@ export function InteractiveExerciseBank({
 
                 {hasOptions && (
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-2.5 pt-1">
-                    {ex.options.map((opt, oIdx) => {
+                    {displayOptions.map(({ text: opt, index: oIdx }) => {
                       const optLetter = getExerciseOptionLetter(ex, oIdx);
                       const isSelected = chosen === oIdx;
                       const isOptionCorrect = optLetter === expectedLetter;
