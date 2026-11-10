@@ -22,6 +22,7 @@
     "check:math": "node scripts/check-math-typography.mjs",
     "check:branding": "node scripts/check-branding.mjs",
     "check:readability": "node scripts/check-readability.mjs",
+    "check:premium": "node scripts/check-premium-ui.mjs",
     "check:public-copy": "node scripts/check-public-copy.mjs"
   },
   "dependencies": {

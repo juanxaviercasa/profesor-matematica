@@ -12,6 +12,7 @@ on:
       - "sitio-profesor-matematica/content/catalog/**"
       - "sitio-profesor-matematica/components/math-formula.tsx"
       - "sitio-profesor-matematica/app/math-responsive-layout.css"
+      - "sitio-profesor-matematica/app/premium-responsive.css"
 
 permissions:
   contents: read
@@ -38,6 +39,8 @@ jobs:
       - run: npm ci --no-audit --no-fund
       - name: Auditar los 628 registros y sus bancos de ejercicios
         run: node scripts/audit-catalog-static.mjs
+      - name: Validar estándares premium compartidos
+        run: npm run check:premium
       - name: Validar KaTeX y los textos matemáticos del catálogo
         continue-on-error: true
         run: npm run check:math

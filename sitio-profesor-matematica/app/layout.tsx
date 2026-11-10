@@ -13,6 +13,7 @@ import "katex/dist/katex.min.css";
 import "./reading-comfort.css";
 import "./zenit-editorial.css";
 import "./math-responsive-layout.css";
+import "./premium-responsive.css";
 
 
 export const metadata: Metadata = {

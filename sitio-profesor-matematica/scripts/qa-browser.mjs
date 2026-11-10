@@ -31,6 +31,7 @@ const viewports = [
   { label: "movil-320", width: 320, height: 760, isMobile: true, hasTouch: true },
   { label: "tablet-1024", width: 1024, height: 768, isMobile: false, hasTouch: true },
   { label: "desktop-1920", width: 1920, height: 1080, isMobile: false, hasTouch: false },
+  { label: "movil-375", width: 375, height: 812, isMobile: true, hasTouch: true },
 ];
 const findings = [];
 const results = [];
@@ -66,6 +67,26 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
     const status = response?.status() ?? 0;
     const detail = await page.evaluate(() => {
       const main = document.querySelector("main");
+      // Impeccable: señalar el elemento real que provoca el desbordamiento,
+      // no limitarse al ancho total del documento.
+      const horizontalOffenders = [...document.querySelectorAll("main *")]
+        .filter(el => {
+          if (el.closest(".katex,.katex-mathml,svg,[aria-hidden='true']")) return false;
+          const rect = el.getBoundingClientRect();
+          const style = getComputedStyle(el);
+          return rect.width > 0 && rect.height > 0 &&
+            rect.right > innerWidth + 6 && rect.left < innerWidth &&
+            style.position !== "fixed" && style.visibility !== "hidden";
+        }).slice(0, 10).map(el => {
+          const rect = el.getBoundingClientRect();
+          return {
+            tag: el.tagName.toLowerCase(),
+            className: typeof el.className === "string" ? el.className.slice(0, 95) : "",
+            right: Math.round(rect.right),
+            width: Math.round(rect.width),
+            text: (el.textContent || "").trim().slice(0, 60)
+          };
+        });
       const images = [...document.images].filter(img => img.complete && img.naturalWidth === 0).map(img => img.currentSrc || img.src).slice(0, 8);
       const focusables = [...document.querySelectorAll('a[href],button,input,select,textarea,[tabindex="0"]')];
       const smallText = [...document.querySelectorAll("p,li,label,button,small,nav a")].filter(el => {
@@ -127,6 +148,7 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
         h1: document.querySelectorAll("h1").length,
         hasMain: Boolean(main),
         widthOverflow: Math.max(0, document.documentElement.scrollWidth - window.innerWidth),
+        horizontalOffenders,
         images,
         focusableCount: focusables.length,
         smallText,
@@ -142,7 +164,7 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
       if (!detail.title) addFinding("error", key, "Falta <title>");
       if (detail.lang !== "es") addFinding("warning", key, "Idioma inesperado: " + detail.lang);
     }
-    if (detail.widthOverflow > 3) addFinding("error", key, "Desbordamiento horizontal: " + detail.widthOverflow + " px");
+    if (detail.widthOverflow > 3) addFinding("error", key, "Desbordamiento horizontal: " + detail.widthOverflow + " px; posibles causantes: " + detail.horizontalOffenders.slice(0, 4).map(el => el.tag + "." + el.className + " (+" + (el.right - size.width) + "px)").join(", "));
     if (detail.images.length) addFinding("warning", key, "Imágenes rotas: " + detail.images.join(", "));
     if (detail.smallText.length) addFinding("warning", key, detail.smallText.length + " muestras de texto visibles <14 px");
     const formulaOverflow = detail.formulaBoxes.filter(f => f.extra > 12);
@@ -231,6 +253,9 @@ try {
          "calculo-gradiente", "calculo-derivacion", "algebra-lineal",
          "fisica-electromagnetismo", "quimica-soluciones"].includes(label)) {
       await inspectRoute(label, path, viewports[0]);
+      if (["inicio", "herramientas", "leccion-conjuntos", "calculo-gradiente"].includes(label)) {
+        await inspectRoute(label, path, viewports[6]);
+      }
     }
     if (["inicio", "blog", "herramientas", "aprende"].includes(label)) {
       await inspectRoute(label, path, viewports[3]);

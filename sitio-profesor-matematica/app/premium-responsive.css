@@ -1,0 +1,133 @@
+/*
+ * Sistema Zénit — capa premium transversal.
+ * Última hoja de estilos: corrige densidad, overflow y contraste sin tocar
+ * la semántica de KaTeX ni los cálculos de los laboratorios.
+ * Inspiración metodológica: Impeccable, UI/UX Pro Max, shadcn, Radix y WCAG.
+ */
+:root {
+  --zenit-premium-muted-on-dark: #d7e5dd;
+  --zenit-premium-text-on-dark: #f4f8f5;
+  --zenit-premium-focus-on-dark: #ddf17f;
+  --zenit-premium-ring-on-light: #12553f;
+  --zenit-premium-reading-width: 72ch;
+  --zenit-premium-touch-size: 44px;
+}
+html { scroll-padding-top: 6.5rem; }
+:where(.learning-view, .aprende-hub, .blog-view, .zenit-webapp-shell,
+       .exercise-bank, .infinite-problem-generator, .zenit-tools-directory,
+       .lab-shell, .guided-lab, .curriculum, .module-layout) {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+:where(.learning-view, .aprende-hub, .blog-view, .zenit-webapp-shell,
+       .exercise-bank, .infinite-problem-generator, .zenit-tools-directory,
+       .lab-shell, .guided-lab) :is(.grid, .flex) {
+  min-inline-size: 0;
+}
+:where(.learning-view, .aprende-hub, .blog-view, .zenit-webapp-shell,
+       .exercise-bank, .infinite-problem-generator, .zenit-tools-directory,
+       .lab-shell, .guided-lab) :is(.grid, .flex) > * {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+:where(.topic-view, .zenit-webapp-shell, .exercise-bank,
+       .infinite-problem-generator, .zenit-tools-directory) :is(p, li, label, summary) {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+:where(.topic-view, .zenit-webapp-shell, .exercise-bank,
+       .infinite-problem-generator, .zenit-tools-directory) :is(img, video, canvas, iframe, svg) {
+  max-inline-size: 100%;
+}
+:where(.topic-view, .zenit-webapp-shell, .exercise-bank,
+       .infinite-problem-generator, .zenit-tools-directory) :is(pre, .code-block) {
+  max-inline-size: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+:where(.learning-view, .zenit-webapp-shell, .exercise-bank,
+       .infinite-problem-generator) :is(.text-xs, [class~="text-[10px]"],
+       [class~="text-[11px]"], [class~="text-[12px]"]) {
+  font-size: max(.875rem, 14px);
+  line-height: 1.5;
+}
+:where(.learning-view, .zenit-webapp-shell, .exercise-bank,
+       .infinite-problem-generator) :is(button, select, summary, input[type="submit"],
+       input[type="button"]) {
+  min-block-size: var(--zenit-premium-touch-size);
+}
+:where(.learning-view, .zenit-webapp-shell, .exercise-bank,
+       .infinite-problem-generator) :is(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid var(--zenit-premium-focus-on-dark);
+  outline-offset: 3px;
+}
+:where(.learning-view, .zenit-webapp-shell, .exercise-bank,
+       .infinite-problem-generator) :is(.text-stone-400, .text-stone-500) {
+  color: var(--zenit-premium-muted-on-dark);
+}
+:where(.topic-view, .zenit-webapp-shell, .exercise-bank,
+       .infinite-problem-generator) :is(.math-typeset-display, .math-prose-line,
+       .zenit-engine-formula-panel, .katex-display, .math-text-expression) {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+/* Conservar la fórmula íntegra y su MathML. El scroll es un respaldo solo
+ * para expresiones sin puntos seguros de corte; nunca recortar la notación. */
+.math-typeset-display.math-scroll-region {
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.math-typeset-display.math-scroll-region > .katex-display {
+  inline-size: 100% !important;
+  min-inline-size: 0 !important;
+  max-inline-size: 100% !important;
+}
+.math-typeset-display.math-scroll-region > .katex-display > .katex {
+  white-space: normal !important;
+  max-inline-size: 100%;
+}
+/* No alterar exponentes, denominadores, espacios internos ni MathML. */
+.math-typeset-inline,
+.math-typeset-inline > .katex {
+  vertical-align: baseline;
+}
+.lesson-jump-nav {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+.lesson-jump-nav a {
+  min-block-size: var(--zenit-premium-touch-size);
+  text-align: center;
+}
+.lesson-anchor { scroll-margin-top: 7rem; }
+@media (max-width: 767px) {
+  .topic-view { padding-inline: clamp(12px, 3vw, 22px); }
+  .topic-view :is(.rounded-3xl, .rounded-2xl) { min-inline-size: 0; }
+  .topic-view :is(h1, h2, h3) { overflow-wrap: break-word; }
+  .topic-view :is(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+                  textarea, select) { font-size: 16px; }
+  .lesson-jump-nav { padding: 12px; gap: 8px; }
+  .lesson-jump-nav > span { flex: 1 0 100%; }
+  .lesson-jump-nav a { font-size: .9375rem; padding: 10px 14px; }
+  :where(.learning-view, .zenit-webapp-shell, .exercise-bank,
+         .infinite-problem-generator) :is(table) {
+    max-inline-size: 100%;
+  }
+}
+@media (max-width: 390px) {
+  .topic-view { padding-inline: 12px; }
+  .topic-view .math-typeset-display { padding-inline: 2px; }
+  .lesson-jump-nav a { flex: 1 1 auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  :where(.learning-view, .zenit-webapp-shell, .exercise-bank,
+         .infinite-problem-generator) :is(*, *::before, *::after) {
+    scroll-behavior: auto;
+  }
+}
