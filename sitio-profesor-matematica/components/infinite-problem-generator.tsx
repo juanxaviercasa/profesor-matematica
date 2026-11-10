@@ -12,7 +12,7 @@ interface GeneratedProblem {
   steps: string[];
 }
 
-function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: number): GeneratedProblem {
+function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: number, course = ""): GeneratedProblem {
   const r1 = (seed % 7) + 3; // 3..9
   const r2 = ((seed * 3) % 8) + 2; // 2..9
   const r3 = ((seed * 5) % 6) + 4; // 4..9
@@ -268,6 +268,80 @@ function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: nu
 
     case "SciencePhysicsChemLab":
     default: {
+      if (course === "quimica") {
+        const subject = topicTitle.toLocaleLowerCase("es");
+        const choices = (value: number, unit: string) =>
+          [value + 1, value + 2, value - 1, value - 2].map(v => `${v} ${unit}`);
+        if (/gaseoso|gases|mezcla de gases/.test(subject)) {
+          const answer = r1;
+          statement = `Un gas ideal contiene ${r1} mol a 300 K y ocupa 24,6 L. Si R = 0,082 L·atm/(mol·K), calcula su presión.`;
+          correctVal = `${answer} atm`;
+          distractors = choices(answer, "atm");
+          steps = [
+            "Paso 1: Usamos la ecuación del gas ideal PV = nRT.",
+            `Paso 2: Despejamos P = nRT/V = ${r1} × 0,082 × 300 / 24,6.`,
+            `Paso 3: Como 0,082 × 300 = 24,6, obtenemos P = ${answer} atm.`,
+          ];
+        } else if (/molaridad|normalidad|soluciones químicas|dilución|neutralización/.test(subject)) {
+          const answer = r1 / r2;
+          const print = (v: number) => v.toFixed(2).replace(".", ",");
+          statement = `Una solución contiene ${r1} mol de soluto en ${r2} L de solución final. Calcula su molaridad (M), en mol/L.`;
+          correctVal = `${print(answer)} mol/L`;
+          distractors = [answer + 0.5, answer + 1, answer - 0.5, answer + 1.5].map(v => `${print(v)} mol/L`);
+          steps = [
+            "Paso 1: La molaridad mide los moles de soluto por litro de solución.",
+            `Paso 2: M = n/V = ${r1}/${r2}.`,
+            `Paso 3: Redondeando a dos decimales, M = ${print(answer)} mol/L.`,
+          ];
+        } else if (/equilibrio químico|ph|ácido.base|le chatelier/.test(subject)) {
+          const pH = (r1 % 6) + 2;
+          statement = `En una solución idealizada a 25 °C, la concentración de iones H⁺ es 10^(-${pH}) mol/L. Calcula el pH.`;
+          correctVal = `pH = ${pH}`;
+          distractors = [pH + 1, pH + 2, pH - 1, pH - 2].map(v => `pH = ${v}`);
+          steps = [
+            "Paso 1: Utilizamos pH = −log₁₀[H⁺].",
+            `Paso 2: Sustituimos [H⁺] = 10^(-${pH}) mol/L.`,
+            `Paso 3: pH = −log₁₀(10^(-${pH})) = ${pH}.`,
+          ];
+        } else if (/estequiometr|reacciones químicas|balance redox|ión.electrón/.test(subject)) {
+          const nH2 = 2 * r1, nO2 = r2;
+          const water = 2 * Math.min(r1, r2);
+          statement = `En la reacción completa 2 H₂ + O₂ → 2 H₂O se mezclan ${nH2} mol de H₂ y ${nO2} mol de O₂. ¿Cuántos moles de agua se forman?`;
+          correctVal = `${water} mol`;
+          distractors = [water + 2, water + 4, water - 2, water + 6].map(v => `${v} mol`);
+          steps = [
+            "Paso 1: Dos moles de H₂ reaccionan con uno de O₂ y forman dos moles de H₂O.",
+            `Paso 2: La extensión máxima de reacción es mín(${nH2}/2, ${nO2}) = ${Math.min(r1, r2)} mol.`,
+            `Paso 3: Se forman 2 × ${Math.min(r1, r2)} = ${water} mol de H₂O.`,
+          ];
+        } else if (/atómic|núclid|cuántic|aufbau|tabla periódica|enlace químico|hibridación|nomenclatura/.test(subject)) {
+          const z = r1 + 6, neutrons = r2 + 7, a = z + neutrons, electrons = z - 1;
+          statement = `Un ion de carga +1 tiene número atómico Z = ${z} y N = ${neutrons} neutrones. Determina su número másico A y su número de electrones.`;
+          correctVal = `A = ${a}; electrones = ${electrons}`;
+          distractors = [
+            `A = ${a + 1}; electrones = ${electrons}`,
+            `A = ${a}; electrones = ${electrons + 1}`,
+            `A = ${a - 1}; electrones = ${electrons}`,
+            `A = ${a}; electrones = ${electrons - 1}`,
+          ];
+          steps = [
+            `Paso 1: A = Z + N = ${z} + ${neutrons} = ${a}.`,
+            "Paso 2: Un ion de carga +1 ha perdido un electrón respecto al átomo neutro.",
+            `Paso 3: Electrones = Z − 1 = ${electrons}.`,
+          ];
+        } else {
+          const m = r1 * 18;
+          statement = `Una muestra contiene ${m} g de una sustancia cuya masa molar es 18 g/mol. ¿Cuántos moles contiene?`;
+          correctVal = `${r1} mol`;
+          distractors = choices(r1, "mol");
+          steps = [
+            "Paso 1: La cantidad de sustancia es n = masa / masa molar.",
+            `Paso 2: Sustituimos n = ${m} / 18.`,
+            `Paso 3: n = ${r1} mol.`,
+          ];
+        }
+        break;
+      }
       const v0 = r1 * 10; // 30..90 m/s
       const g = 10;
       const tSubida = v0 / g;
@@ -313,16 +387,18 @@ function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: nu
 export function InfiniteProblemGenerator({
   engineId,
   topicTitle,
+  course,
 }: {
   engineId: AppEngineId;
   topicTitle: string;
+  course?: string;
 }) {
   const [seed, setSeed] = useState<number>(101);
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
   const [showSteps, setShowSteps] = useState<boolean>(false);
   const [streak, setStreak] = useState<number>(0);
 
-  const problem = buildDynamicProblem(engineId, topicTitle, seed);
+  const problem = buildDynamicProblem(engineId, topicTitle, seed, course);
 
   const handleNextProblem = useCallback(() => {
     setSeed((prev) => prev + 17);
@@ -372,13 +448,13 @@ export function InfiniteProblemGenerator({
       <div className="rounded-2xl border border-stone-800 bg-stone-950/90 p-5 space-y-4">
         <div className="flex items-center justify-between text-xs font-mono text-stone-400">
           <span className="text-amber-300 font-bold">Ejercicio de práctica</span>
-          <button
+          {selectedIdx !== null && <button
             onClick={() => setShowSteps((s) => !s)}
              aria-expanded={showSteps}
             className="text-emerald-400 hover:underline font-semibold"
           >
             {showSteps ? "Ocultar desarrollo paso a paso" : "📐 Ver resolución paso a paso"}
-          </button>
+          </button>}
         </div>
 
         <p className="text-sm md:text-base text-stone-100 font-medium leading-relaxed">
