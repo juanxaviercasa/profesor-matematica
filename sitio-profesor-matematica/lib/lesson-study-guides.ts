@@ -87,3 +87,9 @@ export const LESSON_STUDY_GUIDES: Record<string, LessonStudyGuide> = {
     "activity": "Convierte un ángulo de 90° a grados centesimales y radianes; comprueba que representa un cuarto de vuelta."
   }
 };
+
+/** Asociaciones temáticas confirmadas sin alterar las URL del catálogo. */
+export const LESSON_ENGINE_OVERRIDES: Record<string, "GeometryInteractiveLab" | "StatisticsProbabilityLab"> = {
+  "nociones-basicas-de-geometria-1sec-unidad1": "GeometryInteractiveLab",
+  "tabla-de-dist-de-frec-para-datos-sin-agrupar-1sec-unidad2": "StatisticsProbabilityLab",
+};
