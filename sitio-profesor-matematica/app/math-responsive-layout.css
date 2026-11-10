@@ -1,0 +1,80 @@
+/*
+ * Sistema Zénit — fórmulas legibles sin desplazamiento innecesario.
+ *
+ * KaTeX admite saltos entre términos de una ecuación si el contenedor display
+ * tiene ancho disponible y .katex permite white-space: normal.
+ * Referencia: https://katex.org/docs/issues (CSS customization).
+ *
+ * Mantenemos el scroll SOLO como respaldo para expresiones atómicas
+ * imposibles de partir sin alterar su significado matemático.
+ */
+:where(.math-typeset-display.math-scroll-region) {
+  box-sizing: border-box;
+  min-inline-size: 0;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+}
+
+/* Corrige las reglas max-content heredadas que forzaban a todas las
+   ecuaciones a ser una sola línea, incluso las de inclusión-exclusión. */
+.math-typeset-display.math-scroll-region > .katex-display {
+  box-sizing: border-box;
+  inline-size: 100% !important;
+  min-inline-size: 0 !important;
+  max-inline-size: 100% !important;
+  margin-block: .4rem !important;
+}
+
+.math-typeset-display.math-scroll-region > .katex-display > .katex {
+  white-space: normal !important;
+  max-inline-size: 100%;
+  line-height: 1.65;
+}
+
+/* Los grupos matemáticos se separan verticalmente al saltar una línea,
+   sin afectar fracciones, raíces, exponentes ni las fórmulas inline. */
+.math-typeset-display.math-scroll-region
+  > .katex-display > .katex > .katex-html > .katex-base {
+  margin-block: .24em;
+}
+
+:where(.zenit-webapp-shell,.exercise-bank,.infinite-problem-generator,
+       .zenit-tools-directory,.learning-view)
+  :is(.math-typeset-display,.zenit-engine-formula-panel,.math-scroll-region) {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+/* Las fórmulas ahora saltan de línea. No indicar que deben arrastrarse
+   indiscriminadamente, puesto que casi todas caben sin desplazamiento. */
+.math-scroll-hint { display: none !important; }
+
+/* Evitar etiquetas de poco contraste sobre los paneles oscuros. */
+:where(.zenit-tools-directory,.zenit-webapp-shell,.exercise-bank,
+       .infinite-problem-generator) .text-stone-400 {
+  color: #d7e1db;
+}
+:where(.zenit-tools-directory,.zenit-webapp-shell,.exercise-bank,
+       .infinite-problem-generator) .text-emerald-400 {
+  color: #87edbc;
+}
+
+/* Una explicación legible prevalece sobre la densidad visual de la tarjeta. */
+:where(.zenit-tools-directory,.zenit-webapp-shell,.exercise-bank,
+       .infinite-problem-generator) :is(.math-typeset-display,.math-prose-line) {
+  line-height: 1.6;
+}
+@media (max-width: 640px) {
+  .math-typeset-display.math-scroll-region { padding: .5rem .25rem; }
+  .math-typeset-display.math-scroll-region > .katex-display > .katex {
+    font-size: 1em;
+  }
+  :where(.zenit-webapp-shell,.exercise-bank,.infinite-problem-generator)
+    .math-typeset-display { font-size: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .math-typeset-display.math-scroll-region { scroll-behavior: auto; }
+}
