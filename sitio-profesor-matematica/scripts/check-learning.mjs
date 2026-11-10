@@ -116,6 +116,17 @@ console.log("✓ "+checkedProblems+" variantes de 12 motores evaluadas: opciones
 
 const completion = read("components/lesson-completion.tsx");
 const home = read("app/aprende/page.tsx");
+const catalogExplorer = read("components/blog-constructor-explorer.tsx");
+const areaView = read("app/aprende/[area]/page.tsx");
+const courseView = read("app/aprende/[area]/[curso]/page.tsx");
+const blogView = read("app/blog/page.tsx");
+assert.match(catalogExplorer,/item\.publishStatus !== "published"/);
+assert.doesNotMatch(catalogExplorer,/Próximamente|setViewMode|viewMode/);
+assert.match(areaView,/l\.publishStatus === "published"/);
+assert.match(courseView,/lesson\.publishStatus === "published"/);
+assert.match(blogView,/lesson\.publishStatus === "published"/);
+assert.doesNotMatch(lesson,/bloques teóricos extraídos|Resolución Algorítmica Paso a Paso/);
+
 assert.match(completion,/STORAGE_KEY = "zenit_studied_lessons_v1"/);
 assert.match(completion,/aria-pressed=\{completed\}/);
 assert.match(completion,/LessonProgressOverview/);
