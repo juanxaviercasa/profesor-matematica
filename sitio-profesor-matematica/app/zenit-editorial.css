@@ -52,3 +52,16 @@ footer .footer-base{line-height:1.65}
 .zenit-not-found__links{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:30px}
 .zenit-not-found__links :is(a){min-height:48px;display:inline-flex;align-items:center}
 @media(max-width:700px){.zenit-not-found{grid-template-columns:1fr;gap:28px;min-height:auto}.zenit-not-found__number{font-size:clamp(6.5rem,25vw,10rem)}}
+
+/* Cabecera móvil: nunca comprimir marca y menú con un tercer CTA. */
+@media(max-width:600px){
+  .site-header .nav-cta{display:none}
+  .site-header .nav{gap:10px;min-height:72px}
+  .site-header .brand-link{min-width:0;flex:0 1 auto}
+  .site-header .brand{gap:8px;margin-right:0;letter-spacing:.015em}
+  .site-header .brand-copy{min-width:0}
+  .site-header .brand-copy b{font-size:.85rem;line-height:1.1}
+  .site-header .brand-copy small{font-size:.69rem;line-height:1.25;letter-spacing:.025em}
+  .site-header .mobile-menu{margin-left:auto;flex:0 0 auto}
+  .site-header .mobile-menu summary{min-width:88px;padding:8px 12px}
+}
