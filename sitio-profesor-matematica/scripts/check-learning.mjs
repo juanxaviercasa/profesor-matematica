@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
-import { getVerifiedAnswerKey, scoreExerciseAnswers } from "../lib/exercise-evaluation.mjs";
+import { getVerifiedAnswerKey, getExerciseOptionLetter, scoreExerciseAnswers } from "../lib/exercise-evaluation.mjs";
 const read = p => readFileSync(new URL("../"+p,import.meta.url),"utf8");
 const a={number:1,options:["uno","dos","tres"],answerKey:"B"};
 const unknown={number:2,options:["sí","no"]};
@@ -9,6 +9,20 @@ assert.equal(getVerifiedAnswerKey({ ...a, answerKey:"B." }),"b");
 assert.equal(getVerifiedAnswerKey({ ...a, answerKey:"e" }),null);
 assert.equal(getVerifiedAnswerKey(unknown),null);
 assert.equal(getVerifiedAnswerKey({number:3,options:["única"],answerKey:"A"}),null);
+const shuffled={number:42,options:["a. 10","c. 20","e. 30","b. 40","d. 50"],answerKey:"D"};
+assert.equal(getExerciseOptionLetter(shuffled,4),"d");
+assert.equal(getExerciseOptionLetter(shuffled,1),"c");
+assert.equal(getVerifiedAnswerKey(shuffled),"d");
+assert.deepEqual(scoreExerciseAnswers([{tab:"f0",ex:shuffled,idx:0}],{"f0-42-0":4}),{
+  answeredCount:1,gradedCount:1,correctCount:1,ungradedCount:0,accuracy:100
+});
+assert.deepEqual(scoreExerciseAnswers([{tab:"f0",ex:shuffled,idx:0}],{"f0-42-0":3}),{
+  answeredCount:1,gradedCount:1,correctCount:0,ungradedCount:0,accuracy:0
+});
+assert.equal(getVerifiedAnswerKey({...shuffled,answerKey:"z"}),null);
+assert.equal(getVerifiedAnswerKey({...shuffled,options:["a. 10","c. 20"],answerKey:"D"}),null);
+assert.equal(getVerifiedAnswerKey({number:43,options:["a. 10","a. 20"],answerKey:"A"}),null);
+
 assert.equal(getVerifiedAnswerKey({ ...a, answerKey:"" }),null);
 const rows=[{tab:"f0",idx:0,ex:a},{tab:"f0",idx:1,ex:unknown}];
 assert.deepEqual(scoreExerciseAnswers(rows,{"f0-1-0":1,"f0-2-1":0}),{
