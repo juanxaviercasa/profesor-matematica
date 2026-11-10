@@ -37,91 +37,9 @@ export function BlogConstructorExplorer() {
   }, [viewMode, search, selectedGrade, selectedCourse, selectedEngine]);
 
   const publishedCount = useMemo(() => LESSONS_INDEX.filter(l => l.publishStatus === "published").length, []);
-  const scheduledCount = LESSONS_INDEX.length - publishedCount;
-  const totalExercises = useMemo(() => LESSONS_INDEX.reduce((acc, l) => acc + l.f0Count + l.faCount, 0), []);
-  const totalWorked = useMemo(() => LESSONS_INDEX.reduce((acc, l) => acc + (l.workedCount || 0), 0), []);
-  const totalSlides = useMemo(() => LESSONS_INDEX.reduce((acc, l) => acc + l.slidesCount, 0), []);
 
   return (
     <div className="space-y-8">
-      {/* Onion Layer & Stats Banner */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="rounded-2xl border border-emerald-800/40 bg-stone-950/90 p-5">
-          <span className="text-xs font-mono uppercase text-emerald-400">Temas del catálogo</span>
-          <div className="text-3xl font-extrabold text-white mt-1 font-mono">{LESSONS_INDEX.length}</div>
-          <span className="text-[11px] text-stone-400">1.° a 5.° Sec + Preuni + Uni + Ciencias</span>
-        </div>
-        <div className="rounded-2xl border border-stone-800 bg-stone-950/90 p-5">
-          <span className="text-xs font-mono uppercase text-amber-400">Diapositivas + Desarrollos</span>
-          <div className="text-3xl font-extrabold text-white mt-1 font-mono">
-            {totalSlides.toLocaleString()} <span className="text-sm font-normal text-sky-400">+ {totalWorked.toLocaleString()} sol.</span>
-          </div>
-          <span className="text-[11px] text-stone-400">Teoría MathML + Solucionarios paso a paso</span>
-        </div>
-        <div className="rounded-2xl border border-stone-800 bg-stone-950/90 p-5">
-          <span className="text-xs font-mono uppercase text-sky-400">Ejercicios disponibles (F0 + FA)</span>
-          <div className="text-3xl font-extrabold text-white mt-1 font-mono">{totalExercises.toLocaleString()}</div>
-          <span className="text-[11px] text-stone-400">Claves ausentes o inválidas: sin calificación</span>
-        </div>
-        <div className="rounded-2xl border border-stone-800 bg-stone-950/90 p-5">
-          <span className="text-xs font-mono uppercase text-emerald-300">Cola Drip (3 por día)</span>
-          <div className="text-3xl font-extrabold text-white mt-1 font-mono">
-            {publishedCount} <span className="text-base font-normal text-stone-400">/ {scheduledCount} en cola</span>
-          </div>
-          <span className="text-[11px] text-stone-400">GitHub Actions → Cloudflare</span>
-        </div>
-      </div>
-
-      {/* Onion Layer Roadmap */}
-      <div className="rounded-2xl border border-stone-800 bg-stone-900/50 p-5">
-        <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-          <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold">
-            Arquitectura de Refinamiento por Capas (Modelo Cebolla · Capa 3 Completada)
-          </span>
-          <span className="text-xs text-stone-400">
-            {LESSONS_INDEX.length} páginas con teoría, simulador y ejercicios para practicar
-          </span>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
-          <div className="rounded-xl border border-emerald-500/60 bg-emerald-950/30 p-3.5">
-            <div className="flex items-center justify-between font-bold text-emerald-300">
-              <span>Capa 1 · Full Borrador Base</span>
-              <span>✓ 100%</span>
-            </div>
-            <p className="text-stone-300 mt-1">
-              Extracción de diapositivas PPTX, fichas F0/FA, taxonomía curricular y asignación de 12 Web Apps interactivas.
-            </p>
-          </div>
-          <div className="rounded-xl border border-emerald-500/60 bg-emerald-950/30 p-3.5">
-            <div className="flex items-center justify-between font-bold text-emerald-300">
-              <span>Capa 2 · Claves y Solucionarios</span>
-              <span>✓ 100%</span>
-            </div>
-            <p className="text-stone-300 mt-1">
-              5,060 claves oficiales inyectadas, 2,910 resoluciones paso a paso y simulador con puntaje y modos en vivo.
-            </p>
-          </div>
-          <div className="rounded-xl border border-emerald-500/60 bg-emerald-950/30 p-3.5">
-            <div className="flex items-center justify-between font-bold text-emerald-300">
-              <span>Capa 3 · Libros del Área y STEAM</span>
-              <span>✓ 100%</span>
-            </div>
-            <p className="text-stone-300 mt-1">
-              1,714 lecturas del Libro del Área, 1,757 proyectos STEAM (.docx), 72 temas Uni/Ciencias y Generador Infinito.
-            </p>
-          </div>
-          <div className="rounded-xl border border-amber-500/50 bg-stone-950/80 p-3.5">
-            <div className="flex items-center justify-between font-bold text-amber-300">
-              <span>Capa 4 · Lanzamiento Drip SEO</span>
-              <span>En Automatización</span>
-            </div>
-            <p className="text-stone-400 mt-1">
-              Drip publish de 3 páginas/día mediante GitHub Actions, grafo de conocimiento, sitemap dinámico y meta tags.
-            </p>
-          </div>
-        </div>
-      </div>
-
       {/* Filter Bar */}
       <div className="rounded-3xl border border-stone-800 bg-stone-950/90 p-6 space-y-5 shadow-xl">
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
@@ -135,7 +53,7 @@ export function BlogConstructorExplorer() {
                   : "bg-stone-900 text-stone-300 border-stone-700"
               }`}
             >
-              📚 Explorar catálogo ({LESSONS_INDEX.length} temas)
+              📚 Todos los temas
             </button>
             <button
               onClick={() => setViewMode("drip")}
@@ -246,7 +164,7 @@ export function BlogConstructorExplorer() {
           Mostrando <strong>{Math.min(visibleLimit, filtered.length)}</strong> de <strong>{filtered.length}</strong> lecciones encontradas
         </span>
         <span className="font-mono text-emerald-400">
-          Haz clic en cualquier tarjeta para abrir su página completa y su Web App
+          Selecciona una lección para estudiar y practicar
         </span>
       </div>
 
@@ -272,7 +190,7 @@ export function BlogConstructorExplorer() {
                       ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
                       : "bg-stone-900 text-stone-400 border-stone-800"
                   }`}>
-                    {item.publishStatus === "published" ? "● Publicado" : `⏳ Cola Día +${item.dripBatch} (${item.scheduledDate})`}
+                    {item.publishStatus === "published" ? "● Publicado" : `Próximamente`}
                   </span>
                 </div>
 
@@ -294,14 +212,11 @@ export function BlogConstructorExplorer() {
                   <span className="truncate max-w-[210px] text-sky-400">
                     ⚡ {engineInfo ? engineInfo.badge : item.appEngine}
                   </span>
-                  <span className="text-stone-400">
-                    Capa {item.onionLayer}
-                  </span>
                 </div>
 
                 <div className="flex items-center justify-between text-[11px] text-stone-400 font-mono">
                   <span>
-                    📑 {item.slidesCount} diapos · 📝 {item.f0Count + item.faCount} ejerc. · 📘 {item.workedCount || 0} sol.
+                    📝 {item.f0Count + item.faCount} ejercicios
                   </span>
                   <span className="text-emerald-400 font-bold group-hover:translate-x-1 transition-transform">
                     Abrir →
