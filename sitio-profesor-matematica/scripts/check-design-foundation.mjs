@@ -110,3 +110,21 @@ assert.ok(universalInputs.every(input => input.includes("aria-label=")));
 assert.match(universal, /role="img" aria-label="/);
 
 console.log("✓ Diseño, contraste, accesibilidad de controles, responsive y SEO verificados.");
+
+
+// Dirección Zénit: vínculos accesibles, gráfica propia, sin transiciones JS frágiles.
+const editorial = read("app/zenit-editorial.css");
+const homePage = read("app/page.tsx");
+const fallback404 = read("app/not-found.tsx");
+const safeLink = read("components/safe-link.tsx");
+const originalIllustration = read("public/brand/zenit-learning-map.svg");
+assert.match(layout, /import "\.\/zenit-editorial\.css"/);
+assert.match(homePage, /zenit-skip-link/);
+assert.match(homePage, /id="zenit-main"/);
+assert.match(homePage, /brand\/zenit-learning-map\.svg/);
+assert.match(originalIllustration, /<svg[\s\S]*<title/);
+assert.match(editorial, /prefers-reduced-motion/);
+assert.match(editorial, /\.mobile-menu summary/);
+assert.match(editorial, /:focus-visible/);
+assert.match(safeLink, /if \(typeof href === "string"\)/);
+assert.match(fallback404, /Explorar lecciones/);
