@@ -255,7 +255,6 @@ export function InteractiveExerciseBank({
                     onClick={() => setRevealedHints((prev) => ({ ...prev, [key]: !prev[key] }))}
                      aria-expanded={hintShown}
                      aria-label={hintShown ? `Ocultar explicación del problema ${ex.number}` : `Ver orientación del problema ${ex.number}`}
-                     aria-controls={`hint-${key}`}
                     className="text-xs text-emerald-400 hover:text-emerald-300 font-semibold"
                   >
                     {hintShown ? "Ocultar explicación" : "💡 Ver orientación"}
