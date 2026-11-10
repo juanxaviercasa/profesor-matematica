@@ -30,7 +30,7 @@ assert.match(bank,/examMode && !examSubmitted/);
 assert.match(bank,/setSelectedOptions\(\{\}\)/);
 assert.match(bank,/expectedLetter = getVerifiedAnswerKey\(ex\)/);
 assert.doesNotMatch(bank,/answerKey \|\| "a"/);
-assert.match(bank,/sin clave comprobable|Sin clave de respuesta comprobable|sin clave comprobable/i);
+assert.match(bank,/preguntas sin calificar|Respuesta no disponible|clave de respuesta comprobable/i);
 assert.match(lesson,/id="lesson-simulator"/);
 assert.match(lesson,/id="lesson-theory"/);
 assert.match(lesson,/id="lesson-practice"/);
