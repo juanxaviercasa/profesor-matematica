@@ -1,0 +1,71 @@
+name: "Zénit - Auditoría pedagógica de simuladores y ejercicios"
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/zenit-pedagogy-qa.yml"
+      - "sitio-profesor-matematica/scripts/qa-pedagogy-ui.mjs"
+      - "sitio-profesor-matematica/components/interactive-exercise-bank.tsx"
+      - "sitio-profesor-matematica/components/infinite-problem-generator.tsx"
+      - "sitio-profesor-matematica/components/zenit-app-engines.tsx"
+      - "sitio-profesor-matematica/components/chemistry-learning-lab.tsx"
+      - "sitio-profesor-matematica/app/learning-experience.css"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: zenit-pedagogy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  simulators-and-exercises:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    defaults:
+      run:
+        working-directory: sitio-profesor-matematica
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: sitio-profesor-matematica/package-lock.json
+      - name: Instalar dependencias
+        run: npm ci --no-audit --no-fund
+      - name: Verificar criterios pedagógicos
+        run: npm run check:learning
+      - name: Compilar Worker
+        run: npm run build
+      - name: Preparar navegador real y axe-core
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright axe-core
+          npx playwright install --with-deps chromium
+      - name: Iniciar Worker local
+        run: |
+          nohup npm run start > /tmp/zenit-pedagogy-worker.log 2>&1 &
+          for i in $(seq 1 90); do
+            if curl --silent --fail http://127.0.0.1:8787/ > /dev/null; then
+              echo "Servidor de pruebas iniciado"
+              exit 0
+            fi
+            sleep 2
+          done
+          cat /tmp/zenit-pedagogy-worker.log
+          exit 1
+      - name: Probar simuladores, controles y práctica con Chromium
+        env:
+          QA_BASE_URL: http://127.0.0.1:8787
+        run: node scripts/qa-pedagogy-ui.mjs
+      - name: Publicar evidencias aunque fallen pruebas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zenit-pedagogia-interactivos-${{ github.run_number }}
+          path: sitio-profesor-matematica/.pedagogy-qa/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 14
