@@ -49,3 +49,14 @@ Evidencias adicionales: [auditoría del catálogo](https://github.com/juanxavier
 En la ejecución previa del catálogo, las 523 rutas programadas devolvían HTTP 200 por acceso directo pese a no figurar en los índices. Se ajustó la ruta de lección para responder 404 antes de renderizar el material programado, además de filtrar rutas relacionadas, anterior/siguiente y progresiones verticales. La auditoría de navegador exige ahora 404 para toda ruta programada. Los registros siguen guardados y podrán publicarse cambiando su estado real.
 
 La guía original y la práctica complementaria se muestran también cuando el material fuente incluye soluciones trabajadas pero no ejercicios F0/FA; no se sustituyen ni ocultan esas soluciones.
+
+## Fase 2B — pertinencia matemática de los simuladores
+La inspección de capturas de Chromium detectó que algunos laboratorios generales eran funcionales y accesibles, pero no estaban pedagógicamente alineados con la lección (por ejemplo: congruencia de triángulos usaba el laboratorio general de polígonos y criptoaritmética uno de relojes).
+
+Se incorpora `components/focused-lesson-labs.tsx` para **15 lecciones publicadas**, en ocho familias: segmentos, congruencia, paralelas y secantes, criptoaritmética, cuadrados mágicos, secuencias, expresiones algebraicas y tablas de frecuencias.
+- Los ejemplos cambian realmente con los controles, incluyen indicadores numéricos y explicaciones de las propiedades conservadas.
+- Para las demás lecciones, el motor general existente se conserva. Sin reemplazo masivo ni dependencias nuevas.
+- `npm run check:focused` comprueba las 15 rutas, el parser TSX, la accesibilidad estructural y relaciones matemáticas (suma de segmentos, LLL, ángulos suplementarios, valor posicional, suma mágica, progresiones, términos semejantes y frecuencias).
+- El navegador completo comprueba controles, hace captura de cada simulador publicado y analiza accesibilidad mediante axe-core.
+
+La correspondencia de contenido se comprueba en los temas incorporados, pero una auditoría automatizada no sustituye la revisión pedagógica y visual humana de las 105 lecciones publicadas.

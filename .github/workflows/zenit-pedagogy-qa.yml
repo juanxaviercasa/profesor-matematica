@@ -10,6 +10,8 @@ on:
       - "sitio-profesor-matematica/components/interactive-exercise-bank.tsx"
       - "sitio-profesor-matematica/components/infinite-problem-generator.tsx"
       - "sitio-profesor-matematica/components/zenit-app-engines.tsx"
+      - "sitio-profesor-matematica/components/focused-lesson-labs.tsx"
+      - "sitio-profesor-matematica/scripts/check-focused-labs.mjs"
       - "sitio-profesor-matematica/components/chemistry-learning-lab.tsx"
       - "sitio-profesor-matematica/app/learning-experience.css"
       - "sitio-profesor-matematica/lib/lesson-study-guides.ts"
@@ -43,6 +45,8 @@ jobs:
         run: npm run check:learning
       - name: Comprobar guías y ejercicios originales
         run: npm run check:editorial
+      - name: Verificar modelos matemáticos específicos
+        run: npm run check:focused
       - name: Compilar Worker
         run: npm run build
       - name: Preparar navegador real y axe-core

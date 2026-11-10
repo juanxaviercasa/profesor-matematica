@@ -17,6 +17,8 @@ on:
       - "sitio-profesor-matematica/scripts/check-editorial-support.mjs"
       - "sitio-profesor-matematica/app/aprende/**"
       - "sitio-profesor-matematica/lib/catalog-index.ts"
+      - "sitio-profesor-matematica/components/focused-lesson-labs.tsx"
+      - "sitio-profesor-matematica/scripts/check-focused-labs.mjs"
       - "sitio-profesor-matematica/scripts/check-publication-boundaries.mjs"
 
 permissions:
@@ -50,6 +52,8 @@ jobs:
         run: npm run check:publication
       - name: Validar teoría complementaria y práctica original
         run: npm run check:editorial
+      - name: Comprobar precisión matemática de los laboratorios temáticos
+        run: npm run check:focused
       - name: Validar KaTeX y los textos matemáticos del catálogo
         continue-on-error: true
         run: npm run check:math

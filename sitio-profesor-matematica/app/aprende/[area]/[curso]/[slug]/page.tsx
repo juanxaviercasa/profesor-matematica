@@ -5,6 +5,7 @@ import { Header, Footer } from "@/components/site";
 import Link from "@/components/safe-link";
 import { MathFormula, MathText } from "@/components/math-formula";
 import { ZenitInteractiveApp } from "@/components/zenit-app-engines";
+import { FocusedLessonLab, hasFocusedLessonLab } from "@/components/focused-lesson-labs";
 import type { AppEngineId } from "@/lib/zenit-engines-meta";
 import { LESSON_STUDY_GUIDES, LESSON_ENGINE_OVERRIDES, LESSON_ORIGINAL_PRACTICE } from "@/lib/lesson-study-guides";
 import { InteractiveExerciseBank } from "@/components/interactive-exercise-bank";
@@ -297,12 +298,16 @@ export default async function TopicDetailPage({ params }: PageProps) {
 
         {/* Specialized Interactive Web App (Embedded Live) */}
         <div id="lesson-simulator" className="lesson-anchor">
-        <ZenitInteractiveApp
-          engineId={lessonEngineId}
-          topicTitle={lesson.title}
-          course={lesson.course}
-          customFormula={lesson.keyFormula}
-        />
+          {hasFocusedLessonLab(lesson.slug) ? (
+            <FocusedLessonLab slug={lesson.slug} title={lesson.title} />
+          ) : (
+            <ZenitInteractiveApp
+              engineId={lessonEngineId}
+              topicTitle={lesson.title}
+              course={lesson.course}
+              customFormula={lesson.keyFormula}
+            />
+          )}
         </div>
 
         {/* Extracted Theory & Slides from Teacher's Book / PPTX */}
