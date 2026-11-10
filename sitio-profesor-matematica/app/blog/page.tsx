@@ -25,7 +25,7 @@ export default function BlogPage() {
                 Biblioteca de Matemática y Ciencias
               </h1>
               <p className="text-sm md:text-base text-stone-300 leading-relaxed">
-                Encuentra teoría, ejercicios y laboratorios interactivos organizados por nivel y curso. Busca el tema que necesitas estudiar y consulta cuáles lecciones están publicadas.
+                Encuentra teoría, ejercicios y laboratorios interactivos organizados por nivel y curso. Busca el tema que necesitas estudiar y avanza con explicaciones y actividades a tu ritmo.
               </p>
             </div>
             <div className="flex flex-col gap-3">
