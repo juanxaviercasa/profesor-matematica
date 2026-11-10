@@ -11,6 +11,7 @@ import "./conversion-trust.css";
 import "./scientific-typesetting.css";
 import "katex/dist/katex.min.css";
 import "./reading-comfort.css";
+import "./zenit-editorial.css";
 
 
 export const metadata: Metadata = {
