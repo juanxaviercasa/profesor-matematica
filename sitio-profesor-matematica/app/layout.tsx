@@ -12,6 +12,7 @@ import "./scientific-typesetting.css";
 import "katex/dist/katex.min.css";
 import "./reading-comfort.css";
 import "./zenit-editorial.css";
+import "./math-responsive-layout.css";
 
 
 export const metadata: Metadata = {
