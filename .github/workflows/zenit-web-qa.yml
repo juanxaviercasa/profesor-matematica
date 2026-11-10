@@ -86,6 +86,7 @@ jobs:
             sitio-profesor-matematica/.qa-output/
             /tmp/zenit-worker-qa.log
           if-no-files-found: warn
+          include-hidden-files: true
           retention-days: 14
 
       - name: Verificar resultado de controles estáticos
