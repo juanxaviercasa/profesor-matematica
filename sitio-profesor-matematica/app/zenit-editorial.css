@@ -44,3 +44,11 @@ footer .footer-base{line-height:1.65}
 @media(max-width:1050px){.home-page-v2 .hero{grid-template-columns:1fr;min-height:auto}.home-page-v2 .formula-card{max-width:650px}}
 @media(max-width:600px){.home-page-v2 .hero{padding-block:44px 54px}.home-page-v2 .hero h1{font-size:clamp(2.7rem,9vw,4rem)}.home-page-v2 .hero .actions{align-items:stretch}.home-page-v2 .hero .actions .button{width:100%}.zenit-visual-figure figcaption{padding:12px 15px}.site-header .brand-copy b{font-size:.85rem}}
 @media(prefers-reduced-motion:reduce){.site-header .desktop-links a,.site-header .nav-cta,.home-page-v2 .public-action-card,.blog-view .grid > a{transition:none!important;transform:none!important}}
+
+.zenit-not-found{min-height:65svh;display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1fr);align-items:center;gap:clamp(30px,5vw,80px);padding-block:clamp(70px,10vw,140px)}
+.zenit-not-found__number{font-size:clamp(8rem,18vw,20rem);font-weight:900;letter-spacing:-.1em;line-height:.9;color:#153f32;opacity:.93;font-variant-numeric:tabular-nums}
+.zenit-not-found h1{font-size:clamp(2.5rem,4.3vw,4.6rem);line-height:1.07}
+.zenit-not-found p:not(.eyebrow){font-size:1.15rem;max-width:56ch;color:#455b52;line-height:1.65}
+.zenit-not-found__links{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:30px}
+.zenit-not-found__links :is(a){min-height:48px;display:inline-flex;align-items:center}
+@media(max-width:700px){.zenit-not-found{grid-template-columns:1fr;gap:28px;min-height:auto}.zenit-not-found__number{font-size:clamp(6.5rem,25vw,10rem)}}
