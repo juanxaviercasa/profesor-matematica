@@ -947,6 +947,7 @@ export function ZenitInteractiveApp({
 }) {
   const meta = ZENIT_ENGINES[engineId] || ZENIT_ENGINES.FunctionCartesianLab;
   const formulaToDisplay = customFormula || meta.formula;
+  const isChemistry = course === "quimica";
 
   return (
     <section className="zenit-webapp-shell my-8 rounded-3xl border border-emerald-800/40 bg-gradient-to-b from-stone-900 via-stone-950 to-stone-950 p-6 md:p-8 shadow-2xl text-stone-100">
@@ -958,9 +959,13 @@ export function ZenitInteractiveApp({
             </span>
           </div>
           <h3 className="mt-2 text-xl md:text-2xl font-extrabold text-white">
-            {topicTitle ? `${meta.title} — ${topicTitle}` : meta.title}
+            {isChemistry ? "Laboratorio de Química" : topicTitle ? `Explora: ${topicTitle}` : meta.title}
           </h3>
-          <p className="text-xs text-stone-400 mt-1">{meta.description}</p>
+          <p className="text-sm text-stone-200 mt-2 leading-relaxed">
+            {isChemistry
+              ? "Explora una relación química vinculada con el tema y comprueba cómo cambian las cantidades."
+              : meta.description}
+          </p>
         </div>
 
         <div className="zenit-engine-formula-panel rounded-xl bg-stone-900/90 px-3 py-2 border border-stone-800">
