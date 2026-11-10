@@ -218,4 +218,7 @@ const lines = [
 await writeFile(join(out, "report.md"), lines.join("\n"));
 await writeFile(join(out, "results.json"), JSON.stringify({ base, timestamp: new Date().toISOString(), results, findings }, null, 2));
 console.log("Informe: " + join(out, "report.md") + ". Errores: " + errors.length + "; advertencias: " + warnings.length);
+console.log("=== HALLAZGOS DE AUDITORÍA ===");
+for (const item of findings) console.log("[" + item.level.toUpperCase() + "] " + item.scope + ": " + item.message);
+console.log("=== FIN DE HALLAZGOS ===");
 if (errors.length) process.exitCode = 1;
