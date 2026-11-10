@@ -6,6 +6,29 @@
  * @typedef {{ tab: string, ex: ExerciseWithAnswer, idx: number }} IndexedExercise
  */
 
+/**
+ * Determina la letra real de una opción a partir del contenido extraído.
+ * Los libros pueden presentar alternativas en orden A, C, E, B, D.
+ * No se asigna una letra por índice si hay etiquetas incompletas o duplicadas.
+ * @param {ExerciseWithAnswer} exercise
+ * @param {number} index
+ * @returns {string | null}
+ */
+export function getExerciseOptionLetter(exercise, index) {
+  const options = exercise.options;
+  if (!Array.isArray(options) || !Number.isInteger(index) || index < 0 || index >= options.length) return null;
+  const letters = options.map(option =>
+    typeof option === "string" ? option.match(/^\s*([a-e])[.)]\s*/i)?.[1]?.toLowerCase() || null : null
+  );
+  if (letters.every(Boolean)) {
+    if (new Set(letters).size !== letters.length) return null;
+    return letters[index];
+  }
+  // Si alguna opción tiene letra y otra no, la correspondencia es ambigua.
+  if (letters.some(Boolean)) return null;
+  return "abcde"[index] || null;
+}
+
 /** @param {ExerciseWithAnswer} exercise
  *  @returns {string | null}
  */
@@ -15,7 +38,9 @@ export function getVerifiedAnswerKey(exercise) {
   const match = raw.match(/^([a-e])[\).]?$/i);
   if (!match) return null;
   const key = match[1].toLowerCase();
-  return "abcde".indexOf(key) < exercise.options.length ? key : null;
+  // Validar contra las letras que realmente ve el estudiante, no el índice.
+  const labels = exercise.options.map((_, idx) => getExerciseOptionLetter(exercise, idx));
+  return labels.includes(key) ? key : null;
 }
 
 /**
@@ -35,7 +60,7 @@ export function scoreExerciseAnswers(exercises, selectedOptions) {
       continue;
     }
     gradedCount++;
-    if ("abcde"[chosen] === answer) correctCount++;
+    if (getExerciseOptionLetter(ex, chosen) === answer) correctCount++;
   }
   return {
     answeredCount,
