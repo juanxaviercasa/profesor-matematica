@@ -105,3 +105,24 @@ footer .brand-copy small {
   .site-header .brand-copy small { font-size:.875rem; }
   .site-header .brand { gap:6px; }
 }
+
+/* Auditoría de 628 lecciones: evitar títulos gigantes en temas universitarios.
+   La tipografía del encabezado debe competir lo menos posible con la teoría,
+   el simulador y las fórmulas que el estudiante viene a consultar. */
+.learning-view.topic-view > section:first-of-type h1 {
+  font-size: clamp(2.2rem, 3.4vw, 3.5rem);
+  line-height: 1.16;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  hyphens: none;
+  max-inline-size: 24ch;
+}
+@media (max-width: 767px) {
+  .learning-view.topic-view > section:first-of-type h1 {
+    font-size: clamp(1.95rem, 7.5vw, 2.55rem);
+    line-height: 1.19;
+    letter-spacing: -.018em;
+    max-inline-size: 100%;
+  }
+}
