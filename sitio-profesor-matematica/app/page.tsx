@@ -27,12 +27,12 @@ export default function Home() {
       <div className="hero-copy">
         <p className="eyebrow">Sistema Zénit · Matemática que conecta</p>
         <h1 id="home-title">Entiende funciones.<br/><em>Prepárate para cálculo.</em></h1>
-        <p className="lead">Aprende con Juan Xavier, bachiller en Matemática y docente con experiencia escolar y preuniversitaria. Relaciona fórmulas, gráficas y comportamiento antes de entrar a cálculo.</p>
+        <p className="lead">Aprende con Juan Xavier, licenciado en Ciencias de la Educación con Especialidad en Matemática y experiencia docente escolar y preuniversitaria. Relaciona fórmulas, gráficas y comportamiento antes de entrar a cálculo.</p>
         <div className="actions">
           <Link className="button" href="/empieza?utm_source=sitio&utm_medium=home&utm_campaign=embudo_funciones">Empezar la ruta gratuita</Link>
           <Link className="text-link" href="/diagnostico/funciones?utm_source=sitio&utm_medium=home&utm_campaign=embudo_funciones">Hacer diagnóstico</Link>
         </div>
-        <div className="proof-line" aria-label="Formación y metodología de Juan Xavier"><span>Bachiller en Matemática</span><span>Docencia desde 2018</span><span>Aprendizaje visual</span></div>
+        <div className="proof-line" aria-label="Formación y metodología de Juan Xavier"><span>Formación universitaria en Matemática</span><span>Docencia desde 2018</span><span>Aprendizaje visual</span></div>
       </div>
       <FormulaCard/>
     </section>
@@ -78,7 +78,7 @@ export default function Home() {
       <div className="home-teacher-copy">
         <p className="eyebrow">Conoce a Juan Xavier</p>
         <h2 id="home-teacher-title">Aprende con una persona, no solo con fórmulas.</h2>
-        <p>Soy Juan Xavier, bachiller en Matemática por la Universidad Nacional de Educación Enrique Guzmán y Valle. He enseñado en secundaria y preparación preuniversitaria en Lima.</p>
+        <p>Soy Juan Xavier, licenciado en Ciencias de la Educación con Especialidad en Matemática por la Universidad Nacional de Educación Enrique Guzmán y Valle. He enseñado en secundaria y preparación preuniversitaria en Lima.</p>
         <p>Mi enfoque combina explicaciones, práctica guiada y herramientas digitales para comprender lo que representa cada resultado.</p>
         <div className="actions"><Link className="button" href="/sobre-mi">Conocer mi trayectoria</Link><Link className="text-link" href="/profesor-matematicas-lima">Clases en Lima</Link></div>
       </div>
