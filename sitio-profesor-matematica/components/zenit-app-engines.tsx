@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from "react";
 import { MathFormula } from "./math-formula";
 import { CartesianAxes } from "./cartesian-axes";
+import { ChemistryLearningLab } from "./chemistry-learning-lab";
 
 
 export { ZENIT_ENGINES, type AppEngineId, type EngineMeta } from "@/lib/zenit-engines-meta";
@@ -937,10 +938,12 @@ export function ZenitInteractiveApp({
   engineId,
   topicTitle,
   customFormula,
+  course,
 }: {
   engineId: AppEngineId;
   topicTitle?: string;
   customFormula?: string;
+  course?: string;
 }) {
   const meta = ZENIT_ENGINES[engineId] || ZENIT_ENGINES.FunctionCartesianLab;
   const formulaToDisplay = customFormula || meta.formula;
@@ -978,7 +981,9 @@ export function ZenitInteractiveApp({
       {engineId === "TrigonometryCircleLab" && <TrigonometryCircleLabWidget />}
       {engineId === "StatisticsProbabilityLab" && <StatisticsProbabilityLabWidget />}
       {engineId === "LogicalReasoningLab" && <LogicalReasoningLabWidget />}
-      {engineId === "SciencePhysicsChemLab" && <SciencePhysicsChemLabWidget />}
+      {engineId === "SciencePhysicsChemLab" && (course === "quimica"
+        ? <ChemistryLearningLab topicTitle={topicTitle || "Química"} />
+        : <SciencePhysicsChemLabWidget />)}
       {engineId === "FunctionCartesianLab" && <CartesianGenericLabWidget mode="function" />}
       {engineId === "AnalyticConicsLab" && <CartesianGenericLabWidget mode="conics" />}
       {engineId === "CalculusAnalysisLab" && <CartesianGenericLabWidget mode="calculus" />}
