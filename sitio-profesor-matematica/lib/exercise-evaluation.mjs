@@ -44,6 +44,22 @@ export function getVerifiedAnswerKey(exercise) {
 }
 
 /**
+ * Orden visual A→E para el alumno, conservando el índice original para la
+ * calificación. No reescribe las alternativas ni sus claves fuente.
+ * @param {ExerciseWithAnswer} exercise
+ */
+export function getExerciseDisplayOptions(exercise) {
+  if (!Array.isArray(exercise.options)) return [];
+  return exercise.options.map((text, index) => ({
+    text, index, letter: getExerciseOptionLetter(exercise, index),
+  })).sort((a, b) => {
+    const rank = letter => "abcde".indexOf(letter || "") >= 0
+      ? "abcde".indexOf(letter) : 99;
+    return rank(a.letter) - rank(b.letter);
+  });
+}
+
+/**
  * @param {IndexedExercise[]} exercises
  * @param {Record<string,number>} selectedOptions
  */
