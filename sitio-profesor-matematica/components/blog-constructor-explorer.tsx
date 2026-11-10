@@ -6,7 +6,7 @@ import { ZENIT_ENGINES } from "./zenit-app-engines";
 import Link from "./safe-link";
 
 export function BlogConstructorExplorer() {
-  const [viewMode, setViewMode] = useState<"constructor" | "drip">("constructor");
+  
   const [search, setSearch] = useState("");
   const [selectedGrade, setSelectedGrade] = useState<number | "all">("all");
   const [selectedCourse, setSelectedCourse] = useState<string>("all");
@@ -16,7 +16,7 @@ export function BlogConstructorExplorer() {
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
     return LESSONS_INDEX.filter((item) => {
-      if (viewMode === "drip" && item.publishStatus !== "published") {
+      if (item.publishStatus !== "published") {
         return false;
       }
       if (selectedGrade !== "all" && item.grade !== selectedGrade) {
@@ -34,7 +34,7 @@ export function BlogConstructorExplorer() {
       }
       return true;
     });
-  }, [viewMode, search, selectedGrade, selectedCourse, selectedEngine]);
+  }, [search, selectedGrade, selectedCourse, selectedEngine]);
 
   const publishedCount = useMemo(() => LESSONS_INDEX.filter(l => l.publishStatus === "published").length, []);
 
@@ -43,29 +43,8 @@ export function BlogConstructorExplorer() {
       {/* Filter Bar */}
       <div className="rounded-3xl border border-stone-800 bg-stone-950/90 p-6 space-y-5 shadow-xl">
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
-          <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => setViewMode("constructor")}
-              aria-pressed={viewMode === "constructor"}
-              className={`px-4 py-2 rounded-xl text-xs font-bold border transition-all ${
-                viewMode === "constructor"
-                  ? "bg-emerald-500 text-stone-950 border-emerald-400 shadow"
-                  : "bg-stone-900 text-stone-300 border-stone-700"
-              }`}
-            >
-              📚 Todos los temas
-            </button>
-            <button
-              onClick={() => setViewMode("drip")}
-              aria-pressed={viewMode === "drip"}
-              className={`px-4 py-2 rounded-xl text-xs font-bold border transition-all ${
-                viewMode === "drip"
-                  ? "bg-amber-500 text-stone-950 border-amber-400 shadow"
-                  : "bg-stone-900 text-stone-300 border-stone-700"
-              }`}
-            >
-              ✓ Lecciones disponibles ({publishedCount})
-            </button>
+          <div className="flex items-center text-sm font-semibold text-emerald-300">
+            Explora las lecciones de la biblioteca
           </div>
 
           <div className="flex-1 min-w-0 w-full sm:min-w-[240px] max-w-md">
@@ -73,7 +52,7 @@ export function BlogConstructorExplorer() {
             <input
               id="zenit-blog-search"
               type="search"
-              placeholder={`Buscar entre los ${LESSONS_INDEX.length} temas (ej. polinomios, conjuntos, ruffini, circunferencia, límite...)`}
+              placeholder="Busca un tema: polinomios, conjuntos, circunferencia, límites..."
               value={search}
               onChange={(e) => {
                 setSearch(e.target.value);
@@ -88,7 +67,7 @@ export function BlogConstructorExplorer() {
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-xs font-mono text-stone-400 mr-1">Grado / Nivel:</span>
           {[
-            { id: "all", label: `Todos (${LESSONS_INDEX.length})` },
+            { id: "all", label: `Todos (${publishedCount})` },
             { id: 1, label: "1.° Secundaria" },
             { id: 2, label: "2.° Secundaria" },
             { id: 3, label: "3.° Secundaria" },
@@ -185,13 +164,7 @@ export function BlogConstructorExplorer() {
                   <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800/50 font-bold">
                     {item.gradeLabel} · {item.unit}
                   </span>
-                  <span className={`px-2 py-0.5 rounded border ${
-                    item.publishStatus === "published"
-                      ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
-                      : "bg-stone-900 text-stone-400 border-stone-800"
-                  }`}>
-                    {item.publishStatus === "published" ? "Disponible" : `Próximamente`}
-                  </span>
+
                 </div>
 
                 <div className="text-[11px] text-amber-400 font-semibold mb-1">
