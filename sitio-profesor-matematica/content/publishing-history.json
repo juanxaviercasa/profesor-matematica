@@ -49,5 +49,16 @@
     ],
     "totalPublished": 102,
     "totalScheduled": 526
+  },
+  {
+    "date": "2026-11-10T20:10:13.728Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "congruencia-de-triangulos-1sec-unidad3",
+      "criptoaritmetica-ii-1sec-unidad3",
+      "cuadrados-magicos-1sec-unidad3"
+    ],
+    "totalPublished": 105,
+    "totalScheduled": 523
   }
 ]
