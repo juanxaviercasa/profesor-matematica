@@ -6,7 +6,7 @@ import Link from "@/components/safe-link";
 import { MathFormula, MathText } from "@/components/math-formula";
 import { ZenitInteractiveApp } from "@/components/zenit-app-engines";
 import { ZENIT_ENGINES, type AppEngineId } from "@/lib/zenit-engines-meta";
-import { getOpenSourceEnginesByMacro, resolveOpenSourceEngineForLesson } from "@/lib/open-source-60-engines";
+import { LESSON_STUDY_GUIDES, LESSON_ENGINE_OVERRIDES } from "@/lib/lesson-study-guides";
 import { InteractiveExerciseBank } from "@/components/interactive-exercise-bank";
 import { getVerifiedAnswerKey } from "@/lib/exercise-evaluation.mjs";
 import { InfiniteProblemGenerator } from "@/components/infinite-problem-generator";
@@ -130,9 +130,9 @@ export default async function TopicDetailPage({ params }: PageProps) {
     area: lesson.area,
     desc: "",
   };
-  const engineMeta = ZENIT_ENGINES[lesson.appEngine as AppEngineId] || ZENIT_ENGINES.FunctionCartesianLab;
-  const openSourceEngine = resolveOpenSourceEngineForLesson({ title: lesson.title, course: lesson.course, appEngine: lesson.appEngine as AppEngineId });
-  const branchEngines = getOpenSourceEnginesByMacro(lesson.appEngine as AppEngineId);
+  const lessonEngineId = (LESSON_ENGINE_OVERRIDES[lesson.slug] || lesson.appEngine) as AppEngineId;
+  const engineMeta = ZENIT_ENGINES[lessonEngineId] || ZENIT_ENGINES.FunctionCartesianLab;
+  const studyGuide = LESSON_STUDY_GUIDES[lesson.slug];
   const studentSummary = /^Estudio completo de /i.test(lesson.summary)
     ? `Estudia ${lesson.title} con explicaciones, un simulador y práctica guiada. Compara diferentes representaciones y comprueba lo que has aprendido.`
     : lesson.summary;
@@ -281,7 +281,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
         {/* Specialized Interactive Web App (Embedded Live) */}
         <div id="lesson-simulator" className="lesson-anchor">
         <ZenitInteractiveApp
-          engineId={lesson.appEngine as AppEngineId}
+          engineId={lessonEngineId}
           topicTitle={lesson.title}
           customFormula={lesson.keyFormula}
         />
@@ -309,32 +309,11 @@ export default async function TopicDetailPage({ params }: PageProps) {
                 <span className="text-xs font-mono uppercase tracking-widest text-emerald-400">
                   Fórmula o propiedad principal
                 </span>
-                <span className="rounded-full bg-amber-500/15 px-3 py-0.5 text-xs font-mono font-bold text-amber-300 border border-amber-500/30">
-                  Motor Open-Source #{String(openSourceEngine.rank).padStart(2, "0")}/60 · {openSourceEngine.name}
-                </span>
               </div>
               <div className="text-lg md:text-xl py-2 overflow-x-auto">
                 <MathFormula source={lesson.keyFormula} displayMode={true} />
                 <small className="math-scroll-hint">En móvil, desliza horizontalmente para ver fórmulas largas ↔</small>
               </div>
-              <details className="text-left border-t border-stone-800/80 pt-3">
-                <summary className="cursor-pointer text-xs font-mono text-stone-300 hover:text-emerald-300">
-                  Ver formulario ampliado de los 5 motores especializados de esta rama ({engineMeta.badge})
-                </summary>
-                <div className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {branchEngines.map((be) => (
-                    <div key={be.id} className="rounded-xl border border-stone-800 bg-stone-900/60 p-3 space-y-1.5">
-                      <div className="text-xs font-mono font-bold text-amber-300">
-                        #{String(be.rank).padStart(2, "0")} · {be.name}
-                      </div>
-                      <p className="text-xs text-stone-400">{be.purpose}</p>
-                      <div className="overflow-x-auto py-1">
-                        <MathFormula source={be.canonicalFormula} displayMode={true} />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </details>
             </div>
           )}
 
@@ -364,11 +343,22 @@ export default async function TopicDetailPage({ params }: PageProps) {
                 </article>
               ))}
             </div>
+          ) : studyGuide ? (
+            <article className="lesson-study-guide rounded-2xl border border-emerald-800/70 bg-stone-900/70 p-5 md:p-7 space-y-4">
+              <h3 className="text-xl font-bold text-white">{studyGuide.heading}</h3>
+              <ol className="list-decimal pl-6 space-y-3 text-base leading-relaxed text-stone-100">
+                {studyGuide.principles.map((principle, index) => (
+                  <li key={index} className="pl-1"><MathText source={principle} /></li>
+                ))}
+              </ol>
+              <div className="rounded-xl bg-emerald-950/60 border border-emerald-700/60 p-4">
+                <strong className="block text-emerald-200 mb-1">Ponlo en práctica</strong>
+                <p className="text-base leading-relaxed text-stone-100"><MathText source={studyGuide.activity} /></p>
+              </div>
+            </article>
           ) : (
-            <div className="rounded-2xl border border-stone-800 bg-stone-900/40 p-6 text-sm text-stone-300 space-y-3">
-              <p>
-                En el estudio de <strong>{lesson.title}</strong> ({lesson.gradeLabel}), el objetivo central es dominar la relación entre la representación simbólica y su interpretación analítica. Utiliza el simulador interactivo superior (<strong>{engineMeta.title}</strong>) para experimentar con los parámetros antes de abordar los problemas propuestos.
-              </p>
+            <div className="rounded-2xl border border-stone-800 bg-stone-900/50 p-6 text-base text-stone-200 space-y-3 leading-relaxed">
+              <p>Comienza por reconocer las ideas y símbolos de <strong>{lesson.title}</strong>. Observa cómo cambian los resultados en la actividad interactiva y revisa el procedimiento de los ejemplos antes de practicar por tu cuenta.</p>
             </div>
           )}
         </section>
@@ -386,7 +376,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
         {/* Layer 3: Infinite Algorithmic Problem Generator */}
         <div id="lesson-practice" className="lesson-anchor">
         <InfiniteProblemGenerator
-          engineId={lesson.appEngine as AppEngineId}
+          engineId={lessonEngineId}
           topicTitle={lesson.title}
         />
         </div>
