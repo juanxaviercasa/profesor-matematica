@@ -1,0 +1,139 @@
+name: "Zénit - Auditoría integral del catálogo (628 lecciones)"
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/zenit-catalog-full-audit.yml"
+      - "sitio-profesor-matematica/scripts/audit-catalog-static.mjs"
+      - "sitio-profesor-matematica/scripts/qa-catalog-browser.mjs"
+      - "sitio-profesor-matematica/scripts/merge-catalog-audit.mjs"
+      - "sitio-profesor-matematica/content/catalog/**"
+      - "sitio-profesor-matematica/components/math-formula.tsx"
+      - "sitio-profesor-matematica/app/math-responsive-layout.css"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: zenit-catalog-full-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  inventory:
+    name: "Censo estructural — todas las lecciones"
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    defaults:
+      run:
+        working-directory: sitio-profesor-matematica
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: sitio-profesor-matematica/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - name: Auditar los 628 registros y sus bancos de ejercicios
+        run: node scripts/audit-catalog-static.mjs
+      - name: Validar KaTeX y los textos matemáticos del catálogo
+        continue-on-error: true
+        run: npm run check:math
+      - name: Guardar censo e informe por lección
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zenit-catalog-inventario
+          path: sitio-profesor-matematica/.catalog-audit/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 14
+
+  browser:
+    name: "Chromium — lote ${{ matrix.shard }}/6"
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5]
+    defaults:
+      run:
+        working-directory: sitio-profesor-matematica
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: sitio-profesor-matematica/package-lock.json
+      - name: Instalar dependencias
+        run: npm ci --no-audit --no-fund
+      - name: Compilar Worker para revisar todas las lecciones sin publicarlas
+        run: npm run build
+      - name: Instalar Chromium y axe-core para auditoría visual
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright axe-core
+          npx playwright install --with-deps chromium
+      - name: Iniciar Worker compilado en el runner
+        run: |
+          nohup npm run start > /tmp/zenit-catalog-worker.log 2>&1 &
+          for i in $(seq 1 90); do
+            if curl --silent --fail http://127.0.0.1:8787/ > /dev/null; then
+              echo "Worker de prueba listo"
+              exit 0
+            fi
+            sleep 2
+          done
+          cat /tmp/zenit-catalog-worker.log
+          exit 1
+      - name: Abrir rutas y medir fórmulas, contraste, desbordamiento y accesibilidad
+        env:
+          QA_BASE_URL: http://127.0.0.1:8787
+          CATALOG_AUDIT_SHARD: ${{ matrix.shard }}
+          CATALOG_AUDIT_SHARDS: 6
+          CATALOG_BROWSER_DIR: .catalog-browser-shard-${{ matrix.shard }}
+        run: node scripts/qa-catalog-browser.mjs
+      - name: Adjuntar resultados individuales del lote
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zenit-catalog-shard-${{ matrix.shard }}
+          path: sitio-profesor-matematica/.catalog-browser-shard-${{ matrix.shard }}/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 14
+
+  report:
+    name: "Consolidar informe individual de las 628 lecciones"
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    needs: [inventory, browser]
+    if: always()
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descargar mediciones de Chromium de los seis lotes
+        uses: actions/download-artifact@v4
+        with:
+          pattern: zenit-catalog-shard-*
+          path: sitio-profesor-matematica/.catalog-merged
+          merge-multiple: true
+      - name: Descargar el censo estático
+        uses: actions/download-artifact@v4
+        with:
+          name: zenit-catalog-inventario
+          path: sitio-profesor-matematica/.catalog-merged/static
+      - name: Comprobar que ninguna de las 628 lecciones falte en el informe
+        working-directory: sitio-profesor-matematica
+        run: node scripts/merge-catalog-audit.mjs
+      - name: Guardar informe único y capturas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zenit-catalog-informe-integral
+          path: sitio-profesor-matematica/.catalog-merged/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 14
