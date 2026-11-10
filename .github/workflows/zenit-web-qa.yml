@@ -72,10 +72,20 @@ jobs:
           exit 1
 
       - name: Probar rutas, clics, pantallas y accesibilidad
+        id: general_qa
+        continue-on-error: true
         env:
           QA_BASE_URL: http://127.0.0.1:8787
           QA_OUTPUT_DIR: .qa-output
         run: node scripts/qa-browser.mjs
+
+      - name: Probar controles de simuladores y exámenes
+        id: pedagogy_qa
+        continue-on-error: true
+        env:
+          QA_BASE_URL: http://127.0.0.1:8787
+          QA_OUTPUT_DIR: .qa-output
+        run: node scripts/qa-pedagogy-interactive.mjs
 
       - name: Guardar capturas e informe aunque fallen las pruebas
         if: always()
@@ -92,6 +102,10 @@ jobs:
       - name: Verificar resultado de controles estáticos
         if: always()
         run: |
+          if [ "${{ steps.general_qa.outcome }}" != "success" ] || [ "${{ steps.pedagogy_qa.outcome }}" != "success" ]; then
+            echo "Las comprobaciones de navegación o pedagogía detectaron incidencias"
+            exit 1
+          fi
           if [ "${ZENIT_STATIC_FAILED:-0}" != "0" ]; then
             echo "Hay comprobaciones estáticas que requieren corrección"
             exit 1
