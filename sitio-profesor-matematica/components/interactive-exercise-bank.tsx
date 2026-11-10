@@ -310,7 +310,7 @@ export function InteractiveExerciseBank({
                       {!isGradable ? (<span>Esta pregunta no tiene una clave de respuesta comprobable. Tu selección se conserva, pero no se califica.</span>) : isCorrect ? (
                         <span>
                           ✓ <strong>¡Respuesta Correcta!</strong> Marcaste la alternativa{" "}
-                          <strong className="uppercase">{chosenLetter}</strong> ({ex.isOfficialKey ? "Clave del solucionario" : "Clave del banco de ejercicios"}).
+                          <strong className="uppercase">{chosenLetter}</strong> (respuesta verificada).
                         </span>
                       ) : (
                         <span>
