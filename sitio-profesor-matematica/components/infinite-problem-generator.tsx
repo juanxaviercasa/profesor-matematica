@@ -441,7 +441,7 @@ export function InfiniteProblemGenerator({
         {showSteps && (
           <div className="rounded-xl bg-stone-900/95 border border-stone-700 p-4 space-y-2 text-xs font-mono text-stone-200">
             <div className="text-amber-400 font-bold">
-              Resolución Algorítmica Paso a Paso (Semilla #{problem.seed}):
+              Resolución paso a paso:
             </div>
             {problem.steps.map((st, i) => (
               <div key={i} className="flex items-start gap-2 leading-relaxed">
