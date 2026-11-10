@@ -37,8 +37,17 @@ jobs:
       - name: Instalar dependencias del sitio
         run: npm ci --no-audit --no-fund
 
-      - name: Verificar reglas de diseño y accesibilidad en código
-        run: npm run check:design
+      - name: Verificar diseño, legibilidad, textos públicos y SEO
+        id: static_checks
+        continue-on-error: true
+        run: |
+          failed=0
+          for task in check:design check:readability check:public-copy check:seo; do
+            echo "Ejecutando $task"
+            npm run "$task" || failed=1
+          done
+          echo "ZENIT_STATIC_FAILED=$failed" >> "$GITHUB_ENV"
+          exit "$failed"
 
       - name: Compilar versión de producción
         run: npm run build
@@ -78,3 +87,11 @@ jobs:
             /tmp/zenit-worker-qa.log
           if-no-files-found: warn
           retention-days: 14
+
+      - name: Verificar resultado de controles estáticos
+        if: always()
+        run: |
+          if [ "${ZENIT_STATIC_FAILED:-0}" != "0" ]; then
+            echo "Hay comprobaciones estáticas que requieren corrección"
+            exit 1
+          fi
