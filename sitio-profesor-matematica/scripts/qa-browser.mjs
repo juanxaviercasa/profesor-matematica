@@ -142,6 +142,24 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
     }
     const screenshotPath = join(out, key + ".png");
     await page.screenshot({ path: screenshotPath, fullPage: ["inicio", "blog", "aprende"].includes(label), animations: "disabled" });
+    // Capturas cerca de fórmulas: las capturas del encabezado no revelan
+    // recuadros cortados varias pantallas más abajo.
+    if (size.width <= 390 && ["herramientas", "leccion-conjuntos"].includes(label)) {
+      const formulaNodes = page.locator(".math-typeset-display.math-scroll-region");
+      const count = await formulaNodes.count();
+      const indices = [...new Set([0, Math.floor(count / 2), count - 1])].filter(i => i >= 0);
+      for (const i of indices) {
+        try {
+          await formulaNodes.nth(i).scrollIntoViewIfNeeded({ timeout: 5000 });
+          await page.screenshot({
+            path: join(out, "formula-" + key + "-" + i + ".png"),
+            fullPage: false, animations: "disabled"
+          });
+        } catch (error) {
+          addFinding("warning", key, "No se pudo capturar la fórmula #" + i + ": " + error.message);
+        }
+      }
+    }
     results.push({ key, path, status, ...detail, runtimeErrors, accessibility, a11yViolations, screenshotPath });
     console.log(key + ": HTTP " + status + ", overflow " + detail.widthOverflow +
       " px, fórmulas con scroll " + formulaOverflow.length + "/" + detail.formulaBoxes.length +
