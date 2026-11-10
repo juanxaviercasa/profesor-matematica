@@ -107,7 +107,7 @@ function SetVennLabWidget() {
           <div className="font-bold text-emerald-300 text-sm">{opResult.label} = {opResult.value} elementos</div>
           <p className="text-stone-300">{opResult.desc}</p>
           <p className="text-stone-400 font-mono pt-1">
-            |U| = {nU} · |A| = {nA} · |B| = {nB} · Subconjuntos de A: 2^{Math.min(nA, 15)} = {Math.pow(2, Math.min(nA, 15)).toLocaleString()}
+            |U| = {nU} · |A| = {nA} · |B| = {nB} · Subconjuntos de A: 2^{nA} = {(1n << BigInt(nA)).toLocaleString("es-PE")}
           </p>
         </div>
       </div>
@@ -895,7 +895,7 @@ function CartesianGenericLabWidget({ mode }: { mode: "function" | "conics" | "ca
             <span>Parámetro Principal / Concavidad (a):</span>
             <b className="text-emerald-400 font-mono">{a}</b>
           </label>
-          <input aria-label="Parámetro principal de la función" type="range" min={-3} max={3} step={0.5} value={a} onChange={e => setA(+e.target.value || 0.5)} className="w-full accent-emerald-500" />
+          <input aria-label="Parámetro principal de la función" type="range" min={-3} max={3} step={0.5} value={a} onChange={e => setA(Number(e.target.value))} className="w-full accent-emerald-500" />
         </div>
         <div>
           <label className="text-xs text-stone-300 flex justify-between">
@@ -913,10 +913,10 @@ function CartesianGenericLabWidget({ mode }: { mode: "function" | "conics" | "ca
         </div>
         <div className="rounded-lg bg-stone-900 p-3 border border-stone-800 text-xs font-mono text-stone-300">
           {mode === "calculus"
-            ? `Derivada en Vértice x = ${h}: f'(${h}) = 0 (Punto Estacionario)`
+            ? a === 0 ? `Función constante: f'(x) = 0 en todo punto.` : `Derivada en el vértice x = ${h}: f'(${h}) = 0`
             : mode === "conics"
-            ? `Vértice Cónico V(${h}; ${k}) · Eje focal x = ${h}`
-            : `Vértice Funcional V(${h}; ${k}) · Rango: ${a > 0 ? `[${k}; +∞⟩` : `⟨−∞; ${k}]`}`}
+            ? a === 0 ? `La curva es la recta y = ${k}; no es una parábola.` : `Vértice V(${h}; ${k}) · Eje focal x = ${h}`
+            : a === 0 ? `Función constante f(x) = ${k} · Rango: {${k}}` : `Vértice V(${h}; ${k}) · Rango: ${a > 0 ? `[${k}; +∞⟩` : `⟨−∞; ${k}]`}`}
         </div>
       </div>
 
