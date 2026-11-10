@@ -954,6 +954,8 @@ export function ZenitInteractiveApp({
     [topicTitle, meta.title, meta.course, engineId]
   );
   const [selectedSubId, setSelectedSubId] = useState<string>("topic-primary");
+  const [showEmbedSnippet, setShowEmbedSnippet] = useState<boolean>(false);
+  const [copiedSnippet, setCopiedSnippet] = useState<boolean>(false);
   const activeSubEngine = subEngines.find((s) => s.id === selectedSubId) || recommendedSubEngine;
   const formulaToDisplay =
     selectedSubId === "topic-primary"
@@ -1030,6 +1032,47 @@ export function ZenitInteractiveApp({
             );
           })}
         </div>
+
+        <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-stone-800/80 text-xs">
+          <span className="text-stone-400 font-mono">
+            Licencia: {activeSubEngine.license} · Motor #{String(activeSubEngine.rank).padStart(2, "0")}
+          </span>
+          <button
+            type="button"
+            onClick={() => setShowEmbedSnippet(!showEmbedSnippet)}
+            aria-pressed={showEmbedSnippet}
+            className="px-2.5 py-1 rounded text-xs font-semibold bg-stone-900 border border-stone-700 text-stone-200 hover:text-emerald-300 hover:border-emerald-500/50 transition-colors"
+          >
+            {showEmbedSnippet ? "Ocultar código" : "Obtener código para incrustar"}
+          </button>
+        </div>
+
+        {showEmbedSnippet && (
+          <div className="mt-2 p-3 rounded-xl bg-stone-900/90 border border-emerald-700/50 space-y-2">
+            <div className="flex items-center justify-between text-xs">
+              <span className="font-mono text-emerald-300 font-semibold">
+                Código HTML para insertar en web o aula virtual
+              </span>
+              <button
+                type="button"
+                onClick={() => {
+                  const snippet = '<iframe src="https://sistemazenit.com/herramientas?engine=' + engineId + '&sub=' + activeSubEngine.id + '" title="' + activeSubEngine.name + '" width="100%" height="560" style="border:1px solid #334155;border-radius:12px;" loading="lazy"></iframe>';
+                  if (typeof navigator !== 'undefined' && navigator.clipboard) {
+                    navigator.clipboard.writeText(snippet);
+                    setCopiedSnippet(true);
+                    setTimeout(() => setCopiedSnippet(false), 2500);
+                  }
+                }}
+                className="px-2.5 py-0.5 rounded bg-emerald-500 text-stone-950 font-bold hover:bg-emerald-400 transition-colors"
+              >
+                {copiedSnippet ? "¡Copiado!" : "Copiar código"}
+              </button>
+            </div>
+            <pre className="p-2.5 rounded bg-stone-950 font-mono text-[11px] text-emerald-200 overflow-x-auto whitespace-pre">
+              {'<iframe src="https://sistemazenit.com/herramientas?engine=' + engineId + '&sub=' + activeSubEngine.id + '" title="' + activeSubEngine.name + '" width="100%" height="560" style="border:1px solid #334155;border-radius:12px;" loading="lazy"></iframe>'}
+            </pre>
+          </div>
+        )}
       </div>
 
       {engineId === "SetVennLab" && <SetVennLabWidget />}
