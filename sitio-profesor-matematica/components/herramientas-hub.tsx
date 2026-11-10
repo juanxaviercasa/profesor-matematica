@@ -125,7 +125,7 @@ export function HerramientasInteractiveHub() {
                   {item.purpose}
                 </p>
               </div>
-              <div className="rounded-xl bg-stone-950 p-3 border border-stone-800 overflow-x-auto">
+              <div className="zenit-formula-tile rounded-xl bg-stone-950 p-3 border border-stone-800">
                 <MathFormula source={item.canonicalFormula} displayMode={true} />
               </div>
             </div>
