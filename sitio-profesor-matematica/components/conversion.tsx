@@ -15,7 +15,7 @@ export function ConversionDock(){
   const href=whatsappHref("Hola, quisiera orientación sobre clases y recursos de matemática del Sistema Zénit.");
   return <a className="conversion-dock" href={href} target="_blank" rel="noopener noreferrer"
     onClick={()=>track("whatsapp_quick_click",{location:"floating_dock"})}
-    aria-label="Consultar por WhatsApp (abre otra pestaña)"><span>WA</span><b>Orientación</b></a>;
+    aria-label="WA Orientación: consultar por WhatsApp (abre otra pestaña)"><span>WA</span><b>Orientación</b></a>;
 }
 type Draft={message:string;url:string;interest:LeadInterest};
 export function ConversionForm(){
