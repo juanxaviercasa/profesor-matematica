@@ -78,3 +78,9 @@
 @media (prefers-reduced-motion: reduce) {
   .math-typeset-display.math-scroll-region { scroll-behavior: auto; }
 }
+
+/* También en párrafos: KaTeX sabe partir matemáticas inline después de
+   operadores y relaciones, sin convertir cada fórmula en una línea aparte. */
+.math-typeset-inline > .katex {
+  white-space: normal;
+}
