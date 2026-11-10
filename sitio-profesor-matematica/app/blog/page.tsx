@@ -19,7 +19,7 @@ export default function BlogPage() {
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="max-w-3xl space-y-3">
               <span className="inline-block rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-300">
-                {LESSONS_INDEX.length} temas · Matemática que conecta
+                {LESSONS_INDEX.filter(lesson => lesson.publishStatus === "published").length} temas · Matemática que conecta
               </span>
               <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
                 Biblioteca de Matemática y Ciencias
