@@ -6,7 +6,7 @@ import Link from "@/components/safe-link";
 import { MathFormula, MathText } from "@/components/math-formula";
 import { ZenitInteractiveApp } from "@/components/zenit-app-engines";
 import type { AppEngineId } from "@/lib/zenit-engines-meta";
-import { LESSON_STUDY_GUIDES, LESSON_ENGINE_OVERRIDES } from "@/lib/lesson-study-guides";
+import { LESSON_STUDY_GUIDES, LESSON_ENGINE_OVERRIDES, LESSON_ORIGINAL_PRACTICE } from "@/lib/lesson-study-guides";
 import { InteractiveExerciseBank } from "@/components/interactive-exercise-bank";
 import { getVerifiedAnswerKey } from "@/lib/exercise-evaluation.mjs";
 import { InfiniteProblemGenerator } from "@/components/infinite-problem-generator";
@@ -132,8 +132,13 @@ export default async function TopicDetailPage({ params }: PageProps) {
   };
   const lessonEngineId = (LESSON_ENGINE_OVERRIDES[lesson.slug] || lesson.appEngine) as AppEngineId;
   const studyGuide = LESSON_STUDY_GUIDES[lesson.slug];
+  const hasSourceExercises = lesson.exercisesF0.length > 0 || lesson.exercisesFA.length > 0 ||
+    (lesson.workedSolutions?.length || 0) > 0;
+  const originalPractice = !hasSourceExercises ? LESSON_ORIGINAL_PRACTICE[lesson.slug] : undefined;
   const studentSummary = /^Estudio completo de /i.test(lesson.summary)
-    ? `Estudia ${lesson.title} con explicaciones, un simulador y práctica guiada. Compara diferentes representaciones y comprueba lo que has aprendido.`
+    ? (originalPractice
+        ? `Explora ${lesson.title} con teoría guiada, un laboratorio y un ejercicio original resuelto paso a paso.`
+        : `Estudia ${lesson.title} con explicaciones, un simulador y práctica guiada. Compara distintas representaciones y comprueba lo aprendido.`)
     : lesson.summary;
 
   // Find adjacent lessons in the same course
@@ -271,7 +276,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
           <span>Ir directamente a:</span>
           <a href="#lesson-simulator">Simulador</a>
           <a href="#lesson-theory">Teoría</a>
-          {(lesson.exercisesF0.length > 0 || lesson.exercisesFA.length > 0 || (lesson.workedSolutions?.length || 0) > 0) && <a href="#lesson-exercises">Ejercicios</a>}
+          {(hasSourceExercises || originalPractice) && <a href="#lesson-exercises">Ejercicios</a>}
           <a href="#lesson-practice">Práctica adicional</a>
           {(lesson.areaBookBlocks?.length || 0) > 0 && <a href="#lesson-deep-reading">Lectura ampliada</a>}
           <a href="#lesson-related">Siguientes temas</a>
@@ -363,15 +368,39 @@ export default async function TopicDetailPage({ params }: PageProps) {
           )}
         </section>
 
-        {/* Extracted Exercises Bank (F0 + FA + Worked Solutions) */}
-        <div id="lesson-exercises" className="lesson-anchor">
-        <InteractiveExerciseBank
-          f0={lesson.exercisesF0}
-          fa={lesson.exercisesFA}
-          workedSolutions={lesson.workedSolutions || []}
-          topicTitle={lesson.title}
-        />
-        </div>
+        {/* Banco importado y, cuando falta, refuerzo original comprobable. */}
+        {(hasSourceExercises || originalPractice) && (
+          <section id="lesson-exercises" className="lesson-anchor space-y-5" aria-label="Ejercicios de esta lección">
+            {hasSourceExercises && (
+              <InteractiveExerciseBank
+                f0={lesson.exercisesF0}
+                fa={lesson.exercisesFA}
+                workedSolutions={lesson.workedSolutions || []}
+                topicTitle={lesson.title}
+              />
+            )}
+            {originalPractice && (
+              <article className="lesson-original-practice rounded-2xl border border-emerald-700/70 bg-stone-900/80 p-5 md:p-7 space-y-4">
+                <div className="space-y-2">
+                  <span className="text-sm font-semibold text-emerald-200">Ejercicio original de refuerzo · Sistema Zénit</span>
+                  <h2 className="text-xl md:text-2xl font-bold text-white">{originalPractice.title}</h2>
+                  <p className="text-base leading-relaxed text-stone-100"><MathText source={originalPractice.statement} /></p>
+                </div>
+                <details className="lesson-original-practice-answer rounded-xl border border-emerald-700/70 bg-emerald-950/50">
+                  <summary className="cursor-pointer p-4 font-semibold text-emerald-100">Ver resolución paso a paso</summary>
+                  <div className="border-t border-emerald-700/60 p-4 space-y-3">
+                    <ol className="list-decimal pl-6 text-base text-stone-100 space-y-2">
+                      {originalPractice.steps.map((step, i) => (
+                        <li key={i} className="pl-1"><MathText source={step} /></li>
+                      ))}
+                    </ol>
+                    <p className="text-base text-white"><strong>Respuesta:</strong> <MathText source={originalPractice.answer} /></p>
+                  </div>
+                </details>
+              </article>
+            )}
+          </section>
+        )}
 
         {/* Layer 3: Infinite Algorithmic Problem Generator */}
         <div id="lesson-practice" className="lesson-anchor">

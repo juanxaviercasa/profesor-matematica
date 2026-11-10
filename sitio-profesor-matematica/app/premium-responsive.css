@@ -131,3 +131,22 @@ html { scroll-padding-top: 6.5rem; }
     scroll-behavior: auto;
   }
 }
+
+
+/* En lecciones, el botón flotante de contacto no debe tapar controles,
+   texto, gráficas ni el botón de respuesta en móviles; el contacto del pie
+   sigue accesible desde la navegación. */
+@media (max-width: 767px) {
+  body:has(.topic-view) .conversion-dock { display: none; }
+  .lesson-original-practice { min-inline-size: 0; max-inline-size: 100%; }
+  .lesson-original-practice :is(p, li) { overflow-wrap: break-word; }
+  .lesson-original-practice-answer summary { min-block-size: 48px; }
+  .topic-view .breadcrumb { gap: .5rem; line-height: 1.7; }
+  .topic-view .breadcrumb a { overflow-wrap: anywhere; }
+}
+.lesson-original-practice-answer[open] summary { color: #f6ffdc; }
+.lesson-original-practice-answer summary:focus-visible {
+  outline: 3px solid var(--zenit-premium-focus-on-dark);
+  outline-offset: 3px;
+  border-radius: .5rem;
+}

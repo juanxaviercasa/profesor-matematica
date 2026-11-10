@@ -12,6 +12,9 @@ on:
       - "sitio-profesor-matematica/components/zenit-app-engines.tsx"
       - "sitio-profesor-matematica/components/chemistry-learning-lab.tsx"
       - "sitio-profesor-matematica/app/learning-experience.css"
+      - "sitio-profesor-matematica/lib/lesson-study-guides.ts"
+      - "sitio-profesor-matematica/app/aprende/**"
+      - "sitio-profesor-matematica/scripts/check-editorial-support.mjs"
 
 permissions:
   contents: read
@@ -38,6 +41,8 @@ jobs:
         run: npm ci --no-audit --no-fund
       - name: Verificar criterios pedagógicos
         run: npm run check:learning
+      - name: Comprobar guías y ejercicios originales
+        run: npm run check:editorial
       - name: Compilar Worker
         run: npm run build
       - name: Preparar navegador real y axe-core

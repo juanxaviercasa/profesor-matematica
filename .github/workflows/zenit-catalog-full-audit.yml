@@ -13,6 +13,9 @@ on:
       - "sitio-profesor-matematica/components/math-formula.tsx"
       - "sitio-profesor-matematica/app/math-responsive-layout.css"
       - "sitio-profesor-matematica/app/premium-responsive.css"
+      - "sitio-profesor-matematica/lib/lesson-study-guides.ts"
+      - "sitio-profesor-matematica/scripts/check-editorial-support.mjs"
+      - "sitio-profesor-matematica/app/aprende/**"
 
 permissions:
   contents: read
@@ -41,6 +44,8 @@ jobs:
         run: node scripts/audit-catalog-static.mjs
       - name: Validar estándares premium compartidos
         run: npm run check:premium
+      - name: Validar teoría complementaria y práctica original
+        run: npm run check:editorial
       - name: Validar KaTeX y los textos matemáticos del catálogo
         continue-on-error: true
         run: npm run check:math

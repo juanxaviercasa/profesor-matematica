@@ -80,8 +80,10 @@ const markdown = [
   "| Hallazgos graves | " + summary.browser.errors + " |",
   "| Advertencias | " + summary.browser.warnings + " |",
   "| Registros sin ficha completa | " + summary.static.missingFull + " |",
-  "| Lecciones publicadas sin teoría | " + summary.static.publishedMissingTheory + " |",
-  "| Lecciones publicadas sin ejercicios | " + summary.static.publishedMissingExercises + " |",
+  "| Lecciones publicadas sin diapositivas de teoría originales | " + summary.static.publishedMissingTheory + " |",
+  "| De ellas, con guía pedagógica complementaria | " + summary.static.publishedGuidesForMissingTheory + " |",
+  "| Lecciones publicadas sin ejercicios fuente | " + summary.static.publishedMissingExercises + " |",
+  "| De ellas, con ejercicio original de refuerzo | " + summary.static.publishedOriginalPracticeForMissingExercises + " |",
   "| Claves sin alternativa correspondiente | " + summary.static.answerKeysWithoutOptions + " |",
   "",
   "## Hallazgos por tipo",
@@ -106,7 +108,7 @@ const markdown = [
   "- browser-shard-0.json ... browser-shard-N.json — mediciones y hallazgos por resolución.",
   "- screen-*.png — capturas seleccionadas, incluidas las páginas con errores.",
   "",
-  "Los hallazgos de contenido requieren revisión docente. No se generan respuestas ni teoría artificial.",
+  "Las guías y prácticas originales de refuerzo se distinguen del material importado. Las claves de los ejercicios fuente no se inventan ni modifican.",
   "Una prueba sin hallazgos automatizados no equivale a una revisión visual humana exhaustiva de todos los gráficos.",
 ];
 writeFileSync(join(dir,"informe-integral.md"), markdown.join("\n"));

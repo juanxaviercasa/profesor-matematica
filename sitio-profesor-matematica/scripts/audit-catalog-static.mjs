@@ -6,6 +6,8 @@
 import { readFileSync, mkdirSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve, join } from "node:path";
+import ts from "typescript";
+import vm from "node:vm";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const out = resolve(root, process.env.CATALOG_AUDIT_DIR || ".catalog-audit");
@@ -14,6 +16,13 @@ const load = name => JSON.parse(readFileSync(join(root, "content", "catalog", na
 const index = load("lessons-index.json");
 const full = load("lessons-full.json");
 if (!Array.isArray(index) || !Array.isArray(full)) throw new Error("El catálogo debe ser una lista");
+const editorialSource = readFileSync(join(root, "lib/lesson-study-guides.ts"), "utf8");
+const compiledEditorial = ts.transpileModule(editorialSource, {
+  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 }
+}).outputText;
+const editorialSandbox = { exports: {} };
+vm.runInNewContext(compiledEditorial, editorialSandbox, { timeout: 4000 });
+const { LESSON_STUDY_GUIDES: guides, LESSON_ORIGINAL_PRACTICE: originalPractices } = editorialSandbox.exports;
 
 const fullBySlug = new Map(full.map(v => [v.slug, v]));
 const seen = new Set();
@@ -22,6 +31,7 @@ const routeOf = l => "/aprende/" + l.area + "/" + l.course + "/" + l.slug;
 const levels = { critical: 0, review: 0, scheduled: 0 };
 const counts = { total: index.length, full: full.length, published: 0, scheduled: 0, 
   publishedMissingTheory: 0, publishedMissingExercises: 0,
+  publishedGuidesForMissingTheory: 0, publishedOriginalPracticeForMissingExercises: 0,
   answerKeysWithoutOptions: 0, duplicateSlug: 0, missingFull: 0, metadataMismatch: 0,
   totalExercises: 0 };
 const courses = {};
@@ -54,8 +64,18 @@ for (const l of index) {
   const exercises = [...(Array.isArray(exF0) ? exF0 : []), ...(Array.isArray(exFA) ? exFA : [])];
   counts.totalExercises += exercises.length;
   if (state === "published") {
-    if (theory.length === 0) { flag("review", "THEORY_EMPTY", "Lección publicada sin diapositivas de teoría"); counts.publishedMissingTheory++; }
-    if (exercises.length === 0) { flag("review", "EXERCISES_EMPTY", "Lección publicada sin ejercicios"); counts.publishedMissingExercises++; }
+    if (theory.length === 0) {
+      flag("review", "THEORY_EMPTY", "Sin diapositivas originales de teoría" +
+        (guides[l.slug] ? " (guía complementaria disponible)" : ""));
+      counts.publishedMissingTheory++;
+      if (guides[l.slug]) counts.publishedGuidesForMissingTheory++;
+    }
+    if (exercises.length === 0 && !(details?.workedSolutions?.length)) {
+      flag("review", "EXERCISES_EMPTY", "Sin ejercicios originales cargados" +
+        (originalPractices[l.slug] ? " (práctica original de refuerzo disponible)" : ""));
+      counts.publishedMissingExercises++;
+      if (originalPractices[l.slug]) counts.publishedOriginalPracticeForMissingExercises++;
+    }
   } else if (state === "scheduled" && theory.length === 0 && exercises.length === 0) {
     // Preparación editorial esperada, no fallo del sitio ni error de HTTP.
     flag("scheduled", "PENDING_CONTENT", "Contenido programado aún sin teoría ni ejercicios");
@@ -85,7 +105,10 @@ for (const l of index) {
   rows.push({ id: l.id, slug: l.slug, title: l.title, area: l.area, course: l.course,
     grade: l.gradeLabel, state, route: routeOf(l), severity,
     theorySlides: Array.isArray(theory) ? theory.length : null,
-    exercises: exercises.length, hasFormula: Boolean(l.keyFormula?.trim()), flags });
+    exercises: exercises.length, hasFormula: Boolean(l.keyFormula?.trim()),
+    supplementaryTheory: Boolean(guides[l.slug]) && theory.length === 0,
+    supplementaryPractice: Boolean(originalPractices[l.slug]) && exercises.length === 0,
+    flags });
 }
 for (const l of full) if (!seen.has(l.slug)) {
   levels.critical++;

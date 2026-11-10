@@ -23,6 +23,7 @@
     "check:branding": "node scripts/check-branding.mjs",
     "check:readability": "node scripts/check-readability.mjs",
     "check:premium": "node scripts/check-premium-ui.mjs",
+    "check:editorial": "node scripts/check-editorial-support.mjs",
     "check:public-copy": "node scripts/check-public-copy.mjs"
   },
   "dependencies": {

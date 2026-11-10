@@ -276,4 +276,7 @@ console.log(JSON.stringify({
 }));
 // Los defectos visuales quedan registrados; se usan como cola de correcciones,
 // pero no impiden que los demás shards generen sus diagnósticos.
-if (completed !== selected.length) process.exitCode = 1;
+if (completed !== selected.length ||
+    errors.some(issue => issue.severity === "error" && issue.state === "published")) {
+  process.exitCode = 1;
+}
