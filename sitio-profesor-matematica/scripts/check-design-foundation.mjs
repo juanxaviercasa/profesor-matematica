@@ -90,7 +90,7 @@ assert.match(blog, /aria-pressed=\{selectedGrade === g\.id\}/);
 assert.match(quiz, /aria-pressed=\{isSelected\}/);
 assert.match(quiz, /aria-expanded=\{hintShown\}/);
 assert.match(generator, /if \(selectedIdx !== null\) return;/);
-assert.match(generator, /aria-disabled=\{selectedIdx !== null\}/);
+assert.match(generator, /disabled=\{selectedIdx !== null\}/);
 assert.match(generator, /role="status"/);
 
 
