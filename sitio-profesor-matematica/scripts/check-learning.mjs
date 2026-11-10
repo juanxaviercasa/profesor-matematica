@@ -8,6 +8,7 @@ assert.equal(getVerifiedAnswerKey(a),"b");
 assert.equal(getVerifiedAnswerKey({ ...a, answerKey:"B." }),"b");
 assert.equal(getVerifiedAnswerKey({ ...a, answerKey:"e" }),null);
 assert.equal(getVerifiedAnswerKey(unknown),null);
+assert.equal(getVerifiedAnswerKey({number:3,options:["única"],answerKey:"A"}),null);
 assert.equal(getVerifiedAnswerKey({ ...a, answerKey:"" }),null);
 const rows=[{tab:"f0",idx:0,ex:a},{tab:"f0",idx:1,ex:unknown}];
 assert.deepEqual(scoreExerciseAnswers(rows,{"f0-1-0":1,"f0-2-1":0}),{
@@ -148,6 +149,10 @@ assert.match(bank,/Ejercicio de desarrollo/);
 assert.doesNotMatch(bank,/Respuesta: \$\{expectedLetter\.toUpperCase\(\)\}/);
 assert.match(lesson,/LESSON_STUDY_GUIDES/);
 assert.match(lesson,/course=\{lesson\.course\}/);
+const engineUI=read("components/zenit-app-engines.tsx");
+assert.match(engineUI,/1n << BigInt\(nA\)/);
+assert.equal((1n << BigInt(70)).toString(),"1180591620717411303424");
+assert.match(engineUI,/setA\(Number\(e\.target\.value\)\)/);
 console.log("✓ "+chemicalCases+" variantes de química verificadas: ejercicios contextuales con claves coherentes.");
 
 
