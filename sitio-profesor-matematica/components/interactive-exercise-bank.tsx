@@ -21,6 +21,7 @@ export function InteractiveExerciseBank({
   const initialTab = f0.length > 0 ? "f0" : fa.length > 0 ? "fa" : "worked";
   const [activeTab, setActiveTab] = useState<"f0" | "fa" | "worked">(initialTab);
   const [selectedOptions, setSelectedOptions] = useState<Record<string, number>>({});
+  const [writtenAnswers, setWrittenAnswers] = useState<Record<string, string>>({});
   const [revealedHints, setRevealedHints] = useState<Record<string, boolean>>({});
   const [examMode, setExamMode] = useState<boolean>(false);
   const [examSubmitted, setExamSubmitted] = useState<boolean>(false);
@@ -39,7 +40,7 @@ export function InteractiveExerciseBank({
 
   const { answeredCount, gradedCount, correctCount, ungradedCount, accuracy } =
     scoreExerciseAnswers(allExercisesWithTab, selectedOptions);
-  const totalQuestions = allExercisesWithTab.filter(({ ex }) => ex.options?.length > 0).length;
+  const totalQuestions = allExercisesWithTab.filter(({ ex }) => getVerifiedAnswerKey(ex) !== null).length;
   const revealResults = !examMode || examSubmitted;
 
   return (
@@ -63,17 +64,18 @@ export function InteractiveExerciseBank({
             <span className="text-stone-300 block text-xs uppercase">{examMode && !examSubmitted ? "Examen en curso" : "Progreso de práctica"}</span>
             <span className="text-emerald-300 font-bold text-sm" role="status" aria-live="polite">
               {examMode && !examSubmitted
-                ? `Respondidas: ${answeredCount} / ${totalQuestions}`
+                ? `Respondidas calificables: ${gradedCount} / ${totalQuestions}`
                 : gradedCount ? `${correctCount} / ${gradedCount} aciertos (${accuracy}%)` : "Aún no hay respuestas calificables"}
             </span>
             {revealResults && ungradedCount > 0 && <span className="block text-xs text-amber-200">{ungradedCount} preguntas sin calificar</span>}
           </div>
           <div className="h-6 w-px bg-stone-800" />
-          <button
+          {totalQuestions > 0 && <button
             onClick={() => {
               setExamMode(!examMode);
               setExamSubmitted(false);
               setSelectedOptions({});
+              setWrittenAnswers({});
               setRevealedHints({});
               setActiveTab(initialTab);
             }}
@@ -85,7 +87,7 @@ export function InteractiveExerciseBank({
             }`}
           >
             {examMode ? "Salir del modo examen" : "Iniciar examen sin pistas"}
-          </button>
+          </button>}
           {examMode && totalQuestions > 0 && !examSubmitted && (
             <button
               onClick={() => { setExamSubmitted(true); setRevealedHints({}); }}
@@ -94,10 +96,11 @@ export function InteractiveExerciseBank({
               Calificar Examen
             </button>
           )}
-          {answeredCount > 0 && (
+          {(answeredCount > 0 || Object.values(writtenAnswers).some(Boolean)) && (
             <button
               onClick={() => {
                 setSelectedOptions({});
+                setWrittenAnswers({});
                 setExamSubmitted(false);
               }}
               className="text-xs text-stone-400 hover:text-white font-mono underline"
@@ -159,7 +162,7 @@ export function InteractiveExerciseBank({
               📘 <strong>Material de resolución:</strong> Desarrollos de referencia para revisar el procedimiento y contrastar tus respuestas.
             </span>
             <span className="font-mono text-sky-300 font-bold">
-              {workedSolutions.length} ejercicios desarrollados
+              {workedSolutions.length} {workedSolutions.length === 1 ? "ejercicio desarrollado" : "ejercicios desarrollados"}
             </span>
           </div>
 
@@ -190,10 +193,7 @@ export function InteractiveExerciseBank({
                 </div>
 
                 <div className="pt-2 flex items-center justify-between text-xs font-mono">
-                  <span className="text-stone-300">Revisa cada paso</span>
-                  <span className="px-3 py-1 rounded-lg bg-emerald-950/80 text-emerald-300 border border-emerald-700/60 font-bold">
-                    Clave indicada: {ws.answerKey.toUpperCase()}
-                  </span>
+                  <span className="text-stone-300">Contrasta la estrategia y comprueba cada operación.</span>
                 </div>
               </div>
             ))}
@@ -211,6 +211,7 @@ export function InteractiveExerciseBank({
             const isCorrect = expectedLetter !== null && chosenLetter === expectedLetter;
             const showFeedback = chosen !== undefined && revealResults;
             const isGradable = expectedLetter !== null;
+            const hasOptions = Array.isArray(ex.options) && ex.options.length >= 2;
 
             return (
               <div
@@ -258,7 +259,7 @@ export function InteractiveExerciseBank({
                   <MathText source={ex.statement} inlineOnly />
                 </p>
 
-                {ex.options && ex.options.length > 0 && (
+                {hasOptions && (
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-2.5 pt-1">
                     {ex.options.map((opt, oIdx) => {
                       const optLetter = OPTION_LETTERS[oIdx];
@@ -281,9 +282,11 @@ export function InteractiveExerciseBank({
                       return (
                         <button
                           key={oIdx}
+                          type="button"
                           aria-pressed={isSelected}
                           
                           onClick={() => { if (!examMode || !examSubmitted) setSelectedOptions((prev) => ({ ...prev, [key]: oIdx })); }}
+                          disabled={examMode && examSubmitted}
                           aria-disabled={examMode && examSubmitted}
                           className={`math-option-button px-3 py-2.5 rounded-xl text-left text-sm font-sans transition-all border ${btnStyle}`}
                         >
@@ -291,6 +294,24 @@ export function InteractiveExerciseBank({
                         </button>
                       );
                     })}
+                  </div>
+                )}
+
+                {!hasOptions && (
+                  <div className="written-exercise">
+                    <label htmlFor={`written-${key}`} className="font-semibold text-stone-100">
+                      Ejercicio de desarrollo · Escribe tus pasos
+                    </label>
+                    <textarea
+                      id={`written-${key}`}
+                      rows={3}
+                      value={writtenAnswers[key] || ""}
+                      onChange={event => setWrittenAnswers(previous => ({ ...previous, [key]: event.target.value }))}
+                      disabled={examMode && examSubmitted}
+                      placeholder="Organiza los datos, explica la propiedad que usas y desarrolla el procedimiento."
+                      className="w-full rounded-xl bg-stone-900 border border-stone-600 p-3 text-base text-stone-100 placeholder:text-stone-400"
+                    />
+                    <p className="text-sm text-stone-300">Puedes escribir aquí o resolver en tu cuaderno. Esta respuesta no se califica automáticamente y no se guarda al salir de la página.</p>
                   </div>
                 )}
 
@@ -307,7 +328,7 @@ export function InteractiveExerciseBank({
                     }`}
                   >
                     <div>
-                      {!isGradable ? (<span>Esta pregunta no tiene una clave de respuesta comprobable. Tu selección se conserva, pero no se califica.</span>) : isCorrect ? (
+                      {!isGradable ? (<span>Tu elección queda registrada en esta sesión para que puedas comparar tu razonamiento. Este ejercicio no se califica automáticamente.</span>) : isCorrect ? (
                         <span>
                           ✓ <strong>¡Respuesta Correcta!</strong> Marcaste la alternativa{" "}
                           <strong className="uppercase">{chosenLetter}</strong> (respuesta verificada).
@@ -332,12 +353,7 @@ export function InteractiveExerciseBank({
 
                 {hintShown && revealResults && (
                   <div className="rounded-xl bg-stone-900/95 border border-stone-700 p-4 text-xs text-stone-300 space-y-2">
-                    <div className="flex items-center justify-between">
-                      <strong className="text-amber-400">Guía Metodológica Zénit:</strong>
-                      <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 font-mono font-bold border border-emerald-800">
-                        {expectedLetter ? `Respuesta: ${expectedLetter.toUpperCase()}` : "Respuesta no disponible"}
-                      </span>
-                    </div>
+                    <strong className="block text-amber-300">Pista para razonar:</strong>
                     <p className="leading-relaxed">
                       <MathText source={ex.hint || `Identifica los datos principales del enunciado de ${topicTitle}, aplica la propiedad del marco teórico, comprueba con el simulador y justifica tu respuesta.`} />
                     </p>
