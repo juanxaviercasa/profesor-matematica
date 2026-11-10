@@ -282,6 +282,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
         <ZenitInteractiveApp
           engineId={lessonEngineId}
           topicTitle={lesson.title}
+          course={lesson.course}
           customFormula={lesson.keyFormula}
         />
         </div>
@@ -377,6 +378,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
         <InfiniteProblemGenerator
           engineId={lessonEngineId}
           topicTitle={lesson.title}
+          course={lesson.course}
         />
         </div>
 
