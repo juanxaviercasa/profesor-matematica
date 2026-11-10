@@ -66,7 +66,7 @@ export function InteractiveExerciseBank({
                 ? `Respondidas: ${answeredCount} / ${totalQuestions}`
                 : gradedCount ? `${correctCount} / ${gradedCount} aciertos (${accuracy}%)` : "Aún no hay respuestas calificables"}
             </span>
-            {revealResults && ungradedCount > 0 && <span className="block text-xs text-amber-200">{ungradedCount} sin clave comprobable, no calificadas</span>}
+            {revealResults && ungradedCount > 0 && <span className="block text-xs text-amber-200">{ungradedCount} preguntas sin calificar</span>}
           </div>
           <div className="h-6 w-px bg-stone-800" />
           <button
@@ -235,11 +235,11 @@ export function InteractiveExerciseBank({
                       Problema #{ex.number}
                     </span>
                     <span className="text-[11px] text-stone-400 font-mono">
-                      {activeTab === "f0" ? "Nivel Cero (Fijación)" : "Nivel Adicional (Competencia)"}
+                      {activeTab === "f0" ? "Nivel inicial" : "Nivel avanzado"}
                     </span>
                     {ex.isOfficialKey && isGradable && revealResults && (
                       <span className="text-[10px] font-mono bg-stone-900 text-emerald-400 px-2 py-0.5 rounded border border-stone-800">
-                        ✓ Clave Solucionario
+                        ✓ Respuesta comprobada
                       </span>
                     )}
                   </div>
@@ -335,7 +335,7 @@ export function InteractiveExerciseBank({
                     <div className="flex items-center justify-between">
                       <strong className="text-amber-400">Guía Metodológica Zénit:</strong>
                       <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 font-mono font-bold border border-emerald-800">
-                        {expectedLetter ? `Clave de referencia: ${expectedLetter.toUpperCase()}` : "Sin clave comprobable"}
+                        {expectedLetter ? `Respuesta: ${expectedLetter.toUpperCase()}` : "Respuesta no disponible"}
                       </span>
                     </div>
                     <p className="leading-relaxed">
