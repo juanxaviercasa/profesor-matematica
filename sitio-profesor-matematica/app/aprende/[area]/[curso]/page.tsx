@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function CoursePage({ params }: PageProps) {
   const { area: areaSlug, curso: cursoSlug } = await params;
   const courseInfo = COURSE_LABELS[cursoSlug];
-  const lessons = getLessonsByCourse(cursoSlug);
+  const lessons = getLessonsByCourse(cursoSlug).filter(lesson => lesson.publishStatus === "published");
 
   if (!courseInfo || courseInfo.area !== areaSlug || lessons.length === 0) {
     notFound();
@@ -120,7 +120,7 @@ export default async function CoursePage({ params }: PageProps) {
                       <div className="flex items-center justify-between text-[10px] font-mono text-stone-400 mb-2">
                         <span className="text-emerald-400 font-bold">{topic.unit}</span>
                         <span>
-                          {topic.publishStatus === "published" ? "Disponible" : "Próximamente"}
+                          Listo para estudiar
                         </span>
                       </div>
                       <h3 className="text-sm font-bold text-stone-100 group-hover:text-emerald-300 transition-colors">
