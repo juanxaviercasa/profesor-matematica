@@ -162,7 +162,16 @@ export const EDITORIAL_RULES = [
   {course:"quimica",engineId:"chem-eq",pattern:/equilibrio qu[ií]mico|ph/i,tex:String.raw`K_p=K_c(RT)^{\Delta n},\quad \text{pH}=-\log[\text{H}^+],\quad \text{pH}+\text{pOH}=14\ (25^\circ\text{C})`},
 ];
 
+// Fórmulas por tema verificadas: no se sustituyen claves de ejercicios.
+const LESSON_FORMULA_CORRECTIONS = {
+  "nociones-basicas-de-geometria-1sec-unidad1": String.raw`AB+BC=AC\quad(B\text{ entre }A\text{ y }C)`,
+  "criptoaritmetica-1sec-unidad2": String.raw`\overline{ab}=10a+b,\quad 1\le a\le9,\quad 0\le b\le9`,
+  "criptoaritmetica-i-1sec-unidad2": String.raw`\overline{abc}=100a+10b+c,\quad 1\le a\le9`,
+  "operaciones-con-polinomios-1sec-unidad2": String.raw`(P+Q)(x)=P(x)+Q(x),\quad (PQ)(x)=P(x)Q(x)`,
+};
+
 export function resolveEditorialKeyFormula(lesson) {
+  if(lesson?.slug && LESSON_FORMULA_CORRECTIONS[lesson.slug])return LESSON_FORMULA_CORRECTIONS[lesson.slug];
   if(!lesson||!Number.isInteger(lesson.grade)||lesson.grade<1||lesson.grade>5)return lesson?.keyFormula||"";
   const title=String(lesson.title||"").toLowerCase().normalize("NFC");
   const matched=EDITORIAL_RULES.find(rule=>rule.course===lesson.course&&rule.pattern.test(title));
