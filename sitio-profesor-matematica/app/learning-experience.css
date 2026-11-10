@@ -121,3 +121,56 @@
   .exercise-bank { padding: 16px; }
   .exercise-bank .math-option-button { min-height: 48px; }
 }
+
+/* Lectura de simulaciones y prácticas: escaneo visual de estados reales.
+   Ajustar texto y controles sin comprimir exponentes, raíces o fracciones. */
+.exercise-bank,
+.infinite-problem-generator,
+.zenit-webapp-shell { min-width:0; max-width:100%; }
+.exercise-bank :is(.math-prose-line,.written-exercise),
+.infinite-problem-generator .math-prose-line,
+.zenit-webapp-shell :is(.math-prose-line,.zenit-engine-formula-panel) {
+  min-width:0; max-width:100%;
+}
+.exercise-bank :is(p,label,button,summary,small),
+.infinite-problem-generator :is(p,label,button,summary,small) {
+  font-size: max(.9375rem, 1em);
+  line-height: 1.55;
+}
+.exercise-bank :is(span,div)[class~="text-xs"],
+.exercise-bank :is(span,div)[class~="text-[11px]"],
+.exercise-bank :is(span,div)[class~="text-[10px]"],
+.infinite-problem-generator :is(span,div)[class~="text-xs"],
+.infinite-problem-generator :is(span,div)[class~="text-[11px]"],
+.infinite-problem-generator :is(span,div)[class~="text-[10px]"] {
+  font-size: .875rem; line-height: 1.5;
+}
+.exercise-bank .math-option-button,
+.infinite-problem-generator .math-option-button {
+  min-height:48px; min-width:0; text-align:left;
+  overflow-wrap:break-word; font-size:1rem; line-height:1.55;
+}
+.exercise-bank .math-option-button:focus-visible,
+.infinite-problem-generator .math-option-button:focus-visible {
+  outline:3px solid #d9ef78; outline-offset:3px;
+}
+.exercise-bank .math-option-button[aria-pressed="true"],
+.infinite-problem-generator .math-option-button[aria-pressed="true"] {
+  box-shadow:inset 0 0 0 1px #9be6b6;
+}
+.infinite-problem-generator .math-option-button:disabled { cursor:default; opacity:1; }
+.exercise-bank :is(.math-prose-line,.math-scientific-paragraph),
+.infinite-problem-generator .math-prose-line { line-height:1.75; }
+.exercise-bank :is(.math-scroll-region,.math-typeset-inline),
+.infinite-problem-generator :is(.math-scroll-region,.math-typeset-inline) {
+  max-width:100%; min-width:0;
+}
+@media(max-width:640px) {
+  .exercise-bank,.infinite-problem-generator { padding:16px; }
+  .exercise-bank .math-option-button,.infinite-problem-generator .math-option-button {
+    width:100%; padding:12px 14px;
+  }
+  .exercise-bank > div:first-child,.infinite-problem-generator > div:first-child {
+    align-items:flex-start;
+  }
+}
