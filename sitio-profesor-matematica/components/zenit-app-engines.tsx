@@ -124,7 +124,7 @@ function SetVennLabWidget() {
             stroke="#44403c"
             strokeWidth="2"
           />
-          <text x="26" y="34" fill="#a8a29e" fontSize="13" fontWeight="bold">U = {nU}</text>
+          <text x="26" y="34" fill="#a8a29e" fontSize="18" fontWeight="bold">U = {nU}</text>
           {/* Circle A */}
           <circle
             cx="165"
@@ -154,13 +154,13 @@ function SetVennLabWidget() {
             stroke="#f59e0b"
             strokeWidth="2"
           />
-          <text x="120" y="75" fill="#10b981" fontSize="13" fontWeight="bold">A ({nA})</text>
-          <text x="275" y="75" fill="#38bdf8" fontSize="13" fontWeight="bold">B ({nB})</text>
+          <text x="120" y="75" fill="#10b981" fontSize="18" fontWeight="bold">A ({nA})</text>
+          <text x="275" y="75" fill="#38bdf8" fontSize="18" fontWeight="bold">B ({nB})</text>
 
           <text x="128" y="136" fill="#ffffff" fontSize="20" fontWeight="bold" textAnchor="middle">{onlyA}</text>
           <text x="210" y="136" fill={highlightCenter ? "#0c0a09" : "#fbbf24"} fontSize="20" fontWeight="bold" textAnchor="middle">{bothAB}</text>
           <text x="292" y="136" fill="#ffffff" fontSize="20" fontWeight="bold" textAnchor="middle">{onlyB}</text>
-          <text x="365" y="225" fill="#a8a29e" fontSize="15" fontWeight="bold" textAnchor="end">Fuera: {outside}</text>
+          <text x="365" y="225" fill="#a8a29e" fontSize="18" fontWeight="bold" textAnchor="end">Fuera: {outside}</text>
         </svg>
       </div>
     </div>
@@ -517,8 +517,8 @@ function EquationInequalityLabWidget() {
 
           <circle cx="140" cy="130" r="6" fill="#10b981" stroke="#fff" strokeWidth="2" />
           <circle cx="280" cy="130" r="6" fill="#10b981" stroke="#fff" strokeWidth="2" />
-          <text x="140" y="155" fill="#fff" fontSize="13" fontWeight="bold" textAnchor="middle">{minR}</text>
-          <text x="280" y="155" fill="#fff" fontSize="13" fontWeight="bold" textAnchor="middle">{maxR}</text>
+          <text x="140" y="155" fill="#fff" fontSize="18" fontWeight="bold" textAnchor="middle">{minR}</text>
+          <text x="280" y="155" fill="#fff" fontSize="18" fontWeight="bold" textAnchor="middle">{maxR}</text>
         </svg>
         <p className="text-xs text-stone-400">
           Método de los Puntos Críticos: de derecha a izquierda los signos se alternan (+ , − , +).
@@ -594,7 +594,7 @@ function GeometryInteractiveLabWidget() {
             strokeWidth="3"
           />
           <circle cx="210" cy="125" r="4" fill="#f59e0b" />
-          <text x="210" y="232" fill="#d6d3d1" fontSize="13" textAnchor="middle">
+          <text x="210" y="232" fill="#d6d3d1" fontSize="18" textAnchor="middle">
             Polígono Regular de {sides} lados · {diagonals} diagonales
           </text>
         </svg>
@@ -664,8 +664,8 @@ function TrigonometryCircleLabWidget() {
           {/* Radius vector */}
           <line x1={cx} y1={cy} x2={px} y2={py} stroke="#f59e0b" strokeWidth="2.5" />
           <circle cx={px} cy={py} r="6" fill="#f59e0b" stroke="#0c0a09" strokeWidth="2" />
-          <text x="35" y="30" fill="#10b981" fontSize="12" fontWeight="bold">Línea Seno (vertical)</text>
-          <text x="35" y="48" fill="#38bdf8" fontSize="12" fontWeight="bold">Línea Coseno (horizontal)</text>
+          <text x="35" y="30" fill="#10b981" fontSize="17" fontWeight="bold">Línea Seno (vertical)</text>
+          <text x="35" y="48" fill="#38bdf8" fontSize="17" fontWeight="bold">Línea Coseno (horizontal)</text>
         </svg>
       </div>
     </div>
@@ -724,8 +724,8 @@ function StatisticsProbabilityLabWidget() {
             return (
               <g key={idx}>
                 <rect x={bx} y={by} width="42" height={bh} rx="5" fill="#10b981" opacity={0.85} />
-                <text x={bx + 21} y={by - 6} fill="#a7f3d0" fontSize="11" fontWeight="bold" textAnchor="middle">{f}</text>
-                <text x={bx + 21} y="214" fill="#d6d3d1" fontSize="11" textAnchor="middle">x={values[idx]}</text>
+                <text x={bx + 21} y={by - 6} fill="#a7f3d0" fontSize="16" fontWeight="bold" textAnchor="middle">{f}</text>
+                <text x={bx + 21} y="214" fill="#d6d3d1" fontSize="16" textAnchor="middle">x={values[idx]}</text>
               </g>
             );
           })}
@@ -792,7 +792,7 @@ function LogicalReasoningLabWidget() {
           {/* Minute hand */}
           <line x1="210" y1="115" x2={210 + 72 * Math.cos(mAngle)} y2={115 + 72 * Math.sin(mAngle)} stroke="#f59e0b" strokeWidth="3.5" strokeLinecap="round" />
           <circle cx="210" cy="115" r="5" fill="#fff" />
-          <text x="210" y="220" fill="#e7e5e4" fontSize="13" fontWeight="bold" textAnchor="middle">
+          <text x="210" y="220" fill="#e7e5e4" fontSize="18" fontWeight="bold" textAnchor="middle">
             Hora: {hour}:{String(minute).padStart(2, "0")} → Ángulo menor = {clockAngle.toFixed(1)}°
           </text>
         </svg>
