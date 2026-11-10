@@ -88,9 +88,11 @@ export function getRelatedLessons(
 ): CatalogLessonIndex[] {
   const results: CatalogLessonIndex[] = [];
   const seenSlugs = new Set<string>([lesson.slug]);
+  // Nunca enlazar material programado desde el catálogo público.
+  const visibleLessons = LESSONS_INDEX.filter(item => item.publishStatus === "published");
 
   // 1. Vertical equivalents across other grades (same baseSlug)
-  for (const item of LESSONS_INDEX) {
+  for (const item of visibleLessons) {
     if (item.baseSlug === lesson.baseSlug && !seenSlugs.has(item.slug)) {
       results.push(item);
       seenSlugs.add(item.slug);
@@ -99,7 +101,7 @@ export function getRelatedLessons(
   }
 
   // 2. Same course topics
-  for (const item of LESSONS_INDEX) {
+  for (const item of visibleLessons) {
     if (item.course === lesson.course && !seenSlugs.has(item.slug)) {
       results.push(item);
       seenSlugs.add(item.slug);
@@ -108,7 +110,7 @@ export function getRelatedLessons(
   }
 
   // 3. Same interactive Web App engine (sharing mathematical tools)
-  for (const item of LESSONS_INDEX) {
+  for (const item of visibleLessons) {
     if (item.appEngine === lesson.appEngine && !seenSlugs.has(item.slug)) {
       results.push(item);
       seenSlugs.add(item.slug);
@@ -118,7 +120,7 @@ export function getRelatedLessons(
 
   // 4. Fill with other high-relevance lessons if needed
   if (results.length < limit) {
-    for (const item of LESSONS_INDEX) {
+    for (const item of visibleLessons) {
       if (!seenSlugs.has(item.slug)) {
         results.push(item);
         seenSlugs.add(item.slug);

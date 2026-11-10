@@ -32,6 +32,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ? `${BASE_URL}/aprende/${catalogLesson.area}/${catalogLesson.course}/${catalogLesson.slug}`
     : `${BASE_URL}/aprende/${areaSlug}/${cursoSlug}/${slug}`;
 
+  if (catalogLesson?.publishStatus === "scheduled") {
+    return { title: "Lección no disponible · Sistema Zénit",
+      robots: { index: false, follow: false } };
+  }
+
   if (catalogLesson) {
     const courseMeta = COURSE_LABELS[catalogLesson.course];
     const pageTitle = `${catalogLesson.title} (${catalogLesson.gradeLabel}) · Teoría, Ejercicios y Web App · Zénit`;
@@ -72,6 +77,13 @@ export default async function TopicDetailPage({ params }: PageProps) {
 
   // 1. Look up in the 584-lesson extracted catalog first
   let lesson = getLessonBySlug(topicSlug);
+
+  // Las lecciones programadas no deben mostrar contenido provisional a visitantes.
+  // Se conserva el registro para que se publique cuando cambie su estado.
+  if (lesson && (lesson.publishStatus !== "published" ||
+      lesson.area !== areaSlug || lesson.course !== cursoSlug)) {
+    notFound();
+  }
 
   // 2. Fallback to CURRICULUM_DATA if someone visits an older manual slug
   if (!lesson) {
@@ -134,7 +146,8 @@ export default async function TopicDetailPage({ params }: PageProps) {
   const studyGuide = LESSON_STUDY_GUIDES[lesson.slug];
   const hasSourceExercises = lesson.exercisesF0.length > 0 || lesson.exercisesFA.length > 0 ||
     (lesson.workedSolutions?.length || 0) > 0;
-  const originalPractice = !hasSourceExercises ? LESSON_ORIGINAL_PRACTICE[lesson.slug] : undefined;
+  const originalPractice = lesson.exercisesF0.length === 0 && lesson.exercisesFA.length === 0
+    ? LESSON_ORIGINAL_PRACTICE[lesson.slug] : undefined;
   const studentSummary = /^Estudio completo de /i.test(lesson.summary)
     ? (originalPractice
         ? `Explora ${lesson.title} con teoría guiada, un laboratorio y un ejercicio original resuelto paso a paso.`
@@ -142,7 +155,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
     : lesson.summary;
 
   // Find adjacent lessons in the same course
-  const courseLessons = getLessonsByCourse(lesson.course);
+  const courseLessons = getLessonsByCourse(lesson.course).filter(l => l.publishStatus === "published");
   const currentIdx = courseLessons.findIndex(l => l.slug === lesson!.slug);
   const prevLesson = currentIdx > 0 ? courseLessons[currentIdx - 1] : null;
   const nextLesson = currentIdx >= 0 && currentIdx < courseLessons.length - 1 ? courseLessons[currentIdx + 1] : null;
@@ -150,7 +163,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
   // Find vertical progression lessons (same base topic in other grades)
   const verticalLessons = (lesson.verticalProgressionSlugs || [])
     .map(s => getLessonBySlug(s))
-    .filter(Boolean);
+    .filter((l): l is NonNullable<typeof l> => Boolean(l && l.publishStatus === "published"));
 
   // Layer 4: Intelligent Related Lessons (Interlinking Mesh)
   const relatedLessons = getRelatedLessons(lesson, 6);

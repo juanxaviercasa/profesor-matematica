@@ -44,3 +44,8 @@ npm run build
 ```
 
 Evidencias adicionales: [auditoría del catálogo](https://github.com/juanxaviercasa/profesor-matematica/actions/workflows/zenit-catalog-full-audit.yml), [auditoría interactiva](https://github.com/juanxaviercasa/profesor-matematica/actions/workflows/zenit-pedagogy-qa.yml) y [QA visual](https://github.com/juanxaviercasa/profesor-matematica/actions/workflows/zenit-web-qa.yml).
+
+## Protección de material programado (hallazgo adicional)
+En la ejecución previa del catálogo, las 523 rutas programadas devolvían HTTP 200 por acceso directo pese a no figurar en los índices. Se ajustó la ruta de lección para responder 404 antes de renderizar el material programado, además de filtrar rutas relacionadas, anterior/siguiente y progresiones verticales. La auditoría de navegador exige ahora 404 para toda ruta programada. Los registros siguen guardados y podrán publicarse cambiando su estado real.
+
+La guía original y la práctica complementaria se muestran también cuando el material fuente incluye soluciones trabajadas pero no ejercicios F0/FA; no se sustituyen ni ocultan esas soluciones.

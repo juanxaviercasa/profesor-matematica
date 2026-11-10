@@ -70,7 +70,7 @@ for (const l of index) {
       counts.publishedMissingTheory++;
       if (guides[l.slug]) counts.publishedGuidesForMissingTheory++;
     }
-    if (exercises.length === 0 && !(details?.workedSolutions?.length)) {
+    if (exercises.length === 0) {
       flag("review", "EXERCISES_EMPTY", "Sin ejercicios originales cargados" +
         (originalPractices[l.slug] ? " (práctica original de refuerzo disponible)" : ""));
       counts.publishedMissingExercises++;

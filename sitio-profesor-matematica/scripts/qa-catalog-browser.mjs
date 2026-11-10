@@ -78,11 +78,11 @@ async function inspect(lesson, view) {
     if (lesson.publishStatus === "published" && result.status !== 200) {
       result.findings.push(note(lesson, view, "error", "HTTP_PUBLISHED", "HTTP " + result.status));
     }
-    if (lesson.publishStatus === "scheduled" && ![200, 404].includes(result.status)) {
+    if (lesson.publishStatus === "scheduled" && result.status !== 404) {
       result.findings.push(note(lesson, view, "error", "HTTP_SCHEDULED", "HTTP " + result.status));
     }
     if (result.status === 404 && lesson.publishStatus === "scheduled") {
-      // Si se ocultan borradores detrás de 404, no constituye un fallo.
+      // Las rutas programadas no son contenido público: siempre HTTP 404.
       return result;
     }
     await page.waitForTimeout(lesson.publishStatus === "published" ? 280 : 100);
@@ -168,6 +168,62 @@ async function inspect(lesson, view) {
     }
     if (data.tinyText) {
       result.findings.push(note(lesson, view, "warning", "SMALL_TEXT", data.tinyText + " textos de <14px"));
+    }
+    // Prueba individual de los 105 laboratorios publicados: no basta
+    // comprobar un H1 y una fórmula de la cabecera.
+    if (lesson.publishStatus === "published" && view.id === "movil-390") {
+      const simulator = page.locator("#lesson-simulator .zenit-webapp-shell").first();
+      result.simulator = { present: false, keyboardControl: "not-applicable", screenshot: null };
+      if (!await simulator.count()) {
+        result.findings.push(note(lesson, view, "error", "SIMULATOR_MISSING",
+          "El laboratorio asignado a esta lección no se representa"));
+      } else {
+        result.simulator.present = true;
+        try {
+          await simulator.scrollIntoViewIfNeeded({ timeout: 9000 });
+          const slider = simulator.locator('input[type="range"]:not([disabled])').first();
+          if (await slider.count()) {
+            const before = await slider.inputValue();
+            await slider.focus();
+            await slider.press("ArrowRight");
+            if (await slider.inputValue() === before) await slider.press("ArrowLeft");
+            await page.waitForTimeout(80);
+            const after = await slider.inputValue();
+            result.simulator.keyboardControl = before !== after ? "ok" : "unchanged";
+            if (before === after) {
+              result.findings.push(note(lesson, view, "warning", "SIMULATOR_SLIDER",
+                "El primer deslizador no cambia mediante las flechas del teclado"));
+            }
+          }
+          const safe = lesson.slug.replace(/[^a-z0-9-_]/gi, "").slice(0, 80);
+          const filename = "simulator-" + safe + "-" + view.id + ".png";
+          await simulator.screenshot({ path: join(out, filename),
+            animations: "disabled", timeout: 12000 });
+          result.simulator.screenshot = filename;
+        } catch (error) {
+          result.findings.push(note(lesson, view, "warning", "SIMULATOR_CAPTURE",
+            clip(error.message)));
+        }
+      }
+      if (lesson.slidesCount === 0 &&
+          !await page.locator("#lesson-theory .lesson-study-guide").count()) {
+        result.findings.push(note(lesson, view, "error", "SUPPLEMENTARY_THEORY_MISSING",
+          "No hay teoría fuente ni guía de estudio visible"));
+      }
+      if (lesson.f0Count === 0 && lesson.faCount === 0) {
+        const practice = page.locator("#lesson-exercises .lesson-original-practice");
+        if (!await practice.count()) {
+          result.findings.push(note(lesson, view, "error", "ORIGINAL_PRACTICE_MISSING",
+            "No hay ejercicios fuente ni refuerzo original visible"));
+        } else {
+          const details = practice.locator("details");
+          await details.locator("summary").click();
+          if (!await details.evaluate(el => el.open)) {
+            result.findings.push(note(lesson, view, "error", "PRACTICE_REVEAL",
+              "No se puede abrir la resolución de la práctica"));
+          }
+        }
+      }
     }
     if (lesson.publishStatus === "published" && view.id === "movil-390") {
       try {
@@ -277,6 +333,7 @@ console.log(JSON.stringify({
 // Los defectos visuales quedan registrados; se usan como cola de correcciones,
 // pero no impiden que los demás shards generen sus diagnósticos.
 if (completed !== selected.length ||
-    errors.some(issue => issue.severity === "error" && issue.state === "published")) {
+    errors.some(issue => issue.severity === "error" && issue.state === "published") ||
+    errors.some(issue => issue.code === "HTTP_SCHEDULED")) {
   process.exitCode = 1;
 }

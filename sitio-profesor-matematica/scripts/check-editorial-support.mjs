@@ -24,7 +24,7 @@ const indexed = new Map(index.map(lesson => [lesson.slug, lesson]));
 const current = full.filter(lesson => indexed.get(lesson.slug)?.publishStatus === "published");
 const missingTheory = current.filter(lesson => !lesson.theorySlides?.length);
 const missingExercises = current.filter(lesson =>
-  !(lesson.exercisesF0?.length || lesson.exercisesFA?.length || lesson.workedSolutions?.length));
+  !(lesson.exercisesF0?.length || lesson.exercisesFA?.length));
 for (const lesson of missingTheory) {
   const guide = guides[lesson.slug];
   assert.ok(guide, "Falta guía pedagógica para " + lesson.slug);
@@ -43,8 +43,8 @@ for (const slug of Object.keys(practices)) {
   const lesson = indexed.get(slug);
   assert.equal(lesson?.publishStatus, "published", "No añadir material a una lección programada: " + slug);
   const original = full.find(item => item.slug === slug);
-  assert.ok(original && !(original.exercisesF0?.length || original.exercisesFA?.length ||
-    original.workedSolutions?.length), "No ocultar banco de ejercicios original: " + slug);
+  assert.ok(original && !(original.exercisesF0?.length || original.exercisesFA?.length),
+    "No sustituir un banco de ejercicios original: " + slug);
 }
 const pages = read("app/aprende/[area]/[curso]/[slug]/page.tsx");
 assert.match(pages, /LESSON_ORIGINAL_PRACTICE/);

@@ -24,6 +24,7 @@
     "check:readability": "node scripts/check-readability.mjs",
     "check:premium": "node scripts/check-premium-ui.mjs",
     "check:editorial": "node scripts/check-editorial-support.mjs",
+    "check:publication": "node scripts/check-publication-boundaries.mjs",
     "check:public-copy": "node scripts/check-public-copy.mjs"
   },
   "dependencies": {
