@@ -31,7 +31,7 @@ export default async function AreaPage({ params }: PageProps) {
     notFound();
   }
 
-  const areaLessons = LESSONS_INDEX.filter((l) => l.area === areaSlug);
+  const areaLessons = LESSONS_INDEX.filter((l) => l.area === areaSlug && l.publishStatus === "published");
   const coursesInArea = Object.entries(COURSE_LABELS).filter(([, meta]) => meta.area === areaSlug);
 
   return (
