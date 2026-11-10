@@ -94,7 +94,7 @@ try {
               text: (e.textContent||"").trim().slice(0,55),
               font: getComputedStyle(e).fontSize,
               selector: e.tagName.toLowerCase() + (e.className && typeof e.className === "string"
-                ? "." + e.className.trim().replace(/\\s+/g,".") : "")
+                ? "." + e.className.trim().replace(/\s+/g,".") : "")
             })),
             formulaScroll: formulas.length,
             formulaExamples: formulas.slice(0,3).map(e => e.scrollWidth-e.clientWidth)
