@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!info || info.area !== area) return { title: "Curso no encontrado · Sistema Zénit", robots: { index:false, follow:true } };
 
   return {
-    title: `${info.title} · Temario Completo y Web Apps · Zénit`,
+    title: `${info.title} · Temas y práctica interactiva · Zénit`,
     description: info.desc,
     alternates: { canonical: `/aprende/${area}/${curso}` },
   };
@@ -38,7 +38,6 @@ export default async function CoursePage({ params }: PageProps) {
   }
 
   const totalExercises = lessons.reduce((acc, l) => acc + l.f0Count + l.faCount, 0);
-  const totalSlides = lessons.reduce((acc, l) => acc + l.slidesCount, 0);
 
   return (
     <>
@@ -60,10 +59,10 @@ export default async function CoursePage({ params }: PageProps) {
           <div className="space-y-3 max-w-3xl">
             <div className="flex flex-wrap items-center gap-2">
               <span className="rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-bold text-emerald-300">
-                {lessons.length} LECCIONES CON WEB APP INTERACTIVA
+                {lessons.length} TEMAS PARA ESTUDIAR
               </span>
               <span className="text-xs text-stone-400 font-mono">
-                {totalSlides} diapositivas teóricas · {totalExercises} ejercicios (F0 + FA)
+                {totalExercises} ejercicios para practicar
               </span>
             </div>
             <h1 className="text-3xl md:text-5xl font-extrabold text-white">
@@ -84,7 +83,7 @@ export default async function CoursePage({ params }: PageProps) {
               </Link>
             )}
             <Link href="/herramientas" className="button secondary text-center">
-              Abrir Suite de Web Apps
+              Practicar con herramientas
             </Link>
           </div>
         </section>
@@ -99,14 +98,14 @@ export default async function CoursePage({ params }: PageProps) {
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-800 pb-4">
                 <div>
                   <span className="text-xs font-mono uppercase text-emerald-400">
-                    Progresión Curricular Oficial
+                    Temas por grado
                   </span>
                   <h2 className="text-xl md:text-2xl font-bold text-white mt-0.5">
                     {gradeLabel} ({gradeLessons.length} temas)
                   </h2>
                 </div>
                 <span className="text-xs font-mono text-stone-400">
-                  Teoría + Web App + Fichas F0/FA
+                  Explicaciones, ejemplos y ejercicios
                 </span>
               </div>
 
@@ -121,7 +120,7 @@ export default async function CoursePage({ params }: PageProps) {
                       <div className="flex items-center justify-between text-[10px] font-mono text-stone-400 mb-2">
                         <span className="text-emerald-400 font-bold">{topic.unit}</span>
                         <span>
-                          {topic.publishStatus === "published" ? "● Publicado" : `Cola +${topic.dripBatch}d`}
+                          {topic.publishStatus === "published" ? "Disponible" : "Próximamente"}
                         </span>
                       </div>
                       <h3 className="text-sm font-bold text-stone-100 group-hover:text-emerald-300 transition-colors">
@@ -133,7 +132,7 @@ export default async function CoursePage({ params }: PageProps) {
                     </div>
 
                     <div className="mt-4 pt-2.5 border-t border-stone-800/70 flex items-center justify-between text-[11px] font-mono text-stone-400">
-                      <span>{topic.slidesCount} diapos · {topic.f0Count + topic.faCount} ejerc.</span>
+                      <span>{topic.f0Count + topic.faCount} ejercicios</span>
                       <span className="text-emerald-400 font-bold">Abrir →</span>
                     </div>
                   </Link>

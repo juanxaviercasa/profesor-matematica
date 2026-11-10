@@ -43,7 +43,7 @@ export function HerramientasInteractiveHub() {
               </div>
               <div className="mt-3 pt-3 border-t border-stone-800/80 flex flex-wrap gap-x-3 gap-y-1 items-center justify-between text-sm">
                 <span className={active ? "text-emerald-300 font-bold" : "text-stone-400"}>
-                  {active ? "● Activo en constructor" : "Probar Web App"}
+                  {active ? "● Seleccionada" : "Probar herramienta"}
                 </span>
                 <span className="text-emerald-400">→</span>
               </div>
@@ -62,10 +62,10 @@ export function HerramientasInteractiveHub() {
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
           <div>
             <span className="text-sm font-semibold uppercase tracking-wide text-emerald-300">
-              Cobertura Curricular del Motor ({matchingLessons.length} lecciones conectadas)
+              TEMAS RELACIONADOS
             </span>
             <h3 className="text-2xl font-bold text-white mt-2 leading-snug">
-              Temas que puedes estudiar con esta Web App
+              Temas que puedes estudiar con esta herramienta
             </h3>
           </div>
           <Link href="/blog" className="button secondary text-base">
@@ -90,7 +90,7 @@ export function HerramientasInteractiveHub() {
                 </h4>
               </div>
               <div className="zenit-topic-footer mt-3 pt-3 border-t border-stone-700/70 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-sm text-stone-300">
-                <span>{item.slidesCount} diapos · {item.f0Count + item.faCount} ejerc.</span>
+                <span>{item.f0Count + item.faCount} ejercicios</span>
                 <span className="text-emerald-400 font-bold">Abrir →</span>
               </div>
             </Link>

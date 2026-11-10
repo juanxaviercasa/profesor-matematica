@@ -30,7 +30,7 @@ function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: nu
       const onlyA = nA - both;
       const onlyB = nB - both;
       const union = onlyA + onlyB + both;
-      statement = `[Generado #${seed}] En un grupo de estudiantes evaluados en «${topicTitle}», se sabe que n(A) = ${nA}, n(B) = ${nB} y la intersección n(A ∩ B) = ${both}. Determina el cardinal de la unión n(A ∪ B) y el cardinal de la diferencia simétrica n(A Δ B).`;
+      statement = `En un grupo de estudiantes evaluados en «${topicTitle}», se sabe que n(A) = ${nA}, n(B) = ${nB} y la intersección n(A ∩ B) = ${both}. Determina el cardinal de la unión n(A ∪ B) y el cardinal de la diferencia simétrica n(A Δ B).`;
       correctVal = `n(A ∪ B) = ${union}  ;  n(A Δ B) = ${onlyA + onlyB}`;
       distractors = [
         `n(A ∪ B) = ${union + both}  ;  n(A Δ B) = ${onlyA + onlyB}`,
@@ -53,7 +53,7 @@ function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: nu
       const gcd = (x: number, y: number): number => (y === 0 ? x : gcd(y, x % y));
       const g = gcd(a, b);
       const l = (a * b) / g;
-      statement = `[Generado #${seed}] Aplicando las propiedades de «${topicTitle}», calcula el Máximo Común Divisor (MCD) y el Mínimo Común Múltiplo (MCM) de los números A = ${a} y B = ${b}, e indica el valor de MCM(A,B) + MCD(A,B).`;
+      statement = `Aplicando las propiedades de «${topicTitle}», calcula el Máximo Común Divisor (MCD) y el Mínimo Común Múltiplo (MCM) de los números A = ${a} y B = ${b}, e indica el valor de MCM(A,B) + MCD(A,B).`;
       correctVal = `${l + g} (MCD = ${g}, MCM = ${l})`;
       distractors = [
         `${l} (MCD = ${g}, MCM = ${l - g})`,
@@ -76,7 +76,7 @@ function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: nu
       const a1 = -r1;
       const a0 = r3;
       const rem = a2 * c * c + a1 * c + a0;
-      statement = `[Generado #${seed}] En el tema «${topicTitle}», aplica el Teorema del Resto o el Método de Ruffini para hallar el residuo R(x) al dividir el polinomio P(x) = 2x² - ${r1}x + ${r3} entre el divisor lineal d(x) = x - ${c}.`;
+      statement = `En el tema «${topicTitle}», aplica el Teorema del Resto o el Método de Ruffini para hallar el residuo R(x) al dividir el polinomio P(x) = 2x² - ${r1}x + ${r3} entre el divisor lineal d(x) = x - ${c}.`;
       correctVal = `R = ${rem}`;
       distractors = [
         `R = ${rem + r1}`,
@@ -97,7 +97,7 @@ function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: nu
       const root2 = r2 + r1;
       const sumR = root1 + root2;
       const prodR = root1 * root2;
-      statement = `[Generado #${seed}] Resuelve la inecuación cuadrática x² - ${sumR}x + ${prodR} ≤ 0 aplicando el método de puntos críticos («${topicTitle}») e indica su conjunto solución C.S. y la suma de sus soluciones enteras.`;
+      statement = `Resuelve la inecuación cuadrática x² - ${sumR}x + ${prodR} ≤ 0 aplicando el método de puntos críticos («${topicTitle}») e indica su conjunto solución C.S. y la suma de sus soluciones enteras.`;
       const intSum = ((root1 + root2) * (root2 - root1 + 1)) / 2;
       correctVal = `C.S. = [${root1}; ${root2}]  ;  Σ enteros = ${intSum}`;
       distractors = [
@@ -120,7 +120,7 @@ function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: nu
       const k = -r1;
       const a = 2;
       const yInt = a * h * h + k;
-      statement = `[Generado #${seed}] Dada la función cuadrática en forma canónica f(x) = 2(x - ${h})² - ${r1} («${topicTitle}»), determina las coordenadas de su vértice V(h; k), su rango Ran(f) y su intersección con el eje Y, es decir, f(0).`;
+      statement = `Dada la función cuadrática en forma canónica f(x) = 2(x - ${h})² - ${r1} («${topicTitle}»), determina las coordenadas de su vértice V(h; k), su rango Ran(f) y su intersección con el eje Y, es decir, f(0).`;
       correctVal = `V(${h}; ${k}) , Ran(f) = [${k}; +∞⟩ , f(0) = ${yInt}`;
       distractors = [
         `V(-${h}; ${k}) , Ran(f) = [${k}; +∞⟩ , f(0) = ${yInt}`,
@@ -140,7 +140,7 @@ function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: nu
       const nSides = r1 + 3; // 6..12
       const sumInt = 180 * (nSides - 2);
       const diag = (nSides * (nSides - 3)) / 2;
-      statement = `[Generado #${seed}] En el estudio de «${topicTitle}», se tiene un polígono convexo regular de n = ${nSides} lados. Calcula la suma de sus ángulos interiores (S_i) y el número total de diagonales (N_D).`;
+      statement = `En el estudio de «${topicTitle}», se tiene un polígono convexo regular de n = ${nSides} lados. Calcula la suma de sus ángulos interiores (S_i) y el número total de diagonales (N_D).`;
       correctVal = `S_i = ${sumInt}°  ;  N_D = ${diag} diagonales`;
       distractors = [
         `S_i = ${180 * nSides}°  ;  N_D = ${diag + nSides} diagonales`,
@@ -162,7 +162,7 @@ function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: nu
       const D = -2 * h;
       const E = -2 * k;
       const F = h * h + k * k - rad * rad;
-      statement = `[Generado #${seed}] En «${topicTitle}», una circunferencia tiene ecuación general x² + y² ${D}x ${E}y + (${F}) = 0. Determina las coordenadas de su centro C(h; k) y la longitud de su radio R.`;
+      statement = `En «${topicTitle}», una circunferencia tiene ecuación general x² + y² ${D}x ${E}y + (${F}) = 0. Determina las coordenadas de su centro C(h; k) y la longitud de su radio R.`;
       correctVal = `Centro C(${h}; ${k})  ;  Radio R = ${rad}`;
       distractors = [
         `Centro C(-${h}; -${k})  ;  Radio R = ${rad}`,
@@ -183,7 +183,7 @@ function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: nu
       const S = 9 * kFactor;
       const C = 10 * kFactor;
       const expr = 2 * S + C;
-      statement = `[Generado #${seed}] Siendo S y C los números convencionales de grados sexagesimales y centesimales de un mismo ángulo trigonométrico («${topicTitle}») tal que 2S + C = ${expr}, calcula la medida de dicho ángulo en el sistema sexagesimal y radial.`;
+      statement = `Siendo S y C los números convencionales de grados sexagesimales y centesimales de un mismo ángulo trigonométrico («${topicTitle}») tal que 2S + C = ${expr}, calcula la medida de dicho ángulo en el sistema sexagesimal y radial.`;
       correctVal = `${S}°  (o ${kFactor}π/20 rad)`;
       distractors = [
         `${C}°  (o ${kFactor}π/10 rad)`,
@@ -208,7 +208,7 @@ function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: nu
       const sum = d1 + d2 + d3 + d4 + d5;
       const mean = sum / 5;
       const median = d3;
-      statement = `[Generado #${seed}] En un estudio de «${topicTitle}», se registraron los siguientes 5 datos muestrales: {${d1}; ${d2}; ${d3}; ${d4}; ${d5}}. Calcula la media aritmética (x̄) y la mediana (Me), e indica el valor de x̄ + Me.`;
+      statement = `En un estudio de «${topicTitle}», se registraron los siguientes 5 datos muestrales: {${d1}; ${d2}; ${d3}; ${d4}; ${d5}}. Calcula la media aritmética (x̄) y la mediana (Me), e indica el valor de x̄ + Me.`;
       correctVal = `x̄ = ${mean}  ;  Me = ${median}  ;  x̄ + Me = ${mean + median}`;
       distractors = [
         `x̄ = ${median}  ;  Me = ${mean}  ;  x̄ + Me = ${mean + median - 1}`,
@@ -228,7 +228,7 @@ function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: nu
     case "LogicalReasoningLab": {
       const n = r1 + 4; // 7..13
       const totalTri = (n * (n + 1)) / 2;
-      statement = `[Generado #${seed}] Aplicando razonamiento inductivo («${topicTitle}»), se marcan ${n + 1} puntos distintos sobre una recta. Determina cuántos segmentos diferentes se pueden formar al elegir dos de esos puntos.`;
+      statement = `Aplicando razonamiento inductivo («${topicTitle}»), se marcan ${n + 1} puntos distintos sobre una recta. Determina cuántos segmentos diferentes se pueden formar al elegir dos de esos puntos.`;
       correctVal = `${totalTri}`;
       distractors = [
         `${n * n}`,
@@ -250,7 +250,7 @@ function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: nu
       const x0 = 2;
       const fVal = a * x0 * x0 * x0 + b * x0;
       const dfVal = 3 * a * x0 * x0 + b;
-      statement = `[Generado #${seed}] En «${topicTitle}», dada la función diferenciable f(x) = ${a}x³ + ${b}x, calcula la pendiente de la recta tangente f'(x₀) en el punto de abscisa x₀ = ${x0} y el valor de f(${x0}).`;
+      statement = `En «${topicTitle}», dada la función diferenciable f(x) = ${a}x³ + ${b}x, calcula la pendiente de la recta tangente f'(x₀) en el punto de abscisa x₀ = ${x0} y el valor de f(${x0}).`;
       correctVal = `f'(${x0}) = ${dfVal}  ;  f(${x0}) = ${fVal}`;
       distractors = [
         `f'(${x0}) = ${a * x0 * x0 + b}  ;  f(${x0}) = ${fVal}`,
@@ -272,7 +272,7 @@ function buildDynamicProblem(engineId: AppEngineId, topicTitle: string, seed: nu
       const g = 10;
       const tSubida = v0 / g;
       const hMax = (v0 * v0) / (2 * g);
-      statement = `[Generado #${seed}] En el laboratorio de «${topicTitle}», un móvil es lanzado verticalmente hacia arriba con rapidez inicial v₀ = ${v0} m/s (considera g = 10 m/s²). Calcula el tiempo de subida (t_s) y la altura máxima alcanzada (H_máx).`;
+      statement = `En el laboratorio de «${topicTitle}», un móvil es lanzado verticalmente hacia arriba con rapidez inicial v₀ = ${v0} m/s (considera g = 10 m/s²). Calcula el tiempo de subida (t_s) y la altura máxima alcanzada (H_máx).`;
       correctVal = `t_s = ${tSubida} s  ;  H_máx = ${hMax} m`;
       distractors = [
         `t_s = ${tSubida * 2} s  ;  H_máx = ${hMax * 2} m`,
@@ -345,7 +345,7 @@ export function InfiniteProblemGenerator({
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
         <div>
           <span className="inline-block rounded-full bg-amber-500/20 border border-amber-500/40 px-3 py-0.5 text-[11px] font-mono font-bold text-amber-300 uppercase">
-            Práctica adicional · Ejercicios generados
+            Más ejercicios para practicar
           </span>
           <h3 className="text-xl md:text-2xl font-bold text-white mt-1.5">
             Entrenador de ejercicios con nuevos datos
@@ -371,7 +371,7 @@ export function InfiniteProblemGenerator({
 
       <div className="rounded-2xl border border-stone-800 bg-stone-950/90 p-5 space-y-4">
         <div className="flex items-center justify-between text-xs font-mono text-stone-400">
-          <span className="text-amber-300 font-bold">Ejercicio generado #{problem.seed}</span>
+          <span className="text-amber-300 font-bold">Ejercicio de práctica</span>
           <button
             onClick={() => setShowSteps((s) => !s)}
              aria-expanded={showSteps}

@@ -15,7 +15,7 @@ export default function HerramientasPage() {
       <div className="public-tools-hero-copy">
         <p className="eyebrow light">Sistema Zénit · Laboratorios interactivos</p>
         <h1 id="tools-title">Aprende probando, no solo mirando.</h1>
-        <p>Explora herramientas de matemática y ciencias que te permiten modificar datos, visualizar resultados y contrastar tus propias predicciones. Descubre los 12 motores especializados de la plataforma.</p>
+        <p>Explora herramientas de matemática y ciencias que te permiten modificar datos, visualizar resultados y contrastar tus propias predicciones. Prueba simuladores de conjuntos, álgebra, geometría y otros temas a tu ritmo.</p>
         <div className="actions"><a className="button offer-primary" href="#herramientas">Explorar las herramientas</a><Link className="text-link light-link" href="/aprende">Ver temas de aprendizaje</Link></div>
       </div>
       <div className="public-tools-visual" aria-hidden="true">

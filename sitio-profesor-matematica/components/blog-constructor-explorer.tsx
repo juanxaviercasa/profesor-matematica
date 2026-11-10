@@ -64,7 +64,7 @@ export function BlogConstructorExplorer() {
                   : "bg-stone-900 text-stone-300 border-stone-700"
               }`}
             >
-              ✓ Lecciones publicadas ({publishedCount})
+              ✓ Lecciones disponibles ({publishedCount})
             </button>
           </div>
 
@@ -137,7 +137,7 @@ export function BlogConstructorExplorer() {
           </div>
 
           <div>
-            <label htmlFor="zenit-blog-engine" className="text-[11px] font-mono text-stone-400 block mb-1">Filtrar por Motor Web App Interactiva:</label>
+            <label htmlFor="zenit-blog-engine" className="text-[11px] font-mono text-stone-400 block mb-1">Filtrar por herramienta interactiva:</label>
             <select
               id="zenit-blog-engine"
               value={selectedEngine}
@@ -147,7 +147,7 @@ export function BlogConstructorExplorer() {
               }}
               className="w-full rounded-xl bg-stone-900 border border-stone-700 px-3 py-2 text-xs text-white"
             >
-              <option value="all">Todos los 12 Motores Web App</option>
+              <option value="all">Todas las herramientas</option>
               {Object.values(ZENIT_ENGINES).map((eng) => (
                 <option key={eng.id} value={eng.id}>
                   {eng.title} ({eng.badge})
@@ -190,7 +190,7 @@ export function BlogConstructorExplorer() {
                       ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
                       : "bg-stone-900 text-stone-400 border-stone-800"
                   }`}>
-                    {item.publishStatus === "published" ? "● Publicado" : `Próximamente`}
+                    {item.publishStatus === "published" ? "Disponible" : `Próximamente`}
                   </span>
                 </div>
 

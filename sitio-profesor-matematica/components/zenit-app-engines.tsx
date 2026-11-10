@@ -49,7 +49,7 @@ export const ZENIT_ENGINES: Record<AppEngineId, EngineMeta> = {
   },
   PolynomialAlgebraLab: {
     id: "PolynomialAlgebraLab",
-    title: "Motor de Polinomios, Ruffini-Horner y Productos Notables",
+    title: "Polinomios: Ruffini, Horner y productos notables",
     subtitle: "Esquema interactivo de división sintética, teorema del resto y áreas algebraicas",
     badge: "Álgebra · Polinomios",
     course: "algebra",

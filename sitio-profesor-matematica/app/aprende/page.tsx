@@ -6,7 +6,7 @@ import { LessonProgressOverview } from "@/components/lesson-completion";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/aprende" },
-  title: "Portal de Aprendizaje Zénit · Matemática, Ciencias y Web Apps",
+  title: "Aprende matemática y ciencias · Sistema Zénit",
   description: "Explora matemática de secundaria, preparación preuniversitaria, nivel universitario y ciencias exactas, con lecciones y aplicaciones interactivas del Sistema Zénit."
 };
 
@@ -15,8 +15,8 @@ export default function AprendeIndexPage() {
     {
       slug: "matematica-preuniversitaria",
       title: "Matemática Secundaria (1.° a 5.°) y Preuniversitaria",
-      badge: "Currículo Completo + Nivel Admisión UNI · UNMSM · PUCP",
-      description: "Los 6 pilares de la matemática formativa y preuniversitaria poblados desde los libros del área, actividades, razonamiento matemático y fichas nivel cero/avanzado.",
+      badge: "Secundaria y preparación preuniversitaria",
+      description: "Estudia aritmética, álgebra, geometría, trigonometría, estadística y razonamiento matemático con explicaciones, ejemplos y ejercicios.",
       courses: [
         "aritmetica",
         "algebra",
@@ -53,17 +53,17 @@ export default function AprendeIndexPage() {
       <Header />
       <main className="aprende-hub">
         <section className="page-hero wrap">
-          <p className="eyebrow">ECOSISTEMA EDUCATIVO ZÉNIT · {LESSONS_INDEX.length} TEMAS POBLADOS</p>
+          <p className="eyebrow">APRENDE MATEMÁTICA Y CIENCIAS</p>
           <h1>Portal Integral de Matemática y Ciencias</h1>
           <p className="lead">
-            Una arquitectura tipo pulpo que conecta desde 1.° a 5.° de secundaria y preparación preuniversitaria hasta el cálculo universitario, la física y la química. Cada tema incluye teoría extraída, banco de ejercicios y su propia Web App interactiva.
+            Encuentra temas de secundaria, preparación preuniversitaria, matemática universitaria, física y química. Lee explicaciones, resuelve ejercicios y practica con herramientas interactivas.
           </p>
           <div className="flex flex-wrap gap-4 mt-6">
             <Link href="/blog" className="button primary">
               Explorar {LESSONS_INDEX.length} temas →
             </Link>
             <Link href="/herramientas" className="button secondary">
-              Probar 12 Web Apps →
+              Probar herramientas interactivas →
             </Link>
             <Link href="/laboratorio" className="button secondary">
               Explorar laboratorios →
@@ -89,7 +89,7 @@ export default function AprendeIndexPage() {
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1.5 rounded-xl border border-emerald-800/50">
-                      {areaLessonsCount} lecciones activas
+                      {areaLessonsCount} temas en la biblioteca
                     </span>
                   </div>
                 </div>
@@ -124,7 +124,7 @@ export default function AprendeIndexPage() {
 
                         <div className="mt-6 pt-4 border-t border-stone-800/80 flex items-center justify-between">
                           <span className="text-xs text-stone-500 font-mono">
-                            {exCount} ejercicios F0/FA
+                            {exCount} ejercicios
                           </span>
                           <Link
                             href={`/aprende/${area.slug}/${cSlug}`}

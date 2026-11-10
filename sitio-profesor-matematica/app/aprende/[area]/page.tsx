@@ -54,7 +54,7 @@ export default async function AreaPage({ params }: PageProps) {
               {area?.badge || areaMeta?.badge}
             </span>
             <span className="inline-block rounded-full bg-stone-800 px-3 py-1 text-xs font-semibold text-stone-300">
-              {areaLessons.length} lecciones extraídas
+              {areaLessons.length} temas del área
             </span>
           </div>
           <h1 className="mt-3 text-3xl md:text-4xl font-extrabold text-white">{area?.title || areaMeta?.title}</h1>
@@ -68,10 +68,10 @@ export default async function AreaPage({ params }: PageProps) {
           <div className="flex flex-wrap items-center justify-between gap-4">
             <h2 className="text-2xl font-bold text-white">Cursos en esta Área ({coursesInArea.length})</h2>
             <Link
-              href={`/blog?area=${areaSlug}`}
+              href="/blog"
               className="rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-4 py-2 text-xs font-bold text-emerald-300 hover:bg-emerald-500/20"
             >
-              Explorar en Constructor de Blog →
+              Explorar biblioteca de lecciones →
             </Link>
           </div>
           <div className="grid grid-cols-1 gap-8">
@@ -100,7 +100,7 @@ export default async function AreaPage({ params }: PageProps) {
                       href={`/aprende/${areaSlug}/${courseSlug}`}
                       className="button secondary text-xs"
                     >
-                      Ver Syllabus Completo ({lessonsForCourse.length}) →
+                      Ver todos los temas ({lessonsForCourse.length}) →
                     </Link>
                   </div>
 
@@ -117,7 +117,7 @@ export default async function AreaPage({ params }: PageProps) {
                             {lesson.gradeLabel}
                           </span>
                           <span className="text-[10px] text-emerald-500 font-bold opacity-0 group-hover:opacity-100 transition-opacity">
-                            Abrir Lab →
+                            Ver lección →
                           </span>
                         </div>
                         <h5 className="mt-1 text-xs font-semibold text-stone-200 group-hover:text-white line-clamp-2">
