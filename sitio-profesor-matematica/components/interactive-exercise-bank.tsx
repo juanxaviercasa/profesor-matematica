@@ -32,6 +32,11 @@ export function InteractiveExerciseBank({
     return null;
   }
 
+  // Distinguimos una resolución desarrollada de una nota breve; no
+  // calificamos la exactitud de la extracción solo por su longitud.
+  const isDeveloped = (steps: string[]) =>
+    steps.join(" ").trim().length >= 60 && steps.filter(step => step.trim().length >= 14).length >= 2;
+
   // Compute live score across answered questions
   const allExercisesWithTab = [
     ...f0.map((ex, idx) => ({ tab: "f0", ex, idx })),
@@ -149,7 +154,7 @@ export function InteractiveExerciseBank({
                 : "bg-stone-950 text-sky-300 border-sky-900/60 hover:border-sky-600"
             }`}
           >
-            3. Soluciones paso a paso ({workedSolutions.length})
+            3. Ejemplos y respuestas ({workedSolutions.length})
           </button>
         )}
       </div>
@@ -159,7 +164,7 @@ export function InteractiveExerciseBank({
         <div className="space-y-4">
           <div className="rounded-2xl bg-sky-950/30 border border-sky-800/50 p-4 text-xs text-sky-200 flex flex-wrap items-center justify-between gap-2">
             <span>
-              📘 <strong>Material de resolución:</strong> Desarrollos de referencia para revisar el procedimiento y contrastar tus respuestas.
+              📘 <strong>Ejemplos de referencia:</strong> Compara tus propios pasos con el material del tema.
             </span>
             <span className="font-mono text-sky-300 font-bold">
               {workedSolutions.length} {workedSolutions.length === 1 ? "ejercicio desarrollado" : "ejercicios desarrollados"}
@@ -175,7 +180,7 @@ export function InteractiveExerciseBank({
                 <div className="space-y-3">
                   <div className="flex items-center justify-between gap-2 border-b border-stone-800/80 pb-2.5">
                     <span className="px-2.5 py-0.5 rounded-md bg-sky-950 text-sky-300 border border-sky-800/60 text-xs font-mono font-bold">
-                      Resolución #{ws.number}
+                      {isDeveloped(ws.steps) ? "Desarrollo" : "Respuesta breve"} #{ws.number}
                     </span>
                     <span className="text-[11px] font-mono text-stone-400">
                       {ws.level}
@@ -193,7 +198,7 @@ export function InteractiveExerciseBank({
                 </div>
 
                 <div className="pt-2 flex items-center justify-between text-xs font-mono">
-                  <span className="text-stone-300">Contrasta la estrategia y comprueba cada operación.</span>
+                  <span className="text-stone-300">{isDeveloped(ws.steps) ? "Comprueba cada paso con el enunciado." : "Compara este resultado con tu propio procedimiento."}</span>
                 </div>
               </div>
             ))}
