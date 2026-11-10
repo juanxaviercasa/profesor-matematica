@@ -38,5 +38,16 @@
     ],
     "totalPublishedNow": 99,
     "remainingScheduled": 529
+  },
+  {
+    "date": "2026-11-10T07:57:08.788Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "sistemas-de-medidas-angulares-ii-1sec-unidad2",
+      "tabla-de-dist-de-frec-para-datos-sin-agrupar-1sec-unidad2",
+      "tabla-de-distribucion-de-frecuencias-para-datos-sin-agrupar-1sec-unidad2"
+    ],
+    "totalPublished": 102,
+    "totalScheduled": 526
   }
 ]
