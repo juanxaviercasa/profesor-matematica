@@ -28,6 +28,8 @@ export function HerramientasInteractiveHub() {
             <button
               key={eng.id}
               onClick={() => setSelectedEngine(eng.id)}
+              aria-pressed={active}
+              type="button"
               className={`zenit-engine-selector-card text-left rounded-2xl p-5 border transition-all flex flex-col justify-between gap-4 ${
                 active
                   ? "bg-emerald-950/80 border-emerald-400 shadow-lg shadow-emerald-950/50"
@@ -49,7 +51,7 @@ export function HerramientasInteractiveHub() {
               </div>
               <div className="mt-3 pt-3 border-t border-stone-800/80 flex flex-wrap gap-x-3 gap-y-1 items-center justify-between text-sm">
                 <span className={active ? "text-emerald-300 font-bold" : "text-stone-400"}>
-                  {active ? "● Seleccionada (5 sub-motores)" : "Probar herramienta"}
+                  {active ? "● Herramienta seleccionada" : "Probar herramienta"}
                 </span>
                 <span className="text-emerald-400">→</span>
               </div>
@@ -63,17 +65,17 @@ export function HerramientasInteractiveHub() {
         <ZenitInteractiveApp engineId={selectedEngine} />
       </div>
 
-      {/* Catálogo Estructural de los 60 Motores Matemáticos Open-Source (#01–#60) */}
+      {/* Colección de conceptos para profundizar en las representaciones matemáticas. */}
       <section className="rounded-3xl border border-stone-800 bg-stone-950/85 p-6 md:p-8 space-y-6">
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
           <div>
             <span className="text-sm font-semibold uppercase tracking-wide text-amber-300">
-              Arquitectura de 60 Motores Matemáticos Open-Source (#01 al #60) · 100% Fórmulas Curadas
+              Ideas matemáticas para explorar y practicar
             </span>
             <h3 className="text-2xl font-bold text-white mt-2 leading-snug">
               {showAll60
-                ? "Matriz Completa de los 60 Motores e Inyección de Fórmulas"
-                : `5 Motores Especializados de ${ZENIT_ENGINES[selectedEngine].title}`}
+                ? "60 conceptos con fórmulas de referencia"
+                : `5 conceptos relacionados con ${ZENIT_ENGINES[selectedEngine].title}`}
             </h3>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -87,7 +89,7 @@ export function HerramientasInteractiveHub() {
                   : "bg-stone-900 text-stone-200 border-stone-700 hover:border-emerald-500"
               }`}
             >
-              Ver 5 de esta rama
+              Ver 5 conceptos de esta área
             </button>
             <button
               type="button"
@@ -99,7 +101,7 @@ export function HerramientasInteractiveHub() {
                   : "bg-stone-900 text-stone-200 border-stone-700 hover:border-amber-400"
               }`}
             >
-              Ver los 60 Motores (#01–#60)
+              Explorar los 60 conceptos
             </button>
           </div>
         </div>
@@ -116,7 +118,7 @@ export function HerramientasInteractiveHub() {
                     #{String(item.rank).padStart(2, "0")} · {item.name}
                   </span>
                   <span className="text-stone-400 font-mono">
-                    {item.license} · {item.course}
+                    {item.course}
                   </span>
                 </div>
                 <p className="text-sm text-stone-300 leading-relaxed">
@@ -164,7 +166,7 @@ export function HerramientasInteractiveHub() {
                 </h4>
               </div>
               <div className="zenit-topic-footer mt-3 pt-3 border-t border-stone-700/70 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-sm text-stone-300">
-                <span>{item.f0Count + item.faCount} ejercicios</span>
+                <span>{item.f0Count + item.faCount > 0 ? `${item.f0Count + item.faCount} ${item.f0Count + item.faCount === 1 ? "ejercicio" : "ejercicios"}` : "Estudiar el tema"}</span>
                 <span className="text-emerald-400 font-bold">Abrir →</span>
               </div>
             </Link>
