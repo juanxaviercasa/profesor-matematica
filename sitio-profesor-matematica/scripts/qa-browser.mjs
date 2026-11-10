@@ -94,6 +94,7 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
     if (detail.smallText.length) addFinding("warning", key, detail.smallText.length + " muestras de texto visibles <14 px");
     for (const message of runtimeErrors.slice(0, 5)) addFinding("error", key, "Excepción JavaScript: " + message);
     let accessibility = { serious: 0, critical: 0, moderate: 0, minor: 0 };
+    let a11yViolations = [];
     if (label !== "pagina-no-existente") {
       try {
         await page.addScriptTag({ content: axe.source });
@@ -101,12 +102,20 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
           const r = await window.axe.run(document, {
             runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"] }
           });
-          return r.violations.map(v => ({ id: v.id, impact: v.impact, count: v.nodes.length, description: v.help }));
+          return r.violations.map(v => ({
+            id: v.id, impact: v.impact, count: v.nodes.length, description: v.help,
+            nodes: v.nodes.slice(0, 18).map(node => ({
+              target: node.target,
+              html: node.html.slice(0, 340),
+              summary: (node.failureSummary || "").slice(0, 520),
+            }))
+          }));
         });
+        a11yViolations = issues;
         for (const issue of issues) {
           accessibility[issue.impact] = (accessibility[issue.impact] || 0) + issue.count;
           addFinding(["critical", "serious"].includes(issue.impact) ? "error" : "warning", key,
-            "axe " + issue.impact + ": " + issue.id + " (" + issue.count + "): " + issue.description);
+            "axe " + issue.impact + ": " + issue.id + " (" + issue.count + "): " + issue.description + " | " + issue.nodes.map(n => n.target.join(" ")).join("; "));
         }
       } catch (e) {
         addFinding("warning", key, "axe no pudo ejecutarse: " + e.message);
@@ -114,7 +123,7 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
     }
     const screenshotPath = join(out, key + ".png");
     await page.screenshot({ path: screenshotPath, fullPage: ["inicio", "blog", "aprende"].includes(label), animations: "disabled" });
-    results.push({ key, path, status, ...detail, runtimeErrors, accessibility, screenshotPath });
+    results.push({ key, path, status, ...detail, runtimeErrors, accessibility, a11yViolations, screenshotPath });
     console.log(key + ": HTTP " + status + ", overflow " + detail.widthOverflow + " px, axe serious/critical " +
       accessibility.serious + "/" + accessibility.critical);
   } catch (e) {
