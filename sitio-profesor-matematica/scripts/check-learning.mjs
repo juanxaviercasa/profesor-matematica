@@ -113,6 +113,44 @@ assert.match(lesson, /\.\.\.\(getVerifiedAnswerKey\(ex\) \?/);
 assert.match(read("components/lab-hub.tsx"),/Math\.min\(lab\.total/);
 console.log("✓ "+checkedProblems+" variantes de 12 motores evaluadas: opciones únicas y cálculos clave coherentes.");
 
+const chemistryTopics=[
+  ["Estado Gaseoso: PV=nRT","gas"],
+  ["Soluciones Químicas: Molaridad y Dilución","solution"],
+  ["Equilibrio Químico, pH y Electroquímica","acid"],
+  ["Estequiometría: Reactivo Limitante","reaction"],
+  ["Estructura Atómica: Núclidos e Iones","atom"],
+  ["Materia, Energía y Cambios de Estado","mole"],
+];
+let chemicalCases=0;
+for(const [title,model] of chemistryTopics){
+  for(let seed=1;seed<=200;seed++){
+    const p=buildProblem("SciencePhysicsChemLab",title,seed,"quimica");
+    const options=p.options.map(o=>o.replace(/^[a-e]\.\s+/,""));
+    const answer=options[p.correctIndex];
+    const r1=(seed%7)+3,r2=((seed*3)%8)+2;
+    assert.equal(options.length,5,model+": total de opciones");
+    assert.equal(new Set(options).size,5,model+"/"+seed+": alternativas repetidas");
+    assert.ok(p.steps.length>=3,model+"/"+seed+": falta justificación");
+    assert.ok(!p.statement.includes("lanzado verticalmente"),model+": física en una lección de química");
+    switch(model){
+      case "gas":assert.equal(answer,r1+" atm");break;
+      case "solution":assert.ok(answer.includes((r1/r2).toFixed(2).replace(".",",")));break;
+      case "acid":assert.equal(answer,"pH = "+((r1%6)+2));break;
+      case "reaction":assert.equal(answer,(2*Math.min(r1,r2))+" mol");break;
+      case "atom":assert.ok(answer.includes("A = "+(r1+6+r2+7)));break;
+      case "mole":assert.equal(answer,r1+" mol");break;
+    }
+    chemicalCases++;
+  }
+}
+assert.match(bank,/writtenAnswers/);
+assert.match(bank,/Ejercicio de desarrollo/);
+assert.doesNotMatch(bank,/Respuesta: \$\{expectedLetter\.toUpperCase\(\)\}/);
+assert.match(lesson,/LESSON_STUDY_GUIDES/);
+assert.match(lesson,/course=\{lesson\.course\}/);
+console.log("✓ "+chemicalCases+" variantes de química verificadas: ejercicios contextuales con claves coherentes.");
+
+
 
 const completion = read("components/lesson-completion.tsx");
 const home = read("app/aprende/page.tsx");
