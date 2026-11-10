@@ -61,7 +61,7 @@ export function ChemistryLearningLab({ topicTitle }: { topicTitle: string }) {
     mole: "Masa, moles y número de partículas",
   }[model];
   const equation = {
-    gas: String.raw`PV=nRT,quad R=0.082057\,\frac{\text{L}\cdot\text{atm}}{\text{mol}\cdot\text{K}}`,
+    gas: String.raw`PV=nRT,\quad R=0.082057\,\frac{\text{L}\cdot\text{atm}}{\text{mol}\cdot\text{K}}`,
     solution: String.raw`M=\frac{n}{V},\quad V\text{ en litros}`,
     acid: String.raw`\mathrm{pH}=-\log_{10}[\mathrm{H}^+]`,
     reaction: String.raw`2\mathrm{H}_2+\mathrm{O}_2\longrightarrow2\mathrm{H}_2\mathrm{O}`,
@@ -103,8 +103,8 @@ export function ChemistryLearningLab({ topicTitle }: { topicTitle: string }) {
               <rect x="42" y={pistonY-8} width="176" height="15" rx="4" fill="#e0e7e2" stroke="#84bfa3" strokeWidth="2" />
               <rect x="122" y="12" width="16" height={pistonY-20} rx="3" fill="#d9e9dd" />
               {Array.from({length:10}, (_,i) => (
-                <circle key={i} cx={68+(i%5)*27} cy={pistonY+22+Math.floor(i/5)*(176-pistonY)/3}
-                  r="5" fill="#f3ecb4" opacity=".9" />
+                <circle key={i} cx={68+(i%5)*27} cy={pistonY+(Math.floor(i/5)+1)*(206-pistonY)/3}
+                  r={Math.min(5, (206-pistonY)/5)} fill="#f3ecb4" opacity=".9" />
               ))}
               <text x="130" y="233" fontSize="16" textAnchor="middle" fill="#edf6e7">Pistón móvil</text>
             </svg>
