@@ -60,7 +60,7 @@ export default function AprendeIndexPage() {
           </p>
           <div className="flex flex-wrap gap-4 mt-6">
             <Link href="/blog" className="button primary">
-              Explorar {LESSONS_INDEX.length} temas →
+              Explorar {LESSONS_INDEX.filter(lesson => lesson.publishStatus === "published").length} temas →
             </Link>
             <Link href="/herramientas" className="button secondary">
               Probar herramientas interactivas →
@@ -71,11 +71,11 @@ export default function AprendeIndexPage() {
           </div>
         </section>
 
-        <div className="wrap"><LessonProgressOverview total={LESSONS_INDEX.length}/></div>
+        <div className="wrap"><LessonProgressOverview total={LESSONS_INDEX.filter(lesson => lesson.publishStatus === "published").length}/></div>
 
         <section className="wrap my-12 space-y-12">
           {areaDefinitions.map((area) => {
-            const areaLessonsCount = LESSONS_INDEX.filter(l => area.courses.includes(l.course)).length;
+            const areaLessonsCount = LESSONS_INDEX.filter(l => area.courses.includes(l.course) && l.publishStatus === "published").length;
 
             return (
               <div key={area.slug} className="area-section rounded-3xl border border-stone-800 bg-stone-900/40 p-8 shadow-xl">
@@ -97,7 +97,7 @@ export default function AprendeIndexPage() {
                 <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {area.courses.map((cSlug) => {
                     const cMeta = COURSE_LABELS[cSlug];
-                    const cLessons = LESSONS_INDEX.filter(l => l.course === cSlug);
+                    const cLessons = LESSONS_INDEX.filter(l => l.course === cSlug && l.publishStatus === "published");
                     const exCount = cLessons.reduce((acc, l) => acc + l.f0Count + l.faCount, 0);
 
                     return (
