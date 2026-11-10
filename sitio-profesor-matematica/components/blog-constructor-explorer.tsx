@@ -152,6 +152,10 @@ export function BlogConstructorExplorer() {
         {filtered.slice(0, visibleLimit).map((item) => {
           const courseInfo = COURSE_LABELS[item.course];
           const engineInfo = ZENIT_ENGINES[item.appEngine];
+          const exerciseTotal = item.f0Count + item.faCount;
+          const exerciseLabel = exerciseTotal > 0
+            ? `${exerciseTotal} ${exerciseTotal === 1 ? "ejercicio" : "ejercicios"}`
+            : "Estudiar el tema";
 
           return (
             <Link
@@ -189,7 +193,7 @@ export function BlogConstructorExplorer() {
 
                 <div className="flex items-center justify-between text-[11px] text-stone-400 font-mono">
                   <span>
-                    📝 {item.f0Count + item.faCount} ejercicios
+                    {exerciseTotal > 0 ? "📝 " : "📖 "}{exerciseLabel}
                   </span>
                   <span className="text-emerald-400 font-bold group-hover:translate-x-1 transition-transform">
                     Abrir →
