@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-labelledby="title description">
+<title id="title">Comprender es conectar: función cuadrática</title>
+<desc id="description">La función f de x igual a x al cuadrado menos cuatro x más tres se representa con una parábola que abre hacia arriba, corta el eje X en uno y tres, y tiene vértice en dos, menos uno.</desc>
+<defs>
+  <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#113b2e"/><stop offset="1" stop-color="#08231b"/></linearGradient>
+  <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#174b3b"/><stop offset="1" stop-color="#102f28"/></linearGradient>
+  <pattern id="grid" width="52" height="52" patternUnits="userSpaceOnUse"><path d="M52 0H0V52" fill="none" stroke="#bddfc5" stroke-opacity=".09" stroke-width="1"/></pattern>
+  <clipPath id="plot-clip"><rect x="22" y="66" width="368" height="249" rx="10"/></clipPath>
+</defs>
+<rect width="960" height="640" rx="36" fill="url(#background)"/>
+<rect x="24" y="24" width="912" height="592" rx="26" fill="url(#grid)" stroke="#4c7662" stroke-width="2"/>
+<g font-family="Arial,Helvetica,sans-serif">
+  <text x="70" y="83" fill="#d9ef78" font-size="23" letter-spacing="2" font-weight="700">SISTEMA ZÉNIT</text>
+  <text x="70" y="139" fill="#fffef6" font-size="41" font-weight="800" letter-spacing="-.6">COMPRENDER ES CONECTAR</text>
+  <g transform="translate(72 186)">
+    <rect x="0" y="0" width="350" height="164" rx="22" fill="#f1f6dc"/>
+    <text x="25" y="37" font-size="19" font-weight="800" letter-spacing="1.1" fill="#275541">01 · EXPRESIÓN</text>
+    <text x="25" y="99" font-size="31" font-family="Georgia,Times New Roman,serif" fill="#123e31" font-style="italic">f(x) = x² − 4x + 3</text>
+    <text x="25" y="138" font-size="21" font-family="Arial,Helvetica,sans-serif" fill="#3d6450">Forma equivalente: (x − 2)² − 1</text>
+  </g>
+  <g transform="translate(72 377)">
+    <rect width="350" height="158" rx="22" fill="url(#panel)" stroke="#6b9b7b" stroke-width="2"/>
+    <text x="25" y="38" font-size="19" font-weight="800" letter-spacing="1.1" fill="#d9ef78">02 · INTERPRETACIÓN</text>
+    <text x="25" y="79" font-size="22" fill="#f1f8ed">Raíces: x = 1 y x = 3</text>
+    <text x="25" y="111" font-size="22" fill="#f1f8ed">Vértice: (2, −1)</text>
+    <text x="25" y="143" font-size="22" fill="#f1f8ed">Abre hacia arriba</text>
+  </g>
+  <g stroke="#d9ef78" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" fill="none">
+    <path d="M429 272H461m-12-10 12 10-12 10"/>
+    <path d="M429 457H461m-12-10 12 10-12 10"/>
+  </g>
+  <g transform="translate(476 181)">
+    <rect width="412" height="366" rx="23" fill="#10372c" stroke="#638d75" stroke-width="2"/>
+    <text x="26" y="40" font-size="21" font-weight="800" letter-spacing=".8" fill="#d9ef78">03 · REPRESENTACIÓN</text>
+    <g clip-path="url(#plot-clip)">
+      <rect x="22" y="67" width="368" height="250" rx="10" fill="#143e32"/>
+      <g stroke="#6a947c" stroke-opacity=".38" stroke-width="1.5">
+        <path d="M34 115H387M34 159H387M34 203H387M34 247H387M34 291H387"/>
+        <path d="M91 70V316M148 70V316M205 70V316M262 70V316M319 70V316M376 70V316"/>
+      </g>
+      <path d="M34 247H386M91 72V315" stroke="#f4f7ed" stroke-width="2.8" fill="none"/>
+      <path d="M79.60 78.04 L84.16 93.25 L88.72 107.89 L93.28 121.97 L97.84 135.49 L102.40 148.44 L106.96 160.83 L111.52 172.66 L116.08 183.92 L120.64 194.62 L125.20 204.76 L129.76 214.33 L134.32 223.35 L138.88 231.79 L143.44 239.68 L148.00 247.00 L152.56 253.76 L157.12 259.95 L161.68 265.59 L166.24 270.65 L170.80 275.16 L175.36 279.10 L179.92 282.48 L184.48 285.30 L189.04 287.55 L193.60 289.24 L198.16 290.37 L202.72 290.93 L207.28 290.93 L211.84 290.37 L216.40 289.24 L220.96 287.55 L225.52 285.30 L230.08 282.48 L234.64 279.10 L239.20 275.16 L243.76 270.65 L248.32 265.59 L252.88 259.95 L257.44 253.76 L262.00 247.00 L266.56 239.68 L271.12 231.79 L275.68 223.35 L280.24 214.33 L284.80 204.76 L289.36 194.62 L293.92 183.92 L298.48 172.66 L303.04 160.83 L307.60 148.44 L312.16 135.49 L316.72 121.97 L321.28 107.89 L325.84 93.25 L330.40 78.04" stroke="#d9ef78" stroke-width="6" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+      <circle cx="148" cy="247" r="5.5" fill="#fffef7" stroke="#174233" stroke-width="2"/>
+      <circle cx="262" cy="247" r="5.5" fill="#fffef7" stroke="#174233" stroke-width="2"/>
+      <circle cx="205" cy="291" r="8" fill="#ff7955" stroke="#fffef7" stroke-width="3"/>
+      <g fill="#f2f7ef" font-size="18" font-weight="700">
+        <text x="366" y="237">x</text><text x="103" y="91">y</text>
+        <text x="144" y="272">1</text><text x="257" y="272">3</text>
+        <text x="224" y="301" fill="#ffbc9c">V(2, −1)</text>
+      </g>
+    </g>
+    <text x="27" y="342" font-size="18" fill="#e3f1dd">La gráfica confirma la expresión</text>
+  </g>
+  <path d="M70 568H888" stroke="#608e74" stroke-opacity=".7" stroke-width="1.5"/>
+  <text x="71" y="598" font-size="22" fill="#d7e8da">EXPRESIÓN</text>
+  <text x="282" y="598" font-size="22" fill="#d9ef78">→</text>
+  <text x="333" y="598" font-size="22" fill="#d7e8da">GRÁFICA</text>
+  <text x="501" y="598" font-size="22" fill="#d9ef78">→</text>
+  <text x="551" y="598" font-size="22" fill="#d7e8da">RAZONAMIENTO MATEMÁTICO</text>
+</g>
+</svg>
