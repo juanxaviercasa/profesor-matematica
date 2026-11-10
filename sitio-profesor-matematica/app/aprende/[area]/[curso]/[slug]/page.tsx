@@ -377,7 +377,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
                 </h2>
               </div>
               <span className="text-xs font-mono text-stone-400">
-                {lesson.areaBookBlocks.length} páginas de texto integradas
+                Material de profundización
               </span>
             </div>
 
@@ -389,8 +389,8 @@ export default async function TopicDetailPage({ params }: PageProps) {
                 >
                   <div className="space-y-2.5">
                     <div className="flex items-center justify-between text-[11px] font-mono text-sky-400">
-                      <span>LIBRO DEL ÁREA</span>
-                      <span>Pág. ref #{ab.page}</span>
+                      <span>EXPLICACIÓN COMPLEMENTARIA</span>
+                      <span>Ejemplo {abIdx + 1}</span>
                     </div>
                     <h3 className="text-sm font-bold text-white leading-snug">
                       <MathText source={ab.heading} inlineOnly />
@@ -442,7 +442,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
           <section className="rounded-2xl border border-emerald-800/40 bg-emerald-950/20 p-6 space-y-4">
             <div>
               <span className="text-xs font-mono uppercase text-emerald-400 font-bold">
-                🔗 Progresión Vertical en Espiral (Mismo Tema en Otros Grados)
+                🔗 Explora este tema en otros grados
               </span>
               <h3 className="text-lg font-bold text-white mt-1">
                 Conecta cómo evoluciona «{lesson.title}» a lo largo de la secundaria
