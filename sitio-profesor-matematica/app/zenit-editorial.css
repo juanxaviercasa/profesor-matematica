@@ -65,3 +65,14 @@ footer .footer-base{line-height:1.65}
   .site-header .mobile-menu{margin-left:auto;flex:0 0 auto}
   .site-header .mobile-menu summary{min-width:88px;padding:8px 12px}
 }
+
+/* Contrastes AA medidos con axe sobre el Worker: etiquetas e índices. */
+.zenit-tools-directory .zenit-engine-selector-card .text-stone-400 {
+  color:#d6e0d9;
+}
+.offer-page-v2 .mvp-strip > div > span {
+  color:#a9311b;
+}
+.offer-page-v2 .course-preview-band .eyebrow {
+  color:#09251d;
+}
