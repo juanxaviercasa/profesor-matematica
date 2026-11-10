@@ -176,7 +176,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
       },
       {
         "@type": "Quiz",
-        name: `Banco de ejercicios: ${lesson.title}`,
+        name: `Ejercicios de ${lesson.title}`,
         hasPart: (lesson.exercisesF0 || []).slice(0, 3).map((ex) => ({
           "@type": "Question",
           name: `Problema #${ex.number}`,
@@ -247,7 +247,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
                   : "bg-stone-950 text-stone-300 border-stone-700"
               }`}>
                 {lesson.publishStatus === "published"
-                  ? "● Lección publicada"
+                  ? "● Lista para estudiar"
                   : "Material de estudio"}
               </span>
             </div>
@@ -288,21 +288,21 @@ export default async function TopicDetailPage({ params }: PageProps) {
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-800 pb-4">
             <div>
               <span className="text-xs font-mono uppercase tracking-wider text-emerald-400">
-                Marco Teórico Estructurado y Ejemplos Resueltos
+                Teoría y ejemplos resueltos
               </span>
               <h2 className="text-2xl font-bold text-white mt-1">
-                Desarrollo Conceptual: {lesson.title}
+                Comprende el tema: {lesson.title}
               </h2>
             </div>
             <span className="text-xs font-mono text-stone-400">
-              {lesson.theorySlides.length} bloques teóricos extraídos
+              Explicaciones y ejemplos
             </span>
           </div>
 
           {lesson.keyFormula && (
             <div className="rounded-2xl bg-stone-950 p-6 border border-stone-800 text-center shadow-inner">
               <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 block mb-2">
-                Fórmula / Propiedad Eje del Tema
+                Fórmula o propiedad principal
               </span>
               <div className="text-lg md:text-xl py-2 overflow-x-auto">
                 <MathFormula source={lesson.keyFormula} displayMode={true} />
@@ -321,7 +321,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
                   <div className="space-y-3">
                     <div className="flex items-center justify-between text-xs font-mono text-emerald-400">
                       <span>SECCIÓN TEÓRICA #{sIdx + 1}</span>
-                      <span>Diapositiva {slide.slideNumber}</span>
+                      <span>Concepto {sIdx + 1}</span>
                     </div>
                     <h3 className="text-base font-bold text-white leading-snug">
                       <MathText source={slide.heading} inlineOnly />
