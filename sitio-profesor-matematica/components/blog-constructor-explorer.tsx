@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { LESSONS_INDEX, COURSE_LABELS } from "@/lib/catalog-index";
-import { ZENIT_ENGINES } from "./zenit-app-engines";
+import { ZENIT_ENGINES } from "@/lib/zenit-engines-meta";
 import Link from "./safe-link";
 
 export function BlogConstructorExplorer() {
