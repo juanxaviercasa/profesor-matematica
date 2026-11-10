@@ -23,6 +23,9 @@ const viewports = [
   { label: "movil-390", width: 390, height: 844, isMobile: true, hasTouch: true },
   { label: "tablet-768", width: 768, height: 1024, isMobile: false, hasTouch: true },
   { label: "desktop-1440", width: 1440, height: 900, isMobile: false, hasTouch: false },
+  { label: "movil-320", width: 320, height: 760, isMobile: true, hasTouch: true },
+  { label: "tablet-1024", width: 1024, height: 768, isMobile: false, hasTouch: true },
+  { label: "desktop-1920", width: 1920, height: 1080, isMobile: false, hasTouch: false },
 ];
 const findings = [];
 const results = [];
@@ -140,8 +143,13 @@ try {
     if (["inicio", "blog", "herramientas", "aprende", "leccion-conjuntos"].includes(label)) {
       await inspectRoute(label, path, viewports[0]);
     }
+    if (["inicio", "blog", "herramientas", "aprende"].includes(label)) {
+      await inspectRoute(label, path, viewports[3]);
+    }
     if (label === "inicio") {
       await inspectRoute(label, path, viewports[1]);
+      await inspectRoute(label, path, viewports[4]);
+      await inspectRoute(label, path, viewports[5]);
       await inspectRoute(label, path, viewports[0], "reduce");
     }
   }
@@ -177,6 +185,62 @@ try {
     addFinding("error", "navegacion-movil", "Menú móvil o enlace a Blog no responde: " + e.message);
   }
   await mobile.close();
+
+  // Protección contra regresiones de navegación, incluso si falla la hidratación.
+  const noJs = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 1440, height: 900 } });
+  try {
+    const page = await noJs.newPage();
+    await page.goto(base, { waitUntil: "domcontentloaded" });
+    await page.locator('nav.desktop-links a[href="/blog"]').first().click();
+    await page.waitForURL(url => url.pathname === "/blog", { timeout: 12000 });
+    console.log("Navegación sin JavaScript OK");
+  } catch (e) {
+    addFinding("error", "navegacion-sin-js", "El enlace a Blog no funciona sin JavaScript: " + e.message);
+  } finally {
+    await noJs.close();
+  }
+
+  // El selector cambia una simulación de verdad y comunica su estado a lectores de pantalla.
+  const simulator = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  try {
+    await simulator.goto(base + "/herramientas", { waitUntil: "domcontentloaded" });
+    const cards = simulator.locator(".zenit-engine-selector-card");
+    if (await cards.count() < 2) throw new Error("No hay dos herramientas en el selector");
+    await simulator.waitForTimeout(500);
+    await cards.nth(1).click();
+    await simulator.waitForFunction(
+      () => document.querySelectorAll(".zenit-engine-selector-card")[1]?.getAttribute("aria-pressed") === "true",
+      undefined,
+      { timeout: 10000 }
+    );
+    if (await cards.first().getAttribute("aria-pressed") !== "false") {
+      throw new Error("La herramienta anterior no se deseleccionó");
+    }
+    console.log("Selector interactivo de Web Apps OK");
+  } catch (e) {
+    addFinding("error", "web-apps-interaccion", "El selector interactivo falló: " + e.message);
+  } finally {
+    await simulator.close();
+  }
+
+  // Prueba del enlace de salto que permite llegar al contenido con teclado.
+  const keyboard = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  try {
+    await keyboard.goto(base, { waitUntil: "domcontentloaded" });
+    await keyboard.keyboard.press("Tab");
+    const first = await keyboard.evaluate(() => document.activeElement?.className || "");
+    if (!String(first).includes("zenit-skip-link")) {
+      addFinding("warning", "teclado", "El primer foco no es el enlace para saltar al contenido");
+    } else {
+      await keyboard.keyboard.press("Enter");
+      await keyboard.waitForURL(url => url.hash === "#zenit-main", { timeout: 5000 });
+      console.log("Acceso directo por teclado OK");
+    }
+  } catch (e) {
+    addFinding("error", "teclado", "No se puede saltar al contenido con teclado: " + e.message);
+  } finally {
+    await keyboard.close();
+  }
 
   const blog = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   try {
