@@ -86,7 +86,7 @@ for (const [index, svg] of svgs.entries()) {
 assert.match(blog, /htmlFor="zenit-blog-course"/);
 assert.match(blog, /htmlFor="zenit-blog-engine"/);
 assert.match(blog, /htmlFor="zenit-blog-search"/);
-assert.match(blog, /aria-pressed=\{viewMode === "constructor"\}/);
+assert.match(blog, /aria-pressed=\{selectedGrade === g\.id\}/);
 assert.match(quiz, /aria-pressed=\{isSelected\}/);
 assert.match(quiz, /aria-expanded=\{hintShown\}/);
 assert.match(generator, /if \(selectedIdx !== null\) return;/);

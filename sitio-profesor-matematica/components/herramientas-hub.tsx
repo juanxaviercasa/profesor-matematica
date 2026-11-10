@@ -2,14 +2,20 @@
 
 import React, { useState } from "react";
 import { ZENIT_ENGINES, ZenitInteractiveApp, type AppEngineId } from "./zenit-app-engines";
+import { OPEN_SOURCE_60_ENGINES, getOpenSourceEnginesByMacro } from "@/lib/open-source-60-engines";
+import { MathFormula } from "./math-formula";
 import { LESSONS_INDEX } from "@/lib/catalog-index";
 import Link from "./safe-link";
 
 export function HerramientasInteractiveHub() {
   const engineList = Object.values(ZENIT_ENGINES);
   const [selectedEngine, setSelectedEngine] = useState<AppEngineId>("SetVennLab");
+  const [showAll60, setShowAll60] = useState<boolean>(false);
 
   const matchingLessons = LESSONS_INDEX.filter(l => l.appEngine === selectedEngine);
+  const displayedOpenSourceEngines = showAll60
+    ? OPEN_SOURCE_60_ENGINES
+    : getOpenSourceEnginesByMacro(selectedEngine);
 
   return (
     <div className="zenit-tools-directory space-y-10">
@@ -43,7 +49,7 @@ export function HerramientasInteractiveHub() {
               </div>
               <div className="mt-3 pt-3 border-t border-stone-800/80 flex flex-wrap gap-x-3 gap-y-1 items-center justify-between text-sm">
                 <span className={active ? "text-emerald-300 font-bold" : "text-stone-400"}>
-                  {active ? "● Seleccionada" : "Probar herramienta"}
+                  {active ? "● Seleccionada (5 sub-motores)" : "Probar herramienta"}
                 </span>
                 <span className="text-emerald-400">→</span>
               </div>
@@ -56,6 +62,74 @@ export function HerramientasInteractiveHub() {
       <div className="rounded-3xl border border-emerald-700/40 bg-stone-900/40 p-2 md:p-4">
         <ZenitInteractiveApp engineId={selectedEngine} />
       </div>
+
+      {/* Catálogo Estructural de los 60 Motores Matemáticos Open-Source (#01–#60) */}
+      <section className="rounded-3xl border border-stone-800 bg-stone-950/85 p-6 md:p-8 space-y-6">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
+          <div>
+            <span className="text-sm font-semibold uppercase tracking-wide text-amber-300">
+              Arquitectura de 60 Motores Matemáticos Open-Source (#01 al #60) · 100% Fórmulas Curadas
+            </span>
+            <h3 className="text-2xl font-bold text-white mt-2 leading-snug">
+              {showAll60
+                ? "Matriz Completa de los 60 Motores e Inyección de Fórmulas"
+                : `5 Motores Especializados de ${ZENIT_ENGINES[selectedEngine].title}`}
+            </h3>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => setShowAll60(false)}
+              aria-pressed={!showAll60}
+              className={`px-4 py-2 rounded-xl text-sm font-bold border transition-all ${
+                !showAll60
+                  ? "bg-emerald-500 text-stone-950 border-emerald-400"
+                  : "bg-stone-900 text-stone-200 border-stone-700 hover:border-emerald-500"
+              }`}
+            >
+              Ver 5 de esta rama
+            </button>
+            <button
+              type="button"
+              onClick={() => setShowAll60(true)}
+              aria-pressed={showAll60}
+              className={`px-4 py-2 rounded-xl text-sm font-bold border transition-all ${
+                showAll60
+                  ? "bg-amber-400 text-stone-950 border-amber-300"
+                  : "bg-stone-900 text-stone-200 border-stone-700 hover:border-amber-400"
+              }`}
+            >
+              Ver los 60 Motores (#01–#60)
+            </button>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {displayedOpenSourceEngines.map((item) => (
+            <div
+              key={item.id}
+              className="rounded-2xl border border-stone-800 bg-stone-900/70 p-5 space-y-3 flex flex-col justify-between"
+            >
+              <div className="space-y-2">
+                <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
+                  <span className="font-mono font-bold text-amber-300">
+                    #{String(item.rank).padStart(2, "0")} · {item.name}
+                  </span>
+                  <span className="text-stone-400 font-mono">
+                    {item.license} · {item.course}
+                  </span>
+                </div>
+                <p className="text-sm text-stone-300 leading-relaxed">
+                  {item.purpose}
+                </p>
+              </div>
+              <div className="rounded-xl bg-stone-950 p-3 border border-stone-800 overflow-x-auto">
+                <MathFormula source={item.canonicalFormula} displayMode={true} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Connected Topics Using This Engine */}
       <section className="zenit-curriculum-panel rounded-3xl border border-stone-800 bg-stone-950/80 p-6 md:p-8 space-y-6">

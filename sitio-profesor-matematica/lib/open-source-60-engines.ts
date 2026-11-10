@@ -1,0 +1,748 @@
+import type { AppEngineId } from "@/components/zenit-app-engines";
+
+export interface OpenSourceMathEngine {
+  rank: number;
+  id: string;
+  name: string;
+  macroEngine: AppEngineId;
+  course: string;
+  license: string;
+  canonicalFormula: string;
+  purpose: string;
+  keywords: RegExp;
+}
+
+/**
+ * Catálogo Mundial de los 60 Motores Matemáticos Open-Source (#01 a #60)
+ * distribuidos estructuralmente en los 12 Macro-Laboratorios de Sistema Zénit (5 por laboratorio).
+ */
+export const OPEN_SOURCE_60_ENGINES: OpenSourceMathEngine[] = [
+  // ============================================================================
+  // I. SetVennLab — Conjuntos, Relaciones Binarias y Grafos Discretos (#01–#05)
+  // ============================================================================
+  {
+    rank: 1,
+    id: "venn-euler-js",
+    name: "Venn.js Set Cardinality Engine",
+    macroEngine: "SetVennLab",
+    course: "aritmetica",
+    license: "MIT",
+    canonicalFormula: String.raw`n(A\cup B)=n(A)+n(B)-n(A\cap B),\quad n(A\Delta B)=n(A\cup B)-n(A\cap B)`,
+    purpose: "Diagramas de Venn-Euler proporcionales para 2 y 3 conjuntos e inclusión-exclusión",
+    keywords: /conjunto|unión|intersección|venn/i,
+  },
+  {
+    rank: 2,
+    id: "boolean-set-algebra",
+    name: "SymPy FiniteSet & PowerSet",
+    macroEngine: "SetVennLab",
+    course: "aritmetica",
+    license: "BSD-3-Clause",
+    canonicalFormula: String.raw`n[\mathcal{P}(A)]=2^{n(A)},\quad (A\cup B)'=A'\cap B',\quad (A\cap B)'=A'\cup B'`,
+    purpose: "Conjunto potencia, subconjuntos propios y Leyes de De Morgan para álgebra de conjuntos",
+    keywords: /potencia|subconjunto|complemento|operaciones con conjuntos/i,
+  },
+  {
+    rank: 3,
+    id: "cartesian-relations-engine",
+    name: "NetworkX Binary Relations Graph",
+    macroEngine: "SetVennLab",
+    course: "aritmetica",
+    license: "BSD-3-Clause",
+    canonicalFormula: String.raw`A\times B=\{(a,b)\mid a\in A\wedge b\in B\},\quad n(A\times B)=n(A)\cdot n(B)`,
+    purpose: "Producto cartesiano, relaciones binarias, dominio, rango y dígrafos reflexivos/simétricos",
+    keywords: /producto(?:s)? cartesiano|relaci[oó]n binaria|relaciones/i,
+  },
+  {
+    rank: 4,
+    id: "inclusion-exclusion-3sets",
+    name: "SageMath Inclusion-Exclusion Solver",
+    macroEngine: "SetVennLab",
+    course: "aritmetica",
+    license: "GPL-3.0",
+    canonicalFormula: String.raw`n(A\cup B\cup C)=n(A)+n(B)+n(C)-n(A\cap B)-n(B\cap C)-n(A\cap C)+n(A\cap B\cap C)`,
+    purpose: "Resolución de encuestas de 3 conjuntos, zonas exclusivas y diagrama de Carroll",
+    keywords: /tres conjuntos|carroll|encuesta/i,
+  },
+  {
+    rank: 5,
+    id: "cantor-bijection-lab",
+    name: "Cantor Set & Cardinality Mapper",
+    macroEngine: "SetVennLab",
+    course: "aritmetica",
+    license: "MIT",
+    canonicalFormula: String.raw`f:A\hookrightarrow B\implies n(A)\le n(B),\quad n(A-B)=n(A)-n(A\cap B)`,
+    purpose: "Diferencia de conjuntos, particiones de un universo y correspondencias biunívocas",
+    keywords: /diferencia|partici[oó]n|cardinal/i,
+  },
+
+  // ============================================================================
+  // II. NumberTheoryLab — Teoría de Números, Numeración y Criptografía (#06–#10)
+  // ============================================================================
+  {
+    rank: 6,
+    id: "pari-gp-numtheory",
+    name: "PARI/GP Number Theory Engine",
+    macroEngine: "NumberTheoryLab",
+    course: "aritmetica",
+    license: "GPL-3.0",
+    canonicalFormula: String.raw`N=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k},\quad \operatorname{CD}(N)=\prod_{i=1}^{k}(\alpha_i+1)`,
+    purpose: "Factorización canónica, cantidad de divisores (CD), suma de divisores (SD) y función φ de Euler",
+    keywords: /primos|compuestos|teor[ií]a de (?:los )?n[uú]meros|divisores/i,
+  },
+  {
+    rank: 7,
+    id: "flint-euclid-gcd",
+    name: "FLINT Euclidean GCD/LCM Engine",
+    macroEngine: "NumberTheoryLab",
+    course: "aritmetica",
+    license: "LGPL-2.1",
+    canonicalFormula: String.raw`\operatorname{MCD}(a,b)\cdot\operatorname{MCM}(a,b)=a\cdot b,\quad a\cdot x+b\cdot y=\operatorname{MCD}(a,b)`,
+    purpose: "Algoritmo de Euclides por divisiones sucesivas, identidad de Bézout y propiedades del MCD/MCM",
+    keywords: /mcd|mcm|m[aá]ximo com[uú]n|m[ií]nimo com[uú]n/i,
+  },
+  {
+    rank: 8,
+    id: "radix-base-converter",
+    name: "GMP Positional Base Converter",
+    macroEngine: "NumberTheoryLab",
+    course: "aritmetica",
+    license: "LGPL-3.0",
+    canonicalFormula: String.raw`\overline{abc}_{(n)}=a\cdot n^2+b\cdot n+c,\quad \overline{(n-1)(n-1)\dots(n-1)}_{(n)}=n^k-1`,
+    purpose: "Descomposición polinómica, cambios de base (Ruffini y divisiones sucesivas) y numerales capicúas",
+    keywords: /numeraci[oó]n|base|capic[uú]a/i,
+  },
+  {
+    rank: 9,
+    id: "modular-arithmetic-nts",
+    name: "SymPy Modular Congruence Solver",
+    macroEngine: "NumberTheoryLab",
+    course: "aritmetica",
+    license: "BSD-3-Clause",
+    canonicalFormula: String.raw`a\equiv b\pmod m\iff m\mid(a-b),\quad a^{\varphi(m)}\equiv 1\pmod m\ (\gcd(a,m)=1)`,
+    purpose: "Criterios de divisibilidad, restos potenciales, teorema de Fermat-Euler y ecuaciones diofánticas",
+    keywords: /divisibilidad|m[uú]ltiplos|restos|diof[aá]ntica/i,
+  },
+  {
+    rank: 10,
+    id: "decimal-rational-propor",
+    name: "Decimal.js Rational & Financial Math",
+    macroEngine: "NumberTheoryLab",
+    course: "aritmetica",
+    license: "MIT",
+    canonicalFormula: String.raw`0,\widehat{ab}=\frac{\overline{ab}}{99},\quad I=C\cdot r\%\cdot t,\quad P_m=\frac{\sum C_iP_i}{\sum C_i}`,
+    purpose: "Fracción generatriz exacta, magnitudes proporcionales, regla de tres, porcentajes, interés y mezclas",
+    keywords: /fraccion|decimales|racionales|porcentaj|proporcional|regla de tres|inter[eé]s|descuento|mezcla|cuatro operaciones|enteros|naturales/i,
+  },
+
+  // ============================================================================
+  // III. PolynomialAlgebraLab — CAS Simbólico, Polinomios y Ruffini-Horner (#11–#15)
+  // ============================================================================
+  {
+    rank: 11,
+    id: "sympy-polynomial-cas",
+    name: "SymPy Symbolic Polynomial CAS",
+    macroEngine: "PolynomialAlgebraLab",
+    course: "algebra",
+    license: "BSD-3-Clause",
+    canonicalFormula: String.raw`P(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_0,\quad \sum\text{coef}=P(1),\quad T.I.=P(0)`,
+    purpose: "Grado relativo y absoluto, polinomios especiales (homogéneo, completo, ordenado, idénticamente nulo)",
+    keywords: /polinomio|expresi[oó]n(?:es)? algebraica|monomio/i,
+  },
+  {
+    rank: 12,
+    id: "ruffini-horner-divider",
+    name: "Nerdamer Ruffini-Horner & Remainder",
+    macroEngine: "PolynomialAlgebraLab",
+    course: "algebra",
+    license: "MIT",
+    canonicalFormula: String.raw`P(x)\equiv(x-r)Q(x)+R,\quad R=P(r),\quad \frac{x^n-a^n}{x-a}=\sum_{k=1}^{n}x^{n-k}a^{k-1}`,
+    purpose: "Esquema interactivo de Horner y Ruffini, Teorema del Resto y término k-ésimo de Cocientes Notables",
+    keywords: /divisi[oó]n algebraica|ruffini|horner|resto|cociente(?:s)? notable/i,
+  },
+  {
+    rank: 13,
+    id: "algebrite-identities",
+    name: "Algebrite Notable Products & Identities",
+    macroEngine: "PolynomialAlgebraLab",
+    course: "algebra",
+    license: "MIT",
+    canonicalFormula: String.raw`(a+b)^2+(a-b)^2=2(a^2+b^2),\quad a^3+b^3+c^3=3abc\ (\text{si }a+b+c=0)`,
+    purpose: "Expansión simbólica de productos notables, identidades de Legendre, Cauchy y equivalencias condicionales",
+    keywords: /producto(?:s)? notable|legendre|cauchy|identidad/i,
+  },
+  {
+    rank: 14,
+    id: "giac-factorization-cas",
+    name: "Giac/Xcas Algebraic Factorizer",
+    macroEngine: "PolynomialAlgebraLab",
+    course: "algebra",
+    license: "GPL-3.0",
+    canonicalFormula: String.raw`P(x)=a(x-r_1)(x-r_2)\cdots(x-r_n),\quad a^3\pm b^3=(a\pm b)(a^2\mp ab+b^2)`,
+    purpose: "Factorización por aspa simple, aspa doble especial, divisores binómicos y fracciones parciales",
+    keywords: /factorizaci[oó]n|fraccion(?:es)? algebraica|mcd.*polinomio/i,
+  },
+  {
+    rank: 15,
+    id: "mathjs-exponents-radicals",
+    name: "Math.js Exponents, Surds & Sequences",
+    macroEngine: "PolynomialAlgebraLab",
+    course: "algebra",
+    license: "Apache-2.0",
+    canonicalFormula: String.raw`a^m\cdot a^n=a^{m+n},\quad \sqrt{A\pm 2\sqrt{B}}=\sqrt{x}\pm\sqrt{y},\quad S_n=\frac{(a_1+a_n)n}{2}`,
+    purpose: "Leyes de exponentes, transformación de radicales dobles a simples, sucesiones y progresiones",
+    keywords: /exponente|potenciaci[oó]n|radicaci[oó]n|radical|sucesi[oó]n|progresi[oó]n|serie/i,
+  },
+
+  // ============================================================================
+  // IV. EquationInequalityLab — Ecuaciones, Inecuaciones y Álgebra Lineal (#16–#20)
+  // ============================================================================
+  {
+    rank: 16,
+    id: "cardano-vieta-roots",
+    name: "SymPy Quadratic & Cardano-Vieta Solver",
+    macroEngine: "EquationInequalityLab",
+    course: "algebra",
+    license: "BSD-3-Clause",
+    canonicalFormula: String.raw`ax^2+bx+c=0\implies x_1+x_2=-\frac{b}{a},\quad x_1x_2=\frac{c}{a},\quad \Delta=b^2-4ac`,
+    purpose: "Ecuaciones lineales, cuadráticas y polinómicas, análisis del discriminante y propiedades de las raíces",
+    keywords: /ecuaci[oó]n(?:es)? cuadr[aá]tica|primer grado|lineal|cardano|vieta/i,
+  },
+  {
+    rank: 17,
+    id: "critical-points-interval",
+    name: "Interval-Arithmetic Critical Points Lab",
+    macroEngine: "EquationInequalityLab",
+    course: "algebra",
+    license: "MIT",
+    canonicalFormula: String.raw`\frac{(x-r_1)(x-r_2)}{x-p}\ge0\ (x\ne p),\quad |x|<a\iff -a<x<a\ (a>0)`,
+    purpose: "Método de los puntos críticos (+/−/+), inecuaciones racionales, irracionales y con valor absoluto",
+    keywords: /inecuaci[oó]n|desigualdad|intervalo|valor absoluto|reales/i,
+  },
+  {
+    rank: 18,
+    id: "eigen-gauss-jordan",
+    name: "Eigen / OpenBLAS Matrix & Determinant Lab",
+    macroEngine: "EquationInequalityLab",
+    course: "algebra-lineal",
+    license: "MPL-2.0",
+    canonicalFormula: String.raw`A\mathbf{x}=\mathbf{b}\iff [A\mid\mathbf{b}]\xrightarrow{\text{Gauss-Jordan}}[I\mid\mathbf{x}],\quad x_i=\frac{\det(A_i)}{\det(A)}`,
+    purpose: "Eliminación de Gauss-Jordan, regla de Cramer, rango matricial, inversa y sistemas de ecuaciones",
+    keywords: /sistema(?:s)? de ecuaciones|matri(?:z|ces)|determinante|gauss|rango/i,
+  },
+  {
+    rank: 19,
+    id: "lapack-spectral-svd",
+    name: "LAPACK Eigenvalues & SVD Decomposer",
+    macroEngine: "EquationInequalityLab",
+    course: "algebra-lineal",
+    license: "BSD-3-Clause",
+    canonicalFormula: String.raw`\det(A-\lambda I)=0,\quad A=PDP^{-1},\quad A=U\Sigma V^T,\quad \dim V=\dim\ker T+\dim\operatorname{Im}T`,
+    purpose: "Espacios vectoriales, Gram-Schmidt, transformaciones lineales, autovalores, Cayley-Hamilton y SVD",
+    keywords: /autovalor|diagonalizaci[oó]n|svd|gram-schmidt|espacios vectoriales|transformaciones lineales|cambio de base/i,
+  },
+  {
+    rank: 20,
+    id: "mathlive-katex-typesetter",
+    name: "KaTeX + MathLive Structural Formula Editor",
+    macroEngine: "EquationInequalityLab",
+    course: "algebra",
+    license: "MIT",
+    canonicalFormula: String.raw`\forall x\in\mathbb{R}:\quad x^2\ge0,\quad \frac{a+b}{2}\ge\sqrt{ab}\ (a,b\ge0)`,
+    purpose: "Tipografía científica accesible (HTML + MathML) y validación estructural de pasos algebraicos",
+    keywords: /demostraci[oó]n|desigualdad de medias|media geom[eé]trica/i,
+  },
+
+  // ============================================================================
+  // V. FunctionCartesianLab — Funciones, Logaritmos y Optimización Lineal (#21–#25)
+  // ============================================================================
+  {
+    rank: 21,
+    id: "desmos-function-plotter",
+    name: "Function-Plot / Desmos Cartesian Engine",
+    macroEngine: "FunctionCartesianLab",
+    course: "algebra",
+    license: "MIT",
+    canonicalFormula: String.raw`g(x)=a\cdot f(x-h)+k,\quad \operatorname{Dom}(f)=\{x\in\mathbb{R}\mid f(x)\in\mathbb{R}\}`,
+    purpose: "Trazado interactivo de funciones reales, cálculo de dominio/rango, intersecciones y desplazamientos",
+    keywords: /funci[oó]n|dominio|rango|gr[aá]fica/i,
+  },
+  {
+    rank: 22,
+    id: "quadratic-vertex-explorer",
+    name: "Mafs.dev Quadratic & Piecewise Explorer",
+    macroEngine: "FunctionCartesianLab",
+    course: "algebra",
+    license: "MIT",
+    canonicalFormula: String.raw`f(x)=ax^2+bx+c=a(x-h)^2+k,\quad h=-\frac{b}{2a},\quad k=c-\frac{b^2}{4a}`,
+    purpose: "Análisis de función lineal, cuadrática (vértice, concavidad, extremo), valor absoluto y raíz cuadrada",
+    keywords: /cuadr[aá]tica|lineal|especial|tramos/i,
+  },
+  {
+    rank: 23,
+    id: "bijective-inverse-composer",
+    name: "JSXGraph Function Composition & Inverse",
+    macroEngine: "FunctionCartesianLab",
+    course: "algebra",
+    license: "LGPL-3.0",
+    canonicalFormula: String.raw`(f\circ g)(x)=f(g(x)),\quad f(f^{-1}(x))=x,\quad G_{f^{-1}}\text{ es simétrica a }G_f\text{ respecto a }y=x`,
+    purpose: "Álgebra de funciones, composición f∘g, inyectividad, sobreyectividad y reflejo de la función inversa",
+    keywords: /composici[oó]n|inversa|inyectiva|biyectiva|modelaci[oó]n/i,
+  },
+  {
+    rank: 24,
+    id: "exp-log-asymptote-lab",
+    name: "SciPy Exponential & Logarithmic Lab",
+    macroEngine: "FunctionCartesianLab",
+    course: "algebra",
+    license: "BSD-3-Clause",
+    canonicalFormula: String.raw`\log_b x=\frac{\ln x}{\ln b},\quad \operatorname{colog}_b x=-\log_b x,\quad \operatorname{antilog}_b x=b^x`,
+    purpose: "Funciones exponenciales y logarítmicas, asíntotas, cambio de base, cologaritmo y antilogaritmo",
+    keywords: /logaritm|exponencial|as[ií]ntota/i,
+  },
+  {
+    rank: 25,
+    id: "glpk-simplex-lp",
+    name: "GLPK / HiGHS Linear Programming Simplex",
+    macroEngine: "FunctionCartesianLab",
+    course: "algebra",
+    license: "GPL-3.0",
+    canonicalFormula: String.raw`\max/\min Z=ax+by\quad\text{s.a.}\quad \begin{cases}a_1x+b_1y\le c_1\\x\ge0,\ y\ge0\end{cases}`,
+    purpose: "Región factible convexa, evaluación en los vértices del polígono y recta de isoutilidad",
+    keywords: /programaci[oó]n lineal|optimizaci[oó]n lineal|factible/i,
+  },
+
+  // ============================================================================
+  // VI. GeometryInteractiveLab — Geometría Plana y del Espacio 3D (#26–#30)
+  // ============================================================================
+  {
+    rank: 26,
+    id: "geogebra-euclidean-2d",
+    name: "GeoGebra / JSXGraph Euclidean Constructions",
+    macroEngine: "GeometryInteractiveLab",
+    course: "geometria",
+    license: "GPL-3.0",
+    canonicalFormula: String.raw`\alpha+\beta+\gamma=180^\circ,\quad x=90^\circ\pm\frac{\theta}{2},\quad a^2+b^2=c^2,\quad h^2=m\cdot n`,
+    purpose: "Segmentos, ángulos entre paralelas, congruencia de triángulos, líneas notables y relaciones métricas",
+    keywords: /segmento|[aá]ngulo|tri[aá]ngulo|congruencia|notables|pit[aá]goras|relaciones m[eé]tricas/i,
+  },
+  {
+    rank: 27,
+    id: "polygon-diagonals-lab",
+    name: "CindyJS Regular Polygons & Quadrilaterals",
+    macroEngine: "GeometryInteractiveLab",
+    course: "geometria",
+    license: "Apache-2.0",
+    canonicalFormula: String.raw`S_i=180^\circ(n-2),\quad \hat{i}=\frac{180^\circ(n-2)}{n},\quad N_D=\frac{n(n-3)}{2}`,
+    purpose: "Polígonos convexos y regulares, número de diagonales, trapecios, paralelogramos y cuadriláteros",
+    keywords: /pol[ií]gono|cuadril[aá]tero|trapecio|paralelogramo/i,
+  },
+  {
+    rank: 28,
+    id: "circle-theorems-thales",
+    name: "Euclid.js Circle Angles & Thales Similarity",
+    macroEngine: "GeometryInteractiveLab",
+    course: "geometria",
+    license: "MIT",
+    canonicalFormula: String.raw`\theta_{\text{inscrito}}=\frac{\widehat{AB}}{2},\quad a+b=c+2r\ (\text{Poncelet}),\quad \frac{AB}{BC}=\frac{DE}{EF}\ (\text{Thales})`,
+    purpose: "Ángulos en la circunferencia, teoremas de Poncelet, Pitot, Thales, cuerdas, secantes y tangentes",
+    keywords: /circunferencia|c[ií]rculo|proporcionalidad|semejanza|thales|poncelet/i,
+  },
+  {
+    rank: 29,
+    id: "heron-pick-area-engine",
+    name: "Shapely / Turf Planar Area & Transformations",
+    macroEngine: "GeometryInteractiveLab",
+    course: "geometria",
+    license: "BSD-3-Clause",
+    canonicalFormula: String.raw`A_\triangle=\sqrt{p(p-a)(p-b)(p-c)}=\frac{abc}{4R}=p\cdot r,\quad A_{\text{sector}}=\frac{\pi r^2\theta}{360^\circ}`,
+    purpose: "Áreas de regiones triangulares, cuadrangulares y circulares, escalas y transformaciones en el plano",
+    keywords: /[aá]rea|per[ií]metro|sombreada|escala|mapa|transformaciones geom[eé]tricas/i,
+  },
+  {
+    rank: 30,
+    id: "threejs-polyhedra-solids",
+    name: "Three.js Polyhedra & Solids of Revolution 3D",
+    macroEngine: "GeometryInteractiveLab",
+    course: "geometria",
+    license: "MIT",
+    canonicalFormula: String.raw`C+V=A+2,\quad V_{\text{prisma}}=A_bh,\quad V_{\text{cono}}=\frac{1}{3}\pi r^2h,\quad V_{\text{esfera}}=\frac{4}{3}\pi r^3`,
+    purpose: "Poliedros regulares (teorema de Euler), prisma, pirámide, cilindro, cono, esfera y despliegue de cubos",
+    keywords: /poliedro|prisma|pir[aá]mide|cilindro|cono|esfera|s[oó]lido|despliegue|espacio/i,
+  },
+
+  // ============================================================================
+  // VII. AnalyticConicsLab — Geometría Analítica, Cónicas y Cuádricas (#31–#35)
+  // ============================================================================
+  {
+    rank: 31,
+    id: "analytic-line-distance",
+    name: "JSXGraph Analytic Line & Segment Division",
+    macroEngine: "AnalyticConicsLab",
+    course: "geometria",
+    license: "LGPL-3.0",
+    canonicalFormula: String.raw`d(A,B)=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2},\quad m=\frac{y_2-y_1}{x_2-x_1},\quad d(P,L)=\frac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}}`,
+    purpose: "Distancia entre dos puntos, punto medio, baricentro, pendiente, rectas paralelas/perpendiculares y área por determinantes",
+    keywords: /recta|geometr[ií]a anal[ií]tica|distancia|pendiente/i,
+  },
+  {
+    rank: 32,
+    id: "conic-circle-locus",
+    name: "GeoGebra Analytic Circle & Tangent Lab",
+    macroEngine: "AnalyticConicsLab",
+    course: "geometria",
+    license: "GPL-3.0",
+    canonicalFormula: String.raw`(x-h)^2+(y-k)^2=r^2,\quad x^2+y^2+Dx+Ey+F=0,\quad C=\left(-\frac{D}{2},-\frac{E}{2}\right)`,
+    purpose: "Ecuación ordinaria y general de la circunferencia, recta tangente y familia de circunferencias",
+    keywords: /ecuaci[oó]n de la circunferencia/i,
+  },
+  {
+    rank: 33,
+    id: "conic-parabola-focus",
+    name: "Mafs Parabola Focus-Directrix Explorer",
+    macroEngine: "AnalyticConicsLab",
+    course: "geometria",
+    license: "MIT",
+    canonicalFormula: String.raw`(x-h)^2=4p(y-k),\quad (y-k)^2=4p(x-h),\quad \text{Lado Recto}=|4p|,\quad e=1`,
+    purpose: "Ecuación de la parábola con eje focal paralelo a X o Y, foco, directriz y lado recto",
+    keywords: /par[aá]bola/i,
+  },
+  {
+    rank: 34,
+    id: "conic-ellipse-hyperbola",
+    name: "SymPy Conic Sections (Ellipse & Hyperbola)",
+    macroEngine: "AnalyticConicsLab",
+    course: "geometria",
+    license: "BSD-3-Clause",
+    canonicalFormula: String.raw`\frac{(x-h)^2}{a^2}+\frac{(y-k)^2}{b^2}=1\ (a^2=b^2+c^2),\quad \frac{(x-h)^2}{a^2}-\frac{(y-k)^2}{b^2}=1\ (c^2=a^2+b^2)`,
+    purpose: "Elipse e hipérbola: focos, excentricidad e=c/a, asíntotas y rotación de ejes por invariante B²−4AC",
+    keywords: /elipse|hip[eé]rbola|c[oó]nica/i,
+  },
+  {
+    rank: 35,
+    id: "mathbox-quadric-surfaces",
+    name: "MathBox 3D Quadric Surfaces & Polar Curves",
+    macroEngine: "AnalyticConicsLab",
+    course: "calculo-3",
+    license: "MIT",
+    canonicalFormula: String.raw`\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=1,\quad r(\theta)=\frac{ep}{1\pm e\cos\theta}`,
+    purpose: "Superficies cuádricas en ℝ³ (elipsoide, hiperboloide, paraboloide silla de montar) y cónicas en polares",
+    keywords: /cu[aá]drica|polar|r3/i,
+  },
+
+  // ============================================================================
+  // VIII. TrigonometryCircleLab — Circunferencia Trigonométrica y Ondas (#36–#40)
+  // ============================================================================
+  {
+    rank: 36,
+    id: "angular-sector-scr",
+    name: "JSXGraph Angular Systems (S-C-R) & Sector",
+    macroEngine: "TrigonometryCircleLab",
+    course: "trigonometria",
+    license: "LGPL-3.0",
+    canonicalFormula: String.raw`\frac{S}{9}=\frac{C}{10}=\frac{20R}{\pi},\quad L=\theta r,\quad S_{\text{sector}}=\frac{1}{2}\theta r^2=\frac{Lr}{2}`,
+    purpose: "Conversión entre sistemas sexagesimal (S), centesimal (C) y radial (R), longitud de arco y trapecio circular",
+    keywords: /medida(?:s)? angular|sistema(?:s)? angular|[aá]ngulo trigonom[eé]trico|longitud de arco|sector circular/i,
+  },
+  {
+    rank: 37,
+    id: "unit-circle-quadrants",
+    name: "Manim / JSXGraph Trigonometric Unit Circle",
+    macroEngine: "TrigonometryCircleLab",
+    course: "trigonometria",
+    license: "MIT",
+    canonicalFormula: String.raw`x^2+y^2=1,\quad P(\theta)=(\cos\theta,\sin\theta),\quad \operatorname{RT}(180^\circ\pm\theta)=\pm\operatorname{RT}(\theta)`,
+    purpose: "Líneas trigonométricas (seno, coseno, tangente, cotangente, secante, cosecante), posición normal y reducción al I C",
+    keywords: /circunferencia trigonom[eé]trica|posici[oó]n normal|cuadrantales|reducci[oó]n al primer cuadrante/i,
+  },
+  {
+    rank: 38,
+    id: "sympy-trig-identities",
+    name: "SymPy Trig Identities & Angle Transformations",
+    macroEngine: "TrigonometryCircleLab",
+    course: "trigonometria",
+    license: "BSD-3-Clause",
+    canonicalFormula: String.raw`\sin(\alpha\pm\beta)=\sin\alpha\cos\beta\pm\cos\alpha\sin\beta,\quad \sin A+\sin B=2\sin\left(\frac{A+B}{2}\right)\cos\left(\frac{A-B}{2}\right)`,
+    purpose: "Identidades pitagóricas, auxiliares, de arcos compuestos, arco doble/mitad/triple y transformaciones de suma a producto",
+    keywords: /identidad|compuestos|m[uú]ltiples|transformaciones trigonom[eé]tricas/i,
+  },
+  {
+    rank: 39,
+    id: "harmonic-wave-oscillator",
+    name: "Desmos Harmonic Wave & Inverse Trig Plotter",
+    macroEngine: "TrigonometryCircleLab",
+    course: "trigonometria",
+    license: "MIT",
+    canonicalFormula: String.raw`f(x)=A\sin(\omega x+\varphi)+D,\quad T=\frac{2\pi}{|\omega|},\quad \sin x=\sin\alpha\implies x=k\pi+(-1)^k\alpha`,
+    purpose: "Amplitud, periodo, desfase de funciones sinusoidales, funciones trigonométricas inversas y ecuaciones trigonométricas",
+    keywords: /funciones trigonom[eé]tricas|ecuacion(?:es)? trigonom[eé]tricas?/i,
+  },
+  {
+    rank: 40,
+    id: "oblique-triangles-nav",
+    name: "GeoGebra Sine/Cosine Law & Vertical Angles",
+    macroEngine: "TrigonometryCircleLab",
+    course: "trigonometria",
+    license: "GPL-3.0",
+    canonicalFormula: String.raw`\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R,\quad a^2=b^2+c^2-2bc\cos A,\quad H=d\tan\alpha`,
+    purpose: "Ángulos de elevación y depresión, triángulos rectángulos notables y resolución de triángulos oblicuángulos",
+    keywords: /oblicu[aá]ngulos|verticales|agudos|notables|\br\s*t\b/i,
+  },
+
+  // ============================================================================
+  // IX. StatisticsProbabilityLab — Estadística, Combinatoria y Probabilidad (#41–#45)
+  // ============================================================================
+  {
+    rank: 41,
+    id: "jstat-frequency-table",
+    name: "jStat Frequency Distribution & Central Tendency",
+    macroEngine: "StatisticsProbabilityLab",
+    course: "estadistica-y-probabilidad",
+    license: "MIT",
+    canonicalFormula: String.raw`\bar{x}=\frac{\sum_{i=1}^{k}x_if_i}{n},\quad Me=L_i+w\left(\frac{\frac{n}{2}-F_{i-1}}{f_i}\right),\quad Mo=L_i+w\left(\frac{d_1}{d_1+d_2}\right)`,
+    purpose: "Tablas de distribución de frecuencias (fi, Fi, hi, Hi%) para datos agrupados y medidas de tendencia central",
+    keywords: /frecuencia|tendencia central|promedio|introducci[oó]n a la estad[ií]stica|^estad[ií]stica$/i,
+  },
+  {
+    rank: 42,
+    id: "plotly-statistical-charts",
+    name: "Plotly.js / Vega-Lite Statistical Charts",
+    macroEngine: "StatisticsProbabilityLab",
+    course: "estadistica-y-probabilidad",
+    license: "MIT",
+    canonicalFormula: String.raw`\theta_i=360^\circ\cdot\frac{f_i}{n},\quad h_i\%=\frac{f_i}{n}\times100\%,\quad \text{Densidad}_i=\frac{f_i}{w_i}`,
+    purpose: "Histogramas, polígonos de frecuencias, ojivas, diagramas de barras agrupadas y sectores circulares",
+    keywords: /gr[aá]fico|barras|circular|lineal|histograma/i,
+  },
+  {
+    rank: 43,
+    id: "scipy-dispersion-regression",
+    name: "Simple-Statistics Dispersion & Regression",
+    macroEngine: "StatisticsProbabilityLab",
+    course: "estadistica-y-probabilidad",
+    license: "ISC",
+    canonicalFormula: String.raw`\sigma^2=\frac{\sum_{i=1}^{k}f_i(x_i-\bar{x})^2}{n},\quad CV=\frac{\sigma}{\bar{x}}\times100\%,\quad \hat{y}=\bar{y}+r\frac{s_y}{s_x}(x-\bar{x})`,
+    purpose: "Varianza, desviación estándar, coeficiente de variación, cuartiles/deciles/percentiles y regresión lineal",
+    keywords: /dispersi[oó]n|varianza|cuartil|percentil|no central/i,
+  },
+  {
+    rank: 44,
+    id: "combinatorics-binomial-engine",
+    name: "SageMath Combinatorics & Binomial Engine",
+    macroEngine: "StatisticsProbabilityLab",
+    course: "estadistica-y-probabilidad",
+    license: "GPL-3.0",
+    canonicalFormula: String.raw`P_n=n!,\quad P_c(n)=(n-1)!,\quad P_{a,b}^n=\frac{n!}{a!\,b!},\quad \binom{n}{k}+\binom{n}{k+1}=\binom{n+1}{k+1}`,
+    purpose: "Principios de adición y multiplicación, permutaciones lineales/circulares/con repetición y combinaciones",
+    keywords: /combinator|permutaci[oó]n|variaci[oó]n/i,
+  },
+  {
+    rank: 45,
+    id: "bayes-probability-sim",
+    name: "PyMC / Prob.js Conditional & Bayes Simulator",
+    macroEngine: "StatisticsProbabilityLab",
+    course: "estadistica-y-probabilidad",
+    license: "Apache-2.0",
+    canonicalFormula: String.raw`P(A\mid B)=\frac{P(A\cap B)}{P(B)},\quad P(B_k\mid A)=\frac{P(B_k)P(A\mid B_k)}{\sum_{i}P(B_i)P(A\mid B_i)},\quad P(X=k)=\binom{n}{k}p^kq^{n-k}`,
+    purpose: "Espacio muestral de Laplace, probabilidad condicional, Teorema de Bayes y distribución binomial",
+    keywords: /probabilidad|bayes|esperanza/i,
+  },
+
+  // ============================================================================
+  // X. LogicalReasoningLab — Razonamiento Matemático, Lógica y Grafos (#46–#50)
+  // ============================================================================
+  {
+    rank: 46,
+    id: "lean4-propositional-logic",
+    name: "Lean 4 / Truth-Table Propositional Solver",
+    macroEngine: "LogicalReasoningLab",
+    course: "razonamiento-matematico",
+    license: "Apache-2.0",
+    canonicalFormula: String.raw`(p\to q)\equiv(\neg p\vee q),\quad \neg(p\wedge q)\equiv(\neg p\vee\neg q),\quad [(p\to q)\wedge p]\implies q`,
+    purpose: "Tablas de verdad, leyes del álgebra proposicional, circuitos lógicos, principio de suposición y suficiencia de datos",
+    keywords: /l[oó]gica proposicional|situaciones l[oó]gicas|verdades y mentiras|suficiencia de datos|ordenamiento/i,
+  },
+  {
+    rank: 47,
+    id: "z3-cryptarithm-magic",
+    name: "Microsoft Z3 SMT Cryptarithm & Magic Squares",
+    macroEngine: "LogicalReasoningLab",
+    course: "razonamiento-matematico",
+    license: "MIT",
+    canonicalFormula: String.raw`\overline{abc}_{(10)}=100a+10b+c,\quad S_{\text{mágica}}=\frac{n(n^2+1)}{2}=3\cdot t_{\text{central}},\quad N_{\text{pesadas}}=\lceil\log_3(n)\rceil`,
+    purpose: "Resolución por restricciones SMT de criptoaritmética, cuadrados mágicos, arreglos numéricos y balanzas",
+    keywords: /criptoaritm[eé]tica|cuadrados m[aá]gicos|arreglos num[eé]ricos|balanzas|pesadas/i,
+  },
+  {
+    rank: 48,
+    id: "chronometry-mobiles-lab",
+    name: "Chronometry & Kinematics Reasoning Engine",
+    macroEngine: "LogicalReasoningLab",
+    course: "razonamiento-matematico",
+    license: "MIT",
+    canonicalFormula: String.raw`\theta=\left|30H-\frac{11}{2}M\right|,\quad T_{\text{camp}}=(N-1)\cdot I,\quad N_{\text{cortes}}=\frac{L_T}{L_u}-1,\quad t_e=\frac{d}{v_1+v_2}`,
+    purpose: "Ángulo entre manecillas del reloj, adelantos/atrasos, campanadas, cortes/estacas, edades y móviles",
+    keywords: /cronometr[ií]|reloj|campanadas|cortes|estacas|m[oó]viles|edades|planteo|tiempo|calendario/i,
+  },
+  {
+    rank: 49,
+    id: "inductive-figure-counter",
+    name: "OEIS / SymPy Inductive Figure & Sequence Counter",
+    macroEngine: "LogicalReasoningLab",
+    course: "razonamiento-matematico",
+    license: "BSD-3-Clause",
+    canonicalFormula: String.raw`N_{\text{seg}}=\frac{n(n+1)}{2},\quad N_{\text{cuad}}=\frac{n(n+1)}{2}\frac{m(m+1)}{2},\quad N_{\text{cubos}}=\left[\frac{n(n+1)}{2}\right]^2`,
+    purpose: "Conteo inductivo de segmentos, triángulos, cuadriláteros, cubos, habilidad operativa y operadores matemáticos",
+    keywords: /conteo de figuras|conteo de cubos|conteo de caras|inductivo|deductivo|habilidad operativa|operadores|analog[ií]a|distribuci[oó]n|secuencia|psicot/i,
+  },
+  {
+    rank: 50,
+    id: "eulerian-graph-certainties",
+    name: "Cytoscape.js Eulerian Paths & Certainties",
+    macroEngine: "LogicalReasoningLab",
+    course: "razonamiento-matematico",
+    license: "MIT",
+    canonicalFormula: String.raw`N_{\text{impares}}\in\{0,2\}\ (\text{Euler}),\quad N_{\text{trazos}}=\frac{N_{\text{impares}}}{2},\quad N_{\text{ext}}=\text{Peor Caso}+1`,
+    purpose: "Figuras de un solo trazo (Teorema de Euler), conteo de rutas en grillas de Pascal y problemas de certezas",
+    keywords: /un solo trazo|trazo de figuras|rutas|trayectorias|certeza/i,
+  },
+
+  // ============================================================================
+  // XI. CalculusAnalysisLab — Cálculo I, II, III y Ecuaciones Diferenciales (#51–#55)
+  // ============================================================================
+  {
+    rank: 51,
+    id: "manim-epsilon-delta",
+    name: "Manim / JSXGraph Epsilon-Delta Limit Explorer",
+    macroEngine: "CalculusAnalysisLab",
+    course: "calculo-1",
+    license: "MIT",
+    canonicalFormula: String.raw`\forall\varepsilon>0,\ \exists\delta>0:0<|x-c|<\delta\implies |f(x)-L|<\varepsilon,\quad \lim_{x\to0}\frac{\sin x}{x}=1`,
+    purpose: "Bandas interactivas épsilon-delta, límites laterales, asíntotas, continuidad y Teorema de Bolzano",
+    keywords: /l[ií]mite|continuidad|bolzano|as[ií]ntota/i,
+  },
+  {
+    rank: 52,
+    id: "sympy-differential-calculus",
+    name: "SymPy Symbolic Differentiation & Optimization",
+    macroEngine: "CalculusAnalysisLab",
+    course: "calculo-1",
+    license: "BSD-3-Clause",
+    canonicalFormula: String.raw`f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h},\quad f'(c)=\frac{f(b)-f(a)}{b-a},\quad \lim_{x\to c}\frac{f(x)}{g(x)}=\lim_{x\to c}\frac{f'(x)}{g'(x)}`,
+    purpose: "Recta tangente móvil, regla de la cadena, derivación implícita, teoremas de Rolle/Lagrange, L'Hôpital y optimización",
+    keywords: /derivad|diferencial|razones de cambio|rolle|lagrange|lhopital|concavidad|optimizaci[oó]n/i,
+  },
+  {
+    rank: 53,
+    id: "riemann-integral-revol",
+    name: "SciPy Quad / Riemann Sums & Solids of Revolution",
+    macroEngine: "CalculusAnalysisLab",
+    course: "calculo-2",
+    license: "BSD-3-Clause",
+    canonicalFormula: String.raw`\int_a^b f(x)\,dx=\lim_{n\to\infty}\sum_{i=1}^{n}f(x_i^*)\Delta x=F(b)-F(a),\quad V=\pi\int_a^b\left([R(x)]^2-[r(x)]^2\right)dx`,
+    purpose: "Sumas de Riemann, Teorema Fundamental del Cálculo, métodos de integración, volúmenes de revolución y series de Taylor",
+    keywords: /riemann|integral|fracciones parciales|revoluci[oó]n|pappus|gamma|series infinitas/i,
+  },
+  {
+    rank: 54,
+    id: "vector-calculus-gradient",
+    name: "Three.js / SymPy Vector Calculus & Multiple Integrals",
+    macroEngine: "CalculusAnalysisLab",
+    course: "calculo-3",
+    license: "BSD-3-Clause",
+    canonicalFormula: String.raw`\nabla f=\left(\frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right),\quad \nabla f=\lambda\nabla g,\quad \oint_{\partial D}\mathbf{F}\cdot d\mathbf{r}=\iint_D(\nabla\times\mathbf{F})\cdot d\mathbf{S}`,
+    purpose: "Derivadas parciales, plano tangente, multiplicadores de Lagrange, integrales múltiples, Jacobiano y Green-Stokes-Gauss",
+    keywords: /parciales|gradiente|frenet|fubini|jacobiano|green|stokes|gauss|multivariable/i,
+  },
+  {
+    rank: 55,
+    id: "scipy-ode-laplace-phase",
+    name: "SciPy RK45 ODE Phase Portrait & Laplace Transform",
+    macroEngine: "CalculusAnalysisLab",
+    course: "ecuaciones-diferenciales",
+    license: "BSD-3-Clause",
+    canonicalFormula: String.raw`y'+P(x)y=Q(x),\quad mx''+cx'+kx=F_0\cos(\omega t),\quad \mathcal{L}\{f(t)\}=\int_0^\infty e^{-st}f(t)\,dt`,
+    purpose: "Campos direccionales, EDOs exactas/lineales, Wronskiano, osciladores RLC, Transformada de Laplace y plano de fase",
+    keywords: /edo|bernoulli|riccati|wronskiano|variaci[oó]n de par[aá]metros|vibraciones|laplace|plano de fase/i,
+  },
+
+  // ============================================================================
+  // XII. SciencePhysicsChemLab — Física Clásica/Moderna y Química General (#56–#60)
+  // ============================================================================
+  {
+    rank: 56,
+    id: "matter-kinematics-projectile",
+    name: "Matter.js / Box2D Kinematics & Projectile Lab",
+    macroEngine: "SciencePhysicsChemLab",
+    course: "fisica",
+    license: "MIT",
+    canonicalFormula: String.raw`\mathbf{r}(t)=\mathbf{r}_0+\mathbf{v}_0t+\frac{1}{2}\mathbf{g}t^2,\quad y(x)=x\tan\theta-\frac{gx^2}{2v_0^2\cos^2\theta},\quad a_c=\frac{v^2}{R}`,
+    purpose: "Análisis dimensional, vectores en ℝ³/ℝ², MRU, MRUV, caída libre, tiro parabólico y movimiento circular",
+    keywords: /dimensional|cinem[aá]tica|parab[oó]lico|circular/i,
+  },
+  {
+    rank: 57,
+    id: "newtonian-mechanics-energy",
+    name: "PyPhysics Newtonian Mechanics, Gravity & Fluids",
+    macroEngine: "SciencePhysicsChemLab",
+    course: "fisica",
+    license: "BSD-3-Clause",
+    canonicalFormula: String.raw`\sum\mathbf{F}=m\mathbf{a},\quad \sum\boldsymbol{\tau}_O=\mathbf{0},\quad E_m=\frac{1}{2}mv^2+mgh+\frac{1}{2}kx^2,\quad E_{\text{Arq}}=\rho_{\text{líq}}gV_{\text{sum}}`,
+    purpose: "Estática (torque y Lamy), dinámica de Newton, gravitación de Kepler, trabajo/energía, choques, MAS e hidrostática",
+    keywords: /est[aá]tica|din[aá]mica|gravitaci[oó]n|trabajo|energ[ií]a|cantidad de movimiento|arm[oó]nico|hidrost[aá]tica/i,
+  },
+  {
+    rank: 58,
+    id: "maxwell-thermo-electromag",
+    name: "OpenEMS Thermodynamics & Electromagnetism Lab",
+    macroEngine: "SciencePhysicsChemLab",
+    course: "fisica",
+    license: "GPL-3.0",
+    canonicalFormula: String.raw`Q=\Delta U+W,\quad \eta=1-\frac{T_F}{T_C},\quad F=k_e\frac{|q_1q_2|}{r^2},\quad \Delta V=IR,\quad \varepsilon=-\frac{d\Phi_B}{dt}`,
+    purpose: "Calorimetría, primera y segunda ley de la termodinámica (Carnot), electrostática de Coulomb, circuitos y Faraday-Lenz",
+    keywords: /calorimetr[ií]a|termodin[aá]mica|electrost[aá]tica|electrodin[aá]mica|electromagnetismo/i,
+  },
+  {
+    rank: 59,
+    id: "rdkit-quantum-atomic-structure",
+    name: "RDKit / Psi4 Atomic Structure & Chemical Bonding",
+    macroEngine: "SciencePhysicsChemLab",
+    course: "quimica",
+    license: "BSD-3-Clause",
+    canonicalFormula: String.raw`A=Z+N,\quad \#e^{-}=Z-q,\quad E_R=n+l,\quad \text{CF}=V-\left(L+\frac{1}{2}B\right),\quad \sum(\text{E.O.})=0`,
+    purpose: "Núclidos e iones, configuración electrónica (Aufbau/Hund), propiedades periódicas, geometría RPECV y nomenclatura",
+    keywords: /materia|n[uú]clidos|cu[aá]nticos|tabla peri[oó]dica|hibridaci[oó]n|enlace|nomenclatura/i,
+  },
+  {
+    rank: 60,
+    id: "cantera-stoichiometry-equilibrium",
+    name: "Cantera / ChemPy Stoichiometry, Gases & Acid-Base pH",
+    macroEngine: "SciencePhysicsChemLab",
+    course: "quimica",
+    license: "BSD-3-Clause",
+    canonicalFormula: String.raw`PV=nRT,\quad \frac{n_A}{|a|}=\frac{n_B}{|b|},\quad M=\frac{n_{\text{sto}}}{V_{\text{L}}},\quad K_p=K_c(RT)^{\Delta n},\quad \text{pH}=-\log[\text{H}^+]`,
+    purpose: "Unidades químicas de masa, gases ideales, balance redox, reactivo limitante, molaridad, equilibrio químico y pH",
+    keywords: /unidades qu[ií]micas|gaseoso|redox|reacciones|estequiometr[ií]a|molaridad|equilibrio|ph/i,
+  },
+];
+
+export function getOpenSourceEnginesByMacro(macroEngine: AppEngineId): OpenSourceMathEngine[] {
+  return OPEN_SOURCE_60_ENGINES.filter((eng) => eng.macroEngine === macroEngine);
+}
+
+export function resolveOpenSourceEngineForLesson(lesson: {
+  title: string;
+  course: string;
+  appEngine: AppEngineId;
+}): OpenSourceMathEngine {
+  const candidates = OPEN_SOURCE_60_ENGINES.filter((eng) => eng.macroEngine === lesson.appEngine);
+  const byCourseAndKeyword = OPEN_SOURCE_60_ENGINES.find(
+    (eng) => eng.course === lesson.course && eng.keywords.test(lesson.title)
+  );
+  if (byCourseAndKeyword) return byCourseAndKeyword;
+
+  const byMacroAndKeyword = candidates.find((eng) => eng.keywords.test(lesson.title));
+  if (byMacroAndKeyword) return byMacroAndKeyword;
+
+  return candidates[0] || OPEN_SOURCE_60_ENGINES[0];
+}

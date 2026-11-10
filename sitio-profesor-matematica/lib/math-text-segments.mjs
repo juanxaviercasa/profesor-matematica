@@ -12,7 +12,7 @@ const delimiters=[
 
 const par=String.raw`\([^()\n]{1,48}\)`;
 const call="[A-Za-z]"+par;
-const supers=String.raw`(?:[⁰¹²³⁴⁵⁶⁷⁸⁹ⁿˣ₀₁₂₃₄₅₆₇₈₉]|\^\{?[-+a-zA-Z0-9]{1,12}\}?){0,2}`;
+const supers=String.raw`(?:[⁰¹²³⁴⁵⁶⁷⁸⁹ⁿˣ₀₁₂₃₄₅₆₇₈₉]|\^\{[^{}\n]{1,36}\}|\^[-+a-zA-Z0-9]{1,12}){0,2}`;
 const base=String.raw`(?:[A-Za-zπθℝℕℤ]|\d+(?:[.,]\d+)?)`+supers;
 const factor="(?:"+call+"|"+par+"|√"+par+"|√[A-Za-z0-9]+|"+base+")"+supers;
 const product="(?:"+factor+"){1,3}";

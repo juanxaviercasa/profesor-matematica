@@ -35,7 +35,7 @@ const herramientas=read(publicFiles["Herramientas"]);
 const problemas=read(publicFiles["Práctica adicional"]);
 assert.match(aprende,/Lee explicaciones, resuelve ejercicios y practica/);
 assert.match(curso,/Temas por grado/);
-assert.match(curso,/Próximamente/);
+assert.match(curso,/Listo para estudiar/);
 assert.match(blog,/Filtrar por herramienta interactiva:/);
 assert.match(herramientas,/TEMAS RELACIONADOS/);
 assert.match(herramientas,/Ver todas las lecciones/);

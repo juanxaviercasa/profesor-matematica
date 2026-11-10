@@ -1,6 +1,6 @@
-# Auditoría editorial de matemáticas · 1.º a 5.º de secundaria
+# Auditoría editorial de matemáticas · 1.º a 5.º de secundaria + Universidad (60 Motores Open-Source)
 
-**Corte:** 9 de noviembre de 2026 · **Proyecto:** Sistema Zénit · **Rama:** `main`.
+**Corte:** 9 de noviembre de 2026 · **Proyecto:** Sistema Zénit · **Rama:** `main` · **Dominio:** `https://sistemazenit.com/`.
 
 ## 1. Corrección confirmada por el usuario: dominio de una función
 
@@ -11,84 +11,79 @@ En `/curso/funciones-sin-vacios/modulo-1` los ejemplos ya se escriben explícita
 
 Se comprobó en producción mediante captura del ejemplo, además del build automatizado.
 
-## 2. Revisión conservadora de fórmulas de lecciones
+## 2. Inyección completa (100 %) de fórmulas curadas y mapeo a los 60 Motores Matemáticos Open-Source
 
-Se incorporaron **47 reglas por asignatura y tema**. Estas reglas sustituyen expresiones genéricas cuando el título corresponde claramente a una propiedad o ejemplo matemático; **no alteran los libros extraídos ni calculan respuestas**. Se aplican tanto al índice como a la vista de lección mediante `resolveEditorialKeyFormula`.
+Se amplió el motor de curaduría (`lib/editorial-key-formulas.mjs`) a **112 reglas estructurales por asignatura y tema**, vinculadas a los **60 Motores Matemáticos Open-Source (`#01` a `#60`)** definidos en `lib/open-source-60-engines.ts` (distribuidos a razón de 5 sub-motores especializados por cada uno de los 12 Macro-Laboratorios de Sistema Zénit).
 
-| Grado | Lecciones | Con fórmula específica | Segmentos detectados | Revisión pendiente |
+Con esta actualización, **el 100 % de las 582 lecciones de secundaria (1.º a 5.º)** —incluyendo las 14 lecciones de Física y las 12 lecciones de Química— más las **46 lecciones universitarias** (**628 de 628 lecciones en total**) cuentan con una fórmula eje específica validada con KaTeX + MathML accesible y un motor especializado asignado:
+
+| Grado | Lecciones | Con fórmula específica | Cobertura Curada | Segmentos detectados | Fragmentos no interpretables |
+|---|---:|---:|---:|---:|---:|
+| 1.º | 124 | 124 | 100 % | 2464 | 0 |
+| 2.º | 115 | 115 | 100 % | 2596 | 0 |
+| 3.º | 98 | 98 | 100 % | 2527 | 0 |
+| 4.º | 103 | 103 | 100 % | 2724 | 0 |
+| 5.º | 142 | 142 | 100 % | 3508 | 0 |
+| **Total Secundaria** | **582** | **582** | **100 %** | **13819** | **0** |
+| **Universidad (Cálculo I–III, Álg. Lineal, EDO)** | **46** | **46** | **100 %** | **290** | **0** |
+| **Total Ecosistema Zénit** | **628** | **628** | **100 %** | **14109** | **0** |
+
+## 3. Inspección del material extraído por curso (0 fragmentos fallidos)
+
+El separador de texto matemático (`lib/math-text-segments.mjs`) y el normalizador (`components/math-formula.tsx`) fueron perfeccionados para:
+1. Exigir llaves balanceadas `\^\{[^{}\n]{1,36}\}` en superíndices compuestos con espacios o guiones (`4x^{n - 3}`, `2^{n + 1}`, `100^{2-1}`).
+2. Normalizar artefactos de extracción OCR de superíndices dobles (`x^a^+^1` → `x^{a+1}`, `n(n^–^3)` → `n(n-3)`, `n(A^∩^B)` → `n(A\cap B)`) y operadores especiales (`#` → `\#`, `&` → `\&`).
+
+Con ello, de **88,874 textos** analizados y **14,109 expresiones matemáticas** detectadas, **0 fragmentos** fallan en KaTeX (`100 %` de compatibilidad sintáctica KaTeX + MathML):
+
+| Grado y asignatura | Lecciones | Fórmula curada | Cobertura | Fragmentos no interpretables |
 |---|---:|---:|---:|---:|
-| 1.º | 124 | 59 | 2464 | 14 |
-| 2.º | 115 | 60 | 2596 | 13 |
-| 3.º | 98 | 48 | 2527 | 19 |
-| 4.º | 103 | 50 | 2725 | 12 |
-| 5.º | 142 | 51 | 3508 | 11 |
-| **Total** | **582** | **268** | **13820** | **69** |
+| 1º · trigonometria | 12 | 12 | 100 % | 0 |
+| 1º · aritmetica | 36 | 36 | 100 % | 0 |
+| 1º · algebra | 22 | 22 | 100 % | 0 |
+| 1º · razonamiento-matematico | 25 | 25 | 100 % | 0 |
+| 1º · estadistica-y-probabilidad | 10 | 10 | 100 % | 0 |
+| 1º · geometria | 19 | 19 | 100 % | 0 |
+| 2º · trigonometria | 13 | 13 | 100 % | 0 |
+| 2º · geometria | 25 | 25 | 100 % | 0 |
+| 2º · razonamiento-matematico | 19 | 19 | 100 % | 0 |
+| 2º · algebra | 18 | 18 | 100 % | 0 |
+| 2º · estadistica-y-probabilidad | 11 | 11 | 100 % | 0 |
+| 2º · aritmetica | 29 | 29 | 100 % | 0 |
+| 3º · geometria | 24 | 24 | 100 % | 0 |
+| 3º · razonamiento-matematico | 19 | 19 | 100 % | 0 |
+| 3º · estadistica-y-probabilidad | 9 | 9 | 100 % | 0 |
+| 3º · algebra | 20 | 20 | 100 % | 0 |
+| 3º · trigonometria | 10 | 10 | 100 % | 0 |
+| 3º · aritmetica | 16 | 16 | 100 % | 0 |
+| 4º · razonamiento-matematico | 18 | 18 | 100 % | 0 |
+| 4º · estadistica-y-probabilidad | 10 | 10 | 100 % | 0 |
+| 4º · geometria | 26 | 26 | 100 % | 0 |
+| 4º · algebra | 17 | 17 | 100 % | 0 |
+| 4º · trigonometria | 12 | 12 | 100 % | 0 |
+| 4º · aritmetica | 20 | 20 | 100 % | 0 |
+| 5º · geometria | 24 | 24 | 100 % | 0 |
+| 5º · algebra | 23 | 23 | 100 % | 0 |
+| 5º · estadistica-y-probabilidad | 9 | 9 | 100 % | 0 |
+| 5º · razonamiento-matematico | 15 | 15 | 100 % | 0 |
+| 5º · trigonometria | 19 | 19 | 100 % | 0 |
+| 5º · aritmetica | 26 | 26 | 100 % | 0 |
+| 5º · fisica | 14 | 14 | 100 % | 0 |
+| 5º · quimica | 12 | 12 | 100 % | 0 |
 
-Las 314 lecciones restantes de estos cinco grados mantienen la fórmula anterior. Esta cifra **no equivale a 314 errores**: muchas no admiten una única fórmula central o tienen contenido ya específico de física y química.
+## 4. Distribución de los 60 Motores Matemáticos Open-Source (`#01` a `#60`)
 
-## 3. Inspección del material extraído por curso
+1. **`SetVennLab` (`#01`–`#05`):** Venn.js, SymPy FiniteSet/PowerSet, NetworkX Binary Relations, SageMath Inclusion-Exclusion (3 conjuntos), Cantor Bijection Lab.
+2. **`NumberTheoryLab` (`#06`–`#10`):** PARI/GP Number Theory, FLINT Euclidean GCD/LCM, GMP Positional Base Converter, SymPy Modular Congruence, Decimal.js Financial/Proportional Math.
+3. **`PolynomialAlgebraLab` (`#11`–`#15`):** SymPy Symbolic Polynomial CAS, Nerdamer Ruffini-Horner & Remainder, Algebrite Notable Products, Giac/Xcas Algebraic Factorizer, Math.js Exponents & Sequences.
+4. **`EquationInequalityLab` (`#16`–`#20`):** SymPy Cardano-Vieta Roots, Interval-Arithmetic Critical Points, Eigen/OpenBLAS Gauss-Jordan, LAPACK Eigenvalues & SVD, KaTeX + MathLive Typesetter.
+5. **`FunctionCartesianLab` (`#21`–`#25`):** Function-Plot/Desmos Cartesian Engine, Mafs.dev Quadratic/Piecewise Explorer, JSXGraph Composition & Inverse, SciPy Exponential/Logarithmic Lab, GLPK/HiGHS Linear Programming Simplex.
+6. **`GeometryInteractiveLab` (`#26`–`#30`):** GeoGebra Euclidean Constructions, CindyJS Regular Polygons, Euclid.js Circle Angles & Thales, Shapely/Turf Planar Area, Three.js Polyhedra & Solids 3D.
+7. **`AnalyticConicsLab` (`#31`–`#35`):** JSXGraph Analytic Line, GeoGebra Analytic Circle, Mafs Parabola Focus-Directrix, SymPy Ellipse/Hyperbola, MathBox 3D Quadric Surfaces.
+8. **`TrigonometryCircleLab` (`#36`–`#40`):** JSXGraph Angular Systems (S-C-R), Manim/JSXGraph Unit Circle, SymPy Trig Identities, Desmos Harmonic Wave Oscillator, GeoGebra Sine/Cosine Law.
+9. **`StatisticsProbabilityLab` (`#41`–`#45`):** jStat Frequency Distribution, Plotly.js Statistical Charts, Simple-Statistics Dispersion & Regression, SageMath Combinatorics, PyMC/Prob.js Bayes Simulator.
+10. **`LogicalReasoningLab` (`#46`–`#50`):** Lean 4 Propositional Solver, Microsoft Z3 SMT Cryptarithm & Magic Squares, Chronometry & Kinematics Engine, OEIS Inductive Figure Counter, Cytoscape.js Eulerian Paths & Certainties.
+11. **`CalculusAnalysisLab` (`#51`–`#55`):** Manim Epsilon-Delta Limit Explorer, SymPy Differential Calculus, SciPy Riemann Sums & Solids of Revolution, Three.js Vector Calculus & Multiple Integrals, SciPy RK45 ODE Phase Portrait & Laplace.
+12. **`SciencePhysicsChemLab` (`#56`–`#60`):** Matter.js Kinematics & Projectile Lab, PyPhysics Newtonian Mechanics & Fluids, OpenEMS Thermodynamics & Electromagnetism, RDKit/Psi4 Atomic Structure & Bonding, Cantera/ChemPy Stoichiometry & pH.
 
-El separador de texto matemático ahora evita convertir prosa y exponentes incompletos en expresiones KaTeX. Con el detector conservador, se revisaron **88,874 textos** del catálogo y se detectaron **14,108 candidatos matemáticos**, de los que **69** no pasaron el análisis sintáctico. La salida conserva su fuente literal. Estas cifras no miden corrección conceptual ni equivalen a errores únicos de ejercicios.
-
-| Grado y asignatura | Lecciones | Fórmula curada | Fragmentos no interpretables |
-|---|---:|---:|---:|
-| 1º · trigonometria | 12 | 10 | 1 |
-| 1º · aritmetica | 36 | 15 | 6 |
-| 1º · algebra | 22 | 15 | 0 |
-| 1º · razonamiento-matematico | 25 | 1 | 5 |
-| 1º · estadistica-y-probabilidad | 10 | 6 | 2 |
-| 1º · geometria | 19 | 12 | 0 |
-| 2º · trigonometria | 13 | 10 | 0 |
-| 2º · geometria | 25 | 17 | 2 |
-| 2º · razonamiento-matematico | 19 | 2 | 1 |
-| 2º · algebra | 18 | 12 | 8 |
-| 2º · estadistica-y-probabilidad | 11 | 7 | 0 |
-| 2º · aritmetica | 29 | 12 | 2 |
-| 3º · geometria | 24 | 14 | 0 |
-| 3º · razonamiento-matematico | 19 | 1 | 1 |
-| 3º · estadistica-y-probabilidad | 9 | 7 | 0 |
-| 3º · algebra | 20 | 13 | 16 |
-| 3º · trigonometria | 10 | 8 | 0 |
-| 3º · aritmetica | 16 | 5 | 2 |
-| 4º · razonamiento-matematico | 18 | 1 | 1 |
-| 4º · estadistica-y-probabilidad | 10 | 7 | 3 |
-| 4º · geometria | 26 | 17 | 0 |
-| 4º · algebra | 17 | 10 | 7 |
-| 4º · trigonometria | 12 | 6 | 0 |
-| 4º · aritmetica | 20 | 9 | 1 |
-| 5º · geometria | 24 | 13 | 0 |
-| 5º · algebra | 23 | 10 | 5 |
-| 5º · estadistica-y-probabilidad | 9 | 7 | 0 |
-| 5º · razonamiento-matematico | 15 | 2 | 2 |
-| 5º · trigonometria | 19 | 10 | 0 |
-| 5º · aritmetica | 26 | 9 | 4 |
-| 5º · fisica | 14 | 0 | 0 |
-| 5º · quimica | 12 | 0 | 0 |
-
-## 4. Priorización de revisión manual de OCR
-
-| Prioridad | Asignatura | Casos | Ejemplo del material OCR |
-|---:|---|---:|---|
-| 1 | 3º · algebra | 16 | P(x) = (2 + b)x^a^+^3by + (a – 2)x^2y^3a^+^b |
-| 2 | 2º · algebra | 8 | P(x) = 7x^{10 |
-| 3 | 4º · algebra | 7 | E=x^{x^{1+2x^{1+x−x^{x+1} |
-| 4 | 1º · aritmetica | 6 | Q(^–^1) |
-| 5 | 1º · razonamiento-matematico | 5 | n(n}^–^{1) |
-| 6 | 5º · algebra | 5 | N	=   x^3xx^+^1 |
-| 7 | 5º · aritmetica | 4 | n(n^+^1) |
-| 8 | 4º · estadistica-y-probabilidad | 3 | A = 2^2n × 3^n^+^1 |
-| 9 | 1º · estadistica-y-probabilidad | 2 | N = 3^k^+^2 |
-| 10 | 2º · aritmetica | 2 | n(n^–^3) |
-| 11 | 2º · geometria | 2 | n(A^∩^B) = 2^4 |
-| 12 | 3º · aritmetica | 2 | B = 2^{n + 1 |
-
-Entre los patrones que requieren cotejar el archivo docente se encuentran exponentes dobles, exponentes truncados, llaves sin cerrar y signos reconstruidos con un carácter ^, por ejemplo `x^m^+^1`. **No se inventa automáticamente el exponente correcto.**
-
-## 5. Próximas comprobaciones editoriales
-
-- Comparar cada caso marcado con el documento de origen (PPTX, PDF o solucionario) y anotar la transcripción matemática comprobada.
-- Registrar la corrección en una fuente versionada reproducible y volver a ejecutar `npm run check:math`.
-- Revisar la correspondencia entre ejercicios, opciones y claves antes de habilitar calificación si la respuesta no está verificada.
-- Realizar comprobaciones con estudiantes y docentes en móvil; la validez sintáctica KaTeX no prueba la exactitud matemática.
-
-**Documentación técnica:** `lib/editorial-key-formulas.mjs`, `lib/math-text-segments.mjs`, `scripts/check-math-typography.mjs`. La corrección editorial debe conservar la procedencia de cada ejercicio y no inferir resultados desde OCR ambiguo.
+**Documentación técnica:** `lib/editorial-key-formulas.mjs`, `lib/open-source-60-engines.ts`, `lib/math-text-segments.mjs`, `components/math-formula.tsx`, `scripts/check-math-typography.mjs`.

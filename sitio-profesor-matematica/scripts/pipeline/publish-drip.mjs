@@ -26,9 +26,16 @@ const lessonsFull = JSON.parse(fs.readFileSync(fullPath, "utf-8"));
 const lessonsIndex = JSON.parse(fs.readFileSync(indexPath, "utf-8"));
 
 const newlyPublishedSlugs = [];
-for (const item of lessonsFull) {
+for (let i = 0; i < lessonsFull.length; i++) {
+  const item = lessonsFull[i];
   if (item.publishStatus === "scheduled" && newlyPublishedSlugs.length < count) {
-    item.publishStatus = "published";
+    const slugFile = path.join(rootDir, "content/catalog/lessons", item.slug + ".json");
+    if (fs.existsSync(slugFile)) {
+      try {
+        lessonsFull[i] = JSON.parse(fs.readFileSync(slugFile, "utf-8"));
+      } catch {}
+    }
+    lessonsFull[i].publishStatus = "published";
     newlyPublishedSlugs.push(item.slug);
   }
 }
@@ -62,25 +69,13 @@ if (fs.existsSync(historyFile)) {
 }
 
 history.push({
-  timestamp: new Date().toISOString(),
-  countPublished: newlyPublishedSlugs.length,
+  date: new Date().toISOString(),
+  batchCount: newlyPublishedSlugs.length,
   publishedSlugs: newlyPublishedSlugs,
-  totalPublishedNow: totalPublished,
-  remainingScheduled: totalScheduled,
+  totalPublished,
+  totalScheduled
 });
+
 fs.writeFileSync(historyFile, JSON.stringify(history, null, 2), "utf-8");
-
-console.log(
-  `✓ [Zénit Drip] Publicadas ${newlyPublishedSlugs.length} nuevas lecciones (${totalPublished} publicadas / ${totalScheduled} en cola).`
-);
-
-// Auto-regenerate sitemap and knowledge graph
-import { execSync } from "node:child_process";
-try {
-  execSync(`node "${path.join(__dirname, "generate-sitemap-and-graph.mjs")}"`, {
-    stdio: "inherit",
-    cwd: rootDir,
-  });
-} catch (err) {
-  console.warn("No se pudo regenerar sitemap y graph automáticamente:", err.message);
-}
+console.log(`✓ [Zénit Drip] Publicadas ${newlyPublishedSlugs.length} lecciones: ${newlyPublishedSlugs.join(", ")}`);
+console.log(`✓ [Zénit Drip] Progreso total: ${totalPublished} publicadas / ${totalScheduled} programadas.`);

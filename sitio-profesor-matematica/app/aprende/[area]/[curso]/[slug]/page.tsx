@@ -5,6 +5,7 @@ import { Header, Footer } from "@/components/site";
 import Link from "@/components/safe-link";
 import { MathFormula, MathText } from "@/components/math-formula";
 import { ZenitInteractiveApp, ZENIT_ENGINES, type AppEngineId } from "@/components/zenit-app-engines";
+import { getOpenSourceEnginesByMacro, resolveOpenSourceEngineForLesson } from "@/lib/open-source-60-engines";
 import { InteractiveExerciseBank } from "@/components/interactive-exercise-bank";
 import { getVerifiedAnswerKey } from "@/lib/exercise-evaluation.mjs";
 import { InfiniteProblemGenerator } from "@/components/infinite-problem-generator";
@@ -129,6 +130,8 @@ export default async function TopicDetailPage({ params }: PageProps) {
     desc: "",
   };
   const engineMeta = ZENIT_ENGINES[lesson.appEngine as AppEngineId] || ZENIT_ENGINES.FunctionCartesianLab;
+  const openSourceEngine = resolveOpenSourceEngineForLesson({ title: lesson.title, course: lesson.course, appEngine: lesson.appEngine as AppEngineId });
+  const branchEngines = getOpenSourceEnginesByMacro(lesson.appEngine as AppEngineId);
   const studentSummary = /^Estudio completo de /i.test(lesson.summary)
     ? `Estudia ${lesson.title} con explicaciones, un simulador y práctica guiada. Compara diferentes representaciones y comprueba lo que has aprendido.`
     : lesson.summary;
@@ -300,14 +303,37 @@ export default async function TopicDetailPage({ params }: PageProps) {
           </div>
 
           {lesson.keyFormula && (
-            <div className="rounded-2xl bg-stone-950 p-6 border border-stone-800 text-center shadow-inner">
-              <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 block mb-2">
-                Fórmula o propiedad principal
-              </span>
+            <div className="rounded-2xl bg-stone-950 p-6 border border-stone-800 text-center shadow-inner space-y-4">
+              <div className="flex flex-wrap items-center justify-center gap-2">
+                <span className="text-xs font-mono uppercase tracking-widest text-emerald-400">
+                  Fórmula o propiedad principal
+                </span>
+                <span className="rounded-full bg-amber-500/15 px-3 py-0.5 text-xs font-mono font-bold text-amber-300 border border-amber-500/30">
+                  Motor Open-Source #{String(openSourceEngine.rank).padStart(2, "0")}/60 · {openSourceEngine.name}
+                </span>
+              </div>
               <div className="text-lg md:text-xl py-2 overflow-x-auto">
                 <MathFormula source={lesson.keyFormula} displayMode={true} />
                 <small className="math-scroll-hint">En móvil, desliza horizontalmente para ver fórmulas largas ↔</small>
               </div>
+              <details className="text-left border-t border-stone-800/80 pt-3">
+                <summary className="cursor-pointer text-xs font-mono text-stone-300 hover:text-emerald-300">
+                  Ver formulario ampliado de los 5 motores especializados de esta rama ({engineMeta.badge})
+                </summary>
+                <div className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {branchEngines.map((be) => (
+                    <div key={be.id} className="rounded-xl border border-stone-800 bg-stone-900/60 p-3 space-y-1.5">
+                      <div className="text-xs font-mono font-bold text-amber-300">
+                        #{String(be.rank).padStart(2, "0")} · {be.name}
+                      </div>
+                      <p className="text-xs text-stone-400">{be.purpose}</p>
+                      <div className="overflow-x-auto py-1">
+                        <MathFormula source={be.canonicalFormula} displayMode={true} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </details>
             </div>
           )}
 

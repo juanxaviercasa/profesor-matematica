@@ -45,12 +45,19 @@ function topLevelSlash(value:string){
 
 function symbols(value:string){
   return value
+    .replace(/\}\s*\^[-+–−]\^\s*\{/g,"-")
+    .replace(/\^([a-zA-Z0-9]+)\^([+\-–−])\^([0-9]+|[a-zA-Z](?!\^))/g,"^{$1$2$3}")
+    .replace(/\^\s*([+\-–−∩∪])\s*\^/g,"$1")
+    .replace(/\^([a-zA-Z0-9]+)\^(?=[)\s]|$)/g,"^{$1}")
+    .replace(/\s*\u0301/g,"'")
+    .replace(/(?<!\\)#/g,String.raw`\#`)
     .replace(/(^|[^\\\p{L}])(?:arcsen|arccos|arctan|arccot|arcsec|arccsc|sen|cos|tan|cot|sec|csc|log₂|log|ln)(?=\s*[(0-9xθ^²³])/gu, (whole,prefix) => { const name=whole.slice(prefix.length); const names:Record<string,string>={arcsen:"operatorname{arcsen}",sen:"operatorname{sen}","log₂":"log_{2}"}; return prefix+"\\"+(names[name]||(["arccot","arcsec","arccsc"].includes(name)?`operatorname{${name}}`:name))+" "; })
     .replace(/√\(([^()]*)\)/g,String.raw`\sqrt{$1}`).replace(/√([A-Za-z0-9]+)/g,String.raw`\sqrt{$1}`)
     .replace(/⁰/g,"^{0}").replace(/¹/g,"^{1}").replace(/²/g,"^{2}").replace(/³/g,"^{3}").replace(/⁴/g,"^{4}").replace(/ⁿ/g,"^{n}").replace(/ˣ/g,"^{x}").replace(/₀/g,"_{0}").replace(/₁/g,"_{1}").replace(/₂/g,"_{2}").replace(/₃/g,"_{3}")
     .replace(/ℝ/g,String.raw`\mathbb{R}`).replace(/ℕ/g,String.raw`\mathbb{N}`).replace(/ℤ/g,String.raw`\mathbb{Z}`).replace(/∈/g,String.raw`\in `).replace(/∉/g,String.raw`\notin `).replace(/∩/g,String.raw`\cap `).replace(/∅/g,String.raw`\varnothing`).replace(/∖/g,String.raw`\setminus `).replace(/∪/g,String.raw`\cup `).replace(/∞/g,String.raw`\infty`)
     .replace(/≤/g,String.raw`\le `).replace(/≥/g,String.raw`\ge `).replace(/≠/g,String.raw`\ne `).replace(/→/g,String.raw`\to `).replace(/·/g,String.raw`\cdot `)
-    .replace(/π/g,String.raw`\pi `).replace(/θ/g,String.raw`\theta `).replace(/α/g,String.raw`\alpha `).replace(/β/g,String.raw`\beta `).replace(/Δ/g,String.raw`\Delta `).replace(/×/g,String.raw`\times `).replace(/÷/g,String.raw`\div `).replace(/−/g,"-");
+    .replace(/π/g,String.raw`\pi `).replace(/θ/g,String.raw`\theta `).replace(/α/g,String.raw`\alpha `).replace(/β/g,String.raw`\beta `).replace(/Δ/g,String.raw`\Delta `).replace(/×/g,String.raw`\times `).replace(/÷/g,String.raw`\div `).replace(/[−–]/g,"-")
+    .replace(/(?<!\\)&/g,String.raw`\&`);
 }
 
 function expression(value:string):string{

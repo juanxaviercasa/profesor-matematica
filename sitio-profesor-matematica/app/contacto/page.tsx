@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Footer, Header, PageHero } from "@/components/site";
 import { ConversionForm } from "@/components/conversion";
+import { CONTACT_EMAIL } from "@/lib/lead-message";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/contacto" },
@@ -15,4 +16,4 @@ export default function Contact(){return <><Header/><main className="contact-pag
     <article><span>02</span><h3>Revisa el mensaje</h3><p>El formulario prepara un texto para WhatsApp. Puedes editarlo antes de enviarlo.</p></article>
     <article><span>03</span><h3>Conversemos sobre opciones</h3><p>La disponibilidad, modalidad y condiciones se confirman directamente.</p></article>
   </div>
-</section><section className="wrap contact-card"><a href="https://wa.me/51925475034?text=Hola%20Juan%2C%20quiero%20consultar%20por%20clases%20de%20matem%C3%A1tica." target="_blank" rel="noreferrer"><span>Consulta rápida</span><b>WhatsApp</b><p>+51 925 475 034</p><strong>Iniciar conversación →</strong></a><a href="mailto:cabellosalirrosas@gmail.com?subject=Consulta%20sobre%20clases%20de%20matem%C3%A1tica"><span>Consultas detalladas</span><b>Correo</b><p>cabellosalirrosas@gmail.com</p><strong>Escribir un correo →</strong></a><a href="https://www.tiktok.com/@sistemazenit" target="_blank" rel="noreferrer"><span>Contenido educativo</span><b>TikTok</b><p>@sistemazenit</p><strong>Ver el perfil →</strong></a></section></main><Footer/></>}
+</section><section className="wrap contact-card"><a href="https://wa.me/51925475034?text=Hola%20Juan%20Xavier%2C%20quiero%20consultar%20por%20clases%20de%20matem%C3%A1tica." target="_blank" rel="noreferrer"><span>Consulta rápida</span><b>WhatsApp</b><p>+51 925 475 034</p><strong>Iniciar conversación →</strong></a><a href={`mailto:${CONTACT_EMAIL}?subject=Consulta%20sobre%20clases%20de%20matem%C3%A1tica`}><span>Consultas detalladas</span><b>Correo</b><p>{CONTACT_EMAIL}</p><strong>Escribir un correo →</strong></a><a href="https://www.tiktok.com/@sistemazenit" target="_blank" rel="noreferrer"><span>Contenido educativo</span><b>TikTok</b><p>@sistemazenit</p><strong>Ver el perfil →</strong></a></section></main><Footer/></>}

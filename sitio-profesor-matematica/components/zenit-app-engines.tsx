@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from "react";
 import { MathFormula } from "./math-formula";
 import { CartesianAxes } from "./cartesian-axes";
+import { getOpenSourceEnginesByMacro, resolveOpenSourceEngineForLesson } from "@/lib/open-source-60-engines";
 
 export type AppEngineId =
   | "SetVennLab"
@@ -226,7 +227,7 @@ function SetVennLabWidget() {
           </div>
           <div>
             <div className="flex justify-between text-xs text-stone-300">
-              <span>Fuera de ambos: n((A ∪ B)')</span>
+              <span>Fuera de ambos: n((A ∪ B)&apos;)</span>
               <b className="text-stone-400 font-mono">{outside}</b>
             </div>
             <input aria-label="Elementos fuera de A y B" type="range" min={0} max={30} value={outside} onChange={e => setOutside(+e.target.value)} className="w-full accent-stone-400" />
@@ -1074,16 +1075,36 @@ export function ZenitInteractiveApp({
   customFormula?: string;
 }) {
   const meta = ZENIT_ENGINES[engineId] || ZENIT_ENGINES.FunctionCartesianLab;
-  const formulaToDisplay = customFormula || meta.formula;
+  const subEngines = useMemo(() => getOpenSourceEnginesByMacro(engineId), [engineId]);
+  const recommendedSubEngine = useMemo(
+    () =>
+      resolveOpenSourceEngineForLesson({
+        title: topicTitle || meta.title,
+        course: meta.course,
+        appEngine: engineId,
+      }),
+    [topicTitle, meta.title, meta.course, engineId]
+  );
+  const [selectedSubId, setSelectedSubId] = useState<string>("topic-primary");
+  const activeSubEngine = subEngines.find((s) => s.id === selectedSubId) || recommendedSubEngine;
+  const formulaToDisplay =
+    selectedSubId === "topic-primary"
+      ? customFormula || meta.formula
+      : activeSubEngine?.canonicalFormula || customFormula || meta.formula;
 
   return (
     <section className="zenit-webapp-shell my-8 rounded-3xl border border-emerald-800/40 bg-gradient-to-b from-stone-900 via-stone-950 to-stone-950 p-6 md:p-8 shadow-2xl text-stone-100">
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-5 mb-6">
         <div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <span className="inline-block rounded-full bg-emerald-500/20 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-emerald-300 border border-emerald-500/30">
               Web App Interactiva · {meta.badge}
             </span>
+            {recommendedSubEngine && (
+              <span className="inline-block rounded-full bg-amber-500/15 px-3 py-1 text-[11px] font-mono font-bold text-amber-300 border border-amber-500/30">
+                Motor #{String(recommendedSubEngine.rank).padStart(2, "0")}/60 · {recommendedSubEngine.name}
+              </span>
+            )}
           </div>
           <h3 className="mt-2 text-xl md:text-2xl font-extrabold text-white">
             {topicTitle ? `${meta.title} — ${topicTitle}` : meta.title}
@@ -1094,6 +1115,52 @@ export function ZenitInteractiveApp({
         <div className="zenit-engine-formula-panel rounded-xl bg-stone-900/90 px-3 py-2 border border-stone-800">
           <MathFormula source={formulaToDisplay} displayMode={true} />
           <small className="math-scroll-hint">Desliza horizontalmente para ver la fórmula completa ↔</small>
+        </div>
+      </div>
+
+      {/* Selector de los 5 Sub-Motores Open-Source (#01–#60) del Laboratorio */}
+      <div className="mb-6 rounded-2xl border border-stone-800/90 bg-stone-950/75 p-3.5 space-y-2.5">
+        <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
+          <span className="font-mono font-bold uppercase tracking-wider text-emerald-400">
+            Sub-Motores Open-Source e Inyección de Fórmulas (5 de 60 activos en esta rama)
+          </span>
+          <span className="text-stone-400">
+            {selectedSubId === "topic-primary"
+              ? `Fórmula eje del tema · Recomendado: #${String(recommendedSubEngine.rank).padStart(2, "0")} ${recommendedSubEngine.name}`
+              : `#${String(activeSubEngine.rank).padStart(2, "0")} · ${activeSubEngine.purpose}`}
+          </span>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <button
+            type="button"
+            onClick={() => setSelectedSubId("topic-primary")}
+            aria-pressed={selectedSubId === "topic-primary"}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all ${
+              selectedSubId === "topic-primary"
+                ? "bg-emerald-500 text-stone-950 border-emerald-400 font-bold"
+                : "bg-stone-900 text-stone-300 border-stone-700 hover:border-emerald-500/50"
+            }`}
+          >
+            Fórmula Eje del Tema
+          </button>
+          {subEngines.map((sub) => {
+            const isSelected = selectedSubId === sub.id;
+            return (
+              <button
+                key={sub.id}
+                type="button"
+                onClick={() => setSelectedSubId(sub.id)}
+                aria-pressed={isSelected}
+                className={`px-3 py-1.5 rounded-lg text-xs font-mono border transition-all ${
+                  isSelected
+                    ? "bg-amber-400 text-stone-950 border-amber-300 font-bold"
+                    : "bg-stone-900 text-stone-300 border-stone-700 hover:border-amber-400/50"
+                }`}
+              >
+                #{String(sub.rank).padStart(2, "0")} · {sub.name}
+              </button>
+            );
+          })}
         </div>
       </div>
 

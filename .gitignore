@@ -20,6 +20,7 @@ sitio-profesor-matematica/next-env.d.ts
 .DS_Store
 Thumbs.db
 *.pem
+*.tsbuildinfo
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -30,3 +31,8 @@ yarn-error.log*
 
 # Temporary
 tmp/
+
+# Sensitive PII & Large binary assets
+CVCabello.pdf
+*.pdf
+entregables/

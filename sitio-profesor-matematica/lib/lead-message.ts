@@ -16,7 +16,7 @@ export function parseLeadInterest(value:string|null):LeadInterest {
 }
 export function buildLeadMessage(data:LeadFields):string {
   const lines=[
-    "Hola, quisiera consultar con el Juan Xavier.",
+    "Hola Juan Xavier, quisiera consultar sobre las opciones de aprendizaje en Sistema Zénit.",
     "Nombre: "+cleanLeadField(data.nombre,80),
     "Interés: "+interestLabels[data.interes],
     "Nivel: "+cleanLeadField(data.nivel),
