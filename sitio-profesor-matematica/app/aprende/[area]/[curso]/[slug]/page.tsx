@@ -5,7 +5,7 @@ import { Header, Footer } from "@/components/site";
 import Link from "@/components/safe-link";
 import { MathFormula, MathText } from "@/components/math-formula";
 import { ZenitInteractiveApp } from "@/components/zenit-app-engines";
-import { ZENIT_ENGINES, type AppEngineId } from "@/lib/zenit-engines-meta";
+import type { AppEngineId } from "@/lib/zenit-engines-meta";
 import { LESSON_STUDY_GUIDES, LESSON_ENGINE_OVERRIDES } from "@/lib/lesson-study-guides";
 import { InteractiveExerciseBank } from "@/components/interactive-exercise-bank";
 import { getVerifiedAnswerKey } from "@/lib/exercise-evaluation.mjs";
@@ -131,7 +131,6 @@ export default async function TopicDetailPage({ params }: PageProps) {
     desc: "",
   };
   const lessonEngineId = (LESSON_ENGINE_OVERRIDES[lesson.slug] || lesson.appEngine) as AppEngineId;
-  const engineMeta = ZENIT_ENGINES[lessonEngineId] || ZENIT_ENGINES.FunctionCartesianLab;
   const studyGuide = LESSON_STUDY_GUIDES[lesson.slug];
   const studentSummary = /^Estudio completo de /i.test(lesson.summary)
     ? `Estudia ${lesson.title} con explicaciones, un simulador y práctica guiada. Compara diferentes representaciones y comprueba lo que has aprendido.`
