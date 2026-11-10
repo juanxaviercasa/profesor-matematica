@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
-import { getVerifiedAnswerKey, getExerciseOptionLetter, scoreExerciseAnswers } from "../lib/exercise-evaluation.mjs";
+import { getVerifiedAnswerKey, getExerciseOptionLetter, getExerciseDisplayOptions, scoreExerciseAnswers } from "../lib/exercise-evaluation.mjs";
 const read = p => readFileSync(new URL("../"+p,import.meta.url),"utf8");
 const a={number:1,options:["uno","dos","tres"],answerKey:"B"};
 const unknown={number:2,options:["sí","no"]};
@@ -13,6 +13,8 @@ const shuffled={number:42,options:["a. 10","c. 20","e. 30","b. 40","d. 50"],answ
 assert.equal(getExerciseOptionLetter(shuffled,4),"d");
 assert.equal(getExerciseOptionLetter(shuffled,1),"c");
 assert.equal(getVerifiedAnswerKey(shuffled),"d");
+assert.deepEqual(getExerciseDisplayOptions(shuffled).map(o=>o.letter),["a","b","c","d","e"]);
+assert.deepEqual(getExerciseDisplayOptions(shuffled).map(o=>o.index),[0,3,1,4,2]);
 assert.deepEqual(scoreExerciseAnswers([{tab:"f0",ex:shuffled,idx:0}],{"f0-42-0":4}),{
   answeredCount:1,gradedCount:1,correctCount:1,ungradedCount:0,accuracy:100
 });
