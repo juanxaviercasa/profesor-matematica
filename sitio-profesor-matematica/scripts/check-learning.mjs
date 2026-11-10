@@ -42,6 +42,8 @@ assert.match(diagnostic,/role="progressbar"/);
 assert.match(lab,/window\.dispatchEvent\(new Event\("zenit:lab-progress"\)\)/);
 assert.match(lab,/window\.localStorage\.setItem/);
 assert.match(generator,/Cada par de puntos determina un segmento/);
+assert.doesNotMatch(generator,/Resolución Algorítmica Paso a Paso \(Semilla/);
+assert.doesNotMatch(lesson,/bloques teóricos extraídos|Diapositiva \{slide\.slideNumber\}/);
 assert.match(layout,/import "\.\/learning-experience\.css"/);
 assert.ok(existsSync(new URL("../app/learning-experience.css",import.meta.url)));
 const catalog=JSON.parse(read("content/catalog/lessons-full.json"));
