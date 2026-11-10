@@ -22,7 +22,7 @@ const nextSteps = [
 ];
 
 export default function Home() {
-  return <><Header/><main className="home-page-v2">
+  return <><a className="zenit-skip-link" href="#zenit-main">Saltar al contenido principal</a><Header/><main id="zenit-main" className="home-page-v2">
     <section className="hero wrap" aria-labelledby="home-title">
       <div className="hero-copy">
         <p className="eyebrow">Sistema Zénit · Matemática que conecta</p>
@@ -60,7 +60,7 @@ export default function Home() {
 
     <section className="wrap feature-band">
       <div><p className="eyebrow">Laboratorio abierto</p><h2>Mueve los parámetros.<br/>Observa la función.</h2><p>Explora <strong>f(x) = a(x − h)² + k</strong>, formula una predicción y compárala con la gráfica. Una herramienta gratuita para poner a prueba lo que aprendiste.</p><Link className="button secondary" href="/laboratorio/transformaciones-de-funciones">Abrir el explorador</Link></div>
-      <div className="mini-graph" aria-hidden="true"><svg viewBox="0 0 420 260"><path d="M28 232 C92 232 142 196 171 119 C194 58 226 28 278 28 C332 28 365 75 398 167" fill="none" stroke="currentColor" strokeWidth="5"/></svg><small>Fórmula · gráfica · comportamiento</small></div>
+      <figure className="zenit-visual-figure"><Image src="/brand/zenit-learning-map.svg" width={960} height={640} alt="Ilustración didáctica: una función cuadrática conectada con su gráfica y su interpretación" sizes="(max-width: 1050px) 100vw, 520px"/><figcaption>Una idea, varias representaciones: expresión, gráfica e interpretación.</figcaption></figure>
     </section>
 
     <section className="course-strip">
