@@ -10,7 +10,7 @@
  *  @returns {string | null}
  */
 export function getVerifiedAnswerKey(exercise) {
-  if (!Array.isArray(exercise.options) || !exercise.options.length) return null;
+  if (!Array.isArray(exercise.options) || exercise.options.length < 2) return null;
   const raw = typeof exercise.answerKey === "string" ? exercise.answerKey.trim() : "";
   const match = raw.match(/^([a-e])[\).]?$/i);
   if (!match) return null;
