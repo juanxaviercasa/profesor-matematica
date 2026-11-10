@@ -479,8 +479,7 @@ export function InfiniteProblemGenerator({
               <button
                 key={idx}
                 onClick={() => handleSelectOption(idx)}
-                aria-disabled={selectedIdx !== null}
-                aria-label={`Alternativa ${idx + 1}: ${opt}`}
+                disabled={selectedIdx !== null}
                 aria-pressed={isSelected}
                 className={`math-option-button px-3.5 py-2.5 rounded-xl text-left text-sm font-sans border transition-all ${style}`}
               >
@@ -502,11 +501,12 @@ export function InfiniteProblemGenerator({
           >
             <span>
               {selectedIdx === problem.correctIndex
-                ? "✓ ¡Excelente! Cálculo verificado correctamente."
-                : "✗ Respuesta incorrecta. Revisa la alternativa correcta resaltada en verde."}
+                ? "✓ Tu elección coincide con el resultado calculado por este generador."
+                : "Revisa los pasos para comprender por qué otra alternativa corresponde al cálculo."}
             </span>
             <button
               onClick={() => setShowSteps(true)}
+              aria-expanded={showSteps}
               className="font-mono font-bold underline text-amber-300"
             >
               Ver demostración paso a paso
