@@ -71,7 +71,15 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
         text: (el.textContent || "").trim().slice(0, 55),
         size: getComputedStyle(el).fontSize
       }));
+      const formulaBoxes = [...document.querySelectorAll(".math-typeset-display.math-scroll-region")].map((el, i) => ({
+        index: i,
+        available: el.clientWidth,
+        content: el.scrollWidth,
+        extra: Math.max(0, el.scrollWidth - el.clientWidth),
+        height: Math.round(el.getBoundingClientRect().height),
+      }));
       return {
+        formulaBoxes,
         title: document.title,
         lang: document.documentElement.lang,
         h1: document.querySelectorAll("h1").length,
@@ -95,6 +103,14 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
     if (detail.widthOverflow > 3) addFinding("error", key, "Desbordamiento horizontal: " + detail.widthOverflow + " px");
     if (detail.images.length) addFinding("warning", key, "Imágenes rotas: " + detail.images.join(", "));
     if (detail.smallText.length) addFinding("warning", key, detail.smallText.length + " muestras de texto visibles <14 px");
+    const formulaOverflow = detail.formulaBoxes.filter(f => f.extra > 12);
+    if (formulaOverflow.length) {
+      const measure = formulaOverflow.slice(0, 8).map(f => "#" + f.index + ": " + f.extra + "px").join(", ");
+      addFinding(["herramientas", "leccion-conjuntos"].includes(label) && size.width >= 390
+        ? "error" : "warning", key,
+        "Fórmulas que aún necesitan scroll horizontal: " + formulaOverflow.length + "/" +
+        detail.formulaBoxes.length + " (" + measure + ")");
+    }
     for (const message of runtimeErrors.slice(0, 5)) addFinding("error", key, "Excepción JavaScript: " + message);
     let accessibility = { serious: 0, critical: 0, moderate: 0, minor: 0 };
     let a11yViolations = [];
@@ -127,8 +143,9 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
     const screenshotPath = join(out, key + ".png");
     await page.screenshot({ path: screenshotPath, fullPage: ["inicio", "blog", "aprende"].includes(label), animations: "disabled" });
     results.push({ key, path, status, ...detail, runtimeErrors, accessibility, a11yViolations, screenshotPath });
-    console.log(key + ": HTTP " + status + ", overflow " + detail.widthOverflow + " px, axe serious/critical " +
-      accessibility.serious + "/" + accessibility.critical);
+    console.log(key + ": HTTP " + status + ", overflow " + detail.widthOverflow +
+      " px, fórmulas con scroll " + formulaOverflow.length + "/" + detail.formulaBoxes.length +
+      ", axe serious/critical " + accessibility.serious + "/" + accessibility.critical);
   } catch (e) {
     addFinding("error", key, "No se pudo abrir o medir la ruta: " + e.message);
     results.push({ key, path, error: e.message });
