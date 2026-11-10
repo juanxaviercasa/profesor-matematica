@@ -44,6 +44,8 @@ jobs:
         run: npm run check:branding
       - name: Comprobar escala tipográfica y tarjetas responsive
         run: npm run check:readability
+      - name: Evitar textos internos en las páginas públicas
+        run: npm run check:public-copy
       - name: Compilar Vinext y verificar Worker SSR
         run: npm run build
       - name: Verificar salida reproducible

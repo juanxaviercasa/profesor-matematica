@@ -133,9 +133,9 @@ export function getRelatedLessons(
 export const AREA_LABELS: Record<string, { title: string; badge: string; description: string }> = {
   "matematica-preuniversitaria": {
     title: "Matemática Secundaria (1.° a 5.°) y Preuniversitaria",
-    badge: "Currículo Completo + Nivel Admisión UNI · UNMSM · PUCP",
+    badge: "Secundaria y preparación preuniversitaria",
     description:
-      "Los 6 pilares de la matemática formativa y preuniversitaria poblados desde los libros del área, actividades, razonamiento matemático y fichas nivel cero/avanzado."
+      "Estudia aritmética, álgebra, geometría, trigonometría, estadística y razonamiento matemático con explicaciones, ejemplos y ejercicios."
   },
   "matematica-universitaria": {
     title: "Matemática Universitaria (Ciencias e Ingeniería)",
