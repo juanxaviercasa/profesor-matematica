@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from "react";
 import { MathFormula } from "./math-formula";
 import { CartesianAxes } from "./cartesian-axes";
-import { getOpenSourceEnginesByMacro, resolveOpenSourceEngineForLesson } from "@/lib/open-source-60-engines";
+
 
 export { ZENIT_ENGINES, type AppEngineId, type EngineMeta } from "@/lib/zenit-engines-meta";
 import { ZENIT_ENGINES, type AppEngineId } from "@/lib/zenit-engines-meta";
@@ -943,24 +943,7 @@ export function ZenitInteractiveApp({
   customFormula?: string;
 }) {
   const meta = ZENIT_ENGINES[engineId] || ZENIT_ENGINES.FunctionCartesianLab;
-  const subEngines = useMemo(() => getOpenSourceEnginesByMacro(engineId), [engineId]);
-  const recommendedSubEngine = useMemo(
-    () =>
-      resolveOpenSourceEngineForLesson({
-        title: topicTitle || meta.title,
-        course: meta.course,
-        appEngine: engineId,
-      }),
-    [topicTitle, meta.title, meta.course, engineId]
-  );
-  const [selectedSubId, setSelectedSubId] = useState<string>("topic-primary");
-  const [showEmbedSnippet, setShowEmbedSnippet] = useState<boolean>(false);
-  const [copiedSnippet, setCopiedSnippet] = useState<boolean>(false);
-  const activeSubEngine = subEngines.find((s) => s.id === selectedSubId) || recommendedSubEngine;
-  const formulaToDisplay =
-    selectedSubId === "topic-primary"
-      ? customFormula || meta.formula
-      : activeSubEngine?.canonicalFormula || customFormula || meta.formula;
+  const formulaToDisplay = customFormula || meta.formula;
 
   return (
     <section className="zenit-webapp-shell my-8 rounded-3xl border border-emerald-800/40 bg-gradient-to-b from-stone-900 via-stone-950 to-stone-950 p-6 md:p-8 shadow-2xl text-stone-100">
@@ -968,13 +951,8 @@ export function ZenitInteractiveApp({
         <div>
           <div className="flex flex-wrap items-center gap-2">
             <span className="inline-block rounded-full bg-emerald-500/20 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-emerald-300 border border-emerald-500/30">
-              Web App Interactiva · {meta.badge}
+              Actividad interactiva · {meta.badge}
             </span>
-            {recommendedSubEngine && (
-              <span className="inline-block rounded-full bg-amber-500/15 px-3 py-1 text-[11px] font-mono font-bold text-amber-300 border border-amber-500/30">
-                Motor #{String(recommendedSubEngine.rank).padStart(2, "0")}/60 · {recommendedSubEngine.name}
-              </span>
-            )}
           </div>
           <h3 className="mt-2 text-xl md:text-2xl font-extrabold text-white">
             {topicTitle ? `${meta.title} — ${topicTitle}` : meta.title}
@@ -988,92 +966,9 @@ export function ZenitInteractiveApp({
         </div>
       </div>
 
-      {/* Selector de los 5 Sub-Motores Open-Source (#01–#60) del Laboratorio */}
-      <div className="mb-6 rounded-2xl border border-stone-800/90 bg-stone-950/75 p-3.5 space-y-2.5">
-        <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
-          <span className="font-mono font-bold uppercase tracking-wider text-emerald-400">
-            Sub-Motores Open-Source e Inyección de Fórmulas (5 de 60 activos en esta rama)
-          </span>
-          <span className="text-stone-400">
-            {selectedSubId === "topic-primary"
-              ? `Fórmula eje del tema · Recomendado: #${String(recommendedSubEngine.rank).padStart(2, "0")} ${recommendedSubEngine.name}`
-              : `#${String(activeSubEngine.rank).padStart(2, "0")} · ${activeSubEngine.purpose}`}
-          </span>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={() => setSelectedSubId("topic-primary")}
-            aria-pressed={selectedSubId === "topic-primary"}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all ${
-              selectedSubId === "topic-primary"
-                ? "bg-emerald-500 text-stone-950 border-emerald-400 font-bold"
-                : "bg-stone-900 text-stone-300 border-stone-700 hover:border-emerald-500/50"
-            }`}
-          >
-            Fórmula Eje del Tema
-          </button>
-          {subEngines.map((sub) => {
-            const isSelected = selectedSubId === sub.id;
-            return (
-              <button
-                key={sub.id}
-                type="button"
-                onClick={() => setSelectedSubId(sub.id)}
-                aria-pressed={isSelected}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono border transition-all ${
-                  isSelected
-                    ? "bg-amber-400 text-stone-950 border-amber-300 font-bold"
-                    : "bg-stone-900 text-stone-300 border-stone-700 hover:border-amber-400/50"
-                }`}
-              >
-                #{String(sub.rank).padStart(2, "0")} · {sub.name}
-              </button>
-            );
-          })}
-        </div>
-
-        <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-stone-800/80 text-xs">
-          <span className="text-stone-400 font-mono">
-            Licencia: {activeSubEngine.license} · Motor #{String(activeSubEngine.rank).padStart(2, "0")}
-          </span>
-          <button
-            type="button"
-            onClick={() => setShowEmbedSnippet(!showEmbedSnippet)}
-            aria-pressed={showEmbedSnippet}
-            className="px-2.5 py-1 rounded text-xs font-semibold bg-stone-900 border border-stone-700 text-stone-200 hover:text-emerald-300 hover:border-emerald-500/50 transition-colors"
-          >
-            {showEmbedSnippet ? "Ocultar código" : "Obtener código para incrustar"}
-          </button>
-        </div>
-
-        {showEmbedSnippet && (
-          <div className="mt-2 p-3 rounded-xl bg-stone-900/90 border border-emerald-700/50 space-y-2">
-            <div className="flex items-center justify-between text-xs">
-              <span className="font-mono text-emerald-300 font-semibold">
-                Código HTML para insertar en web o aula virtual
-              </span>
-              <button
-                type="button"
-                onClick={() => {
-                  const snippet = '<iframe src="https://sistemazenit.com/herramientas?engine=' + engineId + '&sub=' + activeSubEngine.id + '" title="' + activeSubEngine.name + '" width="100%" height="560" style="border:1px solid #334155;border-radius:12px;" loading="lazy"></iframe>';
-                  if (typeof navigator !== 'undefined' && navigator.clipboard) {
-                    navigator.clipboard.writeText(snippet);
-                    setCopiedSnippet(true);
-                    setTimeout(() => setCopiedSnippet(false), 2500);
-                  }
-                }}
-                className="px-2.5 py-0.5 rounded bg-emerald-500 text-stone-950 font-bold hover:bg-emerald-400 transition-colors"
-              >
-                {copiedSnippet ? "¡Copiado!" : "Copiar código"}
-              </button>
-            </div>
-            <pre className="p-2.5 rounded bg-stone-950 font-mono text-[11px] text-emerald-200 overflow-x-auto whitespace-pre">
-              {'<iframe src="https://sistemazenit.com/herramientas?engine=' + engineId + '&sub=' + activeSubEngine.id + '" title="' + activeSubEngine.name + '" width="100%" height="560" style="border:1px solid #334155;border-radius:12px;" loading="lazy"></iframe>'}
-            </pre>
-          </div>
-        )}
-      </div>
+      <p className="zenit-simulator-instruction text-sm text-stone-200 mb-5">
+        Cambia un valor, observa cómo responde el modelo y explica qué propiedad matemática se mantiene.
+      </p>
 
       {engineId === "SetVennLab" && <SetVennLabWidget />}
       {engineId === "NumberTheoryLab" && <NumberTheoryLabWidget />}
