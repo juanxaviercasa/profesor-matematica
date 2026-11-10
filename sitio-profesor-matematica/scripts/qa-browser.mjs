@@ -71,13 +71,50 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
         text: (el.textContent || "").trim().slice(0, 55),
         size: getComputedStyle(el).fontSize
       }));
-      const formulaBoxes = [...document.querySelectorAll(".math-typeset-display.math-scroll-region")].map((el, i) => ({
-        index: i,
-        available: el.clientWidth,
-        content: el.scrollWidth,
-        extra: Math.max(0, el.scrollWidth - el.clientWidth),
-        height: Math.round(el.getBoundingClientRect().height),
-      }));
+      // axe no siempre evalúa el dibujo HTML de KaTeX (tiene una capa
+      // MathML separada). Comprobar también el contraste visual del resultado.
+      const colorToRgb = cssColor => {
+        const canvas = document.createElement("canvas");
+        canvas.width = canvas.height = 1;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return null;
+        ctx.clearRect(0, 0, 1, 1);
+        ctx.fillStyle = cssColor;
+        ctx.fillRect(0, 0, 1, 1);
+        return Array.from(ctx.getImageData(0, 0, 1, 1).data).slice(0, 3);
+      };
+      const luminance = rgb => {
+        const linear = rgb.map(v => {
+          const c = v / 255;
+          return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+        });
+        return linear[0] * 0.2126 + linear[1] * 0.7152 + linear[2] * 0.0722;
+      };
+      const formulaBoxes = [...document.querySelectorAll(".math-typeset-display.math-scroll-region")].map((el, i) => {
+        let ancestor = el.parentElement;
+        let bgCss = "";
+        while (ancestor) {
+          const value = getComputedStyle(ancestor).backgroundColor;
+          if (value && value !== "transparent" && !/\/\s*0\)/.test(value) &&
+              value !== "rgba(0, 0, 0, 0)") { bgCss = value; break; }
+          ancestor = ancestor.parentElement;
+        }
+        const fg = colorToRgb(getComputedStyle(el.querySelector(".katex") || el).color);
+        const bg = colorToRgb(bgCss || "rgb(255,255,255)");
+        const fgLum = fg ? luminance(fg) : null;
+        const bgLum = bg ? luminance(bg) : null;
+        const contrast = fgLum == null || bgLum == null ? null :
+          Math.round(((Math.max(fgLum, bgLum) + 0.05) /
+            (Math.min(fgLum, bgLum) + 0.05)) * 100) / 100;
+        return {
+          index: i,
+          available: el.clientWidth,
+          content: el.scrollWidth,
+          extra: Math.max(0, el.scrollWidth - el.clientWidth),
+          height: Math.round(el.getBoundingClientRect().height),
+          contrast,
+        };
+      });
       return {
         formulaBoxes,
         title: document.title,
@@ -104,6 +141,15 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
     if (detail.images.length) addFinding("warning", key, "Imágenes rotas: " + detail.images.join(", "));
     if (detail.smallText.length) addFinding("warning", key, detail.smallText.length + " muestras de texto visibles <14 px");
     const formulaOverflow = detail.formulaBoxes.filter(f => f.extra > 12);
+    if (["herramientas", "leccion-conjuntos"].includes(label)) {
+      const formulaDark = detail.formulaBoxes.filter(f => f.contrast !== null && f.contrast < 4.5);
+      if (formulaDark.length) {
+        addFinding("error", key,
+          "Fórmulas con poco contraste visual: " + formulaDark.length + "/" +
+          detail.formulaBoxes.length + " (" +
+          formulaDark.slice(0, 8).map(f => "#" + f.index + " " + f.contrast + ":1").join(", ") + ")");
+      }
+    }
     if (formulaOverflow.length) {
       const measure = formulaOverflow.slice(0, 8).map(f => "#" + f.index + ": " + f.extra + "px").join(", ");
       addFinding(["herramientas", "leccion-conjuntos"].includes(label) && size.width >= 390
