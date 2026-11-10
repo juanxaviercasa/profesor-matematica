@@ -3,9 +3,7 @@
 import React, { useState } from "react";
 import { MathText } from "./math-formula";
 import type { ExtractedExercise, WorkedSolution } from "@/lib/catalog-index";
-import { getVerifiedAnswerKey, scoreExerciseAnswers } from "@/lib/exercise-evaluation.mjs";
-
-const OPTION_LETTERS = ["a", "b", "c", "d", "e"];
+import { getVerifiedAnswerKey, getExerciseOptionLetter, scoreExerciseAnswers } from "@/lib/exercise-evaluation.mjs";
 
 export function InteractiveExerciseBank({
   f0,
@@ -213,7 +211,7 @@ export function InteractiveExerciseBank({
             const chosen = selectedOptions[key];
             const hintShown = revealedHints[key];
             const expectedLetter = getVerifiedAnswerKey(ex);
-            const chosenLetter = chosen !== undefined ? OPTION_LETTERS[chosen] : null;
+            const chosenLetter = chosen !== undefined ? getExerciseOptionLetter(ex, chosen) : null;
             const isCorrect = expectedLetter !== null && chosenLetter === expectedLetter;
             const showFeedback = chosen !== undefined && revealResults;
             const isGradable = expectedLetter !== null;
@@ -268,7 +266,7 @@ export function InteractiveExerciseBank({
                 {hasOptions && (
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-2.5 pt-1">
                     {ex.options.map((opt, oIdx) => {
-                      const optLetter = OPTION_LETTERS[oIdx];
+                      const optLetter = getExerciseOptionLetter(ex, oIdx);
                       const isSelected = chosen === oIdx;
                       const isOptionCorrect = optLetter === expectedLetter;
 
