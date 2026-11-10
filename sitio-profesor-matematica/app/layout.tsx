@@ -62,7 +62,7 @@ const rootSchema = {
       name: "Juan Xavier",
       jobTitle: "Docente de Matemática y fundador del Sistema Zénit",
       description:
-        "Bachiller en Matemática, con experiencia docente escolar y preuniversitaria en Lima.",
+        "Licenciado en Ciencias de la Educación con Especialidad en Matemática, con experiencia docente escolar y preuniversitaria en Lima.",
       url: BASE_URL,
       address: {
         "@type": "PostalAddress",
