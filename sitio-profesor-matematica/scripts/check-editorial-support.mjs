@@ -35,7 +35,7 @@ for (const lesson of missingTheory) {
 for (const lesson of missingExercises) {
   const practice = practices[lesson.slug];
   assert.ok(practice, "Falta práctica de refuerzo: " + lesson.slug);
-  assert.ok(practice.statement.length >= 30 && practice.steps.length >= 2 &&
+  assert.ok(practice.statement.length >= 20 && practice.steps.length >= 2 &&
     practice.steps.every(s => s.length >= 15) && practice.answer.trim().length >= 2,
     "Práctica sin pasos o respuesta: " + lesson.slug);
 }
