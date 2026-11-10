@@ -17,6 +17,11 @@ const routes = [
   ["sobre-mi", "/sobre-mi"],
   ["contacto", "/contacto"],
   ["leccion-conjuntos", "/aprende/matematica-preuniversitaria/aritmetica/conjuntos-1sec-unidad1"],
+  ["calculo-gradiente", "/aprende/matematica-universitaria/calculo-3/derivadas-parciales-gradiente-y-plano-tangente"],
+  ["calculo-derivacion", "/aprende/matematica-universitaria/calculo-1/derivacion-implicita-y-orden-superior"],
+  ["algebra-lineal", "/aprende/matematica-universitaria/algebra-lineal/producto-interno-y-gram-schmidt"],
+  ["fisica-electromagnetismo", "/aprende/ciencias/fisica/electrodinamica-y-electromagnetismo"],
+  ["quimica-soluciones", "/aprende/ciencias/quimica/soluciones-quimicas-molaridad-y-normalidad"],
   ["pagina-no-existente", "/esta-ruta-no-existe-zenit-qa"],
 ];
 const viewports = [
@@ -141,7 +146,8 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
     if (detail.images.length) addFinding("warning", key, "Imágenes rotas: " + detail.images.join(", "));
     if (detail.smallText.length) addFinding("warning", key, detail.smallText.length + " muestras de texto visibles <14 px");
     const formulaOverflow = detail.formulaBoxes.filter(f => f.extra > 12);
-    if (["herramientas", "leccion-conjuntos"].includes(label)) {
+    if (["herramientas", "leccion-conjuntos", "calculo-gradiente", "calculo-derivacion",
+         "algebra-lineal", "fisica-electromagnetismo", "quimica-soluciones"].includes(label)) {
       const formulaDark = detail.formulaBoxes.filter(f => f.contrast !== null && f.contrast < 4.5);
       if (formulaDark.length) {
         addFinding("error", key,
@@ -221,7 +227,9 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
 try {
   for (const [label, path] of routes) {
     await inspectRoute(label, path, viewports[2]);
-    if (["inicio", "blog", "herramientas", "aprende", "leccion-conjuntos"].includes(label)) {
+    if (["inicio", "blog", "herramientas", "aprende", "leccion-conjuntos",
+         "calculo-gradiente", "calculo-derivacion", "algebra-lineal",
+         "fisica-electromagnetismo", "quimica-soluciones"].includes(label)) {
       await inspectRoute(label, path, viewports[0]);
     }
     if (["inicio", "blog", "herramientas", "aprende"].includes(label)) {
