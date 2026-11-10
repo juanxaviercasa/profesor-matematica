@@ -53,7 +53,7 @@ export function getExerciseDisplayOptions(exercise) {
   return exercise.options.map((text, index) => ({
     text, index, letter: getExerciseOptionLetter(exercise, index),
   })).sort((a, b) => {
-    const rank = letter => "abcde".indexOf(letter || "") >= 0
+    const rank = letter => letter && "abcde".includes(letter)
       ? "abcde".indexOf(letter) : 99;
     return rank(a.letter) - rank(b.letter);
   });
