@@ -59,7 +59,7 @@ export function InteractiveExerciseBank({
             </span>
           </div>
           <h2 className="text-2xl font-bold text-white mt-1">
-            Entrenamiento y Solucionario: {topicTitle}
+            {workedSolutions.length > 0 ? "Práctica y ejemplos resueltos" : "Práctica guiada"}: {topicTitle}
           </h2>
         </div>
 
@@ -106,6 +106,7 @@ export function InteractiveExerciseBank({
               onClick={() => {
                 setSelectedOptions({});
                 setWrittenAnswers({});
+                setRevealedHints({});
                 setExamSubmitted(false);
               }}
               className="text-xs text-stone-400 hover:text-white font-mono underline"
@@ -245,7 +246,7 @@ export function InteractiveExerciseBank({
                     </span>
                     {ex.isOfficialKey && isGradable && revealResults && (
                       <span className="text-[10px] font-mono bg-stone-900 text-emerald-400 px-2 py-0.5 rounded border border-stone-800">
-                        ✓ Respuesta comprobada
+                        ✓ Clave registrada
                       </span>
                     )}
                   </div>
@@ -254,6 +255,7 @@ export function InteractiveExerciseBank({
                     onClick={() => setRevealedHints((prev) => ({ ...prev, [key]: !prev[key] }))}
                      aria-expanded={hintShown}
                      aria-label={hintShown ? `Ocultar explicación del problema ${ex.number}` : `Ver orientación del problema ${ex.number}`}
+                     aria-controls={`hint-${key}`}
                     className="text-xs text-emerald-400 hover:text-emerald-300 font-semibold"
                   >
                     {hintShown ? "Ocultar explicación" : "💡 Ver orientación"}
@@ -335,12 +337,12 @@ export function InteractiveExerciseBank({
                     <div>
                       {!isGradable ? (<span>Tu elección queda registrada en esta sesión para que puedas comparar tu razonamiento. Este ejercicio no se califica automáticamente.</span>) : isCorrect ? (
                         <span>
-                          ✓ <strong>¡Respuesta Correcta!</strong> Marcaste la alternativa{" "}
-                          <strong className="uppercase">{chosenLetter}</strong> (respuesta verificada).
+                          ✓ <strong>Coincide con la clave registrada.</strong> Marcaste la alternativa{" "}
+                          <strong className="uppercase">{chosenLetter}</strong>.
                         </span>
                       ) : (
                         <span>
-                          ✗ Marcaste <strong className="uppercase">{chosenLetter}</strong> · La respuesta indicada es la alternativa{" "}
+                          Marcaste <strong className="uppercase">{chosenLetter}</strong> · La clave registrada indica la alternativa{" "}
                           <strong className="uppercase underline">{expectedLetter}</strong>.
                         </span>
                       )}
@@ -357,7 +359,7 @@ export function InteractiveExerciseBank({
                 )}
 
                 {hintShown && revealResults && (
-                  <div className="rounded-xl bg-stone-900/95 border border-stone-700 p-4 text-xs text-stone-300 space-y-2">
+                  <div id={`hint-${key}`} className="rounded-xl bg-stone-900/95 border border-stone-700 p-4 text-sm text-stone-200 space-y-2">
                     <strong className="block text-amber-300">Pista para razonar:</strong>
                     <p className="leading-relaxed">
                       <MathText source={ex.hint || `Identifica los datos principales del enunciado de ${topicTitle}, aplica la propiedad del marco teórico, comprueba con el simulador y justifica tu respuesta.`} />
