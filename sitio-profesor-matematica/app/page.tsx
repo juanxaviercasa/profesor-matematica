@@ -60,7 +60,15 @@ export default function Home() {
 
     <section className="wrap feature-band">
       <div><p className="eyebrow">Laboratorio abierto</p><h2>Mueve los parámetros.<br/>Observa la función.</h2><p>Explora <strong>f(x) = a(x − h)² + k</strong>, formula una predicción y compárala con la gráfica. Una herramienta gratuita para poner a prueba lo que aprendiste.</p><Link className="button secondary" href="/laboratorio/transformaciones-de-funciones">Abrir el explorador</Link></div>
-      <figure className="zenit-visual-figure"><Image src="/brand/zenit-learning-map.svg" width={960} height={640} alt="Ilustración didáctica: una función cuadrática conectada con su gráfica y su interpretación" sizes="(max-width: 1050px) 100vw, 520px"/><figcaption>Una idea, varias representaciones: expresión, gráfica e interpretación.</figcaption></figure>
+      <figure className="zenit-visual-figure">
+        <picture>
+          <source media="(max-width: 640px)" srcSet="/brand/zenit-connection-mobile.svg" width={640} height={940}/>
+          <Image src="/brand/zenit-connection-desktop.svg" width={960} height={640}
+            alt="Función f(x) igual a x al cuadrado menos cuatro x más tres. Su parábola abre hacia arriba, corta el eje X en 1 y 3 y tiene vértice en (2, menos 1)."
+            sizes="(max-width: 640px) calc(100vw - 28px), (max-width: 1050px) calc(100vw - 40px), 520px"/>
+        </picture>
+        <figcaption>Una expresión, una gráfica y una interpretación coherentes. <strong>Raíces: 1 y 3 · Vértice: (2, −1).</strong></figcaption>
+      </figure>
     </section>
 
     <section className="course-strip">
