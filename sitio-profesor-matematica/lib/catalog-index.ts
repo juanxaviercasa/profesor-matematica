@@ -73,7 +73,7 @@ export interface CatalogLessonFull extends CatalogLessonIndex {
   verticalProgressionSlugs?: string[];
 }
 
-export const LESSONS_INDEX: CatalogLessonIndex[] = (lessonsIndexRaw as CatalogLessonIndex[]).map(lesson=>({ ...lesson, keyFormula:resolveEditorialKeyFormula(lesson) }));
+export const LESSONS_INDEX: CatalogLessonIndex[] = (lessonsIndexRaw as CatalogLessonIndex[]).map(lesson=>({ ...lesson, summary: /^Estudio completo de /i.test(lesson.summary) ? `Estudia ${lesson.title} con explicaciones claras, ejemplos y ejercicios para reforzar lo aprendido.` : lesson.summary, tags: lesson.tags.filter(tag => !/^(Libro del Área|Ficha Nivel Cero|Ficha Adicional|Generador Infinito)$/i.test(tag)), keyFormula:resolveEditorialKeyFormula(lesson) }));
 export function getLessonsByCourse(courseSlug: string): CatalogLessonIndex[] {
   return LESSONS_INDEX.filter(l => l.course === courseSlug);
 }
