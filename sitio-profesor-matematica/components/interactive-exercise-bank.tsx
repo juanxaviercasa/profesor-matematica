@@ -247,7 +247,7 @@ export function InteractiveExerciseBank({
                   {revealResults && <button
                     onClick={() => setRevealedHints((prev) => ({ ...prev, [key]: !prev[key] }))}
                      aria-expanded={hintShown}
-                     aria-label={hintShown ? `Ocultar la pista del problema ${ex.number}` : `Mostrar la pista del problema ${ex.number}`}
+                     aria-label={hintShown ? `Ocultar explicación del problema ${ex.number}` : `Ver orientación del problema ${ex.number}`}
                     className="text-xs text-emerald-400 hover:text-emerald-300 font-semibold"
                   >
                     {hintShown ? "Ocultar explicación" : "💡 Ver orientación"}
@@ -282,7 +282,7 @@ export function InteractiveExerciseBank({
                         <button
                           key={oIdx}
                           aria-pressed={isSelected}
-                          aria-label={`Problema ${ex.number}, alternativa ${oIdx + 1}: ${opt}`}
+                          
                           onClick={() => { if (!examMode || !examSubmitted) setSelectedOptions((prev) => ({ ...prev, [key]: oIdx })); }}
                           aria-disabled={examMode && examSubmitted}
                           className={`math-option-button px-3 py-2.5 rounded-xl text-left text-sm font-sans transition-all border ${btnStyle}`}
