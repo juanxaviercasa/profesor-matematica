@@ -1,0 +1,80 @@
+name: Zénit - Auditoría visual y funcional
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'sitio-profesor-matematica/**'
+      - '.github/workflows/zenit-web-qa.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: zenit-web-qa-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  website-qa:
+    name: Navegación, responsive, capturas y accesibilidad
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: sitio-profesor-matematica
+    steps:
+      - name: Obtener código privado
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: sitio-profesor-matematica/package-lock.json
+
+      - name: Instalar dependencias del sitio
+        run: npm ci --no-audit --no-fund
+
+      - name: Verificar reglas de diseño y accesibilidad en código
+        run: npm run check:design
+
+      - name: Compilar versión de producción
+        run: npm run build
+
+      - name: Instalar herramientas del navegador (sin modificar package-lock)
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright axe-core
+          npx playwright install --with-deps chromium
+
+      - name: Iniciar Worker compilado localmente
+        run: |
+          nohup npm run start > /tmp/zenit-worker-qa.log 2>&1 &
+          echo $! > /tmp/zenit-worker-qa.pid
+          for i in $(seq 1 90); do
+            if curl --silent --fail http://127.0.0.1:8787/ > /dev/null; then
+              echo "Worker listo para QA"
+              exit 0
+            fi
+            sleep 2
+          done
+          cat /tmp/zenit-worker-qa.log
+          exit 1
+
+      - name: Probar rutas, clics, pantallas y accesibilidad
+        env:
+          QA_BASE_URL: http://127.0.0.1:8787
+          QA_OUTPUT_DIR: .qa-output
+        run: node scripts/qa-browser.mjs
+
+      - name: Guardar capturas e informe aunque fallen las pruebas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zenit-qa-${{ github.run_number }}
+          path: |
+            sitio-profesor-matematica/.qa-output/
+            /tmp/zenit-worker-qa.log
+          if-no-files-found: warn
+          retention-days: 14
