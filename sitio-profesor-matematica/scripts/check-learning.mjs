@@ -120,7 +120,7 @@ assert.match(completion,/STORAGE_KEY = "zenit_studied_lessons_v1"/);
 assert.match(completion,/aria-pressed=\{completed\}/);
 assert.match(completion,/LessonProgressOverview/);
 assert.match(lesson,/<LessonCompletion slug=\{lesson.slug\}/);
-assert.match(home,/<LessonProgressOverview total=\{LESSONS_INDEX.length\}/);
+assert.match(home,/<LessonProgressOverview total=\{LESSONS_INDEX\.filter\(lesson => lesson\.publishStatus === "published"\)\.length\}/);
 assert.match(lesson,/const studentSummary = \/\^Estudio completo de /);
 
 console.log("✓ Evaluación sin claves inventadas, examen privado, rutas educativas y progreso: verificados.");
