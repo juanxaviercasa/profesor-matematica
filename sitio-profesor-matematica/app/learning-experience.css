@@ -67,3 +67,57 @@
   .lesson-completion-actions { width:100%; flex-basis:100%; }
   .lesson-progress-overview a { width:100%; }
 }
+
+/* Fase pedagógica: controles de laboratorios legibles sin reducir KaTeX.
+   Evitar modificar las clases internas de fracciones y exponentes. */
+.zenit-webapp-shell :is(p, label, button, small, summary) {
+  font-size: max(.875rem, 1em);
+  line-height: 1.5;
+}
+.zenit-webapp-shell :is(span, div)[class~="text-xs"],
+.zenit-webapp-shell :is(span, div)[class~="text-[10px]"],
+.zenit-webapp-shell :is(span, div)[class~="text-[11px]"] {
+  font-size: .875rem;
+  line-height: 1.5;
+}
+.zenit-webapp-shell h3 {
+  font-size: clamp(1.3rem, 1.1rem + .6vw, 1.75rem);
+  line-height: 1.25;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+.zenit-webapp-shell :is(.zenit-engine-formula-panel,.chemistry-formula-card) {
+  min-width: 0;
+  max-width: 100%;
+  flex: 1 1 100%;
+  color: #f4f8f2;
+}
+.zenit-webapp-shell .chem-control input[type="range"],
+.zenit-webapp-shell input[type="range"] {
+  min-height: 42px;
+  accent-color: #90e6b8;
+}
+.zenit-webapp-shell :is(button,input,textarea):focus-visible,
+.exercise-bank :is(button,input,textarea):focus-visible {
+  outline: 3px solid #ddf17f;
+  outline-offset: 3px;
+}
+.exercise-bank .written-exercise {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  max-width: 100%;
+}
+.exercise-bank .written-exercise textarea {
+  min-height: 110px;
+  font-size: 1rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+@media(max-width: 640px) {
+  .zenit-webapp-shell { padding: 16px; }
+  .zenit-webapp-shell > div:first-child { gap: 14px; }
+  .zenit-webapp-shell h3 { font-size: clamp(1.3rem, 5.5vw, 1.7rem); }
+  .exercise-bank { padding: 16px; }
+  .exercise-bank .math-option-button { min-height: 48px; }
+}
