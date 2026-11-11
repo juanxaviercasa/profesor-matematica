@@ -1,0 +1,446 @@
+/*
+ * Zénit Aura · Segunda mitad de la portada
+ * Revisión editorial basada en capturas reales de desktop y móvil.
+ * La cascada se limita al home; no altera el graficador ni las lecciones.
+ */
+
+/* Materias: un atlas compacto en lugar de una pared de tarjetas. */
+.home-page-v2 .home-math-subject-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:clamp(12px,1.35vw,20px);
+}
+.home-page-v2 .home-math-subject-grid>.home-image-subject,
+.home-page-v2 .home-math-subject-grid>.home-image-subject:nth-child(n + 4){
+  grid-column:auto;
+}
+.home-page-v2 .home-image-subject{
+  isolation:isolate;
+  border-radius:19px;
+  border:1px solid #e6e0f1;
+  box-shadow:0 9px 24px rgba(36,27,75,.045);
+}
+.home-page-v2 .home-math-subject-grid .home-subject-photo{aspect-ratio:640/390}
+.home-page-v2 .home-math-subject-grid .home-subject-photo img{
+  object-fit:contain;
+  object-position:center;
+  background:#ede6fa;
+}
+.home-page-v2 .home-math-subject-grid .home-subject-info{
+  padding:19px 17px 21px;
+  gap:9px;
+}
+.home-page-v2 .home-math-subject-grid .home-subject-info h4{
+  font-size:clamp(1.24rem,1.5vw,1.75rem);
+  line-height:1.16;
+  min-height:2.32em;
+  display:flex;
+  align-items:center;
+}
+.home-page-v2 .home-subject-info p{
+  color:#595466;
+  line-height:1.55;
+  font-size:clamp(.89rem,.95vw,.99rem);
+}
+.home-page-v2 .aura-course-index{
+  font-size:.79rem!important;
+  line-height:1.55;
+  letter-spacing:.045em;
+  color:#51328f!important;
+}
+.home-page-v2 .home-image-subject .home-subject-info>span:last-child{
+  font-size:.93rem;
+  text-decoration:none;
+  padding-top:13px;
+  gap:10px;
+}
+.home-page-v2 .home-science-subject-grid{gap:clamp(16px,2vw,26px)}
+.home-page-v2 .home-science-subject-grid .home-subject-photo{aspect-ratio:1.62}
+.home-page-v2 .home-science-subject-grid .home-subject-info{
+  padding:24px 28px 27px;
+  gap:10px;
+}
+.home-page-v2 .home-science-subject-grid .home-subject-info h4{
+  font-size:clamp(1.65rem,2.2vw,2.25rem);
+}
+.home-page-v2 .home-subjects.wrap{
+  padding-bottom:clamp(66px,7vw,95px);
+}
+.home-page-v2 .home-subject-group-heading p{color:#696275}
+
+/* Herramientas: fotografía real + contenido con espacios respirables. */
+.home-page-v2 .home-innovation.wrap{
+  position:relative;
+  margin-block:clamp(20px,3vw,45px) clamp(30px,5vw,70px);
+  padding:clamp(28px,4vw,56px);
+  gap:clamp(32px,5vw,74px);
+  border:1px solid #e5def1;
+  border-radius:28px;
+  color:#241b4b;
+  background:
+    radial-gradient(ellipse at 95% 4%,rgba(212,194,251,.42),transparent 65%),
+    linear-gradient(110deg,#ffffff 0%,#f7f3fe 100%);
+  box-shadow:0 18px 48px rgba(36,27,75,.075);
+}
+.home-page-v2 .home-innovation-copy{padding:0}
+.home-page-v2 .home-innovation-copy .home-visual-kicker{color:#6542ac}
+.home-page-v2 .home-innovation-copy h2{
+  font-size:clamp(2.15rem,3.3vw,3.5rem);
+  color:#241b4b;
+  max-width:18ch;
+}
+.home-page-v2 .home-innovation-copy h2 em{color:#6840c5}
+.home-page-v2 .home-innovation-copy p{
+  color:#5c566a;
+  font-size:1.06rem;
+  line-height:1.7;
+  max-width:43ch;
+}
+.home-page-v2 .aura-lab-benefits{
+  display:flex;align-items:center;flex-wrap:wrap;
+  gap:10px 18px;
+  margin:0 0 28px;
+  color:#4b3c6c;
+  font-size:.91rem;font-weight:760;
+}
+.home-page-v2 .aura-lab-benefits span{display:inline-flex;align-items:center;gap:7px}
+.home-page-v2 .aura-lab-benefits i{
+  width:8px;height:8px;flex:none;border-radius:50%;
+  background:#a180d7;box-shadow:0 0 0 3px #e9e1f8;
+}
+.home-page-v2 .home-innovation-copy .button{
+  display:inline-flex;gap:12px;
+  min-height:52px;padding:13px 24px;
+  background:linear-gradient(112deg,#352267,#7048cb);
+  color:#fff;
+  box-shadow:0 8px 23px rgba(63,39,119,.16);
+}
+.home-page-v2 .home-innovation-copy .button span{color:#ead29e;font-size:1.15rem}
+.home-page-v2 .home-innovation-photo{
+  aspect-ratio:1.5;
+  border:1px solid rgba(223,213,240,.9);
+  border-radius:22px;
+  overflow:hidden;
+  background:linear-gradient(135deg,#d6c6f2,#3e3170);
+  box-shadow:0 20px 42px rgba(36,27,75,.14);
+}
+.home-page-v2 .home-innovation-photo img{width:100%;height:100%;object-fit:cover}
+
+/* Aprendizaje humano: una sección editorial con dos imágenes protagonistas. */
+.home-page-v2 .home-human.wrap{
+  display:block;
+  width:min(1250px,calc(100% - 58px));
+  padding-block:clamp(72px,8vw,115px);
+}
+.home-page-v2 .aura-human-heading{
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  align-items:end;gap:18px 55px;
+  margin:0 0 clamp(26px,3vw,42px);
+}
+.home-page-v2 .aura-human-heading .home-visual-kicker{
+  grid-column:1/-1;margin:0;
+}
+.home-page-v2 .aura-human-heading h2{
+  margin:0;
+  max-width:21ch;
+  font:790 clamp(2.2rem,3.6vw,3.85rem)/1.16 ui-sans-serif,system-ui,sans-serif;
+  letter-spacing:-.052em;color:#241b4b;
+}
+.home-page-v2 .aura-human-heading h2 em{color:#6840c5;font-style:normal}
+.home-page-v2 .aura-human-heading>p{
+  max-width:45ch;margin:0;color:#605a6c;font-size:1.06rem;line-height:1.72;
+}
+.home-page-v2 .aura-human-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(16px,2vw,25px);
+}
+.home-page-v2 .aura-human-grid .home-human-card{
+  display:flex;flex-direction:column;min-width:0;
+  overflow:hidden;border:1px solid #e7e0f0;
+  border-radius:22px;background:#fff;
+  box-shadow:0 9px 26px rgba(36,27,75,.055);
+}
+.home-page-v2 .aura-human-grid .home-human-card>img{
+  display:block;width:100%;height:clamp(205px,22vw,290px);
+  min-height:0;object-fit:cover;
+  background:#eee7f8;
+}
+.home-page-v2 .aura-human-grid .home-human-card>div{
+  align-self:stretch;padding:clamp(23px,2.7vw,34px);
+}
+.home-page-v2 .aura-human-grid .home-human-card h3{
+  margin:0 0 12px;
+  font:770 clamp(1.52rem,2vw,2.05rem)/1.2 ui-sans-serif,system-ui,sans-serif;
+  letter-spacing:-.04em;color:#241b4b;
+}
+.home-page-v2 .aura-human-grid .home-human-card p{
+  max-width:58ch;color:#605b69;font-size:1.03rem;line-height:1.67;
+}
+.home-page-v2 .aura-human-grid .home-human-card .home-visual-kicker{
+  margin-bottom:10px;
+}
+
+/* Tres rutas: progresión visual, navegación sin saltos confusos. */
+.home-page-v2 .home-path-section.dark-section{
+  padding-block:clamp(80px,8vw,116px);
+  background:linear-gradient(125deg,#f0ebfa 0%,#f7f3fe 100%);
+  color:#241b4b;
+}
+.home-page-v2 .home-path-section .home-path-head{
+  align-items:center;gap:clamp(28px,5vw,90px);
+}
+.home-page-v2 .home-path-head h2{
+  max-width:17ch;
+  font-size:clamp(2.35rem,3.8vw,4.15rem);
+  color:#241b4b;
+}
+.home-page-v2 .home-path-head h2 em{font-style:normal;color:#6840c5}
+.home-page-v2 .home-path-photo{
+  border-radius:24px;aspect-ratio:1.56;
+  background:#e8def6;
+  box-shadow:0 20px 50px rgba(36,27,75,.085);
+}
+.home-page-v2 .home-path-photo img{
+  width:100%;height:100%;object-fit:cover;object-position:center;
+}
+.home-page-v2 .home-path-section .path-grid{
+  gap:clamp(15px,2vw,26px);
+  margin-top:clamp(35px,4vw,55px);
+}
+.home-page-v2 .home-path-section .path-card{
+  position:relative;isolation:isolate;
+  display:flex;flex-direction:column;
+  min-height:235px;padding:clamp(23px,2.7vw,33px);
+  border:1px solid #ded4ee;
+  border-radius:18px;background:rgba(255,255,255,.96);
+  box-shadow:0 11px 30px rgba(36,27,75,.045);
+  transition:transform .18s,border-color .18s,box-shadow .18s;
+}
+.home-page-v2 .home-path-section .path-card::before{
+  position:absolute;content:"";top:0;left:25px;right:25px;height:3px;
+  border-radius:0 0 9px 9px;
+  background:linear-gradient(90deg,#6941c8,#b49be7);
+}
+.home-page-v2 .home-path-section .path-card:hover,
+.home-page-v2 .home-path-section .path-card:focus-visible{
+  transform:translateY(-3px);
+  box-shadow:0 19px 42px rgba(36,27,75,.11);
+}
+.home-page-v2 .home-path-section .aura-path-number{
+  display:block;margin:0 0 16px;
+  font:800 .82rem/1.4 ui-sans-serif,system-ui,sans-serif;
+  color:#5b389d;letter-spacing:.09em;
+}
+.home-page-v2 .home-path-section .path-card h3{
+  margin:0 0 9px;
+  font:760 clamp(1.5rem,2.2vw,1.97rem)/1.2 ui-sans-serif,system-ui,sans-serif;
+  letter-spacing:-.035em;
+}
+.home-page-v2 .home-path-section .path-card p{
+  color:#5d5869;
+  font-size:.98rem;line-height:1.62;
+  max-width:37ch;margin-bottom:21px;
+}
+.home-page-v2 .home-path-section .path-card b{
+  margin-top:auto;
+  letter-spacing:.045em;
+  color:#4b2a96;font-size:.88rem;
+}
+
+/* Fundador: retrato real y autoría inequívoca. */
+.home-page-v2 .home-trust.wrap{
+  display:grid;grid-template-columns:minmax(260px,.84fr) minmax(0,1.16fr);
+  align-items:center;
+  gap:clamp(45px,6vw,95px);
+  width:min(1140px,calc(100% - 58px));
+  padding-block:clamp(85px,9vw,137px);
+}
+.home-page-v2 .home-teacher-portrait{
+  display:block;width:100%;
+  max-width:400px;
+  margin:0;
+  border:1px solid #e3d9f0;
+  border-radius:23px;
+  overflow:hidden;
+  background:#f5effc;
+  box-shadow:0 20px 50px rgba(36,27,75,.11);
+}
+.home-page-v2 .home-teacher-portrait img{
+  display:block;width:100%;height:auto;object-fit:contain;
+  border-radius:0;
+}
+.home-page-v2 .aura-founder-caption{
+  display:flex;flex-direction:column;gap:5px;
+  padding:17px 22px;
+  border-top:1px solid #e6ddf0;
+  background:#fff;
+}
+.home-page-v2 .aura-founder-caption strong{
+  font-size:1.19rem;font-weight:800;color:#241b4b;
+}
+.home-page-v2 .aura-founder-caption span{
+  font-size:.9rem;line-height:1.45;color:#5e5670;
+}
+.home-page-v2 .home-teacher-copy h2{
+  max-width:19ch;
+  font:790 clamp(2.2rem,3.55vw,3.85rem)/1.16 ui-sans-serif,system-ui,sans-serif;
+  color:#241b4b;
+}
+.home-page-v2 .home-teacher-copy h2 em{color:#6840c5;font-style:normal}
+.home-page-v2 .home-teacher-copy p{
+  max-width:53ch;font-size:1.065rem;line-height:1.77;
+  color:#5c566b;
+}
+.home-page-v2 .home-teacher-copy .aura-founder-belief{
+  margin:22px 0 27px;
+  padding-left:19px;border-left:3px solid #c4a4e8;
+  font-size:1.05rem;font-weight:700;
+  color:#49356c;
+}
+.home-page-v2 .home-teacher-copy .actions{display:flex;gap:14px 20px;flex-wrap:wrap}
+.home-page-v2 .home-teacher-copy .actions .button{
+  min-height:49px;display:inline-flex;align-items:center;
+  border-radius:12px;padding:12px 20px;
+}
+.home-page-v2 .home-teacher-copy .actions .text-link{
+  display:inline-flex;align-items:center;
+  min-height:49px;font-size:1rem;
+}
+
+/* Cierre fotográfico con espacio antes del footer: no repetir una pared violeta. */
+.home-page-v2 .home-cinematic-end.home-last-step{
+  width:min(1260px,calc(100% - 58px));
+  min-height:clamp(335px,31vw,435px);
+  margin:0 auto clamp(72px,7vw,110px);
+  border-radius:30px;
+  overflow:hidden;
+  padding-block:clamp(58px,6vw,85px);
+  background:#241b4b;
+  box-shadow:0 22px 60px rgba(36,27,75,.17);
+}
+.home-page-v2 .home-end-picture{
+  background:linear-gradient(90deg,#5136a3,#20163e);
+}
+.home-page-v2 .home-end-picture img{
+  object-fit:cover;object-position:35% 45%;
+  width:100%;height:100%;
+}
+.home-page-v2 .home-cinematic-end::after{
+  background:linear-gradient(90deg,
+     rgba(24,17,55,.16) 0%,rgba(24,17,55,.43) 39%,rgba(24,17,55,.94) 100%);
+}
+.home-page-v2 .home-cinematic-end .home-last-step-inner{
+  width:min(1120px,calc(100% - 54px));
+  align-items:center;
+  justify-content:flex-end;
+  gap:clamp(25px,3vw,45px);
+}
+.home-page-v2 .home-cinematic-end .home-last-step-inner>div{flex:0 1 455px}
+.home-page-v2 .home-cinematic-end h2{color:#fff;font-size:clamp(2.9rem,4.3vw,4.8rem)}
+.home-page-v2 .home-cinematic-end p{font-size:1.13rem;line-height:1.63;color:#f3edf9}
+.home-page-v2 .home-cinematic-end .button{
+  display:inline-flex;align-items:center;gap:12px;
+  min-height:51px;padding:13px 22px;border-radius:12px;
+  background:linear-gradient(110deg,#ffe7b0,#e8bc71);
+  color:#241b4b;font-weight:800;
+}
+.home-page-v2 .home-cinematic-end .button span{font-size:1.2rem}
+
+/* Pie de página: mayor ritmo, contraste y legibilidad, sin alterar otras páginas. */
+.home-page-v2+footer .footer-grid{
+  padding-top:clamp(47px,6vw,78px);
+  padding-bottom:clamp(44px,5vw,65px);
+  gap:clamp(24px,3vw,50px);
+}
+.home-page-v2+footer .footer-grid>div{min-width:0}
+.home-page-v2+footer .footer-grid b{font-size:1.01rem;line-height:1.4}
+.home-page-v2+footer .footer-grid a{
+  font-size:.95rem;line-height:1.7;
+  text-decoration-thickness:1px;
+  text-underline-offset:4px;
+}
+.home-page-v2+footer .footer-grid p{font-size:.95rem;line-height:1.67}
+.home-page-v2+footer .footer-base{
+  padding-block:19px 26px;
+  font-size:.84rem;
+  line-height:1.6;
+}
+
+/* Escalas: 5 materias > 3 > 2 > 1 sin tarjetas viudas. */
+@media(max-width:1180px){
+  .home-page-v2 .home-math-subject-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .home-page-v2 .home-math-subject-grid>.home-image-subject,
+  .home-page-v2 .home-math-subject-grid>.home-image-subject:nth-child(n + 4){
+    grid-column:auto;
+  }
+  .home-page-v2 .home-math-subject-grid>.home-image-subject:nth-child(n + 4){grid-column:span 1}
+  .home-page-v2 .home-math-subject-grid>.home-image-subject:nth-child(4){grid-column:span 1}
+  .home-page-v2 .home-math-subject-grid>.home-image-subject:last-child{
+    grid-column:span 1;flex-direction:column;
+  }
+  .home-page-v2 .home-math-subject-grid>.home-image-subject:last-child .home-subject-photo{
+    width:100%;flex:initial;min-height:0;aspect-ratio:640/390;
+  }
+}
+@media(max-width:920px){
+  .home-page-v2 .home-math-subject-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .home-page-v2 .home-math-subject-grid>.home-image-subject:last-child{
+    grid-column:1/-1;
+    flex-direction:row;
+  }
+  .home-page-v2 .home-math-subject-grid>.home-image-subject:last-child .home-subject-photo{
+    width:48%;flex:0 0 48%;aspect-ratio:auto;min-height:190px;
+  }
+  .home-page-v2 .aura-human-heading{grid-template-columns:1fr;align-items:start}
+  .home-page-v2 .aura-human-heading .home-visual-kicker{grid-column:1}
+  .home-page-v2 .aura-human-heading>p{max-width:58ch}
+  .home-page-v2 .home-trust.wrap{grid-template-columns:minmax(0,1fr);gap:26px}
+  .home-page-v2 .home-teacher-portrait{max-width:360px}
+}
+@media(max-width:700px){
+  .home-page-v2 .home-subjects.wrap{padding-bottom:56px}
+  .home-page-v2 .home-math-subject-grid,
+  .home-page-v2 .home-science-subject-grid{grid-template-columns:minmax(0,1fr);gap:16px}
+  .home-page-v2 .home-math-subject-grid>.home-image-subject:last-child{grid-column:auto;flex-direction:column}
+  .home-page-v2 .home-math-subject-grid>.home-image-subject:last-child .home-subject-photo{
+    width:100%;flex:initial;min-height:0;aspect-ratio:640/390;
+  }
+  .home-page-v2 .home-math-subject-grid .home-subject-info h4{
+    min-height:0;font-size:1.55rem;
+  }
+  .home-page-v2 .home-image-subject .home-subject-info{padding:20px 22px 24px}
+  .home-page-v2 .home-innovation.wrap{margin-block:14px 37px;padding:22px 17px;gap:26px}
+  .home-page-v2 .home-innovation-copy h2{font-size:clamp(2rem,8.1vw,2.9rem)}
+  .home-page-v2 .aura-lab-benefits{font-size:.84rem;gap:9px 12px}
+  .home-page-v2 .home-innovation-photo{aspect-ratio:1.42}
+  .home-page-v2 .home-human.wrap{width:calc(100% - 32px);padding-block:56px 67px}
+  .home-page-v2 .aura-human-heading{margin-bottom:27px;gap:14px}
+  .home-page-v2 .aura-human-heading h2{font-size:clamp(2.02rem,8vw,3.15rem)}
+  .home-page-v2 .aura-human-heading>p{font-size:1rem}
+  .home-page-v2 .aura-human-grid{grid-template-columns:1fr;gap:18px}
+  .home-page-v2 .aura-human-grid .home-human-card>img{height:auto;min-height:0;aspect-ratio:16/9}
+  .home-page-v2 .home-path-section.dark-section{padding-block:62px 74px}
+  .home-page-v2 .home-path-head h2{font-size:clamp(2.1rem,8vw,3.05rem)}
+  .home-page-v2 .home-path-section .path-card{min-height:0;padding:23px}
+  .home-page-v2 .home-trust.wrap{width:calc(100% - 32px);padding-block:69px 75px}
+  .home-page-v2 .home-teacher-portrait{max-width:340px}
+  .home-page-v2 .home-teacher-copy h2{font-size:clamp(2.07rem,8vw,3.1rem)}
+  .home-page-v2 .home-cinematic-end.home-last-step{
+    width:calc(100% - 32px);min-height:370px;
+    margin-bottom:60px;border-radius:23px;
+  }
+  .home-page-v2 .home-cinematic-end::after{
+    background:linear-gradient(0deg,
+      rgba(24,17,55,.93) 0%,rgba(24,17,55,.72) 52%,rgba(24,17,55,.27) 100%);
+  }
+  .home-page-v2 .home-cinematic-end .home-last-step-inner{
+    width:calc(100% - 42px);align-items:flex-start;justify-content:flex-end;gap:23px;
+  }
+  .home-page-v2 .home-cinematic-end .button{width:auto}
+  .home-page-v2+footer .footer-grid{padding-top:42px}
+}
+@media(prefers-reduced-motion:reduce){
+  .home-page-v2 .home-path-section .path-card{transition:none;transform:none}
+}
