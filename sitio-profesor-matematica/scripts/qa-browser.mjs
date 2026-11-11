@@ -216,6 +216,52 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
     }
     const screenshotPath = join(out, key + ".png");
     await page.screenshot({ path: screenshotPath, fullPage: ["inicio", "blog", "aprende"].includes(label), animations: "disabled" });
+    if (label === "inicio") {
+      // Comprueba la ilustración en su ubicación real, no solamente la cabecera
+      // inicial. El HTML <picture> debe seleccionar un SVG apropiado a cada ancho.
+      try {
+        const figure = page.locator(".feature-band .zenit-visual-figure");
+        await figure.scrollIntoViewIfNeeded({ timeout: 8000 });
+        await page.waitForFunction(() => {
+          const img = document.querySelector(".feature-band .zenit-visual-figure img");
+          return img && img.complete && img.naturalWidth > 0;
+        }, { timeout: 12000 });
+        const art = await figure.evaluate(el => {
+          const img = el.querySelector("img");
+          const fig = el.getBoundingClientRect();
+          const rect = img?.getBoundingClientRect();
+          return {
+            src: img?.currentSrc || "",
+            imageWidth: rect?.width || 0,
+            imageHeight: rect?.height || 0,
+            figureWidth: fig.width,
+            naturalWidth: img?.naturalWidth || 0
+          };
+        });
+        const expected = size.width <= 640 ? "zenit-connection-mobile.svg" : "zenit-connection-desktop.svg";
+        if (!art.src.includes(expected)) {
+          addFinding("error", key, "Ilustración no adaptada: se esperaba " + expected + ", se obtuvo " + art.src);
+        }
+        if (art.imageWidth > art.figureWidth + 3 || art.naturalWidth === 0) {
+          addFinding("error", key, "Ilustración sobresale del recuadro o no se carga");
+        }
+        if (art.imageHeight < 120) {
+          addFinding("warning", key, "Ilustración demasiado pequeña: " + art.imageHeight + " px");
+        }
+        await figure.screenshot({
+          path: join(out, "portada-diagrama-" + size.label + ".png"),
+          animations: "disabled", timeout: 12000
+        });
+        const formulaOverflow = await page.locator(".hero .formula-card .formula").evaluate(el =>
+          Math.max(0, el.scrollWidth - el.clientWidth)
+        );
+        if (formulaOverflow > 8) {
+          addFinding("error", key, "Fórmula de portada desbordada: " + formulaOverflow + " px");
+        }
+      } catch (error) {
+        addFinding("error", key, "No se pudo verificar el diagrama de inicio: " + error.message);
+      }
+    }
     // Capturas cerca de fórmulas: las capturas del encabezado no revelan
     // recuadros cortados varias pantallas más abajo.
     if (size.width <= 390 && ["herramientas", "leccion-conjuntos"].includes(label)) {
