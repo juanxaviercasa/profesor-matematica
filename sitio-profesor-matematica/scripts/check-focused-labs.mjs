@@ -23,6 +23,11 @@ assert.equal(mapping.size, 17, "Revisar cobertura de 17 lecciones con laboratori
 assert.equal(new Set(mapping.values()).size, 9, "Falta alguna de las nueve familias matemáticas");
 assert.equal(mapping.get("segmentos-1sec-unidad1"), "segments", "La lección Segmentos debe usar el laboratorio de longitudes, no polígonos");
 assert.equal(mapping.get("angulos-1sec-unidad2"), "angles", "La lección Ángulos debe usar el transportador y no polígonos");
+const publishedGeometry=catalog.filter(l=>l.course==="geometria"&&l.publishStatus==="published");
+for(const lesson of publishedGeometry){
+  assert.ok(mapping.has(lesson.slug),"Lección geométrica publicada sin laboratorio del tema: "+lesson.slug);
+}
+
 for (const [slug, kind] of mapping) {
   const item = catalog.find(l => l.slug === slug);
   assert.ok(item, "El laboratorio no corresponde a una lección real: " + slug);
@@ -68,6 +73,10 @@ assert.match(source, /className=\{"zenit-webapp-shell zenit-focused-lab/);
 assert.match(browser, /SIMULATOR_MISSING/);
 assert.match(browser, /SIMULATOR_SLIDER/);
 assert.match(browser, /SIMULATOR_CAPTURE/);
+const pedagogicQA=read("scripts/qa-pedagogy-interactive.mjs");
+assert.match(pedagogicQA,/name:"movil320"/);
+assert.match(pedagogicQA,/"angulos-1sec-unidad2"/);
+
 
 // Parser tipo TypeScript para anticipar errores de sintaxis TSX sin navegador.
 const file = ts.createSourceFile("focused-lesson-labs.tsx", source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
