@@ -10,33 +10,71 @@ export const metadata: Metadata = {
 };
 
 const homeImages = "/images/home";
-const subjects = [
+const subjectGroups = [
   {
-    title: "Matemática",
-    description: "Descubre conexiones entre números, funciones y geometría.",
-    href: "/aprende/matematica-preuniversitaria",
-    image: "matematica",
-    width: 640,
-    height: 400,
-    alt: "Estudiante explorando funciones y gráficas matemáticas en una pantalla digital.",
+    id: "home-math-courses",
+    kind: "math",
+    title: "Matemáticas",
+    description: "Cinco cursos para construir una base sólida y pensar con rigor.",
+    subjects: [
+      {
+        title: "Álgebra",
+        description: "Expresiones, ecuaciones, factorización y funciones.",
+        href: "/aprende/matematica-preuniversitaria/algebra",
+        image: "algebra.svg", width: 640, height: 390,
+        alt: "Expresión algebraica factorizada y representación de una parábola.",
+      },
+      {
+        title: "Aritmética",
+        description: "Números, fracciones, proporciones y porcentajes.",
+        href: "/aprende/matematica-preuniversitaria/aritmetica",
+        image: "aritmetica.svg", width: 640, height: 390,
+        alt: "Equivalencia entre la fracción tres cuartos y el decimal cero coma setenta y cinco.",
+      },
+      {
+        title: "Geometría",
+        description: "Figuras, ángulos, áreas y sólidos geométricos.",
+        href: "/aprende/matematica-preuniversitaria/geometria",
+        image: "geometria.svg", width: 640, height: 390,
+        alt: "Triángulo rectángulo con lados de tres, cuatro y cinco unidades.",
+      },
+      {
+        title: "Trigonometría",
+        description: "Ángulos, razones trigonométricas e identidades.",
+        href: "/aprende/matematica-preuniversitaria/trigonometria",
+        image: "trigonometria.svg", width: 640, height: 390,
+        alt: "Circunferencia trigonométrica con proyecciones de seno y coseno.",
+      },
+      {
+        title: "Razonamiento Matemático",
+        description: "Patrones, lógica, ingenio y estrategias de solución.",
+        href: "/aprende/matematica-preuniversitaria/razonamiento-matematico",
+        image: "razonamiento-matematico.svg", width: 640, height: 390,
+        alt: "Secuencia numérica de duplicación que invita a descubrir el siguiente término.",
+      },
+    ],
   },
   {
-    title: "Física",
-    description: "Comprende el movimiento y los fenómenos mediante modelos.",
-    href: "/aprende/ciencias/fisica",
-    image: "fisica",
-    width: 640,
-    height: 400,
-    alt: "Estudiante observando un péndulo de Newton en una mesa de estudio.",
-  },
-  {
-    title: "Química",
-    description: "Explora la materia, sus transformaciones y sus aplicaciones.",
-    href: "/aprende/ciencias/quimica",
-    image: "quimica",
-    width: 600,
-    height: 400,
-    alt: "Matraces de laboratorio y un modelo molecular bajo luz violeta.",
+    id: "home-science-courses",
+    kind: "science",
+    title: "Ciencias",
+    description: "Explora los fenómenos físicos y las transformaciones de la materia.",
+    subjects: [
+      {
+        title: "Física",
+        description: "Movimiento, fuerzas y fenómenos que podemos modelar.",
+        href: "/aprende/ciencias/fisica",
+        image: "fisica.webp", width: 640, height: 400,
+        alt: "Estudiante observando un péndulo de Newton en una mesa de estudio.",
+      },
+      {
+        title: "Química",
+        description: "Materia, estructura atómica y transformaciones.",
+        href: "/aprende/ciencias/quimica",
+        image: "quimica.webp", width: 600, height: 400,
+        alt: "Matraces de laboratorio y modelo molecular bajo luz violeta.",
+      },
+    ],
   },
 ] as const;
 
@@ -85,29 +123,41 @@ export default function Home() {
         <section className="home-subjects wrap" aria-labelledby="home-subjects-title">
           <div className="public-section-head home-cinematic-head">
             <div>
-              <span className="home-visual-kicker">Tres formas de explorar</span>
+              <span className="home-visual-kicker">Siete caminos para explorar</span>
               <h2 id="home-subjects-title">El conocimiento no tiene fronteras.</h2>
             </div>
-            <p>Entra por el área que más te interesa y conecta lo que aprendes con el mundo.</p>
+            <p>Elige el curso que necesitas: cada disciplina tiene su propia ruta de aprendizaje.</p>
           </div>
-          <div className="home-subject-grid home-image-subject-grid">
-            {subjects.map((subject) => (
-              <Link href={subject.href} className="home-subject-card home-image-subject" key={subject.title}>
-                <div className="home-subject-photo">
-                  <Image
-                    src={`${homeImages}/zenit-${subject.image}.webp`}
-                    width={subject.width} height={subject.height}
-                    loading="lazy" unoptimized
-                    sizes="(max-width: 640px) 100vw, (max-width: 1050px) 50vw, 33vw"
-                    alt={subject.alt}
-                  />
+          <div className="home-subject-groups">
+            {subjectGroups.map((group) => (
+              <div className="home-subject-group" key={group.id} aria-labelledby={group.id}>
+                <div className="home-subject-group-heading">
+                  <h3 id={group.id}>{group.title}</h3>
+                  <p>{group.description}</p>
                 </div>
-                <div className="home-subject-info">
-                  <h3>{subject.title}</h3>
-                  <p>{subject.description}</p>
-                  <span>Ver temas <span aria-hidden="true">↗</span></span>
+                <div className={`home-subject-grid home-image-subject-grid ${group.kind === "math" ? "home-math-subject-grid" : "home-science-subject-grid"}`}>
+                  {group.subjects.map((subject) => (
+                    <Link href={subject.href} className="home-subject-card home-image-subject" key={subject.title}>
+                      <div className="home-subject-photo">
+                        <Image
+                          src={`${homeImages}/zenit-${subject.image}`}
+                          width={subject.width} height={subject.height}
+                          loading="lazy"
+                          sizes={group.kind === "math"
+                            ? "(max-width: 700px) 100vw, (max-width: 1050px) 50vw, 33vw"
+                            : "(max-width: 700px) 100vw, 50vw"}
+                          alt={subject.alt}
+                        />
+                      </div>
+                      <div className="home-subject-info">
+                        <h4>{subject.title}</h4>
+                        <p>{subject.description}</p>
+                        <span>Ver temas <span aria-hidden="true">↗</span></span>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </section>
