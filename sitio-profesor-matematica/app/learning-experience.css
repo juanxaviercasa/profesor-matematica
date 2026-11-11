@@ -1,36 +1,36 @@
 /* Capa 05 — navegación y acompañamiento educativo. */
 .lesson-jump-nav {
   display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
-  padding: 16px 18px; background: #18382f; border: 1px solid #4e7362;
+  padding: 16px 18px; background: #241b4b; border: 1px solid #65528f;
   border-radius: 16px; margin-block: 22px;
 }
-.lesson-jump-nav span { color: #e1eadf; font-size: .9rem; font-weight: 650; margin-right: 8px; }
+.lesson-jump-nav span { color: #ded4f1; font-size: .9rem; font-weight: 650; margin-right: 8px; }
 .lesson-jump-nav a {
-  color: #f1f8ed; background: #264b3e; border: 1px solid #6a917c;
+  color: #f9f6ff; background: #35265f; border: 1px solid #816bae;
   text-decoration: none; border-radius: 999px; padding: 10px 14px;
   min-height: 44px; display: inline-flex; align-items: center;
   font-size: .87rem; font-weight: 750;
 }
 .lesson-jump-nav a:hover, .lesson-jump-nav a:focus-visible {
-  color: #12372f; background: #d9ef78; border-color: #d9ef78;
+  color: #241b4b; background: #e8bc71; border-color: #e8bc71;
 }
-.lesson-approach { background: #102a22; border-left: 4px solid #d9ef78;
-  border-radius: 8px; color: #e3eadf; padding: 14px 18px; line-height: 1.6;
+.lesson-approach { background: #19152f; border-left: 4px solid #e8bc71;
+  border-radius: 8px; color: #ded4f1; padding: 14px 18px; line-height: 1.6;
 }
 .lesson-anchor { scroll-margin-top: 105px; min-width: 0; }
 .lesson-anchor :is(.zenit-webapp-shell,.exercise-bank,.infinite-problem-generator) { margin-block: 0; }
 .lesson-anchor .math-scroll-region { max-width:100%; }
 .diagnostic-next-steps {
   margin-block: 22px; padding: clamp(16px,3vw,26px);
-  border-radius: 16px; background: #eff4e4; border: 1px solid #bdd3a9;
-  color: #142c27;
+  border-radius: 16px; background: #f1edff; border: 1px solid #d9cdef;
+  color: #241b4b;
 }
 .diagnostic-next-steps h3 { font-size: clamp(1.15rem,2vw,1.5rem); margin-bottom: 10px; }
-.diagnostic-next-steps p { color: #42534e; }
+.diagnostic-next-steps p { color: #615b76; }
 .diagnostic-next-steps ol { padding-left: 22px; margin: 0; }
 .diagnostic-next-steps li { margin-block: 10px; }
-.diagnostic-next-steps a { color: #12372f; font-weight: 750; text-underline-offset:4px; }
-.diagnostic-next-steps a:focus-visible { outline: 3px solid #17745c; outline-offset: 3px; }
+.diagnostic-next-steps a { color: #241b4b; font-weight: 750; text-underline-offset:4px; }
+.diagnostic-next-steps a:focus-visible { outline: 3px solid #6840c5; outline-offset: 3px; }
 .exercise-bank [aria-disabled="true"] { cursor: default; }
 @media(max-width:640px){
   .lesson-jump-nav { padding: 13px; gap: 7px; }
@@ -43,23 +43,23 @@
 .lesson-completion-card,.lesson-progress-overview {
   display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px;
   padding:clamp(20px,3vw,32px); border-radius:18px;
-  background:#173a2e; color:#f1f7ed; border:1px solid #60806c;
+  background:#241b4b; color:#f9f6ff; border:1px solid #65528f;
 }
 .lesson-completion-card > div:first-child,.lesson-progress-overview > div:first-child { max-width:650px; flex:1 1 280px; }
-.lesson-progress-kicker { display:block; color:#d9ef78; font-size:.8rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+.lesson-progress-kicker { display:block; color:#e8bc71; font-size:.8rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
 .lesson-completion-card h2,.lesson-progress-overview h2 { margin:8px 0 10px; color:#fff; font-size:clamp(1.5rem,3vw,2.3rem); }
-.lesson-completion-card p,.lesson-progress-overview p { color:#e3ece5; line-height:1.6; margin-bottom:8px; }
-.lesson-completion-card small,.lesson-progress-overview small { color:#c4d8cd; font-size:.82rem; }
+.lesson-completion-card p,.lesson-progress-overview p { color:#ded4f1; line-height:1.6; margin-bottom:8px; }
+.lesson-completion-card small,.lesson-progress-overview small { color:#d2c6e8; font-size:.82rem; }
 .lesson-completion-actions { display:grid; gap:9px; flex:0 1 240px; }
 .lesson-completion-actions button,.lesson-progress-overview a {
   display:inline-flex; align-items:center; justify-content:center;
-  border-radius:999px; border:2px solid #d9ef78; background:#d9ef78; color:#12372f;
+  border-radius:999px; border:2px solid #e8bc71; background:#e8bc71; color:#241b4b;
   min-height:48px; padding:12px 20px; font-weight:800; text-decoration:none;
   font-size:.92rem; text-align:center;
 }
-.lesson-completion-actions button[aria-pressed="true"] { background:#fffdf8; border-color:#fffdf8; }
+.lesson-completion-actions button[aria-pressed="true"] { background:#ffffff; border-color:#ffffff; }
 .lesson-completion-actions button:disabled { opacity:.6; cursor:wait; }
-.lesson-completion-actions button:focus-visible,.lesson-progress-overview a:focus-visible { outline:3px solid #f1f7ed; outline-offset:4px; }
+.lesson-completion-actions button:focus-visible,.lesson-progress-overview a:focus-visible { outline:3px solid #f9f6ff; outline-offset:4px; }
 .lesson-completion-actions span[role="status"] { color:#ffe0bd; font-size:.8rem; }
 .aprende-hub .lesson-progress-overview { margin-block:36px 10px; }
 @media(max-width:640px){
@@ -152,7 +152,7 @@
 }
 .exercise-bank .math-option-button:focus-visible,
 .infinite-problem-generator .math-option-button:focus-visible {
-  outline:3px solid #d9ef78; outline-offset:3px;
+  outline:3px solid #e8bc71; outline-offset:3px;
 }
 .exercise-bank .math-option-button[aria-pressed="true"],
 .infinite-problem-generator .math-option-button[aria-pressed="true"] {
