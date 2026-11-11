@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readFileSync, mkdirSync, writeFileSync } from "node:fs";
 import ts from "typescript";
 import vm from "node:vm";
 import katex from "katex";
@@ -40,6 +40,9 @@ const sandbox={exports:{},stripMathDelimiters};
 vm.runInNewContext(compiled,sandbox,{timeout:3000});
 const toLatex=sandbox.exports.toLatex;
 assert.equal(typeof toLatex,"function");
+assert.equal(toLatex("1/x cerca de 3"),String.raw`\\frac{1}{x},\\quad x\\to 3`);
+assert.equal(toLatex("f(x)=1/(x−2) cerca de 2"),String.raw`f(x)=\\frac{1}{x-2},\\quad x\\to 2`);
+assert.equal(toLatex("sin(x)"),String.raw`\\sin (x)`);
 const samples=[
  slash+"frac{1}{x}",slash+"begin{cases}x,&x>0"+slash+slash+"0,&x"+slash+"le0"+slash+"end{cases}",
  "f(x)=x²−3x+2","f(x)=(x²−1)/(x−1), x≠1","n(A∪B)=3","h(x)=2^(x−1)+2",
@@ -50,6 +53,12 @@ for(const s of samples){
  assert.ok(rendered.includes("katex-mathml"),"No se generó MathML para "+s);
 }
 const lessons=JSON.parse(read("content/catalog/lessons-index.json"));
+// Diagnóstico privado y reproducible por cada uno de los 628 registros curriculares.
+const katexAuditByLesson=new Map(lessons.map(l=>[l.slug,{
+ slug:l.slug,title:l.title,area:l.area,course:l.course,publishStatus:l.publishStatus,
+ route:"/aprende/"+l.area+"/"+l.course+"/"+l.slug,
+ keyFormulaChecked:false,mathSegmentsChecked:0,invalidMathSegments:0,errors:[]
+}]));
 assert.ok(EDITORIAL_RULES.length>=40,"La cobertura editorial es demasiado reducida");
 for(const rule of EDITORIAL_RULES){
  katex.renderToString(rule.tex,{throwOnError:true,strict:false,trust:false});
@@ -80,8 +89,14 @@ let examined=0;
 for(const l of lessons){
  if(typeof l.keyFormula!=="string"||!l.keyFormula.trim())continue;
  examined++;
+ const auditRow=katexAuditByLesson.get(l.slug);
+ if(auditRow)auditRow.keyFormulaChecked=true;
  try { katex.renderToString(toLatex(l.keyFormula),{throwOnError:true,strict:false,trust:false}); }
- catch(e) { malformed.push({slug:l.slug,formula:l.keyFormula.slice(0,88),error:String(e.message||e).slice(0,85)}); }
+ catch(e) {
+   const reason=String(e.message||e).slice(0,160);
+   malformed.push({slug:l.slug,formula:l.keyFormula.slice(0,88),error:reason.slice(0,85)});
+   if(auditRow)auditRow.errors.push({location:"keyFormula",source:l.keyFormula.slice(0,180),reason});
+ }
 }
 console.log("Auditoría de fórmulas extraídas: "+JSON.stringify({examined,unsupported:malformed.length,samples:malformed.slice(0,8)}));
 const bank=read("components/interactive-exercise-bank.tsx");
@@ -103,6 +118,7 @@ const corpusFailures=[];
 function inspectText(value,location,lesson){
   if(typeof value!=="string"||!value.trim())return;
   inspectedText++;
+  const auditRow=katexAuditByLesson.get(lesson.slug);
   const gradeCourse=lesson.grade+"° "+lesson.course;
   const bucket=corpusByCourse.get(gradeCourse)||{paragraphs:0,math:0,invalid:0,examples:[]};
   bucket.paragraphs++;
@@ -111,10 +127,17 @@ function inspectText(value,location,lesson){
     if(part.type!=="math")continue;
     mathPieces++;
     bucket.math++;
+    if(auditRow)auditRow.mathSegmentsChecked++;
     try{katex.renderToString(toLatex(part.value),{throwOnError:true,strict:false,trust:false});}
     catch(err){
       malformedPieces++;
       bucket.invalid++;
+      if(auditRow){
+        auditRow.invalidMathSegments++;
+        if(auditRow.errors.length<20)auditRow.errors.push({
+          location,source:part.value.slice(0,180),reason:String(err.message||err).slice(0,160)
+        });
+      }
       if(bucket.examples.length<2)bucket.examples.push({at:location,tex:part.value.slice(0,78)});
       if(corpusFailures.length<14)corpusFailures.push({location,tex:part.value.slice(0,90),reason:String(err.message||err).slice(0,100)});
     }
@@ -138,6 +161,22 @@ for(const l of complete){
   }
 }
 console.log("Auditoría de textos completos: "+JSON.stringify({inspectedText,mathPieces,malformedPieces,samples:corpusFailures}));
+
+const katexAuditRows=[...katexAuditByLesson.values()];
+const katexAuditSummary={
+ totalLessons:katexAuditRows.length,
+ published:katexAuditRows.filter(r=>r.publishStatus==="published").length,
+ scheduled:katexAuditRows.filter(r=>r.publishStatus==="scheduled").length,
+ formulasChecked:examined,mathSegmentsChecked:mathPieces,
+ invalidKeyFormulas:malformed.length,invalidMathSegments:malformedPieces,
+ lessonsWithIssues:katexAuditRows.filter(r=>r.errors.length>0).length,
+ publishedWithIssues:katexAuditRows.filter(r=>r.publishStatus==="published"&&r.errors.length>0).length
+};
+assert.equal(katexAuditSummary.totalLessons,lessons.length,"Faltan registros en la auditoría matemática");
+mkdirSync(new URL("../.catalog-audit/",import.meta.url),{recursive:true});
+writeFileSync(new URL("../.catalog-audit/katex-628.json",import.meta.url),
+ JSON.stringify({generatedAt:new Date().toISOString(),summary:katexAuditSummary,lessons:katexAuditRows},null,2),"utf8");
+console.log("Auditoría KaTeX individual: "+JSON.stringify(katexAuditSummary));
 console.log("Revisión editorial por grado y asignatura: "+JSON.stringify([...corpusByCourse.entries()].filter(([k])=>/^[1-5]°/.test(k)).sort((a,b)=>a[0].localeCompare(b[0])).map(([key,value])=>({key,paragraphs:value.paragraphs,candidates:value.math,invalid:value.invalid,examples:value.examples}))));
 
 assert.ok(mathPieces>1000,"El análisis de ejercicios no identificó suficientes expresiones");
