@@ -95,8 +95,8 @@ assert.match(css, /fill: #ffffff;/);
 assert.match(css, /stroke: #6045bc;/);
 assert.match(css, /font-size: 23px;/);
 assert.doesNotMatch(css, /background: linear-gradient\(145deg,#241b4b/, "La miniaplicación no debe ser un bloque morado");
-assert.match(home, /Ver materias y niveles/);
-assert.match(home, /Probar herramientas/);
+assert.match(home, /Explorar materias/);
+assert.match(home, /Probar laboratorios/);
 assert.doesNotMatch(component, /zenit-phoenix\.svg|Logra tu meta|Laboratorio interactivo|zqh-brand|zqh-live/,
   "La miniaplicación no debe repetir la identidad del encabezado");
 assert.doesNotMatch(home, /feature-band|zenit-connection-aurora-|Funciones antes de cálculo\./,
