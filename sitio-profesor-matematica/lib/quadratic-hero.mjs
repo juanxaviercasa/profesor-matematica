@@ -48,14 +48,36 @@ export function vertexLatex(a, h, k) {
   return "f(x)=" + prefix + inside + "^{2}" + signedTerm(k, "");
 }
 
-export const PLOT = Object.freeze({ left: 48, top: 20, width: 428, height: 226 });
+export const PLOT = Object.freeze({ left: 61, top: 22, width: 527, height: 234 });
 
+function niceTickStep(range, wanted = 5) {
+  const raw = Math.max(range / wanted, 1e-9);
+  const magnitude = 10 ** Math.floor(Math.log10(raw));
+  return [1, 2, 2.5, 5, 10].map((step) => step * magnitude)
+    .find((step) => step >= raw) ?? 10 * magnitude;
+}
+
+function ticksBetween(min, max, step) {
+  const ticks = [];
+  const first = Math.ceil((min - 1e-9) / step);
+  const last = Math.floor((max + 1e-9) / step);
+  for (let i = first; i <= last && ticks.length < 20; i++) {
+    ticks.push(Number((i * step).toFixed(6)));
+  }
+  return ticks;
+}
+
+/** A Cartesian viewport that always includes x/y axes, the vertex and real roots. */
 export function quadraticPlot(a, h, k) {
-  if (a === 0) throw new RangeError("Se necesita a distinto de cero.");
+  if (!Number.isFinite(a) || a === 0 || !Number.isFinite(h) || !Number.isFinite(k)) {
+    throw new RangeError("Se necesita una cuadrática con parámetros finitos y a distinto de cero.");
+  }
   const xMin = h - 3, xMax = h + 3;
-  const scale = Math.abs(a);
-  const yMin = a > 0 ? k - Math.max(0.75, scale * 2.5) : k - Math.max(3, scale * 10);
-  const yMax = a > 0 ? k + Math.max(3, scale * 10) : k + Math.max(0.75, scale * 2.5);
+  const edge = quadraticY(a, h, k, h + 3);
+  const yLow = Math.min(0, k, edge);
+  const yHigh = Math.max(0, k, edge);
+  const pad = Math.max(1.6, Math.abs(a) * 1.35);
+  const yMin = yLow - pad, yMax = yHigh + pad;
   const xToPixel = (x) => PLOT.left + (x - xMin) / (xMax - xMin) * PLOT.width;
   const yToPixel = (y) => PLOT.top + (yMax - y) / (yMax - yMin) * PLOT.height;
   const points = Array.from({ length: 151 }, (_, i) => {
@@ -65,14 +87,18 @@ export function quadraticPlot(a, h, k) {
   const d = points.map((p, i) =>
     (i ? "L" : "M") + xToPixel(p.x).toFixed(2) + " " + yToPixel(p.y).toFixed(2)
   ).join(" ");
+  const yStep = niceTickStep(yMax - yMin, 6);
+  const roots = quadraticRoots(a,h,k)
+    .filter((x) => x >= xMin - 1e-7 && x <= xMax + 1e-7)
+    .map((x) => ({ x, px: xToPixel(x), py: yToPixel(0) }));
   return {
     xMin, xMax, yMin, yMax, d, points,
     vertex: { x: h, y: k, px: xToPixel(h), py: yToPixel(k) },
-    xAxisY: yMin <= 0 && yMax >= 0 ? yToPixel(0) : null,
+    xAxisY: yToPixel(0),
     yAxisX: xMin <= 0 && xMax >= 0 ? xToPixel(0) : null,
-    roots: quadraticRoots(a, h, k).map((x) => ({ x, px: xToPixel(x), py: yToPixel(0) })),
-    ticks: Array.from({ length: Math.floor(xMax) - Math.ceil(xMin) + 1 },
-      (_, i) => Math.ceil(xMin) + i).filter((x) => x !== 0),
+    roots,
+    ticks: ticksBetween(xMin, xMax, 1),
+    yTicks: ticksBetween(yMin, yMax, yStep),
     xToPixel, yToPixel,
   };
 }
