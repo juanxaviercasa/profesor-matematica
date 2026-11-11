@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title">
   <title id="title">Funciones antes de cálculo, tres conexiones clave</title>
-  <rect width="1280" height="720" fill="#f6f1e6"/><rect width="54" height="720" fill="#ff5a36"/>
-  <g opacity=".13" stroke="#12372f" stroke-width="2"><path d="M54 144h1226M54 288h1226M54 432h1226M54 576h1226"/><path d="M250 0v720M500 0v720M750 0v720M1000 0v720"/></g>
-  <path d="M720 655c92-8 124-360 260-360 102 0 130 176 265 216" fill="none" stroke="#ff5a36" stroke-width="22" stroke-linecap="round"/><circle cx="980" cy="295" r="28" fill="#ddf277" stroke="#12372f" stroke-width="10"/>
-  <text x="100" y="108" fill="#ff5a36" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="800" letter-spacing="6">ANTES DE CÁLCULO</text>
-  <text x="98" y="278" fill="#12372f" font-family="Georgia,serif" font-size="92">FUNCIONES:</text><text x="98" y="382" fill="#12372f" font-family="Georgia,serif" font-size="92">3 CONEXIONES</text>
-  <rect x="100" y="458" width="475" height="72" rx="36" fill="#12372f"/><text x="338" y="505" text-anchor="middle" fill="#f6f1e6" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="800">FÓRMULA · GRÁFICA · CAMBIO</text>
-  <text x="100" y="648" fill="#12372f" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="800">JUAN XAVIER</text>
+  <rect width="1280" height="720" fill="#FCFBFF"/><rect width="54" height="720" fill="#9471E5"/>
+  <g opacity=".13" stroke="#241B4B" stroke-width="2"><path d="M54 144h1226M54 288h1226M54 432h1226M54 576h1226"/><path d="M250 0v720M500 0v720M750 0v720M1000 0v720"/></g>
+  <path d="M720 655c92-8 124-360 260-360 102 0 130 176 265 216" fill="none" stroke="#9471E5" stroke-width="22" stroke-linecap="round"/><circle cx="980" cy="295" r="28" fill="#E8BC71" stroke="#241B4B" stroke-width="10"/>
+  <text x="100" y="108" fill="#9471E5" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="800" letter-spacing="6">ANTES DE CÁLCULO</text>
+  <text x="98" y="278" fill="#241B4B" font-family="Georgia,serif" font-size="92">FUNCIONES:</text><text x="98" y="382" fill="#241B4B" font-family="Georgia,serif" font-size="92">3 CONEXIONES</text>
+  <rect x="100" y="458" width="475" height="72" rx="36" fill="#241B4B"/><text x="338" y="505" text-anchor="middle" fill="#FCFBFF" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="800">FÓRMULA · GRÁFICA · CAMBIO</text>
+  <text x="100" y="648" fill="#241B4B" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="800">JUAN XAVIER</text>
 </svg>
