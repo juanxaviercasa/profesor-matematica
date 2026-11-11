@@ -133,7 +133,7 @@ export function buildCurricularProblem(slug:string,seed:number):FocusedProblem|n
         ["("+(major+1)+", "+minor+")","("+major+", "+(minor+1)+")",
          "("+(major-1)+", "+minor+")","("+major+", "+(minor-1)+")"],
         ["Los valores singulares son las raíces cuadradas de los autovalores de AᵀA.",
-         "AᵀA = diag("+(major*major)+", "+(minor*minor)+").",
+         "Multiplicamos Aᵀ por A: AᵀA = diag("+(major*major)+", "+(minor*minor)+").",
          "Las raíces positivas son "+major+" y "+minor+"; como "+major+" > "+minor+", ese es el orden."]);
     }
     case "analisis-dimensional-y-vectores": {
