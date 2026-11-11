@@ -1,0 +1,289 @@
+/* Sistema Zénit · acabado de la portada
+ * Solo afecta al inicio; evita colisiones con laboratorios y las lecciones.
+ * Las dos ilustraciones contienen la ecuación y las coordenadas correctas.
+ */
+.home-page-v2 {
+  --home-ink: #14382e;
+  --home-muted: #41564d;
+  --home-outline: #c8d8c8;
+  color: var(--home-ink);
+  min-width: 0;
+}
+.home-page-v2 :is(.hero, .feature-band, .course-grid, .home-start-grid,
+  .home-trust, .home-last-step-inner) > * {
+  min-width: 0;
+}
+.home-page-v2 :is(h1,h2,h3) { text-wrap: balance; overflow-wrap: break-word; }
+.home-page-v2 :is(.lead,.feature-band p,.public-action-card p,.path-card p,
+  .course-grid p,.home-teacher-copy p) {
+  overflow-wrap: break-word;
+  line-height: 1.68;
+}
+.home-page-v2 .eyebrow { font-size: .93rem; line-height: 1.5; }
+.home-page-v2 .hero {
+  grid-template-columns: minmax(0,1.07fr) minmax(0,.93fr);
+  gap: clamp(28px, 4.8vw, 72px);
+  align-items: center;
+  min-height: min(720px, calc(100svh - 76px));
+  padding-block: clamp(70px, 7vw, 100px);
+}
+.home-page-v2 .hero-copy { min-width: 0; }
+.home-page-v2 .hero h1 {
+  max-width: 19ch;
+  margin-bottom: clamp(20px, 2vw, 28px);
+  font-size: clamp(3.35rem, 4.7vw, 5.25rem);
+  line-height: 1.07;
+  letter-spacing: -.045em;
+}
+.home-page-v2 .hero .lead {
+  color: var(--home-muted);
+  max-width: 59ch;
+  font-size: clamp(1.08rem, 1rem + .4vw, 1.28rem);
+}
+.home-page-v2 .hero .actions { gap: 15px 22px; margin-top: 27px; }
+.home-page-v2 .hero .actions .text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  font-size: 1rem;
+}
+.home-page-v2 .proof-line { gap: 9px; margin-top: 28px; }
+.home-page-v2 .proof-line span {
+  font-size: .9rem;
+  line-height: 1.35;
+  background: #edf4e8;
+  border-color: var(--home-outline);
+  border-radius: 999px;
+  color: #25453a;
+}
+.home-page-v2 .formula-card {
+  width: 100%;
+  max-width: 610px;
+  min-width: 0;
+  margin-inline: auto;
+  padding: clamp(18px, 2.2vw, 30px);
+  transform: none;
+  overflow: hidden;
+}
+.home-page-v2 .formula-card .formula {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin-block: clamp(15px, 2vw, 26px) 6px;
+  font-size: clamp(1.5rem, 2.4vw, 2.15rem);
+  line-height: 1.55;
+  text-align: center;
+  color: #f6f9ed;
+}
+.home-page-v2 .formula-card .formula > .katex-display {
+  min-width: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+.home-page-v2 .formula-card .formula > .katex-display > .katex {
+  white-space: normal !important;
+  max-width: 100%;
+}
+.home-page-v2 .formula-card svg {
+  max-width: 100%;
+  height: auto;
+}
+.home-page-v2 .formula-card .formula-top,
+.home-page-v2 .formula-card .formula-bottom {
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: .85rem;
+  letter-spacing: .055em;
+  line-height: 1.5;
+}
+.home-page-v2 .formula-card .formula-bottom { padding-top: 14px; }
+.home-page-v2 .home-start { padding-block: clamp(55px, 7vw, 93px); }
+.home-page-v2 .public-section-head h2,
+.home-page-v2 .feature-band h2,
+.home-page-v2 .course-grid h2,
+.home-page-v2 .home-teacher-copy h2,
+.home-page-v2 .home-last-step h2 {
+  font-size: clamp(2.2rem, 4vw, 3.9rem);
+  line-height: 1.12;
+  letter-spacing: -.034em;
+}
+.home-page-v2 .home-start-grid { gap: clamp(14px, 2vw, 22px); }
+.home-page-v2 .public-action-card {
+  min-width: 0;
+  border-radius: 22px;
+  padding: clamp(22px, 2.4vw, 32px);
+  gap: 0;
+}
+.home-page-v2 .public-action-card h3 { margin-block: 15px 12px; }
+.home-page-v2 .public-action-card p { color: var(--home-muted); font-size: 1.03rem; }
+.home-page-v2 .public-action-card a { padding-top: 10px; }
+.home-page-v2 .dark-section { padding-block: clamp(68px, 7vw, 98px); }
+.home-page-v2 .dark-section .split-heading {
+  grid-template-columns: minmax(0,.4fr) minmax(0,1fr);
+  gap: clamp(18px, 4vw, 62px);
+}
+.home-page-v2 .dark-section .split-heading h2 {
+  font-size: clamp(2.25rem, 4vw, 4rem);
+  line-height: 1.14;
+  max-width: 23ch;
+}
+.home-page-v2 .path-grid { margin-top: clamp(36px, 5vw, 62px); }
+.home-page-v2 .path-card {
+  padding: clamp(22px, 2.5vw, 34px);
+  min-height: 275px;
+}
+.home-page-v2 .path-card h3 { margin-top: clamp(19px, 2.6vw, 34px); }
+.home-page-v2 .path-card p { color: #d5e3dc; font-size: 1.025rem; }
+.home-page-v2 .path-card b { font-size: .9rem; letter-spacing: .08em; }
+.home-page-v2 .feature-band {
+  grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 80px);
+  padding-block: clamp(74px, 8vw, 112px);
+}
+.home-page-v2 .feature-band > div { min-width: 0; }
+.home-page-v2 .feature-band h2 { max-width: 18ch; }
+.home-page-v2 .feature-band p:not(.eyebrow) {
+  color: var(--home-muted);
+  font-size: clamp(1.075rem, 1rem + .3vw, 1.17rem);
+}
+.home-page-v2 .feature-band p strong {
+  display: inline-block;
+  color: #133d2d;
+  background: #e8f0dd;
+  border: 1px solid #c7d9c3;
+  padding: 0 .26em;
+  border-radius: 4px;
+  font-variant-numeric: lining-nums;
+}
+.home-page-v2 .feature-band .button.secondary {
+  color: #142c27;
+  background: #ff6849;
+  border: 2px solid transparent;
+  min-height: 52px;
+  font-size: 1rem;
+}
+.home-page-v2 .feature-band .button.secondary:hover {
+  background: #f45333;
+  color: #142c27;
+}
+.home-page-v2 .zenit-visual-figure {
+  min-width: 0;
+  width: 100%;
+  max-width: 690px;
+  margin: 0;
+  background: #0e3227;
+  border: 1px solid #315d46;
+  border-radius: clamp(18px, 2.5vw, 28px);
+  box-shadow: 0 26px 65px #12372f29;
+  overflow: hidden;
+}
+.home-page-v2 .zenit-visual-figure picture,
+.home-page-v2 .zenit-visual-figure picture img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+.home-page-v2 .zenit-visual-figure figcaption {
+  margin: 0;
+  padding: clamp(14px, 1.8vw, 20px) clamp(18px, 2vw, 26px);
+  background: #103429;
+  color: #e9f4e9;
+  font-size: clamp(.95rem, .9rem + .12vw, 1.05rem);
+  line-height: 1.65;
+  overflow-wrap: break-word;
+}
+.home-page-v2 .zenit-visual-figure figcaption strong {
+  color: #d9ef78;
+  font-weight: 700;
+}
+.home-page-v2 .course-strip {
+  background: #d9ef78;
+  padding-block: clamp(58px, 7vw, 84px);
+}
+.home-page-v2 .course-grid { gap: clamp(24px, 6vw, 90px); }
+.home-page-v2 .course-meta { min-width: 0; }
+.home-page-v2 .course-meta span { line-height: 1.55; color: #243d30; }
+.home-page-v2 .course-meta .button {
+  min-height: 52px;
+  font-size: 1rem;
+  text-align: center;
+}
+.home-page-v2 .home-trust { gap: clamp(35px, 6vw, 80px); }
+.home-page-v2 .home-teacher-copy p:not(.eyebrow) { font-size: 1.07rem; }
+.home-page-v2 .home-last-step .button { min-height: 52px; font-size: 1rem; }
+.home-page-v2 :is(.button,.public-action-card a,.path-card,.text-link):focus-visible {
+  outline: 3px solid #216b51;
+  outline-offset: 5px;
+}
+.home-page-v2 .dark-section .path-card:focus-visible {
+  outline-color: #d9ef78;
+  outline-offset: -5px;
+}
+@media(max-width:1100px) {
+  .home-page-v2 .hero,
+  .home-page-v2 .feature-band {
+    grid-template-columns: minmax(0,1fr);
+    min-height: auto;
+  }
+  .home-page-v2 .hero { gap: 35px; padding-block: 62px 72px; }
+  .home-page-v2 .hero h1 { max-width: 19ch; }
+  .home-page-v2 .formula-card { margin-inline: 0; }
+  .home-page-v2 .feature-band { gap: 36px; }
+  .home-page-v2 .feature-band h2 { max-width: 24ch; }
+}
+@media(max-width:850px) {
+  .home-page-v2 .dark-section .split-heading { grid-template-columns: minmax(0,1fr); gap: 12px; }
+  .home-page-v2 .dark-section .split-heading h2 { max-width: 26ch; }
+  .home-page-v2 .course-grid { grid-template-columns: minmax(0,1fr); }
+  .home-page-v2 .course-meta { padding-left: 0; border-left: 0; }
+  .home-page-v2 .feature-band { padding-block: 66px; }
+}
+@media(max-width:640px) {
+  .home-page-v2 .hero { gap: 30px; padding-block: 46px 54px; }
+  .home-page-v2 .hero h1 {
+    max-width: 100%;
+    font-size: clamp(2.55rem, 10vw, 3.6rem);
+    line-height: 1.12;
+    letter-spacing: -.034em;
+  }
+  .home-page-v2 .hero .lead { font-size: 1.07rem; line-height: 1.65; }
+  .home-page-v2 .hero .actions { display: grid; gap: 13px; }
+  .home-page-v2 .hero .actions > * { justify-content: center; text-align: center; width: 100%; }
+  .home-page-v2 .proof-line { margin-top: 23px; }
+  .home-page-v2 .formula-card { padding: 16px; border-radius: 20px; }
+  .home-page-v2 .formula-card .formula {
+    font-size: clamp(1.18rem, 5.5vw, 1.55rem);
+    line-height: 1.6;
+    margin-block: 14px 6px;
+  }
+  .home-page-v2 .formula-card .formula-top,
+  .home-page-v2 .formula-card .formula-bottom { font-size: .8rem; letter-spacing: .035em; }
+  .home-page-v2 .formula-card .formula-top i { font-size: 1.5rem; }
+  .home-page-v2 .home-start { padding-block: 49px 64px; }
+  .home-page-v2 .home-start-grid { gap: 14px; }
+  .home-page-v2 .public-action-card { min-height: 0; padding: 23px; }
+  .home-page-v2 .public-action-card p { font-size: 1rem; }
+  .home-page-v2 .path-card { min-height: 220px; }
+  .home-page-v2 .public-section-head h2,
+  .home-page-v2 .feature-band h2,
+  .home-page-v2 .course-grid h2,
+  .home-page-v2 .home-teacher-copy h2,
+  .home-page-v2 .home-last-step h2 {
+    font-size: clamp(2rem, 8.4vw, 2.75rem);
+    line-height: 1.15;
+  }
+  .home-page-v2 .zenit-visual-figure figcaption { padding: 15px 17px; }
+  .home-page-v2 .course-strip { padding-block: 57px; }
+  .home-page-v2 .course-meta .button { align-self: stretch; }
+  .home-page-v2 .home-trust { padding-block: 60px; }
+  .home-page-v2 .home-teacher-copy .actions { gap: 14px; }
+  .home-page-v2 .home-last-step-inner .button { width: 100%; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .home-page-v2 :is(.path-card,.public-action-card) { transition: none !important; }
+  .home-page-v2 :is(.path-card,.public-action-card):hover { transform: none; }
+}
