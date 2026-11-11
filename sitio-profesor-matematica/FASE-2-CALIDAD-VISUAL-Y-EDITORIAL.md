@@ -66,3 +66,10 @@ La correspondencia de contenido se comprueba en los temas incorporados, pero una
 - Los **4000 problemas de prueba** (8 familias × 500 semillas) comprueban respuestas, cinco alternativas distintas, consistencia de cálculos y pasos. Ejecutar `npm run check:focused-problems`.
 - La cola `npm run report:answer-keys` registra en artefactos de GitHub Actions los ejercicios con clave A–E sin alternativa correspondiente, su banco F0/FA, posición y referencia a archivos fuente. Estas claves no se inventan ni se dan por verificadas.
 - Queda trabajo pedagógico con los generadores compartidos de Cálculo, Álgebra Lineal, Física y EDO, que cubren temas distintos con una sola plantilla. Estas plantillas deben revisarse y especializarse antes de presentarlas como enseñanza completa de cada tema.
+
+## Fase 2D — Álgebra Lineal y Física
+Se identificó una incompatibilidad pedagógica: las 8 lecciones de Álgebra Lineal reutilizaban problemas genéricos de inecuaciones cuadráticas y las 14 de Física reutilizaban lanzamientos verticales. Se incorporan **22 generadores de problemas adecuados a la unidad** sin alterar los ejercicios originales extraídos. Incluyen sistemas lineales, bases, transformaciones, proyecciones, autovalores, Cayley-Hamilton, SVD, vectores, MRUV, proyectiles, torque, Newton, gravitación, trabajo y potencia, energía, impulso, oscilación, presión, calor, Coulomb y Ohm.
+
+`npm run check:curricular-problems` ensaya 300 semillas por cada una de las 22 unidades: **6600 problemas**, verificando resultados con cálculos independientes, cinco alternativas distintas, pasos desarrollados y correspondencia con la asignatura.
+
+**Límite:** las preguntas específicas son ejercicios de refuerzo calibrados, no demostraciones exhaustivas de todos los subtemas del título. Los simuladores visuales genéricos de estas áreas siguen necesitando especialización por tema, al igual que las 38 lecciones de Cálculo y las 8 de EDO. No presentar esta mejora como certificación completa del contenido académico.

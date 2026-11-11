@@ -42,7 +42,7 @@ jobs:
         continue-on-error: true
         run: |
           failed=0
-          for task in check:design check:readability check:premium check:editorial check:publication check:focused check:focused-problems check:public-copy check:seo; do
+          for task in check:design check:readability check:premium check:editorial check:publication check:focused check:focused-problems check:curricular-problems check:public-copy check:seo; do
             echo "Ejecutando $task"
             npm run "$task" || failed=1
           done

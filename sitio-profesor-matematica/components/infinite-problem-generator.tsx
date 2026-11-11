@@ -5,6 +5,7 @@ import { MathText } from "./math-formula";
 import type { AppEngineId } from "./zenit-app-engines";
 import { FOCUSED_LABS } from "@/lib/focused-lesson-topics";
 import { buildFocusedProblem } from "@/lib/focused-problem-generator";
+import { buildCurricularProblem } from "@/lib/curricular-problem-generator";
 
 interface GeneratedProblem {
   seed: number;
@@ -405,9 +406,10 @@ export function InfiniteProblemGenerator({
   // La práctica debe corresponder al concepto del laboratorio, no solo
   // al motor general al que se asocia una asignatura.
   const focusedKind = slug ? FOCUSED_LABS[slug] : undefined;
+  const curricularProblem = slug ? buildCurricularProblem(slug, seed) : null;
   const problem = focusedKind
     ? buildFocusedProblem(focusedKind, seed)
-    : buildDynamicProblem(engineId, topicTitle, seed, course);
+    : curricularProblem ?? buildDynamicProblem(engineId, topicTitle, seed, course);
 
   const handleNextProblem = useCallback(() => {
     setSeed((prev) => prev + 17);

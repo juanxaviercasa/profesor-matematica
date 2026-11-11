@@ -22,6 +22,8 @@ on:
       - "sitio-profesor-matematica/lib/focused-problem-generator.ts"
       - "sitio-profesor-matematica/components/infinite-problem-generator.tsx"
       - "sitio-profesor-matematica/scripts/check-focused-problems.mjs"
+      - "sitio-profesor-matematica/lib/curricular-problem-generator.ts"
+      - "sitio-profesor-matematica/scripts/check-curricular-problems.mjs"
       - "sitio-profesor-matematica/scripts/generate-answer-key-queue.mjs"
       - "sitio-profesor-matematica/scripts/check-publication-boundaries.mjs"
 
@@ -62,6 +64,8 @@ jobs:
         run: npm run check:focused
       - name: Validar 4000 ejercicios matemáticos de refuerzo temático
         run: npm run check:focused-problems
+      - name: Validar 6600 ejercicios específicos de Álgebra Lineal y Física
+        run: npm run check:curricular-problems
       - name: Validar KaTeX y los textos matemáticos del catálogo
         continue-on-error: true
         run: npm run check:math

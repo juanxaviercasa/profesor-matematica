@@ -15,6 +15,8 @@ on:
       - "sitio-profesor-matematica/lib/focused-problem-generator.ts"
       - "sitio-profesor-matematica/components/infinite-problem-generator.tsx"
       - "sitio-profesor-matematica/scripts/check-focused-problems.mjs"
+      - "sitio-profesor-matematica/lib/curricular-problem-generator.ts"
+      - "sitio-profesor-matematica/scripts/check-curricular-problems.mjs"
       - "sitio-profesor-matematica/components/chemistry-learning-lab.tsx"
       - "sitio-profesor-matematica/app/learning-experience.css"
       - "sitio-profesor-matematica/lib/lesson-study-guides.ts"
@@ -52,6 +54,8 @@ jobs:
         run: npm run check:focused
       - name: Validar respuestas y distractores específicos
         run: npm run check:focused-problems
+      - name: Validar Álgebra Lineal y Física por unidad
+        run: npm run check:curricular-problems
       - name: Compilar Worker
         run: npm run build
       - name: Preparar navegador real y axe-core
