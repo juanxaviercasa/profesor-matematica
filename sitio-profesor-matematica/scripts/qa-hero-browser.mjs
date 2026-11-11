@@ -60,7 +60,10 @@ try {
       }
       const curveBefore = await page.locator(".zqh-curve").getAttribute("d");
       const slider = page.locator(".zqh-control input[type=range]").first();
-      await slider.fill("7");
+      await slider.focus();
+      await slider.press("End");
+      await page.waitForFunction((before) => document.querySelector(".zqh-curve")?.getAttribute("d") !== before,
+        curveBefore, { timeout: 5000 });
       const curveAfter = await page.locator(".zqh-curve").getAttribute("d");
       assert.notEqual(curveAfter, curveBefore, size.name + " el control no modifica la curva");
       reports.push({size:size.name,ok:true,graphWidth:Math.round(geometry.graph.width),
