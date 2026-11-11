@@ -18,7 +18,7 @@ export default function BlogPage() {
         <section className="blog-library-intro">
           <div className="blog-library-intro__copy">
             <span className="blog-library-kicker">
-                {LESSONS_INDEX.filter(lesson => lesson.publishStatus === "published").length} temas · Matemática que conecta
+                {LESSONS_INDEX.filter(lesson => lesson.publishStatus === "published").length} temas · Logra tu meta
             </span>
             <h1>
                 Biblioteca de Matemática y Ciencias
