@@ -30,8 +30,15 @@ export function GeometryCurriculumLab({topic,title}:{topic:Topic;title:string}){
   const mode=topic.mode;
   const polygon=mode==="polygon"?regularPolygonVertices(n,size):[];
   const angleRad=theta*Math.PI/180;
+  const rightScale=0.5+size*0.12;
+  const notable=topic.id==="right-triangle-notable";
+  const rightLegX=200*rightScale;
+  const rightLegY=(notable?200:150)*rightScale;
+  const bx=isMedian||isRight?70:140;
+  const by=230;
+  const otherX=isRight?70+rightLegX:isMedian?340:335;
   const upperX=isMedian?210:isRight?70:140+130*Math.cos(angleRad);
-  const upperY=isMedian?35:isRight?55:230-130*Math.sin(angleRad);
+  const upperY=isMedian?35:isRight?230-rightLegY:230-130*Math.sin(angleRad);
   const choose=mode==="polygon"?{title:"Número de lados",value:n,min:3,max:12,change:setN}:
     mode==="triangles"?{title:isRight?"Escala de ejemplo":"Ángulo comprendido γ (grados)",value:isRight?size:theta,min:isRight?1:30,max:isRight?5:120,change:isRight?setSize:setTheta}:
     mode==="transform"?{title:"Desplazamiento horizontal (u)",value:shift,min:-3,max:5,change:setShift}:
@@ -49,7 +56,7 @@ export function GeometryCurriculumLab({topic,title}:{topic:Topic;title:string}){
     mode==="circle"?
       (secant?"Dos secantes desde P: PA·PB = PC·PD = "+fmt(secantPower)+" u². Las longitudes son proporcionales al dibujo.":"Longitud = "+fmt(2*Math.PI*size)+" u; área = "+fmt(Math.PI*size*size)+" u².") :
     mode==="triangles"?
-      (isMedian?"La mediana divide BC por la mitad y el baricentro G cumple AG=2GM.":isRight?"Ejemplo de triángulo rectángulo; compara catetos e hipotenusa.":"Dos lados de 6 y 4 u, con ángulo comprendido "+theta+"°: tercer lado = "+fmt(Math.sqrt(36+16-48*Math.cos(angleRad)))+" u.") :
+      (isMedian?"La mediana divide BC por la mitad y el baricentro G cumple AG=2GM.":isRight?(notable?"Ejemplo 45°–45°–90°: lados "+size+", "+size+" y "+fmt(size*Math.SQRT2)+" u.":"Ejemplo 3–4–5: lados "+3*size+", "+4*size+" y "+5*size+" u; se cumple Pitágoras."):"Dos lados de 6 y 4 u, con ángulo comprendido "+theta+"°: tercer lado = "+fmt(Math.sqrt(36+16-48*Math.cos(angleRad)))+" u.") :
     mode==="area"?(topic.id==="shaded-area"?"Ejemplo de región sombreada: área total "+(4*size)+" u² menos un cuarto sin sombrear; área sombreada "+(3*size)+" u².":"Ejemplo de rectángulo: base "+size+" u, altura 4 u, área "+4*size+" u²."):
     mode==="scale"?"A escala 1:"+size+", 5 cm del plano equivalen a "+(5*size)+" cm reales.":
     mode==="transform"?"Traslación T("+shift+",0): las longitudes y medidas de los ángulos se conservan.":
@@ -88,15 +95,15 @@ export function GeometryCurriculumLab({topic,title}:{topic:Topic;title:string}){
           <circle cx="210" cy="135" r="4" fill="#e8bc71"/>
         </g>}
         {mode==="triangles"&&<g>
-          <polygon points={(isMedian||isRight?"70,230 340,230 ":"140,230 335,230 ")+upperX+","+upperY} fill="#6840c5" fillOpacity=".28" stroke="#b49aff" strokeWidth="3"/>
+          <polygon points={bx+","+by+" "+otherX+","+by+" "+upperX+","+upperY} fill="#6840c5" fillOpacity=".28" stroke="#b49aff" strokeWidth="3"/>
           {isMedian&&<g>
             <line x1={upperX} y1={upperY} x2="205" y2="230" stroke="#e8bc71" strokeWidth="3" strokeDasharray="6 4"/>
             <circle cx={(upperX+2*205)/3} cy={(upperY+460)/3} r="5" fill="#e8bc71"/>
             <text x="216" y="175" fontSize="17" fill="#ffe3ab">G</text>
           </g>}
           <text x={upperX+9} y={upperY-5} fill="#fff" fontSize="18">A</text>
-          <text x={isMedian||isRight?48:116} y="252" fill="#fff" fontSize="18">B</text>
-          <text x={isMedian||isRight?347:343} y="252" fill="#fff" fontSize="18">C</text>
+          <text x={bx-21} y="252" fill="#fff" fontSize="18">B</text>
+          <text x={otherX+8} y="252" fill="#fff" fontSize="18">C</text>
         </g>}
         {mode==="circle"&&<g>
           <circle cx={cx} cy={cy} r={rad} fill="#6840c5" fillOpacity=".22" stroke="#b49aff" strokeWidth="3"/>
