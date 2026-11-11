@@ -18,7 +18,10 @@ for (const name of ["home-start", "public-tools-hero", "public-method-grid", "pu
 for (const p of [home, about, contact, tools, local]) {
   assert.match(p, /export const metadata: Metadata/, "Página pública sin metadata descriptiva");
 }
-assert.match(home, /home-start-grid/);
+assert.doesNotMatch(home, /home-start-grid|proof-line|zenit-connection-aurora-|feature-band/,
+  "La portada no debe acumular rutas ni repetir ejemplos");
+assert.match(home, /home-subject-grid/);
+assert.match(home, /path-grid/);
 assert.match(home, /home-teacher-portrait/);
 assert.match(home, /alt="Retrato de Juan Xavier/);
 assert.match(layout, /authors: \[\{ name: "Juan Xavier"/);
