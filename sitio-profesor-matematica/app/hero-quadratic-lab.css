@@ -4,6 +4,12 @@
  * No cambia estilos de lecciones ni los colores semánticos de gráficas.
  */
 
+/* La cabecera y el escenario principal comparten el mismo eje izquierdo. */
+.site-header .wrap.nav {
+  width: min(1450px, calc(100% - clamp(36px, 5.2vw, 86px)));
+  max-width: 1450px;
+}
+
 /* HERO: composición abierta, no un recuadro que comprime el contenido. */
 .home-page-v2 .hero.wrap {
   position: relative;
@@ -273,6 +279,7 @@
 
 /* Tablet: el texto primero; simulador al ancho de la sección. */
 @media (max-width: 1120px) {
+  .site-header .wrap.nav { width: min(940px,calc(100% - 48px)); }
   .home-page-v2 .hero.wrap {
     grid-template-columns: minmax(0,1fr);
     gap: clamp(26px, 4vw, 42px);
@@ -295,6 +302,7 @@
   }
 }
 @media (max-width: 700px) {
+  .site-header .wrap.nav { width: calc(100% - 32px); }
   .home-page-v2 .hero.wrap {
     width: calc(100% - 32px);
     gap: 29px;
@@ -358,6 +366,7 @@
   .home-page-v2 .formula-card.zqh-lab .zqh-plot { width: 100%; max-height: none; }
 }
 @media (max-width: 370px) {
+  .site-header .wrap.nav { width: calc(100% - 24px); }
   .home-page-v2 .hero.wrap { width: calc(100% - 24px); }
   .home-page-v2 .formula-card.zqh-lab { padding: 13px; gap: 12px; }
   .zqh-control { grid-template-columns: minmax(0,1fr); gap: 3px; }
