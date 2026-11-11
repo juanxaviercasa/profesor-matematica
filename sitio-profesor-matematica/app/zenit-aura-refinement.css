@@ -370,22 +370,18 @@
 
 /* Escalas: 5 materias > 3 > 2 > 1 sin tarjetas viudas. */
 @media(max-width:1180px){
-  .home-page-v2 .home-math-subject-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .home-page-v2 .home-math-subject-grid>.home-image-subject,
-  .home-page-v2 .home-math-subject-grid>.home-image-subject:nth-child(n + 4){
-    grid-column:auto;
-  }
-  .home-page-v2 .home-math-subject-grid>.home-image-subject:nth-child(n + 4){grid-column:span 1}
-  .home-page-v2 .home-math-subject-grid>.home-image-subject:nth-child(4){grid-column:span 1}
-  .home-page-v2 .home-math-subject-grid>.home-image-subject:last-child{
-    grid-column:span 1;flex-direction:column;
-  }
+  .home-page-v2 .home-math-subject-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .home-page-v2 .home-math-subject-grid>.home-image-subject{grid-column:span 2}
+  .home-page-v2 .home-math-subject-grid>.home-image-subject:nth-child(n + 4){grid-column:span 3}
+  .home-page-v2 .home-math-subject-grid>.home-image-subject:last-child{flex-direction:column}
   .home-page-v2 .home-math-subject-grid>.home-image-subject:last-child .home-subject-photo{
     width:100%;flex:initial;min-height:0;aspect-ratio:640/390;
   }
 }
 @media(max-width:920px){
   .home-page-v2 .home-math-subject-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .home-page-v2 .home-math-subject-grid>.home-image-subject,
+  .home-page-v2 .home-math-subject-grid>.home-image-subject:nth-child(n + 4){grid-column:auto}
   .home-page-v2 .home-math-subject-grid>.home-image-subject:last-child{
     grid-column:1/-1;
     flex-direction:row;
