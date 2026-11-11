@@ -41,6 +41,11 @@ for (const selector of [
   ".home-path-section", ".home-cinematic-end", ".home-math-subject-grid",
 ]) assert.ok(refinement.includes(selector), "Falta diseño refinado: " + selector);
 
+assert.match(refinement, /grid-template-columns:repeat\(6,minmax\(0,1fr\)\)/, "Los cinco cursos matemáticos deben tener ancho suficiente en escritorio");
+assert.match(refinement, /nth-child\(n \+ 4\)\{grid-column:span 3\}/, "Los dos últimos cursos deben ocupar media fila cada uno");
+assert.match(refinement, /@media\(max-width:920px\)/, "Falta ajuste de dos columnas en tablet");
+assert.match(refinement, /@media\(max-width:700px\)/, "Falta ajuste a una columna en móvil");
+
 assert.match(home, /Logra tus metas\./);
 assert.match(home, /src="\/juan-xavier\.jpg"/);
 const imports = [
