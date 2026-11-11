@@ -421,3 +421,31 @@
   .home-page-v2 .home-image-subject,
   .home-page-v2 .home-image-subject .home-subject-photo img { transition: none; transform: none; }
 }
+
+
+/* Siete materias: cinco disciplinas de Matemática y Física/Química. */
+.home-page-v2 .home-subject-groups {display:grid;gap:clamp(38px,4vw,62px);margin-top:clamp(30px,3vw,44px)}
+.home-page-v2 .home-subject-group-heading {display:flex;align-items:baseline;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;padding-bottom:17px;border-bottom:1px solid #e6dff0}
+.home-page-v2 .home-subject-group-heading h3 {margin:0;color:#36235f;font:650 clamp(1.7rem,2.2vw,2.3rem)/1.2 Georgia,serif}
+.home-page-v2 .home-subject-group-heading p {margin:0;color:#625d70;font-size:.98rem;line-height:1.55;max-width:48ch}
+.home-page-v2 .home-math-subject-grid {grid-template-columns:repeat(6,minmax(0,1fr))}
+.home-page-v2 .home-math-subject-grid > .home-image-subject {grid-column:span 2}
+.home-page-v2 .home-math-subject-grid > .home-image-subject:nth-child(n+4) {grid-column:span 3}
+.home-page-v2 .home-science-subject-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+.home-page-v2 .home-subject-info h4 {margin:0;font:650 clamp(1.55rem,2vw,2.05rem)/1.14 Georgia,serif;color:#241b4b}
+@media(max-width:1050px) {
+ .home-page-v2 .home-math-subject-grid,.home-page-v2 .home-science-subject-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+ .home-page-v2 .home-math-subject-grid > .home-image-subject {grid-column:auto}
+ .home-page-v2 .home-math-subject-grid > .home-image-subject:last-child {grid-column:1/-1;flex-direction:row}
+ .home-page-v2 .home-math-subject-grid > .home-image-subject:last-child .home-subject-photo {flex:0 0 49%;width:49%;aspect-ratio:auto;min-height:190px}
+ .home-page-v2 .home-math-subject-grid > .home-image-subject:last-child .home-subject-info {flex:1;justify-content:center}
+ .home-page-v2 .home-science-subject-grid > .home-image-subject:last-child {grid-column:auto}
+ .home-page-v2 .home-science-subject-grid > .home-image-subject:last-child .home-subject-photo {aspect-ratio:16/10}
+}
+@media(max-width:700px) {
+ .home-page-v2 .home-math-subject-grid,.home-page-v2 .home-science-subject-grid {grid-template-columns:minmax(0,1fr)}
+ .home-page-v2 .home-math-subject-grid > .home-image-subject:last-child {grid-column:auto;flex-direction:column}
+ .home-page-v2 .home-math-subject-grid > .home-image-subject:last-child .home-subject-photo {width:100%;flex:initial;min-height:0;aspect-ratio:16/10}
+ .home-page-v2 .home-subject-group-heading {align-items:start}
+ .home-page-v2 .home-subject-group-heading p {flex:1 1 100%}
+}
