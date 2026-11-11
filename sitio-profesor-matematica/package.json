@@ -29,6 +29,7 @@
     "check:focused-problems": "node scripts/check-focused-problems.mjs",
     "check:curricular-problems": "node scripts/check-curricular-problems.mjs",
     "report:answer-keys": "node scripts/generate-answer-key-queue.mjs",
+    "audit:pedagogy": "node scripts/audit-pedagogy-alignment.mjs",
     "check:public-copy": "node scripts/check-public-copy.mjs"
   },
   "dependencies": {

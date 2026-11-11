@@ -76,3 +76,8 @@ Se identificó una incompatibilidad pedagógica: las 8 lecciones de Álgebra Lin
 
 ## Fase 2E — verificaciones de navegador de las prácticas temáticas
 Se añade `scripts/qa-curricular-browser.mjs`, que abre **37 lecciones publicadas** y comprueba en Chromium móvil: HTTP 200, enunciado contextual, 5 alternativas, bloqueo tras responder, explicación paso a paso, regeneración de datos, ausencia de scroll horizontal y ausencia de errores JavaScript. Genera un registro por ruta y capturas de evidencia. Se ejecuta en `zenit-pedagogy-qa.yml` después de la batería general de simuladores.
+
+## Fase 2F — cola de intervención por lección
+Se añade `npm run audit:pedagogy`, que produce en el artefacto `zenit-catalog-inventario` los archivos privados `prioridades-pedagogicas-628.csv`, `prioridades-pedagogicas-628.json` y `prioridades-pedagogicas-628.md`. Distingue 15 laboratorios específicos, 37 prácticas de tema/unidad, adaptaciones contextuales parciales de Química y plantillas generales pendientes de especialización, además de teoría fuente faltante, ejercicios no importados y claves sin opciones.
+
+Los puntajes sirven para ordenar revisiones, NO indican que 628 lecciones hayan sido aprobadas pedagógicamente. Los informes de incidencias y pendientes son exclusivos de GitHub Actions, no se muestran al visitante.

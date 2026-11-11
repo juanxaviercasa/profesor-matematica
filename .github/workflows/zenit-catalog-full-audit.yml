@@ -25,6 +25,7 @@ on:
       - "sitio-profesor-matematica/lib/curricular-problem-generator.ts"
       - "sitio-profesor-matematica/scripts/check-curricular-problems.mjs"
       - "sitio-profesor-matematica/scripts/generate-answer-key-queue.mjs"
+      - "sitio-profesor-matematica/scripts/audit-pedagogy-alignment.mjs"
       - "sitio-profesor-matematica/scripts/check-publication-boundaries.mjs"
 
 permissions:
@@ -54,6 +55,8 @@ jobs:
         run: node scripts/audit-catalog-static.mjs
       - name: Documentar claves incompletas para revisión de fuentes
         run: npm run report:answer-keys
+      - name: Consolidar prioridades pedagógicas por las 628 lecciones
+        run: npm run audit:pedagogy
       - name: Validar estándares premium compartidos
         run: npm run check:premium
       - name: Comprobar que las lecciones programadas no se publiquen
