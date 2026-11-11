@@ -31,6 +31,7 @@ for (const pattern of [/gaseoso/, /soluciones químicas/i, /equilibrio químico/
 const geometrySlugs=[
   "segmentos-1sec-unidad1",
   "angulos-1sec-unidad2",
+  "lineas-notables-asociadas-al-triangulo-1sec-unidad3",
   "congruencia-de-triangulos-1sec-unidad3",
   "angulos-formados-por-2-rectas-paralelas-y-1-secante-1sec-unidad2",
   "angulos-determinados-por-dos-rectas-paralelas-y-una-recta-secante-1sec-unidad2"
@@ -102,6 +103,20 @@ try {
           const graphic=await shell.locator('svg[aria-label^="Ángulo de"]').first().getAttribute("aria-label");
           if(!graphic?.includes(degrees+" grados")){
             addIssue("error",key,"El dibujo no anuncia la medida del ángulo actual");
+          }
+        }
+        if(lesson.slug==="lineas-notables-asociadas-al-triangulo-1sec-unidad3"){
+          const model=shell.locator('svg[aria-label^="Ejemplo dinámico de"]');
+          const caption=shell.getByRole("status").filter({hasText:"AG=2GM"});
+          if(await model.count()!==1||await caption.count()!==1)
+            addIssue("error",key,"La mediana y el baricentro no tienen una representación contextual accesible");
+          else{
+            const before=await model.getAttribute("aria-label");
+            const ctrl=shell.getByRole("slider",{name:"Desplazamiento del vértice A"});
+            await ctrl.focus();
+            await ctrl.press("ArrowRight");
+            const after=await model.getAttribute("aria-label");
+            if(before===after)addIssue("error",key,"Mover el vértice A no actualiza la mediana");
           }
         }
         if (lesson.slug==="segmentos-1sec-unidad1") {
