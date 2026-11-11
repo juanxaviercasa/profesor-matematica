@@ -33,7 +33,7 @@
   overscroll-behavior-inline: contain;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
-  scrollbar-color: #718d80 transparent;
+  scrollbar-color: #8c78bb transparent;
 }
 .math-scroll-region > .katex-display {
   inline-size: max-content;
@@ -42,7 +42,7 @@
   margin-block: .25rem !important;
 }
 .math-scroll-region:focus-visible {
-  outline: 3px solid #b9e981;
+  outline: 3px solid #e8bc71;
   outline-offset: 3px;
   border-radius: 5px;
 }
