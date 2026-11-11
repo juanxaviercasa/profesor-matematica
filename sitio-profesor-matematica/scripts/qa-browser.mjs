@@ -236,6 +236,26 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
         addFinding("warning", key, "axe no pudo ejecutarse: " + e.message);
       }
     }
+    // Para las capturas completas del inicio, forzar la carga de las fotos
+    // que normalmente son lazy. Sin esto el screenshot largo muestra
+    // falsos rectángulos vacíos que un usuario sí vería cargados al bajar.
+    if (label === "inicio") {
+      const imageHealth = await page.locator("main.home-page-v2 img").evaluateAll(async images => {
+        for (const img of images) img.setAttribute("loading", "eager");
+        await Promise.all(images.map(img => new Promise(resolve => {
+          if (img.complete) return resolve();
+          const finish = () => resolve();
+          img.addEventListener("load", finish, { once: true });
+          img.addEventListener("error", finish, { once: true });
+          setTimeout(finish, 5500);
+        })));
+        return images.filter(img => !img.complete || img.naturalWidth === 0)
+          .map(img => img.getAttribute("src") || "imagen sin src");
+      });
+      if (imageHealth.length) addFinding("error", key,
+        "Imágenes que no cargaron antes de la captura: " + imageHealth.slice(0, 6).join(", "));
+      await page.evaluate(() => window.scrollTo(0, 0));
+    }
     const screenshotPath = join(out, key + ".png");
     await page.screenshot({ path: screenshotPath, fullPage: ["inicio", "blog", "aprende"].includes(label), animations: "disabled" });
     if (label === "inicio") {
