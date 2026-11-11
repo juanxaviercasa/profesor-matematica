@@ -13,6 +13,13 @@ Clara, exigente, cercana y visual. Evita promesas grandilocuentes, lenguaje infa
 
 ## Identidad visual
 
+### Sistema compartido con Química Zenit (noviembre de 2026)
+
+La capa visual pública del portal matemático comparte con Química Zenit el violeta institucional `#6840C5`, su variante de alto contraste `#4B2A96`, el índigo `#231E42`, el lavanda `#EEE8FD`, el dorado `#E8BC71` y el lienzo `#FCFBFF`. La fuente de implementación actual es `app/zenit-redesign.css` (cargada al final de `app/layout.tsx`). Conservar la identidad de las lecciones y los laboratorios por área: la unificación cromática no autoriza reemplazar símbolos, alterar la semántica de gráficas, ni reducir la legibilidad de fórmulas. Priorizar contraste WCAG AA y controles táctiles de al menos 44 px.
+
+### Paleta histórica (etapas anteriores)
+
+
 - **Verde Zénit — `#12372F`:** autoridad, profundidad y base principal.
 - **Papel Cálido — `#F6F1E6`:** cercanía y legibilidad.
 - **Coral Acción — `#FF5A36`:** llamadas a la acción y puntos de cambio.
