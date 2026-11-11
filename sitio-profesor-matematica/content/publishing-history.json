@@ -71,5 +71,16 @@
     ],
     "totalPublished": 108,
     "totalScheduled": 520
+  },
+  {
+    "date": "2026-11-11T19:57:22.753Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "matrices-de-figuras-1sec-unidad3",
+      "maximo-comun-divisor-y-minimo-comun-multiplo-1sec-unidad3",
+      "numeros-primos-y-compuestos-1sec-unidad3"
+    ],
+    "totalPublished": 111,
+    "totalScheduled": 517
   }
 ]
