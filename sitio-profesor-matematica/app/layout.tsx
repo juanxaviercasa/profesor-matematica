@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { SITE_URL as BASE_URL } from "@/lib/site-config";
 import { Analytics } from "@/components/analytics";
 import { ConversionDock } from "@/components/conversion";
@@ -16,7 +16,10 @@ import "./math-responsive-layout.css";
 import "./premium-responsive.css";
 import "./home-experience.css";
 import "./zenit-redesign.css";
+import "./zenit-aurora.css";
 
+
+export const viewport: Viewport = { themeColor: "#241B4B" };
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
