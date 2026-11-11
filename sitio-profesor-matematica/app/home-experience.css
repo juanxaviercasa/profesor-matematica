@@ -3,9 +3,9 @@
  * Las dos ilustraciones contienen la ecuación y las coordenadas correctas.
  */
 .home-page-v2 {
-  --home-ink: #14382e;
-  --home-muted: #41564d;
-  --home-outline: #c8d8c8;
+  --home-ink: #241b4b;
+  --home-muted: #615b76;
+  --home-outline: #d9cdef;
   color: var(--home-ink);
   min-width: 0;
 }
@@ -51,10 +51,10 @@
 .home-page-v2 .proof-line span {
   font-size: .9rem;
   line-height: 1.35;
-  background: #edf4e8;
+  background: #f1edff;
   border-color: var(--home-outline);
   border-radius: 999px;
-  color: #25453a;
+  color: #4b2a96;
 }
 .home-page-v2 .formula-card {
   width: 100%;
@@ -74,7 +74,7 @@
   font-size: clamp(1.5rem, 2.4vw, 2.15rem);
   line-height: 1.55;
   text-align: center;
-  color: #f6f9ed;
+  color: #f9f6ff;
 }
 .home-page-v2 .formula-card .formula > .katex-display {
   min-width: 0 !important;
@@ -135,7 +135,7 @@
   min-height: 275px;
 }
 .home-page-v2 .path-card h3 { margin-top: clamp(19px, 2.6vw, 34px); }
-.home-page-v2 .path-card p { color: #d5e3dc; font-size: 1.025rem; }
+.home-page-v2 .path-card p { color: #ded4f1; font-size: 1.025rem; }
 .home-page-v2 .path-card b { font-size: .9rem; letter-spacing: .08em; }
 .home-page-v2 .feature-band {
   grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr);
@@ -151,33 +151,33 @@
 }
 .home-page-v2 .feature-band p strong {
   display: inline-block;
-  color: #133d2d;
-  background: #e8f0dd;
-  border: 1px solid #c7d9c3;
+  color: #4b2a96;
+  background: #eee8fd;
+  border: 1px solid #d9cdef;
   padding: 0 .26em;
   border-radius: 4px;
   font-variant-numeric: lining-nums;
 }
 .home-page-v2 .feature-band .button.secondary {
-  color: #142c27;
-  background: #ff6849;
+  color: #241b4b;
+  background: #e8bc71;
   border: 2px solid transparent;
   min-height: 52px;
   font-size: 1rem;
 }
 .home-page-v2 .feature-band .button.secondary:hover {
-  background: #f45333;
-  color: #142c27;
+  background: #d5a14d;
+  color: #241b4b;
 }
 .home-page-v2 .zenit-visual-figure {
   min-width: 0;
   width: 100%;
   max-width: 690px;
   margin: 0;
-  background: #0e3227;
-  border: 1px solid #315d46;
+  background: #241b4b;
+  border: 1px solid #65528f;
   border-radius: clamp(18px, 2.5vw, 28px);
-  box-shadow: 0 26px 65px #12372f29;
+  box-shadow: 0 26px 65px #241b4b29;
   overflow: hidden;
 }
 .home-page-v2 .zenit-visual-figure picture,
@@ -190,23 +190,23 @@
 .home-page-v2 .zenit-visual-figure figcaption {
   margin: 0;
   padding: clamp(14px, 1.8vw, 20px) clamp(18px, 2vw, 26px);
-  background: #103429;
-  color: #e9f4e9;
+  background: #19152f;
+  color: #f9f6ff;
   font-size: clamp(.95rem, .9rem + .12vw, 1.05rem);
   line-height: 1.65;
   overflow-wrap: break-word;
 }
 .home-page-v2 .zenit-visual-figure figcaption strong {
-  color: #d9ef78;
+  color: #e8bc71;
   font-weight: 700;
 }
 .home-page-v2 .course-strip {
-  background: #d9ef78;
+  background: #e8bc71;
   padding-block: clamp(58px, 7vw, 84px);
 }
 .home-page-v2 .course-grid { gap: clamp(24px, 6vw, 90px); }
 .home-page-v2 .course-meta { min-width: 0; }
-.home-page-v2 .course-meta span { line-height: 1.55; color: #243d30; }
+.home-page-v2 .course-meta span { line-height: 1.55; color: #241b4b; }
 .home-page-v2 .course-meta .button {
   min-height: 52px;
   font-size: 1rem;
@@ -216,11 +216,11 @@
 .home-page-v2 .home-teacher-copy p:not(.eyebrow) { font-size: 1.07rem; }
 .home-page-v2 .home-last-step .button { min-height: 52px; font-size: 1rem; }
 .home-page-v2 :is(.button,.public-action-card a,.path-card,.text-link):focus-visible {
-  outline: 3px solid #216b51;
+  outline: 3px solid #6840c5;
   outline-offset: 5px;
 }
 .home-page-v2 .dark-section .path-card:focus-visible {
-  outline-color: #d9ef78;
+  outline-color: #e8bc71;
   outline-offset: -5px;
 }
 @media(max-width:1100px) {
