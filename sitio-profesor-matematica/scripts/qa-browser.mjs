@@ -169,6 +169,13 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
     // Comprobar en navegador que los pilotos Equation.io tengan enlaces
     // correctos a la función seleccionada sin exigir conexión a terceros.
     if (["lab-transformaciones", "lab-representaciones"].includes(label)) {
+      if (label === "lab-transformaciones") {
+        const selectable = page.locator(".zenit-equation-match-options button");
+        if (await selectable.count() !== 3 ||
+            await page.getByRole("button", { name: /Elegir y igual a/ }).count() !== 3) {
+          addFinding("error", key, "Las opciones matemáticas no tienen tres nombres accesibles");
+        }
+      }
       const graphUrl = await page.locator('a[href^="https://equation.io/#"]').first().getAttribute("href").catch(() => null);
       if (!graphUrl) {
         addFinding("error", key, "Falta el enlace a la gráfica avanzada Equation.io");
@@ -272,7 +279,7 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
           addFinding("error", key, "La portada debe mostrar dos formas matemáticas renderizadas con KaTeX");
         }
         const formulaOverflow = await page.locator(".hero .formula-card .zqh-equations").evaluate(el =>
-          Math.max(0, el.scrollWidth - el.clientWidth), { timeout: 5000 }
+          Math.max(0, el.scrollWidth - el.clientWidth), undefined, { timeout: 5000 }
         );
         if (formulaOverflow > 8) {
           addFinding("error", key, "Fórmula de portada desbordada: " + formulaOverflow + " px");
