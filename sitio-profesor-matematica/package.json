@@ -15,7 +15,7 @@
     "check:cloudflare": "node scripts/verify-worker-output.mjs",
     "deploy": "node scripts/deploy-cloudflare.mjs",
     "check:design": "node scripts/check-design-foundation.mjs",
-    "check:public": "node scripts/check-public-pages.mjs && node scripts/check-quadratic-hero.mjs && node scripts/check-home-imagery.mjs",
+    "check:public": "node scripts/check-public-pages.mjs && node scripts/check-quadratic-hero.mjs && node scripts/check-home-imagery.mjs && node scripts/check-home-subjects.mjs",
     "check:learning": "node scripts/check-learning.mjs",
     "check:conversion": "node scripts/check-conversion.mjs",
     "check:seo": "node scripts/check-seo.mjs",
@@ -35,7 +35,8 @@
     "check:aurora": "node scripts/check-aurora.mjs",
     "check:hero": "node scripts/check-quadratic-hero.mjs",
     "qa:hero": "node scripts/qa-hero-browser.mjs",
-    "check:home-imagery": "node scripts/check-home-imagery.mjs"
+    "check:home-imagery": "node scripts/check-home-imagery.mjs",
+    "check:subjects": "node scripts/check-home-subjects.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
