@@ -15,7 +15,7 @@
     "check:cloudflare": "node scripts/verify-worker-output.mjs",
     "deploy": "node scripts/deploy-cloudflare.mjs",
     "check:design": "node scripts/check-design-foundation.mjs",
-    "check:public": "node scripts/check-public-pages.mjs",
+    "check:public": "node scripts/check-public-pages.mjs && node scripts/check-quadratic-hero.mjs",
     "check:learning": "node scripts/check-learning.mjs",
     "check:conversion": "node scripts/check-conversion.mjs",
     "check:seo": "node scripts/check-seo.mjs",
@@ -32,7 +32,8 @@
     "audit:pedagogy": "node scripts/audit-pedagogy-alignment.mjs",
     "audit:answer-keys": "node scripts/generate-answer-key-queue.mjs",
     "check:public-copy": "node scripts/check-public-copy.mjs",
-    "check:aurora": "node scripts/check-aurora.mjs"
+    "check:aurora": "node scripts/check-aurora.mjs",
+    "check:hero": "node scripts/check-quadratic-hero.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
