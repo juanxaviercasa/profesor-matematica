@@ -40,9 +40,9 @@ const sandbox={exports:{},stripMathDelimiters};
 vm.runInNewContext(compiled,sandbox,{timeout:3000});
 const toLatex=sandbox.exports.toLatex;
 assert.equal(typeof toLatex,"function");
-assert.equal(toLatex("1/x cerca de 3"),String.raw`\\frac{1}{x},\\quad x\\to 3`);
-assert.equal(toLatex("f(x)=1/(x−2) cerca de 2"),String.raw`f(x)=\\frac{1}{x-2},\\quad x\\to 2`);
-assert.equal(toLatex("sin(x)"),String.raw`\\sin (x)`);
+assert.equal(toLatex("1/x cerca de 3"),String.raw`\frac{1}{x},\quad x\to 3`);
+assert.equal(toLatex("f(x)=1/(x−2) cerca de 2"),String.raw`f(x)=\frac{1}{x-2},\quad x\to 2`);
+assert.equal(toLatex("sin(x)"),String.raw`\sin (x)`);
 const samples=[
  slash+"frac{1}{x}",slash+"begin{cases}x,&x>0"+slash+slash+"0,&x"+slash+"le0"+slash+"end{cases}",
  "f(x)=x²−3x+2","f(x)=(x²−1)/(x−1), x≠1","n(A∪B)=3","h(x)=2^(x−1)+2",
