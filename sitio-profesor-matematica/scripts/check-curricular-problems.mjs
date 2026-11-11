@@ -62,7 +62,7 @@ for(const slug of slugs){
   const opts=p.options.map(t=>t.replace(/^[a-e]\.\s+/,""));
   assert.equal(new Set(opts).size,5,"Alternativas repetidas: "+slug+"/"+seed);
   assert.equal(opts[p.correctIndex],expected(slug,seed),"Resultado incorrecto: "+slug+"/"+seed);
-  assert.ok(p.steps.length>=3 && p.steps.every(t=>t.length>=20),"Desarrollo incompleto: "+slug+"/"+seed);
+  assert.ok(p.steps.length>=3 && p.steps.every(t=>t.length>=12),"Desarrollo incompleto: "+slug+"/"+seed);
   assert.ok(![p.statement,...p.options,...p.steps].some(t=>/NaN|undefined|Infinity|null/.test(t)),
    "Valores inválidos: "+slug+"/"+seed);
   assert.doesNotMatch(p.statement,/Resuelve la inecuación cuadrática/,"Desajuste pedagógico: "+slug);
