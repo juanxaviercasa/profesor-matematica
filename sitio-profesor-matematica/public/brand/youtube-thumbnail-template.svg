@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title">
   <title id="title">Plantilla de miniatura para YouTube</title>
-  <rect width="1280" height="720" fill="#f6f1e6"/>
-  <rect width="54" height="720" fill="#ff5a36"/>
-  <g opacity=".16" stroke="#12372f" stroke-width="2"><path d="M54 144h1226M54 288h1226M54 432h1226M54 576h1226"/><path d="M250 0v720M500 0v720M750 0v720M1000 0v720"/></g>
-  <path d="M560 670c115-8 140-350 300-350 113 0 130 179 260 220" fill="none" stroke="#ff5a36" stroke-width="22" stroke-linecap="round"/>
-  <circle cx="860" cy="320" r="28" fill="#ddf277" stroke="#12372f" stroke-width="10"/>
-  <text x="105" y="110" fill="#ff5a36" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="800" letter-spacing="7">FUNCIONES · SISTEMA ZÉNIT</text>
-  <text x="100" y="285" fill="#12372f" font-family="Georgia,serif" font-size="108">DOMINIO</text>
-  <text x="100" y="395" fill="#12372f" font-family="Georgia,serif" font-size="108">Y RANGO</text>
-  <rect x="102" y="480" width="430" height="72" rx="36" fill="#12372f"/>
-  <text x="317" y="527" text-anchor="middle" fill="#f6f1e6" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="800">SIN MEMORIZAR REGLAS</text>
-  <text x="100" y="650" fill="#12372f" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="800">JUAN XAVIER</text>
+  <rect width="1280" height="720" fill="#fcfbff"/>
+  <rect width="54" height="720" fill="#9471e5"/>
+  <g opacity=".16" stroke="#241b4b" stroke-width="2"><path d="M54 144h1226M54 288h1226M54 432h1226M54 576h1226"/><path d="M250 0v720M500 0v720M750 0v720M1000 0v720"/></g>
+  <path d="M560 670c115-8 140-350 300-350 113 0 130 179 260 220" fill="none" stroke="#9471e5" stroke-width="22" stroke-linecap="round"/>
+  <circle cx="860" cy="320" r="28" fill="#e8bc71" stroke="#241b4b" stroke-width="10"/>
+  <text x="105" y="110" fill="#9471e5" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="800" letter-spacing="7">FUNCIONES · SISTEMA ZÉNIT</text>
+  <text x="100" y="285" fill="#241b4b" font-family="Georgia,serif" font-size="108">DOMINIO</text>
+  <text x="100" y="395" fill="#241b4b" font-family="Georgia,serif" font-size="108">Y RANGO</text>
+  <rect x="102" y="480" width="430" height="72" rx="36" fill="#241b4b"/>
+  <text x="317" y="527" text-anchor="middle" fill="#fcfbff" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="800">SIN MEMORIZAR REGLAS</text>
+  <text x="100" y="650" fill="#241b4b" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="800">JUAN XAVIER</text>
 </svg>
