@@ -1,377 +1,384 @@
 /*
- * Sistema Zénit — portada premium abierta.
- * Única capa final para el hero y su demostración cuadrática.
- * No cambia estilos de lecciones ni los colores semánticos de gráficas.
+ * Portada Sistema Zénit: pedagogía antes que decoración.
+ * Diseño cartesiano claro, escena equilibrada y contenedor compacto.
+ * Esta es la última hoja global: NO altera lecciones del catálogo.
  */
-
-/* La cabecera y el escenario principal comparten el mismo eje izquierdo. */
 .site-header .wrap.nav {
-  width: min(1450px, calc(100% - clamp(36px, 5.2vw, 86px)));
-  max-width: 1450px;
+  width: min(1370px, calc(100% - clamp(48px, 9vw, 140px)));
+  max-width: 1370px;
 }
-
-/* HERO: composición abierta, no un recuadro que comprime el contenido. */
 .home-page-v2 .hero.wrap {
-  position: relative;
-  isolation: isolate;
   display: grid;
-  grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
-  align-items: start;
-  gap: clamp(30px, 4.2vw, 72px);
-  width: min(1450px, calc(100% - clamp(36px, 5.2vw, 86px)));
-  max-width: 1450px;
+  grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr);
+  gap: clamp(38px, 3.8vw, 64px);
+  align-items: center;
+  width: min(1370px, calc(100% - clamp(48px, 9vw, 140px)));
+  max-width: 1370px;
   min-height: 0;
   margin-inline: auto;
-  padding: clamp(24px, 2.8vw, 44px) 0 clamp(64px, 6vw, 100px);
+  padding: clamp(18px, 2vw, 30px) 0 clamp(54px, 4.5vw, 74px);
   border: 0;
   border-radius: 0;
   background: transparent;
   box-shadow: none;
   overflow: visible;
+  position: relative;
 }
-.home-page-v2 .hero.wrap::before {
-  content: "";
-  position: absolute;
-  inset: -1px 0 0;
-  z-index: -1;
-  pointer-events: none;
-  background: radial-gradient(ellipse 42% 56% at 78% 44%, rgba(148,113,229,.095), transparent 80%);
-}
+.home-page-v2 .hero.wrap::before { content: none; }
 .home-page-v2 .hero .hero-copy {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 0;
-  min-width: 0;
-  width: 100%;
-  max-width: 620px;
+  padding: 0;
   margin: 0;
-  padding-top: clamp(42px, 5.7vw, 94px);
+  width: 100%;
+  max-width: 610px;
+  min-width: 0;
 }
 .home-page-v2 .hero h1 {
-  margin: 0 0 clamp(22px, 2.2vw, 34px);
+  margin: 0 0 clamp(19px, 2vw, 28px);
   max-width: 13ch;
   color: #241b4b;
-  font-size: clamp(3.15rem, 4.65vw, 5.1rem);
-  font-weight: 700;
-  line-height: 1.06;
-  letter-spacing: -.045em;
+  font-size: clamp(3.05rem, 4.15vw, 4.7rem);
+  font-weight: 720;
+  line-height: 1.08;
+  letter-spacing: -.04em;
   text-wrap: balance;
 }
-.home-page-v2 .hero h1 em { color: #5b32ae; }
+.home-page-v2 .hero h1 em { color: #6140b5; }
 .home-page-v2 .hero .lead {
   width: 100%;
-  max-width: 53ch;
+  max-width: 51ch;
   margin: 0;
-  font-size: clamp(1.11rem, .9rem + .36vw, 1.29rem);
-  line-height: 1.66;
-  color: #504963;
+  color: #514c60;
+  font-size: clamp(1.07rem, .9rem + .34vw, 1.22rem);
+  line-height: 1.67;
 }
 .home-page-v2 .hero .actions {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  gap: 12px 22px;
-  width: 100%;
-  margin: clamp(24px, 2.8vw, 36px) 0 0;
+  align-items: center;
+  gap: 12px 18px;
+  margin: clamp(23px, 2.5vw, 32px) 0 0;
 }
 .home-page-v2 .hero .actions .button {
   display: inline-flex;
+  min-height: 49px;
+  padding: 12px 22px;
   align-items: center;
   justify-content: center;
-  min-height: 52px;
-  padding: 13px 25px;
-  font-size: 1rem;
-  border-radius: 13px;
+  border-radius: 12px;
+  font-size: .97rem;
 }
 .home-page-v2 .hero .actions .text-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
-  font-size: 1rem;
+  min-height: 46px;
+  font-size: .98rem;
   font-weight: 750;
-  white-space: normal;
 }
 .home-page-v2 .hero > .formula-card.zqh-lab {
-  justify-self: end;
-  align-self: start;
   width: 100%;
-  max-width: 740px;
+  max-width: 700px;
   margin: 0;
+  justify-self: end;
 }
 
-/* MINILAB: gráfica protagonista; tipografía y parámetros legibles. */
+/* Herramienta clara: el color pertenece a la curva, no a todo el rectángulo. */
 .home-page-v2 .formula-card.zqh-lab {
   display: flex;
   flex-direction: column;
-  gap: clamp(13px, 1.6vw, 18px);
+  gap: 10px;
   min-width: 0;
-  padding: clamp(19px, 2.1vw, 30px);
-  color: #f9f6ff;
-  border: 1px solid #65528f;
-  border-radius: 26px;
-  background: linear-gradient(145deg,#241b4b 0%,#35265f 58%,#19152f 100%);
-  box-shadow: 0 25px 65px rgba(36,27,75,.17);
+  padding: clamp(15px, 1.45vw, 21px);
+  border: 1px solid #e3e4ed;
+  border-radius: 21px;
+  background: #ffffff;
+  color: #241b4b;
+  box-shadow: 0 15px 42px rgba(42,32,80,.09);
   overflow: hidden;
   transform: none;
-  font-family: ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 }
 .zqh-lab, .zqh-lab * { box-sizing: border-box; }
 .zqh-heading {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 14px;
+  justify-content: space-between;
+  gap: 12px;
   min-width: 0;
 }
 .home-page-v2 .zqh-heading h2 {
   margin: 0;
-  color: #fff;
-  font: 800 clamp(1.3rem, 1.6vw, 1.65rem)/1.2 ui-sans-serif,system-ui,sans-serif;
+  color: #241b4b;
+  font: 800 clamp(1.22rem, 1.5vw, 1.45rem)/1.2 ui-sans-serif,system-ui,sans-serif;
   letter-spacing: -.027em;
-  text-wrap: balance;
 }
 .zqh-reset {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex: none;
-  min-width: 102px;
-  min-height: 43px;
-  padding: 9px 12px;
-  color: #f6edff;
-  background: #ffffff13;
-  border: 1px solid #bda9e75c;
+  min-height: 40px;
+  min-width: 90px;
+  padding: 7px 12px;
+  background: #fff;
+  color: #4b2a96;
+  border: 1px solid #d8cfec;
   border-radius: 10px;
   cursor: pointer;
-  font-size: .88rem;
+  font-size: .85rem;
   font-weight: 750;
 }
-.zqh-reset:hover { background: #ffffff26; border-color: #d8c7ff; }
-.zqh-reset:focus-visible { outline: 3px solid #e8bc71; outline-offset: 3px; }
+.zqh-reset:hover { background: #f2eefc; border-color: #a48ad7; }
+.zqh-reset:focus-visible,
+.zqh-control input[type="range"]:focus-visible {
+  outline: 3px solid #6840c5;
+  outline-offset: 3px;
+}
 .zqh-equations {
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 11px;
-  min-width: 0;
-}
-.zqh-equation-primary,.zqh-equation-secondary {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
   min-width: 0;
-  padding: 13px 15px 15px;
-  border: 1px solid #8773ad;
-  border-radius: 13px;
-  background: #ffffff0c;
 }
-.zqh-equation-primary {
-  background: #efe9fc;
-  border-color: #efe9fc;
+.zqh-equation-primary, .zqh-equation-secondary {
+  display: flex;
+  flex: 1 1 205px;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  min-height: 43px;
+  padding: 7px 11px;
+  background: #f8f8fc;
+  border: 1px solid #eff0f5;
+  border-radius: 9px;
   color: #241b4b;
 }
-.zqh-equation-secondary { color: #f6f0ff; }
+.zqh-equation-primary { background: #f3f1fa; border-color: #e8e1f5; }
 .zqh-equation-label {
-  color: inherit;
-  opacity: .9;
-  font-size: .77rem;
+  flex: none;
+  font-size: .69rem;
+  line-height: 1.3;
   font-weight: 800;
-  letter-spacing: .035em;
-  line-height: 1.4;
-  text-transform: uppercase;
+  letter-spacing: .015em;
+  text-transform: none;
+  color: #6c6680;
 }
 .home-page-v2 .zqh-lab .zqh-math {
   display: block;
-  width: 100%;
-  max-width: 100%;
+  flex: 1;
   min-width: 0;
+  max-width: 100%;
+  color: #241b4b;
+  font-size: clamp(.98rem, 1.18vw, 1.14rem);
+  line-height: 1.4;
   overflow-x: auto;
   overflow-y: hidden;
-  font-size: clamp(1.02rem, 1.27vw, 1.3rem);
-  line-height: 1.45;
-  white-space: nowrap;
   scrollbar-width: thin;
+  white-space: nowrap;
 }
 .zqh-math .katex { font-size: 1em; }
 .home-page-v2 .formula-card.zqh-lab .zqh-plot {
   display: block;
   width: 100%;
   height: auto;
+  min-width: 0;
   max-width: 100%;
   max-height: none;
-  min-height: 0;
-  aspect-ratio: 520 / 290;
+  aspect-ratio: 620 / 346;
   margin: 0;
-  border-radius: 13px;
-  background: #21183f;
+  border-radius: 11px;
+  background: #ffffff;
+  border: 1px solid #e3e6ef;
+  overflow: visible;
+}
+.home-page-v2 .formula-card.zqh-lab .zqh-plot .zqh-plot-paper {
+  fill: #ffffff;
+  stroke: #d6dce7;
+  stroke-width: 1;
+}
+.home-page-v2 .formula-card.zqh-lab .zqh-plot .zqh-grid line {
+  stroke: #e2e7f0;
+  stroke-width: 1;
+}
+.home-page-v2 .formula-card.zqh-lab .zqh-plot .zqh-axes line {
+  stroke: #5b6578;
+  stroke-width: 1.8;
+}
+.home-page-v2 .formula-card.zqh-lab .zqh-plot .zqh-symmetry {
+  stroke: #c6b3e9;
+  stroke-dasharray: 5 6;
+  stroke-width: 1.5;
+}
+.home-page-v2 .formula-card.zqh-lab .zqh-plot path.zqh-curve {
+  stroke: #6045bc;
+  stroke-width: 5;
+  fill: none;
+}
+.home-page-v2 .formula-card.zqh-lab .zqh-plot circle.zqh-root {
+  fill: #ffffff;
+  stroke: #6045bc;
+  stroke-width: 3;
+}
+.home-page-v2 .formula-card.zqh-lab .zqh-plot circle.zqh-vertex {
+  fill: #e8bc71;
+  stroke: #66502e;
+  stroke-width: 2;
+}
+.home-page-v2 .formula-card.zqh-lab .zqh-plot .zqh-axis-values {
+  fill: #3b4557;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 550;
+  font-variant-numeric: tabular-nums;
+}
+.home-page-v2 .formula-card.zqh-lab .zqh-plot .zqh-axis-name {
+  fill: #334155;
+  font: 750 16px ui-sans-serif,system-ui,sans-serif;
+}
+.home-page-v2 .formula-card.zqh-lab .zqh-plot .zqh-vertex-label {
+  fill: #52368f;
+  font: 750 17px ui-sans-serif,system-ui,sans-serif;
 }
 .zqh-controls {
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
-  gap: clamp(13px, 1.6vw, 24px);
+  gap: 11px 18px;
   min-width: 0;
 }
 .zqh-control {
   display: grid;
-  align-content: start;
-  gap: 5px;
+  align-content: center;
+  gap: 2px;
   min-width: 0;
 }
 .zqh-control > span {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   align-items: baseline;
+  justify-content: space-between;
   gap: 5px 9px;
+  flex-wrap: wrap;
   min-width: 0;
-  color: #e5dcf7;
-  font-size: .91rem;
-  line-height: 1.4;
-  font-weight: 600;
+  color: #595467;
+  font-size: .81rem;
+  line-height: 1.32;
+  font-weight: 650;
 }
-.zqh-control b {
-  color: #f6d394;
-  font-size: .94rem;
-  font-variant-numeric: tabular-nums;
-}
-.zqh-control input[type=range] {
+.zqh-control b { color: #4b2a96; font-size: .84rem; font-variant-numeric: tabular-nums; }
+.zqh-control input[type="range"] {
   display: block;
   width: 100%;
   min-width: 0;
-  height: 34px;
+  height: 29px;
   margin: 0;
   background: none;
-  accent-color: #e8bc71;
+  accent-color: #6840c5;
   cursor: pointer;
 }
-.zqh-control input[type=range]:focus-visible {
-  outline: 3px solid #e8bc71;
-  outline-offset: 3px;
-  border-radius: 5px;
-}
 .zqh-readout {
-  display: grid;
-  grid-template-columns: .9fr 1.1fr 1.3fr;
-  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7px 16px;
+  min-width: 0;
+  flex-wrap: wrap;
+  padding-top: 8px;
+  border-top: 1px solid #edf0f5;
 }
 .zqh-readout > span {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  display: inline-flex;
+  flex: 0 1 auto;
+  align-items: baseline;
+  gap: 5px;
   min-width: 0;
-  padding: 11px 13px;
-  border: 1px solid #ffffff28;
-  border-radius: 11px;
-  color: #f8f3ff;
-  font-size: .91rem;
-  line-height: 1.43;
+  padding: 0;
+  color: #4d5060;
+  font-size: .79rem;
+  line-height: 1.35;
   overflow-wrap: anywhere;
 }
 .zqh-readout strong {
-  color: #f5d99a;
-  font-size: .81rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .035em;
+  color: #4b2a96;
+  font-size: .79rem;
+  font-weight: 750;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
-/* Tablet: el texto primero; simulador al ancho de la sección. */
-@media (max-width: 1120px) {
-  .site-header .wrap.nav { width: min(940px,calc(100% - 48px)); }
+/* Tablet y móvil: debajo del texto, sin desplazamiento horizontal del documento. */
+@media (max-width: 1100px) {
+  .site-header .wrap.nav { width: min(880px, calc(100% - 48px)); }
   .home-page-v2 .hero.wrap {
     grid-template-columns: minmax(0,1fr);
-    gap: clamp(26px, 4vw, 42px);
-    width: min(940px,calc(100% - 48px));
-    padding-top: clamp(28px, 4vw, 48px);
-    padding-bottom: clamp(60px, 7vw, 80px);
+    gap: 30px;
+    width: min(880px, calc(100% - 48px));
+    padding: 28px 0 64px;
   }
-  .home-page-v2 .hero .hero-copy {
-    max-width: 760px;
-    padding-top: 0;
-  }
-  .home-page-v2 .hero h1 {
-    max-width: 14ch;
-    font-size: clamp(3.2rem, 6.5vw, 4.9rem);
-  }
+  .home-page-v2 .hero .hero-copy { max-width: 720px; }
+  .home-page-v2 .hero h1 { font-size: clamp(3rem, 6vw, 4.6rem); max-width: 14ch; }
   .home-page-v2 .hero > .formula-card.zqh-lab {
     justify-self: center;
-    max-width: 760px;
     width: 100%;
+    max-width: 720px;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 640px) {
   .site-header .wrap.nav { width: calc(100% - 32px); }
   .home-page-v2 .hero.wrap {
     width: calc(100% - 32px);
-    gap: 29px;
-    padding-top: 24px;
-    padding-bottom: 58px;
+    gap: 26px;
+    padding: 24px 0 48px;
   }
   .home-page-v2 .hero h1 {
     max-width: 100%;
     margin-bottom: 19px;
-    font-size: clamp(2.45rem, 9.5vw, 4rem);
-    line-height: 1.11;
-    letter-spacing: -.036em;
+    font-size: clamp(2.4rem, 9.2vw, 3.65rem);
+    line-height: 1.1;
   }
-  .home-page-v2 .hero .lead {
-    font-size: 1.055rem;
-    line-height: 1.62;
-  }
-  .home-page-v2 .hero .actions {
-    display: flex;
-    gap: 10px 16px;
-    margin-top: 24px;
-  }
-  .home-page-v2 .hero .actions > * { width: auto; }
-  .home-page-v2 .formula-card.zqh-lab {
-    max-width: 100%;
-    padding: 17px;
-    border-radius: 20px;
-  }
-  .zqh-equations { gap: 9px; }
-  .zqh-equation-primary,.zqh-equation-secondary { padding: 11px; }
-  .home-page-v2 .zqh-lab .zqh-math { font-size: 1.05rem; }
-}
-@media (max-width: 540px) {
-  .home-page-v2 .hero.wrap { width: calc(100% - 28px); }
+  .home-page-v2 .hero .lead { font-size: 1.05rem; line-height: 1.6; }
   .home-page-v2 .hero .actions {
     display: grid;
     grid-template-columns: minmax(0,1fr);
-    justify-items: stretch;
-    gap: 7px;
+    gap: 9px;
+    width: 100%;
+    margin-top: 22px;
   }
   .home-page-v2 .hero .actions > * { width: 100%; }
-  .home-page-v2 .hero .actions .text-link { min-height: 44px; }
-  .zqh-heading { align-items: center; }
-  .home-page-v2 .zqh-heading h2 { font-size: clamp(1.13rem,4.8vw,1.4rem); }
-  .zqh-reset { min-width: 86px; min-height: 40px; padding: 7px 9px; font-size: .81rem; }
-  .zqh-equations { grid-template-columns: minmax(0,1fr); }
-  .home-page-v2 .zqh-lab .zqh-math { font-size: clamp(1.01rem,4.2vw,1.18rem); }
-  .zqh-controls { grid-template-columns: minmax(0,1fr); gap: 7px; }
-  .zqh-control {
-    grid-template-columns: minmax(0,1fr) minmax(105px, 1fr);
-    align-items: center;
-    gap: 10px;
+  .home-page-v2 .formula-card.zqh-lab {
+    padding: 12px;
+    border-radius: 16px;
+    gap: 9px;
   }
-  .zqh-control > span { font-size: .87rem; }
-  .zqh-readout {
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    gap: 8px;
+  .home-page-v2 .zqh-heading h2 { font-size: clamp(1.13rem, 5vw, 1.35rem); }
+  .zqh-reset { min-height: 38px; min-width: 80px; padding: 7px 9px; font-size: .8rem; }
+  .zqh-equations { gap: 5px; }
+  .zqh-equation-primary, .zqh-equation-secondary {
+    flex-basis: 100%;
+    min-height: 36px;
+    padding: 5px 9px;
   }
-  .zqh-readout > span:last-child { grid-column: 1/-1; }
-  .zqh-readout > span { padding: 10px 12px; font-size: .86rem; }
-  .home-page-v2 .formula-card.zqh-lab .zqh-plot { width: 100%; max-height: none; }
+  .zqh-equation-label { font-size: .72rem; }
+  .home-page-v2 .zqh-lab .zqh-math { font-size: 1rem; }
+  .home-page-v2 .formula-card.zqh-lab .zqh-plot .zqh-axis-values { font-size: 23px; }
+  .home-page-v2 .formula-card.zqh-lab .zqh-plot .zqh-axis-name { font-size: 23px; }
+  .home-page-v2 .formula-card.zqh-lab .zqh-plot .zqh-vertex-label { font-size: 22px; }
+  .zqh-controls { grid-template-columns: minmax(0,1fr); gap: 6px; }
+  .zqh-control { grid-template-columns: minmax(0,1fr) minmax(115px,1fr); align-items: center; gap: 10px; }
+  .zqh-control > span { font-size: .82rem; }
+  .zqh-control input[type="range"] { height: 34px; }
+  .zqh-readout { justify-content: flex-start; gap: 5px 14px; }
+  .zqh-readout > span, .zqh-readout strong { font-size: .78rem; }
 }
-@media (max-width: 370px) {
+@media (max-width: 360px) {
   .site-header .wrap.nav { width: calc(100% - 24px); }
   .home-page-v2 .hero.wrap { width: calc(100% - 24px); }
-  .home-page-v2 .formula-card.zqh-lab { padding: 13px; gap: 12px; }
-  .zqh-control { grid-template-columns: minmax(0,1fr); gap: 3px; }
-  .zqh-readout { grid-template-columns: minmax(0,1fr); }
-  .zqh-readout > span:last-child { grid-column: auto; }
+  .home-page-v2 .formula-card.zqh-lab { padding: 10px; }
+  .zqh-control { grid-template-columns: minmax(0,1fr); gap: 2px; }
+  .zqh-readout > span { flex-basis: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
   .zqh-lab * { transition: none !important; animation: none !important; }
