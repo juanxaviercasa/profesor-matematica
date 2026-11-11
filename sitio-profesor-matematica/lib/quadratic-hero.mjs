@@ -48,7 +48,7 @@ export function vertexLatex(a, h, k) {
   return "f(x)=" + prefix + inside + "^{2}" + signedTerm(k, "");
 }
 
-export const PLOT = Object.freeze({ left: 61, top: 22, width: 527, height: 234 });
+export const PLOT = Object.freeze({ left: 61, top: 22, width: 527, height: 280 });
 
 function niceTickStep(range, wanted = 5) {
   const raw = Math.max(range / wanted, 1e-9);
