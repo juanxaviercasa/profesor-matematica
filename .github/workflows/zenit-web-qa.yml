@@ -55,7 +55,7 @@ jobs:
       - name: Instalar herramientas del navegador (sin modificar package-lock)
         run: |
           npm install --no-save --no-package-lock --ignore-scripts playwright axe-core
-          npx playwright install --with-deps chromium
+          npx playwright install chromium
 
       - name: Iniciar Worker compilado localmente
         run: |

@@ -131,6 +131,15 @@ export const LESSON_STUDY_GUIDES: Record<string, LessonStudyGuide> = {
     ],
     activity: "En AB + BA = 99 con A = 4, encuentra B y verifica la suma."
   },
+  "grafico-de-barras-1sec-unidad3": {
+    heading: "Representar frecuencias mediante un gráfico de barras",
+    principles: [
+      "El gráfico de barras representa categorías o valores discretos; cada barra tiene una altura proporcional a su frecuencia.",
+      "En el eje horizontal se ubican las categorías y en el eje vertical una escala numérica uniforme que comienza habitualmente en cero para evitar distorsiones.",
+      "Las barras deben tener ancho uniforme y separación visible. Antes de interpretar una gráfica, comprueba las etiquetas, la escala y la frecuencia de cada categoría."
+    ],
+    activity: "Con los datos 2, 3, 3, 4, 4, 4, construye un gráfico de barras y explica por qué la barra del 4 es la más alta."
+  },
   "cuadrados-magicos-1sec-unidad3": {
     heading: "Comprender sumas en un cuadrado mágico",
     principles: [

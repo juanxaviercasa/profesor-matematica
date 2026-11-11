@@ -88,7 +88,7 @@ for (const [index, input] of inputs.entries()) {
 const svgs = [...engines.matchAll(/<svg\b[^>]*>/g)].map(m => m[0]);
 assert.equal(svgs.length, 8, "Revisar descripciones SVG tras introducir motores");
 for (const [index, svg] of svgs.entries()) {
-  assert.match(svg, /role="img" aria-label="/, "Gráfico " + (index + 1) + " sin descripción");
+  assert.match(svg, /role="img" aria-label=(?:"[^"]+"|\{[^}]+\})/, "Gráfico " + (index + 1) + " sin descripción");
 }
 assert.match(blog, /htmlFor="zenit-blog-course"/);
 assert.match(blog, /htmlFor="zenit-blog-engine"/);
