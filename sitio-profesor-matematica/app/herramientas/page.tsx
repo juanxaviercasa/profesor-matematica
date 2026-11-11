@@ -21,7 +21,7 @@ export default function HerramientasPage() {
       <div className="public-tools-visual" aria-hidden="true">
         <span className="public-tools-visual-kicker">CAMBIA UNA VARIABLE</span>
         <div className="public-tools-math">f(x) = ax² + bx + c</div>
-        <svg viewBox="0 0 440 270"><path d="M35 220 H406 M220 22 V250" stroke="#91a79a" strokeWidth="2" opacity=".5"/><path d="M65 60 Q230 390 395 60" stroke="#d9ef78" fill="none" strokeWidth="6" strokeLinecap="round"/><circle cx="230" cy="222" r="9" fill="#ff5a36" stroke="#f7f3e9" strokeWidth="3"/></svg>
+        <svg viewBox="0 0 440 270"><path d="M35 220 H406 M220 22 V250" stroke="#bda9e7" strokeWidth="2" opacity=".5"/><path d="M65 60 Q230 390 395 60" stroke="#9471e5" fill="none" strokeWidth="6" strokeLinecap="round"/><circle cx="230" cy="222" r="9" fill="#e8bc71" stroke="#241b4b" strokeWidth="3"/></svg>
         <span className="public-tools-visual-note">ENTRADA → REPRESENTACIÓN → COMPRENSIÓN</span>
       </div>
     </section>
