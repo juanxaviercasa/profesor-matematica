@@ -115,7 +115,7 @@ export function QuadraticHeroLab() {
             <text key={"label-x-" + tick} x={graph.xToPixel(tick)}
               y={PLOT.top + PLOT.height + 17} textAnchor="middle">{tidy(tick)}</text>
           ))}
-          <text x={PLOT.left + PLOT.width - 3} y={PLOT.top + PLOT.height + 17}
+          <text x={PLOT.left + PLOT.width - 3} y={PLOT.top + PLOT.height + 31}
             textAnchor="end" fill="#F4D8A2">x</text>
           <text x={PLOT.left + 8} y={PLOT.top + 15} fill="#F4D8A2">y</text>
         </g>
