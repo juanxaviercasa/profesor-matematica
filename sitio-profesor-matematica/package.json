@@ -26,6 +26,8 @@
     "check:editorial": "node scripts/check-editorial-support.mjs",
     "check:publication": "node scripts/check-publication-boundaries.mjs",
     "check:focused": "node scripts/check-focused-labs.mjs",
+    "check:focused-problems": "node scripts/check-focused-problems.mjs",
+    "report:answer-keys": "node scripts/generate-answer-key-queue.mjs",
     "check:public-copy": "node scripts/check-public-copy.mjs"
   },
   "dependencies": {

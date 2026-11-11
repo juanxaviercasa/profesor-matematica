@@ -3,6 +3,8 @@
 import React, { useState, useCallback } from "react";
 import { MathText } from "./math-formula";
 import type { AppEngineId } from "./zenit-app-engines";
+import { FOCUSED_LABS } from "@/lib/focused-lesson-topics";
+import { buildFocusedProblem } from "@/lib/focused-problem-generator";
 
 interface GeneratedProblem {
   seed: number;
@@ -388,17 +390,24 @@ export function InfiniteProblemGenerator({
   engineId,
   topicTitle,
   course,
+  slug,
 }: {
   engineId: AppEngineId;
   topicTitle: string;
   course?: string;
+  slug?: string;
 }) {
   const [seed, setSeed] = useState<number>(101);
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
   const [showSteps, setShowSteps] = useState<boolean>(false);
   const [streak, setStreak] = useState<number>(0);
 
-  const problem = buildDynamicProblem(engineId, topicTitle, seed, course);
+  // La práctica debe corresponder al concepto del laboratorio, no solo
+  // al motor general al que se asocia una asignatura.
+  const focusedKind = slug ? FOCUSED_LABS[slug] : undefined;
+  const problem = focusedKind
+    ? buildFocusedProblem(focusedKind, seed)
+    : buildDynamicProblem(engineId, topicTitle, seed, course);
 
   const handleNextProblem = useCallback(() => {
     setSeed((prev) => prev + 17);

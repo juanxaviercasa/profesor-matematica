@@ -12,6 +12,9 @@ on:
       - "sitio-profesor-matematica/components/zenit-app-engines.tsx"
       - "sitio-profesor-matematica/components/focused-lesson-labs.tsx"
       - "sitio-profesor-matematica/scripts/check-focused-labs.mjs"
+      - "sitio-profesor-matematica/lib/focused-problem-generator.ts"
+      - "sitio-profesor-matematica/components/infinite-problem-generator.tsx"
+      - "sitio-profesor-matematica/scripts/check-focused-problems.mjs"
       - "sitio-profesor-matematica/components/chemistry-learning-lab.tsx"
       - "sitio-profesor-matematica/app/learning-experience.css"
       - "sitio-profesor-matematica/lib/lesson-study-guides.ts"
@@ -47,6 +50,8 @@ jobs:
         run: npm run check:editorial
       - name: Verificar modelos matemáticos específicos
         run: npm run check:focused
+      - name: Validar respuestas y distractores específicos
+        run: npm run check:focused-problems
       - name: Compilar Worker
         run: npm run build
       - name: Preparar navegador real y axe-core

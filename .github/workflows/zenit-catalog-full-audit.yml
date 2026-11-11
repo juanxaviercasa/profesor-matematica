@@ -19,6 +19,10 @@ on:
       - "sitio-profesor-matematica/lib/catalog-index.ts"
       - "sitio-profesor-matematica/components/focused-lesson-labs.tsx"
       - "sitio-profesor-matematica/scripts/check-focused-labs.mjs"
+      - "sitio-profesor-matematica/lib/focused-problem-generator.ts"
+      - "sitio-profesor-matematica/components/infinite-problem-generator.tsx"
+      - "sitio-profesor-matematica/scripts/check-focused-problems.mjs"
+      - "sitio-profesor-matematica/scripts/generate-answer-key-queue.mjs"
       - "sitio-profesor-matematica/scripts/check-publication-boundaries.mjs"
 
 permissions:
@@ -46,6 +50,8 @@ jobs:
       - run: npm ci --no-audit --no-fund
       - name: Auditar los 628 registros y sus bancos de ejercicios
         run: node scripts/audit-catalog-static.mjs
+      - name: Documentar claves incompletas para revisión de fuentes
+        run: npm run report:answer-keys
       - name: Validar estándares premium compartidos
         run: npm run check:premium
       - name: Comprobar que las lecciones programadas no se publiquen
@@ -54,6 +60,8 @@ jobs:
         run: npm run check:editorial
       - name: Comprobar precisión matemática de los laboratorios temáticos
         run: npm run check:focused
+      - name: Validar 4000 ejercicios matemáticos de refuerzo temático
+        run: npm run check:focused-problems
       - name: Validar KaTeX y los textos matemáticos del catálogo
         continue-on-error: true
         run: npm run check:math

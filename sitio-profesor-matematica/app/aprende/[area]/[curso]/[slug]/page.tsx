@@ -427,6 +427,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
           engineId={lessonEngineId}
           topicTitle={lesson.title}
           course={lesson.course}
+          slug={lesson.slug}
         />
         </div>
 

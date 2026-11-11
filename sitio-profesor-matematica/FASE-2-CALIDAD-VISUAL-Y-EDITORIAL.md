@@ -60,3 +60,9 @@ Se incorpora `components/focused-lesson-labs.tsx` para **15 lecciones publicadas
 - El navegador completo comprueba controles, hace captura de cada simulador publicado y analiza accesibilidad mediante axe-core.
 
 La correspondencia de contenido se comprueba en los temas incorporados, pero una auditoría automatizada no sustituye la revisión pedagógica y visual humana de las 105 lecciones publicadas.
+
+## Fase 2C — coherencia entre simulador y generador
+- Los 15 laboratorios temáticos usan ahora también un generador de ejercicios del mismo tema: segmentos, congruencia, secantes, criptoaritmética, cuadrados mágicos, secuencias, expresiones algebraicas y frecuencias. Antes el generador dependía solo del motor de la asignatura, de modo que podía proponer ejercicios de polígonos o puntos en una recta para temas diferentes.
+- Los **4000 problemas de prueba** (8 familias × 500 semillas) comprueban respuestas, cinco alternativas distintas, consistencia de cálculos y pasos. Ejecutar `npm run check:focused-problems`.
+- La cola `npm run report:answer-keys` registra en artefactos de GitHub Actions los ejercicios con clave A–E sin alternativa correspondiente, su banco F0/FA, posición y referencia a archivos fuente. Estas claves no se inventan ni se dan por verificadas.
+- Queda trabajo pedagógico con los generadores compartidos de Cálculo, Álgebra Lineal, Física y EDO, que cubren temas distintos con una sola plantilla. Estas plantillas deben revisarse y especializarse antes de presentarlas como enseñanza completa de cada tema.
