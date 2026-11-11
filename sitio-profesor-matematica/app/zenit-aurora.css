@@ -1,0 +1,195 @@
+/*
+ * Sistema Zénit · Aurora
+ * Capa visual institucional final: violeta / índigo / lavanda / oro.
+ * Los colores del Fénix en /brand/zenit-phoenix.svg NO se alteran.
+ * Mantener estados semánticos de evaluación y series de gráficas.
+ */
+:root {
+  --aurora-indigo: #241b4b;
+  --aurora-indigo-deep: #19152f;
+  --aurora-violet: #6840c5;
+  --aurora-violet-deep: #4b2a96;
+  --aurora-violet-glow: #9471e5;
+  --aurora-lavender: #eee8fd;
+  --aurora-lavender-soft: #f1edff;
+  --aurora-paper: #fcfbff;
+  --aurora-gold: #e8bc71;
+  --aurora-gold-ink: #7a5019;
+  --aurora-line: #e4daf4;
+  --aurora-muted: #615b76;
+  --aurora-brand-gradient: linear-gradient(115deg, #241b4b 0%, #4b2a96 53%, #8061d8 100%);
+  --aurora-dark-gradient: linear-gradient(155deg, #241b4b 0%, #35265f 55%, #19152f 100%);
+  --aurora-lavender-gradient: linear-gradient(125deg, #fcfbff 0%, #f1edff 55%, #ddd1fc 100%);
+  --aurora-gold-gradient: linear-gradient(120deg, #ffe6ad 0%, #e8bc71 55%, #d5a14d 100%);
+  --ink: var(--aurora-indigo);
+  --paper: var(--aurora-paper);
+  --white: #fff;
+  --orange: var(--aurora-violet);
+  --lime: var(--aurora-gold);
+  --muted: var(--aurora-muted);
+  --line: var(--aurora-line);
+  color-scheme: light;
+}
+body { background: var(--aurora-paper); color: var(--aurora-indigo); }
+:where(h1,h2,h3) { text-wrap: balance; }
+:where(a,button,summary,input,textarea,select):focus-visible {
+  outline: 3px solid var(--aurora-violet);
+  outline-offset: 3px;
+}
+:where(.wrap,.learning-view,.area-section,.formula-card,.course-card,.public-action-card,.blog-lesson-card) { min-width: 0; }
+
+/* Cabecera institucional, con isotipo original y lema exacto a su derecha. */
+.site-header {
+  background: rgba(252,251,255,.94);
+  border-bottom: 1px solid var(--aurora-line);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 6px 22px rgba(36,27,75,.055);
+}
+.site-header .brand, footer .brand { display: inline-flex; align-items: center; gap: 11px; min-width: 0; }
+.brand-link { display: inline-flex; align-items: center; min-width: 0; text-decoration: none; }
+.site-header .brand > img, footer .brand > img {
+  display: block; flex: none; width: 42px; height: 50px; object-fit: contain;
+  border: none; border-radius: 0; background: none;
+}
+.site-header .brand span.brand-copy, footer .brand span.brand-copy {
+  display: flex; flex-direction: column; justify-content: center;
+  align-items: flex-start; gap: 2px; min-width: 0; width: auto;
+  height: auto; padding: 0; border: 0; border-radius: 0;
+  background: transparent; line-height: 1.14;
+}
+.site-header .brand-copy b, footer .brand-copy b {
+  font-family: ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-size: clamp(.94rem, 1vw + .5rem, 1.13rem); font-weight: 850;
+  letter-spacing: -.018em; text-transform: none; white-space: nowrap;
+}
+.site-header .brand-copy small, footer .brand-copy small {
+  margin: 3px 0 0; font-size: .8rem; font-weight: 750;
+  letter-spacing: .012em; line-height: 1.2; text-transform: none;
+  white-space: nowrap;
+}
+.site-header .brand-copy b { color: var(--aurora-indigo); }
+.site-header .brand-copy small { color: var(--aurora-violet-deep); }
+footer .brand-copy b { color: #fff; }
+footer .brand-copy small { color: #f4d8a2; }
+.site-header .desktop-links a { color: var(--aurora-indigo); }
+.site-header .desktop-links a:hover, .site-header .desktop-links a:focus-visible {
+  color: var(--aurora-violet-deep); border-bottom-color: var(--aurora-violet);
+}
+.site-header .nav-cta, .mobile-menu .mobile-links a.mobile-start {
+  background: var(--aurora-brand-gradient); border: 1px solid var(--aurora-violet);
+  color: #fff; border-radius: 12px; box-shadow: 0 8px 20px rgba(75,42,150,.17);
+}
+.site-header .nav-cta:hover, .mobile-menu .mobile-links a.mobile-start:hover {
+  background: var(--aurora-violet-deep); color: #fff;
+}
+.mobile-menu summary { background: #fff; color: var(--aurora-indigo); border-color: var(--aurora-line); }
+.mobile-menu .mobile-links { background: #fff; border-color: var(--aurora-line); }
+
+/* Jerarquía funcional: degradados solo en grandes superficies y CTAs. */
+.button, .nav-cta { min-height: 44px; }
+.button:not(.secondary) { background: var(--aurora-brand-gradient); border-color: var(--aurora-violet); color: #fff; box-shadow: 0 8px 21px rgba(75,42,150,.16); }
+.button:not(.secondary):hover { background: var(--aurora-violet-deep); }
+.button.secondary { background: var(--aurora-gold-gradient); color: var(--aurora-indigo); box-shadow: 0 8px 18px rgba(95,68,22,.12); }
+.button.secondary:hover { background: #e8bc71; color: var(--aurora-indigo); }
+.text-link { color: var(--aurora-violet-deep); border-bottom-color: var(--aurora-violet); }
+.eyebrow, .blog-library-kicker { color: var(--aurora-violet-deep); }
+.zenit-skip-link { background: var(--aurora-gold-gradient); color: var(--aurora-indigo); }
+
+/* Inicio: la mayoría de la lectura se conserva en fondo claro. */
+.home-page-v2 .hero {
+  background: radial-gradient(circle at 88% 20%,rgba(148,113,229,.16),transparent 36%),
+    radial-gradient(circle at 9% 96%,rgba(232,188,113,.11),transparent 42%),
+    linear-gradient(145deg,#fcfbff,#f6f2ff);
+  border-radius: clamp(18px,2.4vw,30px);
+}
+.home-page-v2 .hero h1, .home-page-v2 .hero .lead { color: var(--aurora-indigo); }
+.home-page-v2 .hero h1 em, .home-page-v2 .hero .eyebrow { color: var(--aurora-violet-deep); }
+.home-page-v2 .proof-line span { background: #f1edff; color: #44346f; border-color: #d9cdef; }
+.home-page-v2 .formula-card,
+.home-page-v2 .zenit-visual-figure,
+.public-tools-visual {
+  background: var(--aurora-dark-gradient);
+  border-color: #65528f;
+  box-shadow: 0 24px 58px rgba(36,27,75,.19);
+}
+.home-page-v2 .formula-card .formula { color: #fff; }
+.home-page-v2 .formula-card .formula-top i,
+.home-page-v2 .formula-card .formula-top,
+.home-page-v2 .formula-card .formula-bottom { color: #f4d8a2; }
+.home-page-v2 .dark-section { background: var(--aurora-brand-gradient); color: #fff; }
+.home-page-v2 .dark-section .eyebrow { color: #f4d8a2; }
+.home-page-v2 .path-grid { background: #ffffff30; border-color: #ffffff30; }
+.home-page-v2 .path-card { background: rgba(25,21,47,.49); color: #fff; border-color: #ffffff22; }
+.home-page-v2 .path-card:hover { background: rgba(25,21,47,.68); }
+.home-page-v2 .path-card > span, .home-page-v2 .path-card b { color: #ffe3ab; }
+.home-page-v2 .path-card p { color: #eee7fa; }
+.home-page-v2 .course-strip, .course-editorial-page .offer-hero {
+  background: var(--aurora-lavender-gradient);
+  color: var(--aurora-indigo);
+}
+.home-page-v2 .feature-band p strong {
+  background: #eee8fd; border-color: #d9cdef; color: var(--aurora-violet-deep);
+}
+.home-page-v2 .feature-band .button.secondary { background: var(--aurora-gold-gradient); color: var(--aurora-indigo); border: 0; }
+.home-page-v2 .feature-band .button.secondary:hover { background: #e8bc71; color: var(--aurora-indigo); }
+.home-page-v2 .home-last-step { background: var(--aurora-dark-gradient); color: #fff; }
+.home-page-v2 .home-last-step .eyebrow.light { color: #ffe3ab; }
+.home-page-v2 .home-last-step .button { background: var(--aurora-gold-gradient); color: var(--aurora-indigo); }
+
+/* Biblioteca, cursos, blog, herramientas y secciones informativas. */
+.public-tools-hero, .about-page-v2 .page-hero, .public-end-cta,
+.aprende-hub .lesson-progress-overview, .course-editorial-page .offer-price aside {
+  background: var(--aurora-lavender-gradient);
+  color: var(--aurora-indigo); border-color: #d9cdef;
+}
+:where(.aprende-hub,.blog-page-v2,.tools-page-v2,.about-page-v2,.course-editorial-page)
+  :is(.area-section,.course-card,.blog-lesson-card,.blog-filter-panel,.public-action-card,.bonus-grid article,.credential-grid > div,.public-tools-benefits > div) {
+  background: #fff; border-color: var(--aurora-line); color: var(--aurora-indigo);
+}
+.aprende-hub .course-card:hover, .aprende-hub .course-card:focus-within,
+.blog-lesson-card:hover, .blog-lesson-card:focus-visible,
+.public-action-card:hover, .public-action-card:focus-within {
+  border-color: #bda9e7; box-shadow: 0 15px 35px rgba(75,42,150,.11);
+}
+.blog-filter-pill.is-active { background: var(--aurora-violet); border-color: var(--aurora-violet); color: #fff; }
+.blog-search:focus,.blog-select:focus { border-color: var(--aurora-violet); outline-color: #d9cdef; }
+.blog-lesson-tag, .blog-library-kicker { background: var(--aurora-lavender); color: var(--aurora-violet-deep); border-color: #d9cdef; }
+.course-editorial-page .course-preview-band { background: var(--aurora-gold-gradient); color: var(--aurora-indigo); }
+.course-editorial-page .course-preview-band .button { background: var(--aurora-indigo); color: #fff; }
+.public-tools-visual svg circle, .home-page-v2 .formula-card svg circle { fill: var(--aurora-gold); }
+.public-tools-visual svg path:nth-of-type(2), .home-page-v2 .formula-card svg path:last-of-type { stroke: var(--aurora-violet-glow); }
+
+/* Aprendizaje: prioridad al contraste; no recolorear aciertos/errores ni series. */
+.learning-view:not(.topic-view) { background: #fff; color: var(--aurora-indigo); border-color: var(--aurora-line); }
+.learning-view:not(.topic-view) .breadcrumb,
+.learning-view:not(.topic-view) .breadcrumb a { color: #615b76; }
+.learning-view:not(.topic-view) .breadcrumb a:hover { color: var(--aurora-violet-deep); }
+.aprende-hub .area-section .course-card h3 { color: var(--aurora-indigo); }
+.learning-view :is(input,select,textarea):focus-visible { outline-color: var(--aurora-violet); }
+.learning-view .katex-display { max-width: 100%; }
+.lab-controls { background: var(--aurora-dark-gradient); color: #fff; }
+.lab-controls output, .lab-controls .eyebrow { color: #ffe3ab; }
+
+/* Footer premium, no rojo/naranja. */
+footer { background: var(--aurora-dark-gradient); color: #f9f6ff; }
+footer .footer-grid p, footer .footer-grid span { color: #ded4f1; }
+footer .footer-grid a:hover { color: #ffe3ab; }
+footer .footer-base { color: #d7cde8; border-top-color: #ffffff2e; }
+
+/* No introducir movimiento obligatorio ni scroll lateral en móviles. */
+@media (max-width: 850px) {
+  .home-page-v2 .hero { border-radius: 18px; }
+  .site-header .nav { gap: clamp(8px,2vw,20px); }
+}
+@media (max-width: 520px) {
+  .site-header .brand > img { width: 35px; height: 42px; }
+  .site-header .brand { gap: 8px; }
+  .site-header .brand-copy b { font-size: .94rem; }
+  .site-header .brand-copy small { font-size: .75rem; }
+  .home-page-v2 .hero { border-radius: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :where(.home-page-v2,.aprende-hub,.blog-page-v2,.tools-page-v2) :is(.button,.course-card,.blog-lesson-card) {
+    transition-duration: .01ms;
+  }
+}
