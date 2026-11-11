@@ -3,12 +3,12 @@
 ## Identidad institucional
 
 **Nombre público:** Sistema Zénit  
-**Lema oficial:** **Logra tu meta**  
+**Lema oficial:** **Logra tus metas**  
 **Símbolo original:** fénix amarillo/dorado dentro de una llama roja y anaranjada.  
 **Autor y fundador:** Juan Xavier (mantener reconocimiento en biografía, autoría y datos estructurados).  
 **Aplicaciones:** Matemática, Química Zenit, laboratorios y herramientas del sistema educativo.
 
-La firma del encabezado y del pie siempre presenta el fénix, a su derecha «Sistema Zénit» en primera línea y «Logra tu meta» en segunda. Es importante conservar el acento en **Zénit**. No volver a mostrar «POR JUAN XAVIER» en lugar del lema, aunque la autoría permanezca en otros sitios adecuados.
+La firma del encabezado y del pie siempre presenta el fénix, a su derecha «Sistema Zénit» en primera línea y «Logra tus metas» en segunda. Es importante conservar el acento en **Zénit**. No volver a mostrar «POR JUAN XAVIER» en lugar del lema, aunque la autoría permanezca en otros sitios adecuados.
 
 ## Principio esencial
 
