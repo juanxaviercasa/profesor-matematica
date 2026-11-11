@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 390" role="img" aria-labelledby="title desc">
+<title id="title">Trigonometría</title><desc id="desc">Circunferencia trigonométrica y componentes de seno y coseno</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FBFAFF"/><stop offset=".55" stop-color="#EAE2FD"/><stop offset="1" stop-color="#CEC0F3"/></linearGradient>
+<radialGradient id="glow" cx=".7" cy=".3" r=".7"><stop stop-color="#FFFFFF" stop-opacity=".95"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+<linearGradient id="ink" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6840C5"/><stop offset="1" stop-color="#301F70"/></linearGradient>
+<filter id="shadow" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#3E2B83" flood-opacity=".12"/></filter>
+</defs>
+<rect width="640" height="390" fill="url(#bg)"/><rect width="640" height="390" fill="url(#glow)"/>
+<circle cx="545" cy="60" r="155" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1.5"/>
+<circle cx="558" cy="41" r="89" fill="none" stroke="#FFFFFF" stroke-opacity=".7" stroke-width="1.5"/>
+
+<g filter="url(#shadow)"><rect x="93" y="57" width="454" height="283" rx="30" fill="#FFFFFF" fill-opacity=".78"/></g>
+<circle cx="312" cy="199" r="111" fill="#F5F1FF" stroke="#7053C4" stroke-width="5"/>
+<path d="M158 199H473M312 52V348" stroke="#7B718B" stroke-width="2.4"/>
+<path d="M312 199L405 138L405 199Z" fill="#E9DFFD" stroke="#8F70D9" stroke-width="2.5"/>
+<path d="M312 199L405 138" stroke="#6840C5" stroke-width="5" stroke-linecap="round"/>
+<path d="M347 199A35 35 0 0 0 342 180" fill="none" stroke="#D5A14D" stroke-width="4"/>
+<path d="M405 138V199" stroke="#D5A14D" stroke-width="4" stroke-dasharray="7 5"/>
+<circle cx="405" cy="138" r="8" fill="#E8BC71" stroke="#4B2A96" stroke-width="2"/>
+<g fill="#4B2A96" font-size="24" font-family="Georgia,serif"><text x="358" y="189">θ</text><text x="356" y="227">cos θ</text><text x="418" y="167">sin θ</text></g>
+
+</svg>
