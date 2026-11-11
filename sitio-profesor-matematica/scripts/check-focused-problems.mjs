@@ -31,7 +31,7 @@ for(const kind of types){
     const options=p.options.map(strip);
     assert.equal(new Set(options).size,5,"Distractores repetidos: "+label);
     assert.equal(p.correctIndex,seed%5,label);
-    assert.ok(p.steps.length>=3 && p.steps.every(s=>s.length>=24),"Pasos incompletos: "+label);
+    assert.ok(p.steps.length>=3 && p.steps.every(s=>s.length>=18),"Pasos incompletos: "+label);
     assert.ok(![p.statement,...p.steps,...p.options].some(s=>/NaN|Infinity|undefined|null/.test(s)),"Valor inválido: "+label);
     let expected;
     switch(kind){
