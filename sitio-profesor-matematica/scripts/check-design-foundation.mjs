@@ -52,7 +52,7 @@ for (const [foreground, background] of [
 }
 assert.ok(contrastRatio("#FFFFFF", getHex("--zenit-coral")) >= 4.5, "Blanco sobre violeta debe cumplir AA");
 assert.ok(contrastRatio(getHex("--zenit-ink"), getHex("--zenit-lime")) >= 4.5, "Índigo sobre dorado debe cumplir AA");
-assert.match(layout, /import "\\.\\/zenit-aurora\\.css";/);
+assert.ok(layout.includes('import "./zenit-aurora.css";'), "Falta import final de Zénit Aurora");
 const aurora = read("app/zenit-aurora.css");
 assert.match(aurora, /--aurora-brand-gradient/);
 assert.match(aurora, /--aurora-lavender-gradient/);
