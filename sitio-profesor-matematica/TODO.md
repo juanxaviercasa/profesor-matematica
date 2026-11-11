@@ -21,4 +21,4 @@
 - [ ] Mantener el funcionamiento de diagnósticos, laboratorios, fórmulas KaTeX y progreso local.
 - [ ] Mantener foco visible, tamaños táctiles y `prefers-reduced-motion`.
 - [x] Ejecutar `check:design`, `check:public`, `check:branding`, `check:readability`, `check:premium`, `check:editorial`, `check:public-copy`, lint y build.
-- [ ] Revisar visualmente escritorio y móvil en las tres plantillas maestras.
+- [x] Revisar visualmente escritorio, tablet y móvil en Blog, Cursos y Sobre mí; la auditoría completa por scroll queda para la siguiente fase.
