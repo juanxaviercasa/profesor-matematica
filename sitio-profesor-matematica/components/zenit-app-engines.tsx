@@ -4,6 +4,7 @@ import React, { useState, useMemo } from "react";
 import { MathFormula } from "./math-formula";
 import { CartesianAxes } from "./cartesian-axes";
 import { ChemistryLearningLab } from "./chemistry-learning-lab";
+import { regularPolygonVertices, polygonInteriorSum, polygonDiagonalCount } from "@/lib/geometry-polygon.mjs";
 
 
 export { ZENIT_ENGINES, type AppEngineId, type EngineMeta } from "@/lib/zenit-engines-meta";
@@ -536,21 +537,16 @@ function GeometryInteractiveLabWidget() {
   const [radius, setRadius] = useState(4);
   const [height3D, setHeight3D] = useState(6);
 
-  const sumInt = 180 * (sides - 2);
+  const sumInt = polygonInteriorSum(sides);
   const eachInt = sumInt / sides;
-  const diagonals = (sides * (sides - 3)) / 2;
+  const diagonals = polygonDiagonalCount(sides);
   const cylinderVol = Math.PI * radius * radius * height3D;
   const coneVol = cylinderVol / 3;
 
-  const polygonPoints = useMemo(() => {
-    const pts: string[] = [];
-    const cx = 210, cy = 125, r = 82;
-    for (let i = 0; i < sides; i++) {
-      const ang = (2 * Math.PI * i) / sides - Math.PI / 2;
-      pts.push(`${(cx + r * Math.cos(ang)).toFixed(1)},${(cy + r * Math.sin(ang)).toFixed(1)}`);
-    }
-    return pts.join(" ");
-  }, [sides]);
+  const polygonPoints = useMemo(
+    () => regularPolygonVertices(sides,radius).map(p=>p.x.toFixed(2)+","+p.y.toFixed(2)).join(" "),
+    [sides,radius]
+  );
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
@@ -564,7 +560,7 @@ function GeometryInteractiveLabWidget() {
         </div>
         <div>
           <label className="text-xs text-stone-300 flex justify-between">
-            <span>Radio geométrico (R):</span>
+            <span>Radio del polígono y del sólido (R):</span>
             <b className="text-sky-400 font-mono">{radius} u</b>
           </label>
           <input aria-label="Radio geométrico" type="range" min={1} max={10} value={radius} onChange={e => setRadius(+e.target.value)} className="w-full accent-sky-500" />
@@ -580,22 +576,23 @@ function GeometryInteractiveLabWidget() {
         <div className="rounded-lg bg-stone-900 p-3 border border-stone-800 text-xs space-y-1.5">
           <div>Suma de ∠ Internos: <b className="text-emerald-300 font-mono">{sumInt}°</b> (Cada ∠ = {eachInt.toFixed(1)}°)</div>
           <div>Total de Diagonales: <b className="text-amber-300 font-mono">D = {diagonals}</b></div>
-          <div>Volumen Cilindro / Cono: <b className="text-sky-300 font-mono">{cylinderVol.toFixed(1)} u³ / {coneVol.toFixed(1)} u³</b></div>
+          <div>Volumen cilindro / cono: <b className="text-sky-300 font-mono">{cylinderVol.toFixed(1)} u³ / {coneVol.toFixed(1)} u³</b></div>
+          <p className="text-sm text-stone-300">Los volúmenes corresponden a sólidos de radio R y altura h; el dibujo corresponde al polígono.</p>
         </div>
       </div>
 
       <div className="lg:col-span-7 rounded-xl bg-stone-950 p-4 border border-stone-800 flex flex-col items-center">
-        <svg role="img" aria-label="Polígono geométrico regular con radio ajustable" viewBox="0 0 420 250" className="w-full max-h-[250px]">
-          <circle cx="210" cy="125" r="82" fill="none" stroke="#44403c" strokeDasharray="4 4" />
+        <svg role="img" aria-label={"Polígono regular de "+sides+" lados, radio "+radius+" unidades y "+diagonals+" diagonales"} viewBox="0 0 420 315" className="w-full h-auto max-h-[310px]">
+          <circle cx="210" cy="135" r={radius*11} fill="none" stroke="#9b88c2" strokeDasharray="4 4" />
           <polygon
             points={polygonPoints}
-            fill="rgba(16, 185, 129, 0.2)"
-            stroke="#10b981"
+            fill="rgba(104, 64, 197, .23)"
+            stroke="#b49aff"
             strokeWidth="3"
           />
-          <circle cx="210" cy="125" r="4" fill="#f59e0b" />
-          <text x="210" y="232" fill="#d6d3d1" fontSize="18" textAnchor="middle">
-            Polígono Regular de {sides} lados · {diagonals} diagonales
+          <circle cx="210" cy="135" r="4" fill="#e8bc71" />
+          <text x="210" y="282" fill="#ffe3ab" fontSize="16" textAnchor="middle">
+            {sides} lados · Radio {radius} u · {diagonals} diagonales
           </text>
         </svg>
       </div>

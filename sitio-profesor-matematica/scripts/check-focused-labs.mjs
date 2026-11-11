@@ -12,6 +12,7 @@ const read = path => readFileSync(new URL("../" + path, import.meta.url), "utf8"
 const source = read("components/focused-lesson-labs.tsx");
 const topics = read("lib/focused-lesson-topics.ts");
 const angleSource=read("lib/geometry-angles.mjs");
+const {regularPolygonVertices,polygonInteriorSum,polygonDiagonalCount}=await import("../lib/geometry-polygon.mjs");
 const {classifyAngle,anglePoint}=await import("../lib/geometry-angles.mjs");
 const page = read("app/aprende/[area]/[curso]/[slug]/page.tsx");
 const browser = read("scripts/qa-catalog-browser.mjs");
@@ -45,6 +46,18 @@ for(const [value,kind] of [[0,"nulo"],[5,"agudo"],[85,"agudo"],[90,"recto"],[95,
   assert.ok(point.x>=90&&point.x<=330&&point.y>=40&&point.y<=180);
 }
 assert.throws(()=>classifyAngle(181),RangeError);
+assert.throws(()=>regularPolygonVertices(2,3),RangeError);
+for(let sides=3;sides<=12;sides++){
+  assert.equal(polygonInteriorSum(sides),180*(sides-2));
+  assert.equal(polygonDiagonalCount(sides),sides*(sides-3)/2);
+  const small=regularPolygonVertices(sides,2),large=regularPolygonVertices(sides,9);
+  assert.equal(small.length,sides); assert.equal(large.length,sides);
+  for(let i=0;i<sides;i++){
+    assert.ok(Math.abs(Math.hypot(small[i].x-210,small[i].y-135)-22)<1e-6);
+    assert.ok(Math.abs(Math.hypot(large[i].x-210,large[i].y-135)-99)<1e-6);
+  }
+}
+assert.match(read("components/zenit-app-engines.tsx"),/regularPolygonVertices\(sides,radius\)/);
 assert.match(source,/equationIoGraphUrl\(/);
 assert.match(source,/answer=\{ab\+bc\}/);
 assert.match(source,/answer=\{180-alpha\}/);
