@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function Contact() {
   return <><Header /><main className="contact-page-v2">
-    <PageHero kicker="Contacto directo" title="Elige cómo quieres avanzar" text="Puedes estudiar gratis con la biblioteca y los laboratorios, o contarme tu situación para conversar sobre clases y cursos. Horarios y condiciones se confirman directamente." />
+    <PageHero kicker="Contacto directo" title="Hablemos de tu aprendizaje: elige cómo avanzar" text="Puedes estudiar gratis con la biblioteca y los laboratorios, o contarme tu situación para conversar sobre clases y cursos. Horarios y condiciones se confirman directamente." />
     <section className="wrap contact-choices" aria-labelledby="contact-choices-title"><div className="public-section-head"><p className="eyebrow">Dos caminos posibles</p><h2 id="contact-choices-title">Empieza por lo que necesitas hoy.</h2></div><div className="contact-choice-grid">
       <article className="contact-choice-card contact-choice-card--free"><span>01 · ESTUDIAR GRATIS</span><h3>Explora el Sistema Zénit</h3><p>Encuentra lecciones, ejercicios y laboratorios interactivos para avanzar a tu ritmo antes de pedir acompañamiento.</p><Link href="/aprende" className="button">Ir a la biblioteca →</Link></article>
       <article className="contact-choice-card contact-choice-card--guided"><span>02 · CONSULTAR CLASES O CURSOS</span><h3>Conversemos sobre tu ruta</h3><p>Cuéntame tu nivel, objetivo, dificultad y horario. El formulario prepara un mensaje que puedes revisar antes de enviarlo por WhatsApp.</p><a href="#contactar" className="button secondary">Preparar una consulta →</a></article>
