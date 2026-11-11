@@ -42,6 +42,12 @@ const phoenix=readFileSync(path.join(root,"public/brand/zenit-phoenix.svg"),"utf
 assert.match(phoenix,/viewBox="470 105 1090 1840"/);
 const lockup=readFileSync(path.join(root,"public/brand/zenit-lockup.svg"),"utf8");
 assert.match(lockup,/Logra tus metas/);
+for (const branded of ["components/site.tsx", "app/page.tsx", "public/brand/zenit-lockup.svg", "BRAND-GUIDE.md", "public/brand/youtube-banner.svg", "public/brand/vertical-cover-template.svg"]) {
+  assert.doesNotMatch(readFileSync(path.join(root, branded), "utf8"),
+    /Logra tu meta(?!s)|LOGRA TU META(?!S)/,
+    "Eslogan antiguo detectado en " + branded);
+}
+
 const favicon=readFileSync(path.join(root,"public/favicon.svg"),"utf8");
 assert.match(favicon,/id="flame"/);
 assert.match(header,/© 2026 Juan Xavier · Sistema Zénit/);
