@@ -13,6 +13,8 @@ const routes = [
   ["herramientas", "/herramientas"],
   ["aprende", "/aprende"],
   ["laboratorio", "/laboratorio"],
+  ["lab-transformaciones", "/laboratorio/transformaciones-de-funciones"],
+  ["lab-representaciones", "/laboratorio/representaciones-de-funciones"],
   ["cursos", "/cursos/funciones-para-calculo"],
   ["sobre-mi", "/sobre-mi"],
   ["contacto", "/contacto"],
@@ -163,6 +165,19 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
       if (detail.h1 !== 1) addFinding("error", key, "Se esperó un solo H1, encontrados: " + detail.h1);
       if (!detail.title) addFinding("error", key, "Falta <title>");
       if (detail.lang !== "es") addFinding("warning", key, "Idioma inesperado: " + detail.lang);
+    }
+    // Comprobar en navegador que los pilotos Equation.io tengan enlaces
+    // correctos a la función seleccionada sin exigir conexión a terceros.
+    if (["lab-transformaciones", "lab-representaciones"].includes(label)) {
+      const graphUrl = await page.locator('a[href^="https://equation.io/#"]').first().getAttribute("href").catch(() => null);
+      if (!graphUrl) {
+        addFinding("error", key, "Falta el enlace a la gráfica avanzada Equation.io");
+      } else {
+        const payload = graphUrl.split("#")[1] || "";
+        if (!payload || !decodeURIComponent(payload).startsWith("y=")) {
+          addFinding("error", key, "El enlace a Equation.io no contiene una ecuación y= válida");
+        }
+      }
     }
     if (detail.widthOverflow > 3) addFinding("error", key, "Desbordamiento horizontal: " + detail.widthOverflow + " px; posibles causantes: " + detail.horizontalOffenders.slice(0, 4).map(el => el.tag + "." + el.className + " (+" + (el.right - size.width) + "px)").join(", "));
     if (detail.images.length) addFinding("warning", key, "Imágenes rotas: " + detail.images.join(", "));
