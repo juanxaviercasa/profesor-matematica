@@ -37,10 +37,10 @@ export function GeometryCurriculumLab({topic,title}:{topic:Topic;title:string}){
   const bx=isMedian||isRight?70:140;
   const by=230;
   const otherX=isRight?70+rightLegX:isMedian?340:335;
-  const upperX=isMedian?210:isRight?70:140+130*Math.cos(angleRad);
+  const upperX=isMedian?210+shift*18:isRight?70:140+130*Math.cos(angleRad);
   const upperY=isMedian?35:isRight?230-rightLegY:230-130*Math.sin(angleRad);
   const choose=mode==="polygon"?{title:"Número de lados",value:n,min:3,max:12,change:setN}:
-    mode==="triangles"?{title:isRight?"Escala de ejemplo":"Ángulo comprendido γ (grados)",value:isRight?size:theta,min:isRight?1:30,max:isRight?5:120,change:isRight?setSize:setTheta}:
+    mode==="triangles"?(isMedian?{title:"Desplazamiento del vértice A",value:shift,min:-4,max:4,change:setShift}:{title:isRight?"Escala de ejemplo":"Ángulo comprendido γ (grados)",value:isRight?size:theta,min:isRight?1:30,max:isRight?5:120,change:isRight?setSize:setTheta}):
     mode==="transform"?{title:"Desplazamiento horizontal (u)",value:shift,min:-3,max:5,change:setShift}:
     mode==="scale"?{title:"Denominador n de la escala 1:n",value:size,min:2,max:10,change:setSize}:
     {title:mode==="analytic"?"Parámetro de la representación":"Radio o medida de referencia (u)",value:size,min:1,max:5,change:setSize};
@@ -56,7 +56,7 @@ export function GeometryCurriculumLab({topic,title}:{topic:Topic;title:string}){
     mode==="circle"?
       (secant?"Dos secantes desde P: PA·PB = PC·PD = "+fmt(secantPower)+" u². Las longitudes son proporcionales al dibujo.":"Longitud = "+fmt(2*Math.PI*size)+" u; área = "+fmt(Math.PI*size*size)+" u².") :
     mode==="triangles"?
-      (isMedian?"La mediana divide BC por la mitad y el baricentro G cumple AG=2GM.":isRight?(notable?"Ejemplo 45°–45°–90°: lados "+size+", "+size+" y "+fmt(size*Math.SQRT2)+" u.":"Ejemplo 3–4–5: lados "+3*size+", "+4*size+" y "+5*size+" u; se cumple Pitágoras."):"Dos lados de 6 y 4 u, con ángulo comprendido "+theta+"°: tercer lado = "+fmt(Math.sqrt(36+16-48*Math.cos(angleRad)))+" u.") :
+      (isMedian?"Vértice A desplazado "+shift+" u en el esquema. La mediana divide BC por la mitad y el baricentro G cumple AG=2GM.":isRight?(notable?"Ejemplo 45°–45°–90°: lados "+size+", "+size+" y "+fmt(size*Math.SQRT2)+" u.":"Ejemplo 3–4–5: lados "+3*size+", "+4*size+" y "+5*size+" u; se cumple Pitágoras."):"Dos lados de 6 y 4 u, con ángulo comprendido "+theta+"°: tercer lado = "+fmt(Math.sqrt(36+16-48*Math.cos(angleRad)))+" u.") :
     mode==="area"?(topic.id==="shaded-area"?"Ejemplo de región sombreada: área total "+(4*size)+" u² menos un cuarto sin sombrear; área sombreada "+(3*size)+" u².":"Ejemplo de rectángulo: base "+size+" u, altura 4 u, área "+4*size+" u²."):
     mode==="scale"?"A escala 1:"+size+", 5 cm del plano equivalen a "+(5*size)+" cm reales.":
     mode==="transform"?"Traslación T("+shift+",0): las longitudes y medidas de los ángulos se conservan.":
@@ -145,7 +145,7 @@ export function GeometryCurriculumLab({topic,title}:{topic:Topic;title:string}){
           <polygon points={(110+shift*36)+",195 "+(165+shift*36)+",195 "+(130+shift*36)+",110"} fill="#e8bc71" fillOpacity=".25" stroke="#e8bc71" strokeWidth="3"/>
           <text x="29" y="45" fill="#fff" fontSize="16">Original: violeta · Trasladado: oro</text>
         </g>}
-        {mode==="solids"&&<g fill="#6840c5" fillOpacity=".32" stroke="#b49aff" strokeWidth="2.7">
+        {mode==="solids"&&<g transform={"translate(210 150) scale("+(0.55+size*.09)+") translate(-210 -150)"} fill="#6840c5" fillOpacity=".32" stroke="#b49aff" strokeWidth="2.7">
           {isCube?(topic.id==="nets"?
              <g>{[[168,47],[168,89],[126,89],[210,89],[168,131],[168,173]].map(([x,y],i)=>
                <rect key={i} x={x} y={y} width="42" height="42" stroke="#e8bc71" fill="#6840c5" fillOpacity=".23"/>)}
