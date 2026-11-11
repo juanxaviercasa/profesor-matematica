@@ -11,27 +11,27 @@ body:has(.contact-page-v2) .conversion-dock{display:none}
 .conversion-form .form-grid :is(input,select,textarea){min-height:48px}
 .conversion-form .form-grid textarea{min-height:95px;line-height:1.5}
 .conversion-form .consent{align-items:flex-start;margin-top:22px}
-.conversion-form .consent input{flex-shrink:0;accent-color:#d9ef78;margin-top:4px;min-width:20px;min-height:20px}
+.conversion-form .consent input{flex-shrink:0;accent-color:#e8bc71;margin-top:4px;min-width:20px;min-height:20px}
 .conversion-form .consent span{line-height:1.55;font-size:.93rem}
-.lead-privacy-note{color:#d8e8df;margin-block:14px 25px;font-size:.88rem;line-height:1.55}
-.lead-privacy-note a{color:#d9ef78;text-decoration:underline}
+.lead-privacy-note{color:#ded4f1;margin-block:14px 25px;font-size:.88rem;line-height:1.55}
+.lead-privacy-note a{color:#e8bc71;text-decoration:underline}
 .conversion-form .form-action button{min-height:48px}
 .conversion-form .form-action small{max-width:35ch;line-height:1.55}
-.lead-preview{margin-top:25px;background:#234639;color:#f8fff7;padding:clamp(18px,3vw,28px);border:2px solid #d9ef78;border-radius:18px;scroll-margin-top:105px}
+.lead-preview{margin-top:25px;background:#35265f;color:#f9f6ff;padding:clamp(18px,3vw,28px);border:2px solid #e8bc71;border-radius:18px;scroll-margin-top:105px}
 .lead-preview h3{margin:4px 0 14px;color:#fff;font-size:clamp(1.25rem,2vw,1.7rem)}
-.lead-preview .eyebrow{color:#d9ef78}
-.lead-preview textarea{width:100%;background:#fffdf8;color:#142c27;border:1px solid #8cb097;border-radius:12px;padding:15px;resize:vertical;font-size:1rem;line-height:1.6;font-family:inherit}
-.lead-preview > p:not(.eyebrow){color:#f4f9ed;font-size:.94rem;line-height:1.55}
-.lead-preview .lead-whatsapp-link{display:inline-flex;justify-content:center;align-items:center;text-align:center;gap:10px;min-height:50px;padding:12px 20px;border-radius:999px;background:#d9ef78;color:#18392f;font-weight:850;text-decoration:none}
+.lead-preview .eyebrow{color:#e8bc71}
+.lead-preview textarea{width:100%;background:#ffffff;color:#241b4b;border:1px solid #a997ce;border-radius:12px;padding:15px;resize:vertical;font-size:1rem;line-height:1.6;font-family:inherit}
+.lead-preview > p:not(.eyebrow){color:#f9f6ff;font-size:.94rem;line-height:1.55}
+.lead-preview .lead-whatsapp-link{display:inline-flex;justify-content:center;align-items:center;text-align:center;gap:10px;min-height:50px;padding:12px 20px;border-radius:999px;background:#e8bc71;color:#241b4b;font-weight:850;text-decoration:none}
 .lead-preview .lead-whatsapp-link:focus-visible,.lead-privacy-note a:focus-visible{outline:3px solid #fff;outline-offset:4px}
-.lead-preview small{display:block;margin-top:14px;color:#e0e9df;line-height:1.5}
+.lead-preview small{display:block;margin-top:14px;color:#ded4f1;line-height:1.5}
 .privacy-page-v2 .page-hero{padding-block:clamp(45px,5vw,70px) 40px}
 .privacy-content{max-width:870px;padding-block:40px 100px}
-.privacy-content section{padding:24px 0;border-bottom:1px solid #ccdbd0}
+.privacy-content section{padding:24px 0;border-bottom:1px solid #e4daf4}
 .privacy-content h2{font-size:clamp(1.4rem,2.6vw,2rem);margin-bottom:12px}
-.privacy-content p{color:#3f554a;font-size:1.03rem;line-height:1.75;max-width:72ch}
-.privacy-content a{color:#0d6652;text-underline-offset:3px;font-weight:750;overflow-wrap:anywhere}
-.offer-page-v2 .offer-materials-note{margin:12px 0 25px;max-width:78ch;color:#48564c;line-height:1.65}
+.privacy-content p{color:#615b76;font-size:1.03rem;line-height:1.75;max-width:72ch}
+.privacy-content a{color:#4b2a96;text-underline-offset:3px;font-weight:750;overflow-wrap:anywhere}
+.offer-page-v2 .offer-materials-note{margin:12px 0 25px;max-width:78ch;color:#615b76;line-height:1.65}
 .offer-page-v2 .offer-price .future-price{font-size:.98rem;line-height:1.55}
 @media(max-width:640px){
   .contact-page-v2 .page-hero{padding-block:26px 18px}
