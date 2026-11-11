@@ -1,10 +1,10 @@
-# Sistema de marca · Juan Xavier
+# Identidad institucional · Sistema Zénit
 
 ## Arquitectura
 
-- **Marca personal:** Juan Xavier. Es el nombre principal en YouTube, el sitio, webinars y ofertas.
+- **Marca institucional:** Sistema Zénit, con su isotipo del fénix y el lema **«Logra tu meta»**, que deben aparecer juntos en cabecera y pie de página.
 - **Método:** Sistema Zénit. Identifica la forma de enseñar y permite nombrar cursos, laboratorios y aplicaciones.
-- **Lema:** Matemática que conecta.
+- **Marca del docente y fundador:** Juan Xavier. Mantener la autoría en la biografía y los datos estructurados, sin sustituir el lema institucional.
 - **Promesa editorial:** conectar fórmula, gráfica, comportamiento y significado para preparar al estudiante para cálculo.
 
 ## Personalidad
@@ -13,9 +13,14 @@ Clara, exigente, cercana y visual. Evita promesas grandilocuentes, lenguaje infa
 
 ## Identidad visual
 
-### Sistema compartido con Química Zenit (noviembre de 2026)
+### Identidad vigente — Fénix Zénit (noviembre de 2026)
 
-La capa visual pública del portal matemático comparte con Química Zenit el violeta institucional `#6840C5`, su variante de alto contraste `#4B2A96`, el índigo `#231E42`, el lavanda `#EEE8FD`, el dorado `#E8BC71` y el lienzo `#FCFBFF`. La fuente de implementación actual es `app/zenit-redesign.css` (cargada al final de `app/layout.tsx`). Conservar la identidad de las lecciones y los laboratorios por área: la unificación cromática no autoriza reemplazar símbolos, alterar la semántica de gráficas, ni reducir la legibilidad de fórmulas. Priorizar contraste WCAG AA y controles táctiles de al menos 44 px.
+- **Símbolo oficial:** llama exterior rojo/naranja con fénix interior amarillo/dorado; fuente vectorial: `public/brand/zenit-phoenix.svg`, alineada con Química Zenit.
+- **Marca al costado del símbolo:** primera línea **«Sistema Zénit»**, segunda línea **«Logra tu meta»**, con ortografía y mayúsculas exactas.
+- **Fuego principal:** `#C32B0C`; **fuego oscuro para texto:** `#9A220D`.
+- **Oro:** `#F59E0A`; **crema de lectura:** `#FFFAF5`; **noche cálida:** `#2A120E`.
+- **Aplicación:** `components/site.tsx` comparte la firma con el encabezado y el pie; `app/zenit-redesign.css` define el acabado cromático; `public/favicon.svg` usa el mismo fénix.
+- **Accesibilidad:** contenido académico de alto contraste, controles táctiles legibles y fórmulas sin pérdida de contenido. No convertir semántica matemática (correcto/incorrecto, gráficas) en colores de marca indiscriminadamente.
 
 ### Paleta histórica (etapas anteriores)
 
@@ -44,7 +49,7 @@ La capa visual pública del portal matemático comparte con Química Zenit el vi
 
 ## Uso del logotipo
 
-El símbolo representa una función que asciende hasta un punto máximo y continúa su recorrido. El punto Lima Solar marca el momento de comprensión. Mantener un margen libre equivalente a una cuarta parte del símbolo. No rotar, estirar ni cambiar colores de forma aislada.
+El símbolo vigente es un fénix dorado rodeado por una llama rojo-anaranjada. Conservar sus proporciones, gradientes y margen de aire; no deformarlo ni recolorearlo. Su firma horizontal siempre dice «Sistema Zénit» y «Logra tu meta».
 
 ## Sistema de contenido
 
@@ -63,7 +68,7 @@ El símbolo representa una función que asciende hasta un punto máximo y contin
 
 ## Recursos incluidos
 
-- `public/brand/zenit-mark.svg`: símbolo principal.
+- `public/brand/zenit-phoenix.svg`: isotipo principal vigente.\n- `public/brand/zenit-mark.svg`: símbolo heredado; no usar en el encabezado actual.
 - `public/brand/zenit-lockup.svg`: firma horizontal.
 - `public/brand/social-avatar.svg`: avatar para redes.
 - `public/brand/youtube-banner.svg`: portada de YouTube.
