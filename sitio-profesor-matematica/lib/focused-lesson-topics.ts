@@ -4,6 +4,7 @@ export type FocusedLabKind = "segments" | "congruence" | "parallel" | "cryptarit
 
 export const FOCUSED_LABS: Record<string, FocusedLabKind> = {
   "nociones-basicas-de-geometria-1sec-unidad1": "segments",
+  "segmentos-1sec-unidad1": "segments",
   "congruencia-de-triangulos-1sec-unidad3": "congruence",
   "angulos-formados-por-2-rectas-paralelas-y-1-secante-1sec-unidad2": "parallel",
   "angulos-determinados-por-dos-rectas-paralelas-y-una-recta-secante-1sec-unidad2": "parallel",

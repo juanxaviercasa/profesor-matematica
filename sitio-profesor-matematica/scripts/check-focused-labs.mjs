@@ -16,8 +16,9 @@ const browser = read("scripts/qa-catalog-browser.mjs");
 const catalog = JSON.parse(read("content/catalog/lessons-index.json"));
 const keys = [...topics.matchAll(/"([a-z0-9-]+)": "(segments|congruence|parallel|cryptarithm|square|sequence|expression|frequency)",/g)];
 const mapping = new Map(keys.map(([, slug, kind]) => [slug, kind]));
-assert.equal(mapping.size, 15, "Revisar cobertura de 15 lecciones con laboratorio específico");
+assert.equal(mapping.size, 16, "Revisar cobertura de 16 lecciones con laboratorio específico");
 assert.equal(new Set(mapping.values()).size, 8, "Falta alguna de las ocho familias matemáticas");
+assert.equal(mapping.get("segmentos-1sec-unidad1"), "segments", "La lección Segmentos debe usar el laboratorio de longitudes, no polígonos");
 for (const [slug, kind] of mapping) {
   const item = catalog.find(l => l.slug === slug);
   assert.ok(item, "El laboratorio no corresponde a una lección real: " + slug);
