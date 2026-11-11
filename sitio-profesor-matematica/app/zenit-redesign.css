@@ -111,11 +111,11 @@ body { background: var(--z-paper); color: var(--z-ink); }
 .public-tools-benefits span { color: var(--z-muted); }
 .public-end-cta { background: var(--z-blue-soft); border-color: #bed2f2; }
 /* Superficies educativas internas: papel como base, concentración oscura en el módulo. */
-.learning-view { background: var(--z-surface); color: var(--z-ink); border-color: var(--z-line); box-shadow: var(--z-shadow); }
-.learning-view .breadcrumb,.learning-view .breadcrumb a { color: var(--z-muted); }
-.learning-view .breadcrumb a:hover { color: var(--z-blue); }
-.learning-view .text-stone-400,.learning-view .text-stone-500 { color: var(--z-muted); }
-.learning-view .text-stone-300 { color: var(--z-ink); }
+.learning-view:not(.topic-view) { background: var(--z-surface); color: var(--z-ink); border-color: var(--z-line); box-shadow: var(--z-shadow); }
+.learning-view:not(.topic-view) .breadcrumb,.learning-view:not(.topic-view) .breadcrumb a { color: var(--z-muted); }
+.learning-view:not(.topic-view) .breadcrumb a:hover { color: var(--z-blue); }
+.learning-view:not(.topic-view) .text-stone-400,.learning-view:not(.topic-view) .text-stone-500 { color: var(--z-muted); }
+.learning-view:not(.topic-view) .text-stone-300 { color: var(--z-ink); }
 /* Footer institucional y menos personalista. */
 footer { background: var(--z-ink); color: #eaf0f7; }
 footer .brand-copy b { color: #fff; }

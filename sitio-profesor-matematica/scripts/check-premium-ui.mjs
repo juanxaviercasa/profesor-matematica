@@ -9,10 +9,18 @@ const layout = read("app/layout.tsx");
 const browser = read("scripts/qa-browser.mjs");
 const catalog = read("scripts/qa-catalog-browser.mjs");
 const design = read("app/design-system.css");
+const redesign = read("app/zenit-redesign.css");
+assert.match(layout, /import "\.\/zenit-redesign\.css";/);
+assert.doesNotMatch(redesign, /(?:^|\n)\.learning-view\s*\{[^}]*background\s*:/,
+  "El tema claro no puede sobrescribir el fondo oscuro de las lecciones");
+assert.match(redesign, /\.learning-view:not\(\.topic-view\)\s*\{\s*background:/,
+  "Limitar superficies claras a vistas que no sean lecciones oscuras");
+assert.doesNotMatch(redesign, /(?:^|\n)\.learning-view \.text-stone-300\s*\{/,
+  "Evitar texto oscuro sobre tarjetas y laboratorios oscuros");
 assert.match(layout, /import "\.\/premium-responsive\.css";/);
 assert.ok(layout.indexOf('import "./premium-responsive.css"') >
   layout.indexOf('import "./math-responsive-layout.css"'),
-  "La capa premium debe ser la última hoja de estilos");
+  "La capa premium debe seguir a las reglas matemáticas compartidas");
 for (const token of [
   "--zenit-premium-muted-on-dark", "--zenit-premium-focus-on-dark",
   "--zenit-premium-touch-size"
