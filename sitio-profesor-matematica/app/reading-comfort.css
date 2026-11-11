@@ -139,3 +139,10 @@ footer .footer-base { font-size:.92rem; line-height:1.55; }
 @media(max-width:767px) {
   body:has(.tools-page-v2) .conversion-dock { display:none; }
 }
+
+
+/* QA móvil: lema, reinicio y contadores de lecciones al menos 14 px. */
+.site-header .brand-copy small, footer .brand-copy small { font-size: .875rem; line-height: 1.4; }
+.zqh-reset { font-size: .875rem; }
+.aprende-hub .course-card :is(small,.course-count),
+.aprende-hub .area-section small { font-size: .875rem; line-height: 1.5; }

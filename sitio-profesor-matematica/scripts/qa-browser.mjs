@@ -239,53 +239,55 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
     const screenshotPath = join(out, key + ".png");
     await page.screenshot({ path: screenshotPath, fullPage: ["inicio", "blog", "aprende"].includes(label), animations: "disabled" });
     if (label === "inicio") {
-      // Comprueba la ilustración en su ubicación real, no solamente la cabecera
-      // inicial. El HTML <picture> debe seleccionar un SVG apropiado a cada ancho.
+      // La portada actual tiene un graficador real, no la ilustración antigua.
       try {
-        const figure = page.locator(".feature-band .zenit-visual-figure");
-        await figure.scrollIntoViewIfNeeded({ timeout: 8000 });
-        await page.waitForFunction(() => {
-          const img = document.querySelector(".feature-band .zenit-visual-figure img");
-          return img && img.complete && img.naturalWidth > 0;
-        }, { timeout: 12000 });
-        const art = await figure.evaluate(el => {
-          const img = el.querySelector("img");
-          const fig = el.getBoundingClientRect();
-          const rect = img?.getBoundingClientRect();
+        const heroLab = page.locator(".hero .zqh-lab");
+        const graph = heroLab.locator("svg.zqh-plot");
+        await graph.waitFor({ state: "visible", timeout: 7000 });
+        const drawing = await graph.evaluate(svg => {
+          const r = svg.getBoundingClientRect();
+          const card = svg.closest(".zqh-lab")?.getBoundingClientRect();
+          const curve = svg.querySelector('path[stroke="url(#zqh-curve-gradient)"]');
           return {
-            src: img?.currentSrc || "",
-            imageWidth: rect?.width || 0,
-            imageHeight: rect?.height || 0,
-            figureWidth: fig.width,
-            naturalWidth: img?.naturalWidth || 0
+            width: r.width, height: r.height, cardWidth: card?.width ?? 0,
+            curve: curve?.getAttribute("d") || "",
+            ticks: svg.querySelectorAll("text").length,
+            name: svg.getAttribute("aria-label") || ""
           };
         });
-        const expected = size.width <= 640 ? "zenit-connection-aurora-mobile.svg" : "zenit-connection-aurora-desktop.svg";
-        if (!art.src.includes(expected)) {
-          addFinding("error", key, "Ilustración no adaptada: se esperaba " + expected + ", se obtuvo " + art.src);
+        if (drawing.width < 180 || drawing.height < 120 || drawing.cardWidth === 0 ||
+            drawing.width > drawing.cardWidth + 4) {
+          addFinding("error", key, "El gráfico principal no cabe o es ilegible: " + JSON.stringify(drawing));
         }
-        if (art.imageWidth > art.figureWidth + 3 || art.naturalWidth === 0) {
-          addFinding("error", key, "Ilustración sobresale del recuadro o no se carga");
+        if (!drawing.curve.startsWith("M") || !drawing.name.includes("Vértice") ||
+            drawing.ticks < 3) {
+          addFinding("error", key, "El dibujo de la parábola carece de curva o etiquetas accesibles");
         }
-        if (art.imageHeight < 120) {
-          addFinding("warning", key, "Ilustración demasiado pequeña: " + art.imageHeight + " px");
+        if (await heroLab.locator(".zqh-equations .katex").count() < 2) {
+          addFinding("error", key, "La portada no muestra ambas fórmulas renderizadas con KaTeX");
         }
-        await figure.screenshot({
-          path: join(out, "portada-diagrama-" + size.label + ".png"),
+        const overflow = await heroLab.locator(".zqh-equations").evaluate(
+          el => Math.max(0, el.scrollWidth - el.clientWidth)
+        );
+        if (overflow > 8) addFinding("error", key, "Ecuaciones de portada desbordadas: " + overflow + "px");
+        const slider = heroLab.locator('input[type="range"]').first();
+        const before = await graph.getAttribute("aria-label");
+        await slider.focus();
+        await slider.press("ArrowRight");
+        await page.waitForFunction(
+          previous => document.querySelector(".hero svg.zqh-plot")?.getAttribute("aria-label") !== previous,
+          before, { timeout: 3000 }
+        );
+        await heroLab.getByRole("button", { name: "Reiniciar" }).click();
+        if (await graph.getAttribute("aria-label") !== before) {
+          addFinding("error", key, "Reiniciar no recuperó los parámetros originales de la parábola");
+        }
+        await heroLab.screenshot({
+          path: join(out, "portada-graficador-" + size.label + ".png"),
           animations: "disabled", timeout: 12000
         });
-        const formulas = page.locator(".hero .formula-card .zqh-equations .katex");
-        if (await formulas.count() < 2) {
-          addFinding("error", key, "La portada debe mostrar dos formas matemáticas renderizadas con KaTeX");
-        }
-        const formulaOverflow = await page.locator(".hero .formula-card .zqh-equations").evaluate(el =>
-          Math.max(0, el.scrollWidth - el.clientWidth), undefined, { timeout: 5000 }
-        );
-        if (formulaOverflow > 8) {
-          addFinding("error", key, "Fórmula de portada desbordada: " + formulaOverflow + " px");
-        }
       } catch (error) {
-        addFinding("error", key, "No se pudo verificar el diagrama de inicio: " + error.message);
+        addFinding("error", key, "No se pudo verificar el graficador de la portada: " + error.message);
       }
     }
     // Capturas cerca de fórmulas: las capturas del encabezado no revelan
