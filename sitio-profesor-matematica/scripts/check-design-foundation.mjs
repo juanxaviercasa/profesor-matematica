@@ -12,7 +12,7 @@ assert.match(site, /<nav className="mobile-links"/);
 assert.match(css, /\.mobile-menu nav\.mobile-links/);
 assert.match(css, /:focus-visible/);
 assert.match(css, /prefers-reduced-motion/);
-assert.match(css, /--accent-ink:#a9311b/);
+assert.match(css, /--accent-ink:#4b2a96/);
 assert.match(layout, /brand\/zenit-lockup\.svg/);
 assert.match(layout, /SITE_URL as BASE_URL/);
 assert.match(config, /https:\/\/sistemazenit\.com/);
@@ -43,7 +43,6 @@ const contrastRatio = (a, b) => {
 };
 for (const [foreground, background] of [
   ["--zenit-coral-text", "--zenit-canvas"],
-  ["--zenit-ink", "--zenit-coral"],
   ["--zenit-night-text", "--zenit-night"],
   ["--zenit-night-muted", "--zenit-night"],
   ["--zenit-night-text", "--zenit-forest"],
@@ -51,6 +50,14 @@ for (const [foreground, background] of [
   const ratio = contrastRatio(getHex(foreground), getHex(background));
   assert.ok(ratio >= 4.5, `Contraste insuficiente: ${foreground} sobre ${background} = ${ratio.toFixed(2)}:1`);
 }
+assert.ok(contrastRatio("#FFFFFF", getHex("--zenit-coral")) >= 4.5, "Blanco sobre violeta debe cumplir AA");
+assert.ok(contrastRatio(getHex("--zenit-ink"), getHex("--zenit-lime")) >= 4.5, "Índigo sobre dorado debe cumplir AA");
+assert.match(layout, /import "\\.\\/zenit-aurora\\.css";/);
+const aurora = read("app/zenit-aurora.css");
+assert.match(aurora, /--aurora-brand-gradient/);
+assert.match(aurora, /--aurora-lavender-gradient/);
+assert.match(aurora, /--aurora-gold-gradient/);
+
 for (const page of [
   "app/blog/page.tsx",
   "app/aprende/[area]/page.tsx",
