@@ -53,6 +53,7 @@ export const EDITORIAL_RULES = [
   {course:"aritmetica",engineId:"mathjs",pattern:/inter[eé]s|descuento/,tex:String.raw`I=C\cdot r\%\cdot t,\quad M=C(1+r\%\cdot t),\quad D_c=V_n\cdot r\%\cdot t`},
   {course:"aritmetica",engineId:"mathjs",pattern:/mezcla|aleaci[oó]n/,tex:String.raw`P_m=\frac{C_1P_1+C_2P_2+\cdots+C_kP_k}{C_1+C_2+\cdots+C_k},\quad \text{Ley}=\frac{W_{\text{fino}}}{W_{\text{total}}}`},
   {course:"aritmetica",engineId:"mathjs",pattern:/unidades de (?:medida|volumen)/,tex:String.raw`1\text{ m}^3=1000\text{ L},\quad 1\text{ ha}=10^4\text{ m}^2,\quad 1\text{ t}=1000\text{ kg}`},
+  {course:"aritmetica",engineId:"jstat",pattern:/tabla de dist.*sin agrupar|tabla de distribuci[oó]n.*sin agrupar/,tex:String.raw`n=\sum_{i=1}^{k}f_i,\quad h_i=\frac{f_i}{n},\quad F_j=\sum_{i=1}^{j}f_i`},
   {course:"aritmetica",engineId:"jstat",pattern:/tabla de dist|an[aá]lisis e inter|tendencia no central/,tex:String.raw`h_i=\frac{f_i}{n},\quad Q_k=L_i+w\left(\frac{\frac{kn}{4}-F_{i-1}}{f_i}\right),\quad \sum_{i=1}^{k}f_i=n`},
   {course:"aritmetica",engineId:"geogebra",pattern:/geometr[ií]a|l[ií]neas notables/,tex:String.raw`C+V=A+2\quad\text{(Teorema de Euler)},\quad d=\sqrt{a^2+b^2+c^2}`},
   {course:"aritmetica",engineId:"z3-wasm",pattern:/calendario|tiempo|verdades|pesadas|poleas|traslado|ruta/,tex:String.raw`N_{\text{pesadas}}=\lceil\log_3(n)\rceil,\quad n_A\cdot Z_A=n_B\cdot Z_B,\quad \Delta\text{días}\equiv r\pmod 7`},
@@ -60,11 +61,12 @@ export const EDITORIAL_RULES = [
   // ============================================================================
   // 3. GEOMETRÍA (100% de cobertura en 1.º a 5.º de secundaria)
   // ============================================================================
-  {course:"geometria",engineId:"jsxgraph",pattern:/segmento/,tex:String.raw`AB+BC=AC,\quad \frac{AB}{BC}=\frac{AD}{CD}\quad\text{(Cuaterna Armónica)}`},
+  {course:"geometria",engineId:"jsxgraph",pattern:/segmento/,tex:String.raw`AB+BC=AC\ \text{si }B\text{ está entre }A\text{ y }C,\quad AM=MB=\frac{AB}{2}\ \text{si }M\text{ es punto medio de }AB`},
   {course:"geometria",engineId:"jsxgraph",pattern:/[aá]ngulos? (?:determinados|formados).*paralela/,tex:String.raw`\alpha_{\text{alt. int.}}=\beta,\quad \alpha_{\text{conj. int.}}+\theta=180^\circ\quad(L_1\parallel L_2)`},
-  {course:"geometria",engineId:"jsxgraph",pattern:/[aá]ngulo/,tex:String.raw`m\angle AOB+m\angle BOC=m\angle AOC,\quad C(\alpha)=90^\circ-\alpha,\quad S(\alpha)=180^\circ-\alpha`},
+  {course:"geometria",engineId:"jsxgraph",pattern:/(?<!tri)[aá]ngulo/,tex:String.raw`m\angle AOB+m\angle BOC=m\angle AOC,\quad C(\alpha)=90^\circ-\alpha,\quad S(\alpha)=180^\circ-\alpha`},
   {course:"geometria",engineId:"geogebra",pattern:/tri[aá]ngulos? rect[aá]ngulos?|pit[aá]goras|relaciones m[eé]tricas/,tex:String.raw`a^2+b^2=c^2,\quad h^2=m\cdot n,\quad a\cdot b=c\cdot h`},
   {course:"geometria",engineId:"geogebra",pattern:/proporcionalidad|semejanza/,tex:String.raw`\frac{AB}{BC}=\frac{DE}{EF}\quad\text{(Teorema de Thales)},\quad \frac{a}{a'}=\frac{b}{b'}=\frac{h}{h'}=k`},
+  {course:"geometria",engineId:"geogebra",pattern:/congruencia de tri[aá]ngulos/,tex:String.raw`\triangle ABC\cong\triangle DEF\implies AB=DE,\quad BC=EF,\quad AC=DF`},
   {course:"geometria",engineId:"geogebra",pattern:/tri[aá]ngulo/,tex:String.raw`\alpha+\beta+\gamma=180^\circ,\quad e=\alpha+\beta,\quad |b-c|<a<b+c`},
   {course:"geometria",engineId:"geogebra",pattern:/cuadril[aá]tero/,tex:String.raw`\alpha+\beta+\gamma+\delta=360^\circ,\quad m_{\text{mediana}}=\frac{B+b}{2}`},
   {course:"geometria",engineId:"geogebra",pattern:/pol[ií]gono/,tex:String.raw`S_i=180^\circ(n-2),\quad S_e=360^\circ,\quad N_D=\frac{n(n-3)}{2}`},
