@@ -5,7 +5,7 @@ import { Footer, Header, FormulaCard } from "@/components/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
-  title: "Aprende a pensar. Llega más alto. | Sistema Zénit",
+  title: "Aprende a pensar. Llega más alto.",
   description: "Aprende matemática y ciencias con explicaciones claras, lecciones, ejercicios y simuladores interactivos. Sistema Zénit: logra tus metas.",
 };
 
