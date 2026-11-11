@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useId, useState, type ReactNode } from "react";
+import { equationIoGraphUrl } from "@/lib/equation-io";
 import { FOCUSED_LABS, type FocusedLabKind } from "@/lib/focused-lesson-topics";
 
 /**
@@ -40,6 +41,33 @@ function Explanation({ children }: { children: ReactNode }) {
   );
 }
 
+/**
+ * Comprobación formativa tipo CL for Desmos: respuesta numérica, corrección
+ * inmediata y reinicio al cambiar los parámetros del gráfico.
+ */
+function GeometryAnswer({question,answer,unit}:{question:string;answer:number;unit:string}){
+  const fieldId=useId();
+  const [response,setResponse]=useState("");
+  const normalized=response.trim().replace(",",".");
+  const valid=normalized!=="" && Number.isFinite(Number(normalized));
+  const correct=valid && Math.abs(Number(normalized)-answer)<1e-9;
+  return (
+    <div className="rounded-xl border border-violet-300/70 bg-[#302354] p-4 space-y-3">
+      <label htmlFor={fieldId} className="block text-base font-semibold text-white">{question}</label>
+      <div className="flex flex-wrap items-center gap-3">
+        <input id={fieldId} type="text" inputMode="decimal" autoComplete="off"
+          value={response} onChange={event=>setResponse(event.target.value)}
+          placeholder="Escribe tu respuesta" aria-label={question}
+          className="min-h-[44px] w-full min-w-0 max-w-[230px] rounded-lg border border-violet-200 bg-white px-3 py-2 text-base text-[#241b4b]"/>
+        <span className="text-base text-[#ffe3ab]">{unit}</span>
+      </div>
+      <p role="status" aria-live="polite" className="min-h-6 text-base text-[#ffe3ab]">
+        {correct?"¡Correcto! Has aplicado la propiedad matemática.":""}
+      </p>
+    </div>
+  );
+}
+
 function SegmentLab() {
   const [ab, setAb] = useState(4);
   const bc = 4;
@@ -61,6 +89,12 @@ function SegmentLab() {
           <text x={(xB+xC)/2} y="100" textAnchor="middle" fontSize="14" fill="#a7f3d0">{bc} cm</text>
         </svg>
       </div>
+      <GeometryAnswer key={"segment-"+ab} question={"Si AB = "+ab+" cm y BC = "+bc+" cm, ¿cuánto mide AC?"} answer={ab+bc} unit="cm"/>
+      <a href={equationIoGraphUrl(["y=0","(0,0)","("+ab+",0)","("+(ab+bc)+",0)"])}
+         target="_blank" rel="noopener noreferrer"
+         className="inline-block text-base font-semibold text-[#ffe3ab] underline underline-offset-4">
+        Explorar los puntos A, B y C en el plano XY
+      </a>
       <Explanation>AB + BC = AC, por tanto {ab} + {bc} = <strong>{ab + bc} cm</strong>. Mueve B y comprueba que la relación se mantiene.</Explanation>
     </div>
   );
@@ -68,13 +102,14 @@ function SegmentLab() {
 
 function CongruenceLab() {
   const [percent, setPercent] = useState(100);
+  const [choice,setChoice]=useState<"yes"|"no"|null>(null);
   const k = percent / 100;
   const match = percent === 100;
   const fmt = (n:number)=>Number(n.toFixed(2)).toLocaleString("es-PE");
   return (
     <div className="space-y-4">
       <p className="text-base text-stone-200">Compara dos triángulos rectángulos. La congruencia exige las mismas longitudes correspondientes; la semejanza, solo la misma forma.</p>
-      <Slider id="congruence-ratio" title="Escala del segundo triángulo" value={percent} min={60} max={140} step={10} unit=" %" onChange={setPercent}/>
+      <Slider id="congruence-ratio" title="Escala del segundo triángulo" value={percent} min={60} max={140} step={10} unit=" %" onChange={next=>{setPercent(next);setChoice(null);}}/>
       <div className="rounded-xl bg-[#081914] border border-emerald-800 p-3">
         <svg viewBox="0 0 460 196" role="img" aria-label={"Primer triángulo de lados 3, 4, 5. Segundo triángulo de lados " + fmt(3*k) + ", " + fmt(4*k) + ", " + fmt(5*k) + "."} className="w-full h-auto">
           <polygon points="34,157 169,157 34,56" fill="#16634c" fillOpacity=".35" stroke="#a7f3d0" strokeWidth="3"/>
@@ -88,6 +123,21 @@ function CongruenceLab() {
           <text x="90" y="24" textAnchor="middle" fontSize="16" fill="#a7f3d0">Triángulo A</text>
           <text x="308" y="24" textAnchor="middle" fontSize="16" fill="#c9f37d">Triángulo B</text>
         </svg>
+      </div>
+      <div className="rounded-xl border border-violet-300/70 bg-[#302354] p-4 space-y-3">
+        <p className="font-semibold text-base text-white">¿Son congruentes los dos triángulos?</p>
+        <div className="flex flex-wrap gap-2">
+          {(["yes","no"] as const).map(value=><button key={value} type="button"
+            aria-pressed={choice===value} onClick={()=>setChoice(value)}
+            className="min-h-[44px] rounded-lg border border-violet-200 bg-white px-5 py-2 text-base font-semibold text-[#241b4b]">
+            {value==="yes"?"Sí":"No"}
+          </button>)}
+        </div>
+        <p role="status" aria-live="polite" className="min-h-6 text-base text-[#ffe3ab]">
+          {choice && ((choice==="yes")===match ?
+            "¡Correcto! Compara las tres longitudes correspondientes." :
+            "Revisa si las tres longitudes coinciden, no solo su proporción.")}
+        </p>
       </div>
       <Explanation>
         {match ? "Los lados 3–4–5 coinciden con los del segundo triángulo. Son congruentes por LLL." :
@@ -117,6 +167,9 @@ function ParallelLab() {
           <text x="349" y="103" textAnchor="middle" fontSize="16" fill="#f0f7ef">α = {alpha}°</text>
         </svg>
       </div>
+      <GeometryAnswer key={"parallel-"+alpha}
+        question={"Si α = "+alpha+"°, ¿cuánto mide su ángulo colateral interno?"}
+        answer={180-alpha} unit="°"/>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <Explanation>Correspondientes: <strong>{alpha}°</strong> y <strong>{alpha}°</strong>.</Explanation>
         <Explanation>Colaterales internos: <strong>{alpha}°</strong> + <strong>{180-alpha}°</strong> = 180°.</Explanation>
