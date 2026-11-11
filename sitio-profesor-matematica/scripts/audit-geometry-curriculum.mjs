@@ -63,6 +63,16 @@ for(const path of ["components/geometry-curriculum-lab.tsx","components/zenit-ap
   const ast=ts.createSourceFile(path,source,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
   assert.equal(ast.parseDiagnostics.length,0,"TSX inválido: "+path+" / "+ast.parseDiagnostics.map(x=>x.messageText).join("; "));
 }
+const visualSource=read("components/geometry-curriculum-lab.tsx");
+for(const mode of ["triangles","polygon","circle","area","scale","transform","solids","analytic"]){
+  assert.ok(visualSource.includes('mode==="'+mode+'"'),
+    "No existe la representación geométrica "+mode);
+}
+for(const family of ["segmentos-1sec-unidad1","angulos-1sec-unidad2",
+  "congruencia-de-triangulos-1sec-unidad3","angulos-formados-por-2-rectas-paralelas-y-1-secante-1sec-unidad2"]){
+  assert.ok(read("lib/focused-lesson-topics.ts").includes('"'+family+'"'),
+    "No existe el simulador reutilizable "+family);
+}
 const dispatch=read("components/zenit-app-engines.tsx");
 for(const mode of ["triangles","polygon","circle","area","scale","transform","solids","analytic",
                    "segments","angles","congruence","parallel"]){
