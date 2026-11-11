@@ -219,7 +219,7 @@ const publishedDisplayFailures=displayedFailures.filter(f=>katexAuditByLesson.ge
 assert.equal(publishedDisplayFailures.length,0,"Fórmulas visibles inválidas en lecciones publicadas: "+JSON.stringify(publishedDisplayFailures.slice(0,8)));
 const editorialExamples=[
  ["segmentos-1sec-unidad1",String.raw`AM=MB`],
- ["congruencia-de-triangulos-1sec-unidad3",String.raw`\\cong`],
+ ["congruencia-de-triangulos-1sec-unidad3",String.raw`\cong`],
  ["tabla-de-dist-de-frec-para-datos-sin-agrupar-1sec-unidad2",String.raw`F_j`]
 ];
 for(const [slug,expected] of editorialExamples){
