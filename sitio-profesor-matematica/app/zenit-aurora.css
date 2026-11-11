@@ -193,3 +193,30 @@ footer .footer-base { color: #d7cde8; border-top-color: #ffffff2e; }
     transition-duration: .01ms;
   }
 }
+
+
+/* Actividad dinámica ecuación ↔ gráfica: tipografía legible y paleta Aurora. */
+.zenit-equation-match { background: var(--aurora-gold-gradient); color: var(--aurora-indigo); }
+.zenit-equation-match > p { color: var(--aurora-indigo); font-size: 1rem; line-height: 1.6; }
+.zenit-equation-match-options {
+  display: grid; grid-template-columns: minmax(0,1fr); gap: 9px; margin-top: 12px;
+}
+.lab-controls .zenit-equation-match-options button {
+  min-width: 0; width: 100%; min-height: 50px;
+  display: flex; align-items: center; text-align: left;
+  border: 2px solid #b5a3d8; border-radius: 12px;
+  background: #fff; color: var(--aurora-indigo);
+  padding: 12px 14px; font-size: clamp(1rem,1vw,1.12rem);
+}
+.lab-controls .zenit-equation-match-options button:hover,
+.lab-controls .zenit-equation-match-options button[aria-pressed="true"] {
+  background: var(--aurora-lavender); color: var(--aurora-indigo);
+  border-color: var(--aurora-violet);
+}
+.lab-controls .zenit-equation-match-options button .math-typeset-inline {
+  display: inline; color: inherit; overflow-wrap: normal;
+}
+@media (max-width: 520px) {
+  .zenit-equation-match { padding: 16px; }
+  .lab-controls .zenit-equation-match-options button { padding: 11px; font-size: 1rem; }
+}

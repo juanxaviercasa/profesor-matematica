@@ -193,5 +193,11 @@ assert.match(lesson,/<LessonCompletion slug=\{lesson.slug\}/);
 assert.match(home,/<LessonProgressOverview total=\{LESSONS_INDEX\.filter\(lesson => lesson\.publishStatus === "published"\)\.length\}/);
 assert.match(lesson,/const studentSummary = \/\^Estudio completo de /);
 
+
+const parabolaLab=read("components/function-lab.tsx");
+assert.match(parabolaLab,/QuadraticEquationChallenge/);
+assert.match(parabolaLab,/aria-pressed=\\{selected===option\\.id\\}/);
+assert.match(parabolaLab,/equationIoGraphUrl/);
+assert.match(read("app/zenit-aurora.css"),/zenit-equation-match-options/);
 console.log("✓ Evaluación sin claves inventadas, examen privado, rutas educativas y progreso: verificados.");
 console.log("Auditoría del catálogo: "+JSON.stringify({total,valid,missing,invalid})+" (las claves ausentes no se califican).");
