@@ -72,12 +72,16 @@ export function quadraticPlot(a, h, k) {
   if (!Number.isFinite(a) || a === 0 || !Number.isFinite(h) || !Number.isFinite(k)) {
     throw new RangeError("Se necesita una cuadrática con parámetros finitos y a distinto de cero.");
   }
-  const xMin = h - 3, xMax = h + 3;
-  const edge = quadraticY(a, h, k, h + 3);
-  const yLow = Math.min(0, k, edge);
-  const yHigh = Math.max(0, k, edge);
-  const pad = Math.max(1.6, Math.abs(a) * 1.35);
-  const yMin = yLow - pad, yMax = yHigh + pad;
+  // Escala isométrica: una unidad de x ocupa los mismos píxeles que una de y.
+  // Mostrar vértice, ejes y raíces; el resto de la curva se recorta como en
+  // una calculadora gráfica, en lugar de aplastar la parábola verticalmente.
+  const centralY = k / 2;
+  const wantedYSpan = Math.max(3.6, Math.abs(k) + 1.8);
+  const halfXSpan = Math.max(3.15, PLOT.width * wantedYSpan / (2 * PLOT.height));
+  const pixelsPerUnit = PLOT.width / (2 * halfXSpan);
+  const ySpan = PLOT.height / pixelsPerUnit;
+  const xMin = h - halfXSpan, xMax = h + halfXSpan;
+  const yMin = centralY - ySpan / 2, yMax = centralY + ySpan / 2;
   const xToPixel = (x) => PLOT.left + (x - xMin) / (xMax - xMin) * PLOT.width;
   const yToPixel = (y) => PLOT.top + (yMax - y) / (yMax - yMin) * PLOT.height;
   const points = Array.from({ length: 151 }, (_, i) => {
