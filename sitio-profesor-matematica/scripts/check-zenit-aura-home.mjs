@@ -6,6 +6,7 @@ const home = read("app/page.tsx");
 const layout = read("app/layout.tsx");
 const aura = read("app/zenit-aura-home.css");
 const site = read("components/site.tsx");
+const refinement = read("app/zenit-aura-refinement.css");
 const curriculum = JSON.parse(read("content/catalog/lessons-index.json"));
 const brand = read("BRAND-GUIDE.md");
 
@@ -17,6 +18,29 @@ assert.match(home, /Llega más alto/);
 assert.match(home, /aura-hero-lab/);
 assert.equal((home.match(/<FormulaCard\/>/g) || []).length, 1, "Conservar un solo graficador auténtico");
 assert.match(home, /La mejor explicación es la que/);
+assert.match(home, /aura-human-heading/);
+assert.match(home, /aura-human-grid/);
+assert.match(home, /aura-lab-benefits/);
+assert.match(home, /aura-founder-caption/);
+assert.match(home, /aura-founder-belief/);
+assert.match(home, /aura-path-number/);
+for (const path of [
+  'href: "/aprende"',
+  'href: "/aprende/matematica-preuniversitaria"',
+  'href: "/aprende/matematica-universitaria"',
+]) assert.ok(home.includes(path), "Ruta de nivel académica incorrecta: " + path);
+assert.ok((home.match(/className="home-human-card"/g) || []).length === 2,
+  "Conservar dos tarjetas humanas con fotografías y mensajes distintos");
+assert.ok((home.match(/className="path-card"/g) || []).length === 1,
+  "Mantener la navegación de niveles mediante datos reales");
+assert.ok(layout.indexOf('import "./zenit-aura-refinement.css";') > layout.indexOf('import "./zenit-aura-home.css";'),
+  "Refinamiento de las secciones inferiores debe cargarse al final");
+for (const selector of [
+  ".aura-human-grid", ".aura-human-heading", ".aura-lab-benefits",
+  ".home-teacher-portrait", ".aura-founder-caption",
+  ".home-path-section", ".home-cinematic-end", ".home-math-subject-grid",
+]) assert.ok(refinement.includes(selector), "Falta diseño refinado: " + selector);
+
 assert.match(home, /Logra tus metas\./);
 assert.match(home, /src="\/juan-xavier\.jpg"/);
 const imports = [
