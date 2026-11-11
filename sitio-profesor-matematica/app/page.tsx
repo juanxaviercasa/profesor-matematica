@@ -181,7 +181,7 @@ export default function Home() {
           <div className="home-innovation-photo">
             <Image
               src={`${homeImages}/zenit-tecnologia.webp`}
-              width={780} height={438} loading="lazy" unoptimized
+              width={780} height={438} loading="eager" unoptimized
               sizes="(max-width: 850px) 100vw, 52vw"
               alt="Estudiante usando una pantalla con representaciones gráficas y geométricas."
             />
@@ -233,7 +233,7 @@ export default function Home() {
             <div className="home-path-photo">
               <Image
                 src={`${homeImages}/zenit-versatilidad.webp`}
-                width={780} height={438} loading="lazy" unoptimized
+                width={780} height={438} loading="eager" unoptimized
                 sizes="(max-width: 850px) 100vw, 42vw"
                 alt="Estudiante rodeada de modelos matemáticos, un péndulo y materiales de química."
               />
@@ -278,7 +278,7 @@ export default function Home() {
         <section className="home-last-step home-cinematic-end" aria-labelledby="home-end-title">
           <div className="home-end-picture" aria-hidden="true">
             <Image src={`${homeImages}/zenit-meta.webp`} width={980} height={350}
-              loading="lazy" unoptimized sizes="100vw" alt="" />
+              loading="eager" unoptimized sizes="100vw" alt="" />
           </div>
           <div className="wrap home-last-step-inner">
             <div>
