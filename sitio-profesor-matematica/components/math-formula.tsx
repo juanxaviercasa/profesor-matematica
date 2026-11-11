@@ -1,4 +1,5 @@
 import katex from "katex";
+import { prepareDisplayLatex } from "@/lib/math-display-layout.mjs";
 import { splitMathText, stripMathDelimiters } from "@/lib/math-text-segments.mjs";
 
 const exact:Record<string,string>={
@@ -91,7 +92,7 @@ export function toLatex(source:string){
 export function MathFormula({source,className="math-formula",displayMode=true,label}:{source:string;className?:string;displayMode?:boolean;label?:string}){
   let html:string|null=null;
   try {
-    html=katex.renderToString(toLatex(source),{
+    html=katex.renderToString(displayMode?prepareDisplayLatex(toLatex(source)):toLatex(source),{
       throwOnError:true,strict:"warn",displayMode,output:"htmlAndMathml",trust:false,maxExpand:500,maxSize:10
     });
   } catch {

@@ -3,6 +3,7 @@ import { readFileSync, mkdirSync, writeFileSync } from "node:fs";
 import ts from "typescript";
 import vm from "node:vm";
 import katex from "katex";
+import { prepareDisplayLatex } from "../lib/math-display-layout.mjs";
 import { splitMathText, stripMathDelimiters } from "../lib/math-text-segments.mjs";
 import { EDITORIAL_RULES, resolveEditorialKeyFormula, isEditoriallyCurated } from "../lib/editorial-key-formulas.mjs";
 const read = p => readFileSync(new URL("../"+p,import.meta.url),"utf8");
@@ -43,6 +44,14 @@ assert.equal(typeof toLatex,"function");
 assert.equal(toLatex("1/x cerca de 3"),String.raw`\frac{1}{x},\quad x\to 3`);
 assert.equal(toLatex("f(x)=1/(x−2) cerca de 2"),String.raw`f(x)=\frac{1}{x-2},\quad x\to 2`);
 assert.equal(toLatex("sin(x)"),String.raw`\sin (x)`);
+const longExpression=String.raw`x^2+2x+1=0,\quad (x+1)^2=0,\quad x=-1,\quad x_1=x_2=-1`;
+const wrappedExpression=prepareDisplayLatex(longExpression,40);
+assert.ok(wrappedExpression.startsWith(String.raw`\begin{gathered}`));
+assert.ok(wrappedExpression.includes(String.raw`\\[0.3em]`));
+assert.equal(prepareDisplayLatex(longExpression,200),longExpression);
+const casesExpression=String.raw`\begin{cases}x,&x>0\\0,&x\le0\end{cases}`;
+assert.equal(prepareDisplayLatex(casesExpression,0),casesExpression);
+katex.renderToString(wrappedExpression,{throwOnError:true,strict:false,displayMode:true});
 const samples=[
  slash+"frac{1}{x}",slash+"begin{cases}x,&x>0"+slash+slash+"0,&x"+slash+"le0"+slash+"end{cases}",
  "f(x)=x²−3x+2","f(x)=(x²−1)/(x−1), x≠1","n(A∪B)=3","h(x)=2^(x−1)+2",
