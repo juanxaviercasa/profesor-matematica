@@ -3,16 +3,16 @@
  * Esta capa se carga al final para estabilizar la cascada heredada durante la migración.
  */
 :root {
-  --z-paper: #fcfbff;
+  --z-paper: #faf8f2;
   --z-surface: #ffffff;
   --z-surface-soft: #f1ecfa;
-  --z-ink: #19243d;
-  --z-muted: #5b6276;
+  --z-ink: #231e42;
+  --z-muted: #625b73;
   --z-blue: #6840c5;
   --z-blue-dark: #4b2a96;
   --z-blue-soft: #eee8fd;
   --z-yellow: #e8bc71;
-  --z-orange: #d79a57;
+  --z-orange: #d7764a;
   --z-night: #231e42;
   --z-night-soft: #302850;
   --z-line: #e5e1ee;
@@ -540,3 +540,20 @@ body:has(.tools-page-v2) .conversion-dock { display: none; }
 .contact-choice-card .button { align-self: flex-start; margin-top: auto; }
 @media (max-width: 900px) { .learn-portal-hero { grid-template-columns: 1fr; } .learn-portal-index { max-width: 560px; } .learn-course-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 650px) { .learn-section-heading { grid-template-columns: 1fr; } .learn-area-heading, .learn-portal-end { flex-direction: column; } .learn-course-grid, .contact-choice-grid { grid-template-columns: 1fr; } .learn-portal-hero h1 { font-size: clamp(2.6rem, 12vw, 4rem); } .learn-portal-actions, .learn-portal-actions .button { width: 100%; } .learn-area-count { align-self: flex-start; } .lab-card-details span + span { padding-left: 0; border-left: 0; } }
+
+/* Fase 4 · portada institucional: Matemática y Ciencias antes de la ruta de funciones */
+.home-subjects { padding-block: clamp(48px, 7vw, 96px); }
+.home-subjects .public-section-head { max-width: 780px; }
+.home-subject-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+.home-subject-card { min-width: 0; display: flex; flex-direction: column; min-height: 250px; padding: clamp(22px, 4vw, 34px); border: 1px solid var(--z-line); border-radius: var(--z-radius); background: var(--z-surface); color: var(--z-ink); box-shadow: var(--z-shadow); transition: transform .18s, border-color .18s, box-shadow .18s; }
+.home-subject-card:first-child { border-top: 4px solid var(--z-blue); }
+.home-subject-card:last-child { border-top: 4px solid var(--z-orange); }
+.home-subject-card:hover, .home-subject-card:focus-visible { border-color: var(--z-blue); box-shadow: 0 18px 42px rgba(104,64,197,.14); transform: translateY(-3px); }
+.home-subject-card > span { color: var(--z-blue-dark); font-size: .78rem; font-weight: 800; letter-spacing: .09em; }
+.home-subject-card:last-child > span { color: #a44a2f; }
+.home-subject-card h3 { margin: 18px 0 9px; color: var(--z-ink); font: 500 clamp(1.7rem, 3vw, 2.7rem)/1.1 Georgia, serif; }
+.home-subject-card p { max-width: 46ch; margin: 0; color: var(--z-muted); line-height: 1.6; }
+.home-subject-card b { display: inline-flex; gap: 8px; align-items: center; margin-top: auto; padding-top: 24px; color: var(--z-blue-dark); }
+.home-subject-card b i { color: var(--z-blue); font-size: 1.2rem; font-style: normal; }
+.home-subject-card:last-child b, .home-subject-card:last-child b i { color: #a44a2f; }
+@media (max-width: 650px) { .home-subject-grid { grid-template-columns: 1fr; } .home-subject-card { min-height: 220px; } }
