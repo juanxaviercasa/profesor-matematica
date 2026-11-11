@@ -1,6 +1,6 @@
 # Portada Sistema Zénit — auditoría UX y dirección WOW
 **Fecha:** 11 de noviembre de 2026  
-**Alcance:** `app/page.tsx`, `components/quadratic-hero-lab.tsx`, componentes de navegación, estilos Aurora y catálogo.  
+**Alcance:** `app/page.tsx`, `components/quadratic-hero-lab.tsx`, componentes de navegación, estilos Zénit Aura y catálogo.  
 **Objetivo:** una portada editorial de alta calidad que demuestre matemáticas auténticas y lleve al usuario a una lección útil, no una colección de tarjetas de marketing.
 
 ## Diagnóstico de causa raíz
@@ -36,7 +36,7 @@ El fénix y el lema viven únicamente en el encabezado, pie y recursos instituci
 - No usar como relleno «innovación», «plataforma de última generación», «el mejor», «llevamos la educación al futuro» ni rótulos internos de desarrollo.
 
 ## Sistema visual WOW, sin trucos
-- Identidad `Zénit Aurora`: índigo #241B4B, violeta #6840C5, lavanda #EEE8FD, oro #E8BC71 y lienzo #FCFBFF.
+- Identidad `Zénit Aura`: índigo #241B4B, violeta #6840C5, lavanda #EEE8FD, oro #E8BC71 y lienzo #FCFBFF.
 - Mantener original el fénix rojo/dorado; su color no se propaga a botones ni fondos.
 - Hero luminoso con profundidad sutil y un solo escenario índigo. Diseño de iluminación y espaciado, **no** animación continua de partículas o degradados invasivos.
 - Tipografía editorial grande y precisa; cuerpo legible en móvil sin reducir 12 px para hacer que entre.
