@@ -52,6 +52,16 @@ for(const s of samples){
  const rendered=katex.renderToString(toLatex(s),{throwOnError:true,strict:false,trust:false,output:"htmlAndMathml"});
  assert.ok(rendered.includes("katex-mathml"),"No se generó MathML para "+s);
 }
+// Los enlaces compartibles conservan la ecuación y el estado elegido, sin datos del alumno.
+const graphLinkJs=ts.transpileModule(read("lib/equation-io.ts"),{
+ compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}
+}).outputText;
+const graphLinkSandbox={exports:{}};
+vm.runInNewContext(graphLinkJs,graphLinkSandbox,{timeout:2000});
+const graphHref=graphLinkSandbox.exports.equationIoGraphUrl(["y=(x-1)^2-2","y=|x+1|-2"]);
+assert.equal(graphHref,"https://equation.io/#y%3D%28x-1%29%5E2-2;y%3D%7Cx%2B1%7C-2");
+assert.match(read("components/function-lab.tsx"),/equationIoGraphUrl/);
+assert.match(read("components/representation-lab.tsx"),/equationIoGraphUrl/);
 const lessons=JSON.parse(read("content/catalog/lessons-index.json"));
 // Diagnóstico privado y reproducible por cada uno de los 628 registros curriculares.
 const katexAuditByLesson=new Map(lessons.map(l=>[l.slug,{
