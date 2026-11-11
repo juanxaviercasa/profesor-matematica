@@ -24,7 +24,7 @@
   gap:clamp(28px,3.8vw,62px);
   max-width:1360px;
   width:min(1360px,calc(100% - clamp(42px,7vw,108px)));
-  padding:clamp(42px,5vw,72px) 0 clamp(64px,6vw,92px);
+  padding:clamp(42px,5vw,72px) 0 clamp(52px,4.8vw,67px);
   position:relative;
   isolation:isolate;
 }
@@ -97,7 +97,7 @@
 .home-page-v2 .aura-hero-lab .zqh-plot{background:#fff}
 .home-page-v2 .home-vision.wrap{
   width:min(1220px,calc(100% - 58px));
-  padding-block:clamp(72px,8vw,112px);
+  padding-block:clamp(60px,6vw,84px) clamp(72px,8vw,112px);
   grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);
   gap:clamp(38px,6vw,98px);
 }
@@ -161,7 +161,7 @@
 .home-page-v2 .home-subject-info{padding:clamp(19px,2vw,26px);gap:10px}
 .home-page-v2 .aura-course-index{
   margin:0!important;padding:0!important;
-  color:#8866c4!important;font-size:.73rem!important;
+  color:#52338f!important;font-size:.78rem!important;
   line-height:1.4;font-weight:850!important;letter-spacing:.09em;text-transform:uppercase;
 }
 .home-page-v2 .home-subject-info h4{
@@ -290,7 +290,7 @@
   .home-page-v2 .home-innovation.wrap{width:calc(100% - 52px)}
 }
 @media(max-width:700px){
-  .home-page-v2 .hero.wrap.aura-hero{width:calc(100% - 32px);padding:23px 0 53px;gap:26px}
+  .home-page-v2 .hero.wrap.aura-hero{width:calc(100% - 32px);padding:23px 0 37px;gap:26px}
   .home-page-v2 .aura-hero-kicker{font-size:.73rem;letter-spacing:.03em;margin-bottom:19px}
   .home-page-v2 .hero h1{
     max-width:none;font-size:clamp(2.35rem,9.6vw,3.55rem);
@@ -306,7 +306,7 @@
   .home-page-v2 .home-human.wrap,
   .home-page-v2 .home-subjects.wrap,
   .home-page-v2 .home-trust.wrap{width:calc(100% - 32px)}
-  .home-page-v2 .home-vision.wrap{padding-block:53px}
+  .home-page-v2 .home-vision.wrap{padding-block:40px 53px}
   .home-page-v2 .home-vision-photo{aspect-ratio:1.24}
   .home-page-v2 .home-vision-copy h2{font-size:clamp(2.05rem,7.5vw,3rem)}
   .home-page-v2 .home-subjects.wrap{padding-block:60px}
@@ -330,4 +330,21 @@
 }
 @media(prefers-reduced-motion:reduce){
   .home-page-v2 .home-image-subject{transition:none;transform:none}
+}
+
+/* Legibilidad pedagógica de la miniapp, sin cortar fórmulas estrechas. */
+.home-page-v2 .aura-hero-lab .zqh-control > span,
+.home-page-v2 .aura-hero-lab .zqh-control b {font-size:.88rem}
+.home-page-v2 .aura-hero-lab .zqh-readout > span,
+.home-page-v2 .aura-hero-lab .zqh-readout strong {font-size:.83rem}
+@media(max-width:360px){
+  .home-page-v2 .aura-hero-lab .zqh-equation-primary,
+  .home-page-v2 .aura-hero-lab .zqh-equation-secondary {
+    display:flex;flex-wrap:wrap;gap:3px;padding:7px 9px;
+  }
+  .home-page-v2 .aura-hero-lab .zqh-equation-label {flex:0 0 100%;font-size:.73rem}
+  .home-page-v2 .aura-hero-lab .zqh-math{
+    flex:1 1 100%;width:100%;white-space:nowrap;font-size:.95rem;
+  }
+  .home-page-v2 .aura-hero-lab .zqh-reset {min-width:76px;padding-inline:8px;white-space:nowrap;font-size:.76rem}
 }
