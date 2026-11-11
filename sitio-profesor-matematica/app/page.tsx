@@ -110,7 +110,7 @@ export default function Home() {
           <div className="home-vision-photo">
             <Image
               src={`${homeImages}/zenit-aspiracion.webp`}
-              width={880} height={495} loading="lazy" unoptimized
+              width={880} height={495} loading="eager" unoptimized
               sizes="(max-width: 850px) 100vw, 53vw"
               alt="Estudiante concentrado en un espacio de estudio moderno, entre cuadernos y representaciones científicas."
             />
