@@ -4,6 +4,9 @@ import React, { useState, useMemo } from "react";
 import { MathFormula } from "./math-formula";
 import { CartesianAxes } from "./cartesian-axes";
 import { ChemistryLearningLab } from "./chemistry-learning-lab";
+import { GeometryCurriculumLab } from "./geometry-curriculum-lab";
+import { FocusedLessonLab } from "./focused-lesson-labs";
+import { resolveGeometryTopic } from "@/lib/geometry-curriculum.mjs";
 import { regularPolygonVertices, polygonInteriorSum, polygonDiagonalCount } from "@/lib/geometry-polygon.mjs";
 
 
@@ -945,6 +948,18 @@ export function ZenitInteractiveApp({
   const meta = ZENIT_ENGINES[engineId] || ZENIT_ENGINES.FunctionCartesianLab;
   const formulaToDisplay = customFormula || meta.formula;
   const isChemistry = course === "quimica";
+  const geometryTopic = course === "geometria" ? resolveGeometryTopic(topicTitle) : null;
+  if (geometryTopic) {
+    const specialized: Record<string,string> = {
+      segments: "segmentos-1sec-unidad1",
+      angles: "angulos-1sec-unidad2",
+      parallel: "angulos-formados-por-2-rectas-paralelas-y-1-secante-1sec-unidad2",
+      congruence: "congruencia-de-triangulos-1sec-unidad3"
+    };
+    const reuseSlug = specialized[geometryTopic.mode];
+    if(reuseSlug)return <FocusedLessonLab slug={reuseSlug} title={topicTitle || geometryTopic.label}/>;
+    return <GeometryCurriculumLab topic={geometryTopic} title={topicTitle || geometryTopic.label}/>;
+  }
 
   return (
     <section className="zenit-webapp-shell my-8 rounded-3xl border border-emerald-800/40 bg-gradient-to-b from-stone-900 via-stone-950 to-stone-950 p-6 md:p-8 shadow-2xl text-stone-100">
