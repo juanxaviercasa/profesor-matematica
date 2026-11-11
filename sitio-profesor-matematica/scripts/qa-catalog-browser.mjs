@@ -181,9 +181,23 @@ async function inspect(lesson, view) {
         result.simulator.present = true;
         try {
           await simulator.scrollIntoViewIfNeeded({ timeout: 9000 });
+          const focused = await simulator.locator(".zenit-focused-lab").count() > 0 ||
+            await simulator.evaluate(el => el.classList.contains("zenit-focused-lab"));
+          result.simulator.focused = focused;
           const slider = simulator.locator('input[type="range"]:not([disabled])').first();
+          if (focused && !await slider.count()) {
+            result.findings.push(note(lesson, view, "error", "FOCUSED_CONTROL_MISSING",
+              "El laboratorio temático no tiene control manipulable"));
+          }
           if (await slider.count()) {
             const before = await slider.inputValue();
+            const accessibleName = await slider.getAttribute("aria-label");
+            const status = simulator.locator('[role="status"][aria-live="polite"]').first();
+            const beforeMessage = focused && await status.count() ? await status.innerText() : "";
+            if (focused && (!accessibleName || !await status.count())) {
+              result.findings.push(note(lesson, view, "error", "FOCUSED_ACCESSIBILITY",
+                "Falta el nombre del control o una explicación accesible de sus cambios"));
+            }
             await slider.focus();
             await slider.press("ArrowRight");
             if (await slider.inputValue() === before) await slider.press("ArrowLeft");
@@ -191,8 +205,16 @@ async function inspect(lesson, view) {
             const after = await slider.inputValue();
             result.simulator.keyboardControl = before !== after ? "ok" : "unchanged";
             if (before === after) {
-              result.findings.push(note(lesson, view, "warning", "SIMULATOR_SLIDER",
-                "El primer deslizador no cambia mediante las flechas del teclado"));
+              result.findings.push(note(lesson, view, focused ? "error" : "warning",
+                "SIMULATOR_SLIDER", "El primer deslizador no cambia mediante las flechas del teclado"));
+            }
+            if (focused && await status.count()) {
+              const afterMessage = await status.innerText();
+              result.simulator.semanticResponse = beforeMessage !== afterMessage ? "ok" : "unchanged";
+              if (beforeMessage === afterMessage) {
+                result.findings.push(note(lesson, view, "error", "FOCUSED_FEEDBACK_STALE",
+                  "La explicación del laboratorio no cambió al modificar el parámetro"));
+              }
             }
           }
           const safe = lesson.slug.replace(/[^a-z0-9-_]/gi, "").slice(0, 80);

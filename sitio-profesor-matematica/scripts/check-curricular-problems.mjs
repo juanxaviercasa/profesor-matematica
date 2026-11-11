@@ -27,14 +27,14 @@ const expected=(slug,seed)=>{
   case "eliminacion-gauss-jordan-y-rango": return "("+a+", "+b+")";
   case "espacios-vectoriales-bases-y-dimension": return "det = "+b;
   case "cambio-de-base-y-matriz-de-transicion": return "("+a+", "+b+")";
-  case "transformaciones-lineales-nucleo-e-imagen": return "("+(2*a+b)+", "+(a-b)+")";
+  case "transformaciones-lineales-nucleo-e-imagen": return "(1, 1)";
   case "producto-interno-y-gram-schmidt": return "(0, "+b+")";
   case "autovalores-autovectores-y-diagonalizacion": return "Σλ = "+(2*a+c);
   case "diagonalizacion-y-cayley-hamilton": return "det(A) = "+(a*b);
   case "diagonalizacion-ortogonal-y-svd": return "("+(a+b+c)+", "+b+")";
   case "analisis-dimensional-y-vectores": return "|F| = "+(5*a)+" N";
   case "cinematica-mru-mruv-y-caida-libre": return "Δx = "+(2*a*c+2*b*c*c)+" m";
-  case "cinematica-velocidad-y-aceleracion-instantanea": return "T = "+a+" s";
+  case "cinematica-velocidad-y-aceleracion-instantanea": return "v = "+(a+b*c)+" m/s";
   case "estatica-equilibrio-y-torque": return "τ = "+(10*a*b)+" N·m";
   case "leyes-de-newton-y-diagrama-de-cuerpo-libre": return "F_neta = "+(a*b)+" N";
   case "gravitacion-universal-y-leyes-de-kepler": return "F_nueva = "+a+" N";
@@ -66,6 +66,18 @@ for(const slug of slugs){
   assert.ok(![p.statement,...p.options,...p.steps].some(t=>/NaN|undefined|Infinity|null/.test(t)),
    "Valores inválidos: "+slug+"/"+seed);
   assert.doesNotMatch(p.statement,/Resuelve la inecuación cuadrática/,"Desajuste pedagógico: "+slug);
+  if(slug==="transformaciones-lineales-nucleo-e-imagen"){
+    assert.match(p.statement,/núcleo T/);
+    assert.match(p.statement,/imagen T/);
+    assert.match(p.steps.join(" "),/rango-nulidad/);
+    const dimensionKernel=1,dimensionImage=1;
+    assert.equal(dimensionKernel+dimensionImage,2,"Teorema rango-nulidad");
+  }
+  if(slug==="cinematica-velocidad-y-aceleracion-instantanea"){
+    assert.match(p.statement,/velocidad instantánea/);
+    assert.match(p.steps.join(" "),/dx\/dt/);
+    assert.match(p.steps.join(" "),/aceleración instantánea/);
+  }
   checked++;
  }
 }

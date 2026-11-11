@@ -87,15 +87,14 @@ export function buildCurricularProblem(slug:string,seed:number):FocusedProblem|n
          "Por la primera componente, c₁ = "+X+" − "+Y+" = "+a+". Por tanto [v]B = ("+a+", "+b+")."]);
     }
     case "transformaciones-lineales-nucleo-e-imagen": {
-      const tx=2*a+b,ty=a-b;
+      const p=a,q=b;
       return options(seed,
-        "Sea la transformación lineal T(x,y) = (2x + y, x − y). Calcula T("+a+", "+b+").",
-        "("+tx+", "+ty+")",
-        ["("+(tx+1)+", "+ty+")","("+tx+", "+(ty+1)+")",
-         "("+(tx-1)+", "+ty+")","("+tx+", "+(ty-1)+")"],
-        ["La matriz de T en la base canónica es [[2,1],[1,−1]].",
-         "Primera componente: 2 × "+a+" + "+b+" = "+tx+".",
-         "Segunda componente: "+a+" − "+b+" = "+ty+"."]);
+        "Sea T: R² → R², T(x,y) = ("+p+"x + "+q+"y, "+p+"x + "+q+"y). ¿Cuáles son dim(núcleo T) y dim(imagen T)?",
+        "(1, 1)",
+        ["(0, 2)","(2, 0)","(0, 1)","(1, 2)"],
+        ["La matriz asociada tiene dos filas iguales: [["+p+","+q+"],["+p+","+q+"]].",
+         "Como "+p+" y "+q+" son positivos, su rango es 1. Por tanto dim(imagen T) = 1.",
+         "Por rango-nulidad en R², dim(núcleo T) = 2 − 1 = 1. El par pedido es (1, 1)."]);
     }
     case "producto-interno-y-gram-schmidt": {
       const p=a,q=b;
@@ -155,13 +154,13 @@ export function buildCurricularProblem(slug:string,seed:number):FocusedProblem|n
          "Obtenemos Δx = "+dx+" m."]);
     }
     case "cinematica-velocidad-y-aceleracion-instantanea": {
-      const speed=10*a;
+      const v0=a,acc=b,t=c,velocity=v0+acc*t;
       return numeric(seed,
-        "Se lanza un proyectil con rapidez inicial "+speed+" m/s a 30° sobre la horizontal, con g = 10 m/s². Sin rozamiento, determina el tiempo total de vuelo hasta el mismo nivel.",
-        a,"T = "," s",
-        ["Componente vertical inicial: v₀y = v₀ sen(30°) = "+(speed/2)+" m/s.",
-         "El tiempo de vuelo al mismo nivel es T = 2 v₀y/g.",
-         "Sustituyendo T = 2 × "+(speed/2)+" / 10 = "+a+" s."]);
+        "La posición de un móvil es x(t) = "+v0+"t + ("+acc+"/2)t² metros, con t medido en segundos. ¿Cuál es su velocidad instantánea en t = "+t+" s?",
+        velocity,"v = "," m/s",
+        ["La velocidad instantánea es la derivada temporal de la posición: v(t) = dx/dt.",
+         "Derivamos x(t): v(t) = "+v0+" + "+acc+"t. La aceleración instantánea es dv/dt = "+acc+" m/s².",
+         "En t = "+t+" s, v = "+v0+" + "+acc+" × "+t+" = "+velocity+" m/s."]);
     }
     case "estatica-equilibrio-y-torque": {
       const F=10*a,d=b,torque=F*d;
