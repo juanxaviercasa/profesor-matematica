@@ -2,50 +2,50 @@
 <title id="title">Comprender es conectar: función cuadrática</title>
 <desc id="description">Ejemplo de función cuadrática con fórmula, gráfica, raíces uno y tres, y vértice en dos menos uno.</desc>
 <defs>
-  <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#123b2e"/><stop offset="1" stop-color="#071f1a"/></linearGradient>
-  <pattern id="grid" width="52" height="52" patternUnits="userSpaceOnUse"><path d="M52 0H0V52" stroke="#bcdabf" stroke-opacity=".09" fill="none"/></pattern>
+  <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#241b4b"/><stop offset="1" stop-color="#19152f"/></linearGradient>
+  <pattern id="grid" width="52" height="52" patternUnits="userSpaceOnUse"><path d="M52 0H0V52" stroke="#d9cdef" stroke-opacity=".09" fill="none"/></pattern>
   <clipPath id="plot-clip"><rect x="25" y="63" width="518" height="264" rx="14"/></clipPath>
 </defs>
 <rect width="640" height="940" rx="34" fill="url(#background)"/>
-<rect x="18" y="18" width="604" height="904" rx="26" fill="url(#grid)" stroke="#547861" stroke-width="2"/>
+<rect x="18" y="18" width="604" height="904" rx="26" fill="url(#grid)" stroke="#65528f" stroke-width="2"/>
 <g font-family="Arial,Helvetica,sans-serif">
-  <text x="41" y="72" font-size="25" font-weight="800" letter-spacing="2" fill="#d9ef78">SISTEMA ZÉNIT</text>
-  <text x="41" y="128" font-size="45" font-weight="800" fill="#fffef6">COMPRENDER</text>
-  <text x="41" y="181" font-size="45" font-weight="800" fill="#fffef6">ES CONECTAR</text>
+  <text x="41" y="72" font-size="25" font-weight="800" letter-spacing="2" fill="#e8bc71">SISTEMA ZÉNIT</text>
+  <text x="41" y="128" font-size="45" font-weight="800" fill="#fffefa">COMPRENDER</text>
+  <text x="41" y="181" font-size="45" font-weight="800" fill="#fffefa">ES CONECTAR</text>
   <g transform="translate(36 216)">
-    <rect width="568" height="150" rx="22" fill="#f1f6dc"/>
-    <text x="29" y="41" fill="#285641" font-size="24" font-weight="800" letter-spacing="1">01 · EXPRESIÓN</text>
-    <text x="29" y="103" fill="#123e31" font-size="43" font-family="Georgia,Times New Roman,serif" font-style="italic">f(x) = x² − 4x + 3</text>
-    <text x="29" y="133" fill="#3e6650" font-size="27">También: (x − 2)² − 1</text>
+    <rect width="568" height="150" rx="22" fill="#f1edff"/>
+    <text x="29" y="41" fill="#4b2a96" font-size="24" font-weight="800" letter-spacing="1">01 · EXPRESIÓN</text>
+    <text x="29" y="103" fill="#241b4b" font-size="43" font-family="Georgia,Times New Roman,serif" font-style="italic">f(x) = x² − 4x + 3</text>
+    <text x="29" y="133" fill="#615b76" font-size="27">También: (x − 2)² − 1</text>
   </g>
-  <path d="M320 369V389m-10-11 10 11 10-11" stroke="#d9ef78" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M320 369V389m-10-11 10 11 10-11" stroke="#e8bc71" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
   <g transform="translate(36 397)">
-    <rect width="568" height="357" rx="22" fill="#10382d" stroke="#71977e" stroke-width="2"/>
-    <text x="28" y="43" font-size="27" font-weight="800" letter-spacing="1" fill="#d9ef78">02 · REPRESENTACIÓN</text>
+    <rect width="568" height="357" rx="22" fill="#241b4b" stroke="#8979ac" stroke-width="2"/>
+    <text x="28" y="43" font-size="27" font-weight="800" letter-spacing="1" fill="#e8bc71">02 · REPRESENTACIÓN</text>
     <g clip-path="url(#plot-clip)">
-      <rect x="25" y="63" width="518" height="264" rx="14" fill="#164336"/>
-      <g stroke="#86a68d" stroke-opacity=".4" stroke-width="1.5">
+      <rect x="25" y="63" width="518" height="264" rx="14" fill="#35265f"/>
+      <g stroke="#9682bd" stroke-opacity=".4" stroke-width="1.5">
         <path d="M28 78H541M28 122H541M28 166H541M28 210H541M28 254H541M28 298H541"/>
         <path d="M129 65V329M223 65V329M317 65V329M411 65V329M505 65V329"/>
       </g>
-      <path d="M28 254H540M129 69V327" stroke="#f3f8ed" stroke-width="3" fill="none"/>
-      <path d="M110.20 85.04 L117.72 100.25 L125.24 114.89 L132.76 128.97 L140.28 142.49 L147.80 155.44 L155.32 167.83 L162.84 179.66 L170.36 190.92 L177.88 201.62 L185.40 211.76 L192.92 221.33 L200.44 230.35 L207.96 238.79 L215.48 246.68 L223.00 254.00 L230.52 260.76 L238.04 266.95 L245.56 272.59 L253.08 277.65 L260.60 282.16 L268.12 286.10 L275.64 289.48 L283.16 292.30 L290.68 294.55 L298.20 296.24 L305.72 297.37 L313.24 297.93 L320.76 297.93 L328.28 297.37 L335.80 296.24 L343.32 294.55 L350.84 292.30 L358.36 289.48 L365.88 286.10 L373.40 282.16 L380.92 277.65 L388.44 272.59 L395.96 266.95 L403.48 260.76 L411.00 254.00 L418.52 246.68 L426.04 238.79 L433.56 230.35 L441.08 221.33 L448.60 211.76 L456.12 201.62 L463.64 190.92 L471.16 179.66 L478.68 167.83 L486.20 155.44 L493.72 142.49 L501.24 128.97 L508.76 114.89 L516.28 100.25 L523.80 85.04" stroke="#d9ef78" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      <circle cx="223" cy="254" r="6.5" fill="#fffef7" stroke="#124633" stroke-width="2"/>
-      <circle cx="411" cy="254" r="6.5" fill="#fffef7" stroke="#124633" stroke-width="2"/>
-      <circle cx="317" cy="298" r="9" fill="#ff7955" stroke="#fffef7" stroke-width="3"/>
-      <g font-size="26" font-weight="700" fill="#fffef7">
+      <path d="M28 254H540M129 69V327" stroke="#f9f6ff" stroke-width="3" fill="none"/>
+      <path d="M110.20 85.04 L117.72 100.25 L125.24 114.89 L132.76 128.97 L140.28 142.49 L147.80 155.44 L155.32 167.83 L162.84 179.66 L170.36 190.92 L177.88 201.62 L185.40 211.76 L192.92 221.33 L200.44 230.35 L207.96 238.79 L215.48 246.68 L223.00 254.00 L230.52 260.76 L238.04 266.95 L245.56 272.59 L253.08 277.65 L260.60 282.16 L268.12 286.10 L275.64 289.48 L283.16 292.30 L290.68 294.55 L298.20 296.24 L305.72 297.37 L313.24 297.93 L320.76 297.93 L328.28 297.37 L335.80 296.24 L343.32 294.55 L350.84 292.30 L358.36 289.48 L365.88 286.10 L373.40 282.16 L380.92 277.65 L388.44 272.59 L395.96 266.95 L403.48 260.76 L411.00 254.00 L418.52 246.68 L426.04 238.79 L433.56 230.35 L441.08 221.33 L448.60 211.76 L456.12 201.62 L463.64 190.92 L471.16 179.66 L478.68 167.83 L486.20 155.44 L493.72 142.49 L501.24 128.97 L508.76 114.89 L516.28 100.25 L523.80 85.04" stroke="#e8bc71" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <circle cx="223" cy="254" r="6.5" fill="#fffefa" stroke="#35265f" stroke-width="2"/>
+      <circle cx="411" cy="254" r="6.5" fill="#fffefa" stroke="#35265f" stroke-width="2"/>
+      <circle cx="317" cy="298" r="9" fill="#9471e5" stroke="#fffefa" stroke-width="3"/>
+      <g font-size="26" font-weight="700" fill="#fffefa">
         <text x="512" y="242">x</text><text x="144" y="97">y</text>
         <text x="216" y="284">1</text><text x="404" y="284">3</text>
-        <text x="338" y="312" fill="#ffc3a9">V(2, −1)</text>
+        <text x="338" y="312" fill="#e8bc71">V(2, −1)</text>
       </g>
     </g>
   </g>
-  <path d="M320 758V779m-10-12 10 12 10-12" stroke="#d9ef78" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+  <path d="M320 758V779m-10-12 10 12 10-12" stroke="#e8bc71" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
   <g transform="translate(36 789)">
-    <rect width="568" height="124" rx="22" fill="#1b4a3a" stroke="#679777" stroke-width="2"/>
-    <text x="27" y="38" fill="#d9ef78" font-size="26" font-weight="800" letter-spacing="1">03 · INTERPRETACIÓN</text>
-    <text x="27" y="76" fill="#f4faee" font-size="27">Raíces: x = 1 y x = 3</text>
-    <text x="27" y="108" fill="#f4faee" font-size="25">Vértice: (2, −1) · abre hacia arriba</text>
+    <rect width="568" height="124" rx="22" fill="#35265f" stroke="#8979ac" stroke-width="2"/>
+    <text x="27" y="38" fill="#e8bc71" font-size="26" font-weight="800" letter-spacing="1">03 · INTERPRETACIÓN</text>
+    <text x="27" y="76" fill="#f9f6ff" font-size="27">Raíces: x = 1 y x = 3</text>
+    <text x="27" y="108" fill="#f9f6ff" font-size="25">Vértice: (2, −1) · abre hacia arriba</text>
   </g>
 </g>
 </svg>
