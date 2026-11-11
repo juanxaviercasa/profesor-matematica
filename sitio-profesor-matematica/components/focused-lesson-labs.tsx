@@ -1,36 +1,15 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import { FOCUSED_LABS, type FocusedLabKind } from "@/lib/focused-lesson-topics";
 
 /**
  * Laboratorios de precisión temática: evitan enseñar polígonos cuando el tema
  * es congruencia, o un reloj cuando el tema es criptoaritmética.
  * Estos modelos son originales, autocontenidos y no sustituyen claves fuente.
  */
-type Kind = "segments" | "congruence" | "parallel" | "cryptarithm" |
-  "square" | "sequence" | "expression" | "frequency";
-
-const TOPIC_LABS: Record<string, Kind> = {
-  "nociones-basicas-de-geometria-1sec-unidad1": "segments",
-  "congruencia-de-triangulos-1sec-unidad3": "congruence",
-  "angulos-formados-por-2-rectas-paralelas-y-1-secante-1sec-unidad2": "parallel",
-  "angulos-determinados-por-dos-rectas-paralelas-y-una-recta-secante-1sec-unidad2": "parallel",
-  "criptoaritmetica-1sec-unidad2": "cryptarithm",
-  "criptoaritmetica-1-1sec-unidad2": "cryptarithm",
-  "criptoaritmetica-i-1sec-unidad2": "cryptarithm",
-  "criptoaritmetica-ii-1sec-unidad3": "cryptarithm",
-  "cuadrados-magicos-1sec-unidad3": "square",
-  "secuencia-de-figuras-1sec-unidad1": "sequence",
-  "psicotonico-secuencia-de-figuras-1sec-unidad1": "sequence",
-  "expresion-algebraica-1sec-unidad1": "expression",
-  "expresiones-algebraicas-1sec-unidad1": "expression",
-  "tabla-de-dist-de-frec-para-datos-sin-agrupar-1sec-unidad2": "frequency",
-  "tabla-de-distribucion-de-frecuencias-para-datos-sin-agrupar-1sec-unidad2": "frequency",
-};
-
-export function hasFocusedLessonLab(slug: string): boolean {
-  return Object.prototype.hasOwnProperty.call(TOPIC_LABS, slug);
-}
+type Kind = FocusedLabKind;
+const TOPIC_LABS = FOCUSED_LABS;
 
 function Slider({ id, title, value, min, max, step = 1, unit = "", onChange }: {
   id: string; title: string; value: number; min: number; max: number;

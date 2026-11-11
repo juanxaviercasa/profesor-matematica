@@ -10,10 +10,11 @@ import vm from "node:vm";
 
 const read = path => readFileSync(new URL("../" + path, import.meta.url), "utf8");
 const source = read("components/focused-lesson-labs.tsx");
+const topics = read("lib/focused-lesson-topics.ts");
 const page = read("app/aprende/[area]/[curso]/[slug]/page.tsx");
 const browser = read("scripts/qa-catalog-browser.mjs");
 const catalog = JSON.parse(read("content/catalog/lessons-index.json"));
-const keys = [...source.matchAll(/"([a-z0-9-]+)": "(segments|congruence|parallel|cryptarithm|square|sequence|expression|frequency)",/g)];
+const keys = [...topics.matchAll(/"([a-z0-9-]+)": "(segments|congruence|parallel|cryptarithm|square|sequence|expression|frequency)",/g)];
 const mapping = new Map(keys.map(([, slug, kind]) => [slug, kind]));
 assert.equal(mapping.size, 15, "Revisar cobertura de 15 lecciones con laboratorio específico");
 assert.equal(new Set(mapping.values()).size, 8, "Falta alguna de las ocho familias matemáticas");
@@ -24,6 +25,9 @@ for (const [slug, kind] of mapping) {
   assert.ok(kind, "Familia no definida: " + slug);
 }
 assert.match(page, /hasFocusedLessonLab\(lesson\.slug\)/);
+assert.match(page, /from "@\/lib\/focused-lesson-topics"/);
+assert.doesNotMatch(source, /export function hasFocusedLessonLab/);
+assert.match(source, /import \{ FOCUSED_LABS, type FocusedLabKind \}/);
 assert.match(page, /<FocusedLessonLab slug=\{lesson\.slug\} title=\{lesson\.title\}/);
 assert.match(page, /<ZenitInteractiveApp/);
 assert.match(source, /role="status" aria-live="polite"/);
