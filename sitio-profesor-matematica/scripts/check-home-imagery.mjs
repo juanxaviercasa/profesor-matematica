@@ -38,7 +38,7 @@ assert.ok(home.includes('import Image from "next/image"'));
 assert.ok(home.includes('loading="lazy"'),"Usar carga diferida");
 assert.ok(layout.indexOf('import "./home-cinematic.css";')>layout.indexOf('import "./hero-quadratic-lab.css";'),
   "Estilos cinematográficos deben cargarse después del hero");
-for(const key of ["home-vision","home-subject-grid","home-innovation","home-human","home-path-head","home-cinematic-end"]){
+for(const key of ["home-vision","home-image-subject-grid","home-innovation","home-human","home-path-head","home-cinematic-end"]){
   assert.ok(css.includes(key),"Falta CSS para la sección "+key);
   assert.ok(home.includes(key),"Falta sección visual "+key);
 }
