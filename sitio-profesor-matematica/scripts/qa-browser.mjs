@@ -253,7 +253,7 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
             naturalWidth: img?.naturalWidth || 0
           };
         });
-        const expected = size.width <= 640 ? "zenit-connection-mobile.svg" : "zenit-connection-desktop.svg";
+        const expected = size.width <= 640 ? "zenit-connection-aurora-mobile.svg" : "zenit-connection-aurora-desktop.svg";
         if (!art.src.includes(expected)) {
           addFinding("error", key, "Ilustración no adaptada: se esperaba " + expected + ", se obtuvo " + art.src);
         }
@@ -267,8 +267,12 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
           path: join(out, "portada-diagrama-" + size.label + ".png"),
           animations: "disabled", timeout: 12000
         });
-        const formulaOverflow = await page.locator(".hero .formula-card .formula").evaluate(el =>
-          Math.max(0, el.scrollWidth - el.clientWidth)
+        const formulas = page.locator(".hero .formula-card .zqh-equations .katex");
+        if (await formulas.count() < 2) {
+          addFinding("error", key, "La portada debe mostrar dos formas matemáticas renderizadas con KaTeX");
+        }
+        const formulaOverflow = await page.locator(".hero .formula-card .zqh-equations").evaluate(el =>
+          Math.max(0, el.scrollWidth - el.clientWidth), { timeout: 5000 }
         );
         if (formulaOverflow > 8) {
           addFinding("error", key, "Fórmula de portada desbordada: " + formulaOverflow + " px");
@@ -310,7 +314,7 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
 try {
   for (const [label, path] of routes) {
     await inspectRoute(label, path, viewports[2]);
-    if (["inicio", "blog", "herramientas", "aprende", "leccion-conjuntos",
+    if (["inicio", "blog", "herramientas", "aprende", "lab-transformaciones", "lab-representaciones", "leccion-conjuntos",
          "calculo-gradiente", "calculo-derivacion", "algebra-lineal",
          "fisica-electromagnetismo", "quimica-soluciones"].includes(label)) {
       await inspectRoute(label, path, viewports[0]);
@@ -318,8 +322,11 @@ try {
         await inspectRoute(label, path, viewports[6]);
       }
     }
-    if (["inicio", "blog", "herramientas", "aprende"].includes(label)) {
+    if (["inicio", "blog", "herramientas", "aprende", "lab-transformaciones", "lab-representaciones"].includes(label)) {
       await inspectRoute(label, path, viewports[3]);
+    }
+    if (["lab-transformaciones", "lab-representaciones"].includes(label)) {
+      await inspectRoute(label, path, viewports[1]);
     }
     if (label === "inicio") {
       await inspectRoute(label, path, viewports[1]);
@@ -331,9 +338,9 @@ try {
 
   // Real clicks, not just href inspection. Native links must work even without router hydration.
   const nav = [
-    ["/blog", "Blog"], ["/herramientas", "Web Apps"],
-    ["/aprende", "Aprende"], ["/laboratorio", "Zénit Lab"],
-    ["/cursos/funciones-para-calculo", "Cursos"], ["/sobre-mi", "Sobre mí"],
+    ["/aprende", "Aprende"], ["/blog", "Biblioteca"],
+    ["/herramientas", "Herramientas"], ["/laboratorio", "Laboratorios"],
+    ["/sobre-mi", "El proyecto"],
   ];
   const desktop = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   for (const [target, name] of nav) {

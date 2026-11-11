@@ -116,13 +116,15 @@ try {
             const output = await window.axe.run(root, {
               runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"] }
             });
-            return output.violations.map(v => ({ id: v.id, impact: v.impact, count: v.nodes.length }));
+            return output.violations.map(v => ({ id: v.id, impact: v.impact, count: v.nodes.length,
+              targets:v.nodes.slice(0,3).map(n=>n.target.join(" ")) }));
           });
           entry.axeSerious = serious.filter(i=>["serious","critical"].includes(i.impact))
             .reduce((n,i)=>n+i.count,0);
           for (const issue of serious) addIssue(
             ["serious","critical"].includes(issue.impact) ? "error" : "warning",
-            key, "axe " + issue.id + " (" + issue.impact + "): " + issue.count);
+            key, "axe " + issue.id + " (" + issue.impact + "): " + issue.count +
+                " · " + (issue.targets||[]).join("; "));
         }
         await shell.screenshot({ path: join(folder, "ped-simulator-" + key + ".png"),
           animations:"disabled", timeout: 12000 });

@@ -220,3 +220,13 @@ footer .footer-base { color: #d7cde8; border-top-color: #ffffff2e; }
   .zenit-equation-match { padding: 16px; }
   .lab-controls .zenit-equation-match-options button { padding: 11px; font-size: 1rem; }
 }
+
+/* Contraste WCAG en el reto de predicción (antes: blanco sobre oro). */
+.lab-controls .challenge-panel:not(.zenit-equation-match) button {
+  background: #fff; color: var(--aurora-indigo); border: 2px solid var(--aurora-violet);
+  min-height: 44px;
+}
+.lab-controls .challenge-panel:not(.zenit-equation-match) button:hover,
+.lab-controls .challenge-panel:not(.zenit-equation-match) button:focus-visible {
+  color: #fff; background: var(--aurora-violet-deep);
+}
