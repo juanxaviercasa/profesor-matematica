@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 390" role="img" aria-labelledby="title desc">
+<title id="title">Geometría</title><desc id="desc">Triángulo rectángulo con longitudes de tres, cuatro y cinco unidades</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FBFAFF"/><stop offset=".55" stop-color="#EAE2FD"/><stop offset="1" stop-color="#CEC0F3"/></linearGradient>
+<radialGradient id="glow" cx=".7" cy=".3" r=".7"><stop stop-color="#FFFFFF" stop-opacity=".95"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+<linearGradient id="ink" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6840C5"/><stop offset="1" stop-color="#301F70"/></linearGradient>
+<filter id="shadow" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#3E2B83" flood-opacity=".12"/></filter>
+</defs>
+<rect width="640" height="390" fill="url(#bg)"/><rect width="640" height="390" fill="url(#glow)"/>
+<circle cx="545" cy="60" r="155" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1.5"/>
+<circle cx="558" cy="41" r="89" fill="none" stroke="#FFFFFF" stroke-opacity=".7" stroke-width="1.5"/>
+
+<g filter="url(#shadow)"><rect x="95" y="64" width="450" height="269" rx="30" fill="#FFFFFF" fill-opacity=".76"/></g>
+<path d="M195 281L195 111L455 281Z" fill="#DDD0F8" stroke="#6840C5" stroke-width="5" stroke-linejoin="round"/>
+<path d="M195 247H229V281" fill="none" stroke="#D5A14D" stroke-width="5"/>
+<circle cx="195" cy="111" r="8" fill="#E8BC71"/><circle cx="195" cy="281" r="8" fill="#E8BC71"/><circle cx="455" cy="281" r="8" fill="#E8BC71"/>
+<g fill="#241B4B" font-size="31" font-weight="650" font-family="Georgia,serif"><text x="164" y="198">3</text><text x="322" y="318">4</text><text x="339" y="180">5</text></g>
+
+</svg>
