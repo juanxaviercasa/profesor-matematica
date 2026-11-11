@@ -20,6 +20,7 @@ export function GeometryCurriculumLab({topic,title}:{topic:Topic;title:string}){
   const isMedian=topic.id==="triangle-lines";
   const cx=210,cy=145,rad=size*22;
   const secant=topic.id==="circle-metric",inscribed=topic.id==="circle-angle";
+  const centralDegrees=Math.acos(.76*.76-.65*.65)*180/Math.PI;
   const P={x:48,y:cy},D=cx-P.x,dir=-Math.asin(rad/(2*D));
   const cs=Math.cos(dir),sn=Math.sin(dir),proj=D*cs;
   const delta=Math.sqrt(Math.max(0,proj*proj-(D*D-rad*rad)));
@@ -54,9 +55,9 @@ export function GeometryCurriculumLab({topic,title}:{topic:Topic;title:string}){
   const readout=mode==="polygon"?
     "Polígono regular de "+n+" lados. Suma interior: "+polygonInteriorSum(n)+"°. Diagonales: "+polygonDiagonalCount(n)+".":
     mode==="circle"?
-      (secant?"Dos secantes desde P: PA·PB = PC·PD = "+fmt(secantPower)+" u². Las longitudes son proporcionales al dibujo.":"Longitud = "+fmt(2*Math.PI*size)+" u; área = "+fmt(Math.PI*size*size)+" u².") :
+      (secant?"Dos secantes desde P: PA·PB = PC·PD = "+fmt(secantPower)+" u². Las longitudes son proporcionales al dibujo.":inscribed?"Un ángulo inscrito que abarca el mismo arco mide "+fmt(centralDegrees/2)+"°, la mitad del ángulo central "+fmt(centralDegrees)+"°.":"Longitud = "+fmt(2*Math.PI*size)+" u; área = "+fmt(Math.PI*size*size)+" u².") :
     mode==="triangles"?
-      (isMedian?"Vértice A desplazado "+shift+" u en el esquema. La mediana divide BC por la mitad y el baricentro G cumple AG=2GM.":isRight?(notable?"Ejemplo 45°–45°–90°: lados "+size+", "+size+" y "+fmt(size*Math.SQRT2)+" u.":"Ejemplo 3–4–5: lados "+3*size+", "+4*size+" y "+5*size+" u; se cumple Pitágoras."):"Dos lados de 6 y 4 u, con ángulo comprendido "+theta+"°: tercer lado = "+fmt(Math.sqrt(36+16-48*Math.cos(angleRad)))+" u.") :
+      (isMedian?"Vértice A desplazado "+shift+" u en el esquema. La mediana divide BC por la mitad y el baricentro G cumple AG=2GM.":topic.id==="metric-right"?"Con lados "+3*size+", "+4*size+" y "+5*size+" u: altura h="+fmt(2.4*size)+" u, proyecciones m="+fmt(1.8*size)+" u y n="+fmt(3.2*size)+" u; h²=mn.":(topic.id==="similarity"||topic.id==="proportion")?"Los dos triángulos del ejemplo son semejantes por un factor 0,3; sus lados correspondientes son proporcionales.":isRight?(notable?"Ejemplo 45°–45°–90°: lados "+size+", "+size+" y "+fmt(size*Math.SQRT2)+" u.":"Ejemplo 3–4–5: lados "+3*size+", "+4*size+" y "+5*size+" u; se cumple Pitágoras."):"Dos lados de 6 y 4 u, con ángulo comprendido "+theta+"°: tercer lado = "+fmt(Math.sqrt(36+16-48*Math.cos(angleRad)))+" u.") :
     mode==="area"?(topic.id==="shaded-area"?"Ejemplo de región sombreada: área total "+(4*size)+" u² menos un cuarto sin sombrear; área sombreada "+(3*size)+" u².":"Ejemplo de rectángulo: base "+size+" u, altura 4 u, área "+4*size+" u²."):
     mode==="scale"?"A escala 1:"+size+", 5 cm del plano equivalen a "+(5*size)+" cm reales.":
     mode==="transform"?"Traslación T("+shift+",0): las longitudes y medidas de los ángulos se conservan.":
@@ -104,6 +105,15 @@ export function GeometryCurriculumLab({topic,title}:{topic:Topic;title:string}){
         </g>}
         {mode==="triangles"&&<g>
           <polygon points={bx+","+by+" "+otherX+","+by+" "+upperX+","+upperY} fill="#6840c5" fillOpacity=".28" stroke="#b49aff" strokeWidth="3"/>
+          {topic.id==="metric-right"&&<g>
+            <line x1={bx} y1={by} x2={upperX+(otherX-upperX)*.36}
+              y2={upperY+(by-upperY)*.36} stroke="#e8bc71" strokeWidth="3" strokeDasharray="5 4"/>
+            <text x={upperX+(otherX-upperX)*.36+7} y={upperY+(by-upperY)*.36-8}
+              fill="#ffe3ab" fontSize="17">H</text>
+          </g>}
+          {(topic.id==="similarity"||topic.id==="proportion")&&<polygon
+            points={"280,270 "+(280+(otherX-bx)*.3)+",270 "+(280+(upperX-bx)*.3)+","+(270+(upperY-by)*.3)}
+            stroke="#e8bc71" fill="#e8bc71" fillOpacity=".14" strokeWidth="2.5"/>}
           {isMedian&&<g>
             <line x1={upperX} y1={upperY} x2="205" y2="230" stroke="#e8bc71" strokeWidth="3" strokeDasharray="6 4"/>
             <circle cx={(upperX+2*205)/3} cy={(upperY+460)/3} r="5" fill="#e8bc71"/>

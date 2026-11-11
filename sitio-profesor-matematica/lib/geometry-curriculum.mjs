@@ -21,7 +21,7 @@ export const GEOMETRY_TOPICS = [
   {id:"right-triangle-ratios",pattern:/^(?:r t|rt de|rt |resolucion de triangulos rectangulos)/,mode:"triangles",label:"Razones trigonométricas",formula:"\\sin\\theta=\\frac{\\text{cateto opuesto}}{\\text{hipotenusa}},\\quad\\tan\\theta=\\frac{\\text{cateto opuesto}}{\\text{cateto adyacente}}"},
   {id:"right-triangle-notable",pattern:/triangulos rectangulos notables/,mode:"triangles",label:"Triángulos notables",formula:"45^\\circ\\text{-}45^\\circ\\text{-}90^\\circ:\\ 1:1:\\sqrt2,\\quad 30^\\circ\\text{-}60^\\circ\\text{-}90^\\circ:\\ 1:\\sqrt3:2"},
   {id:"triangle",pattern:/triangul/,mode:"triangles",label:"Propiedades de triángulos",formula:"\\alpha+\\beta+\\gamma=180^\\circ,\\quad |b-c|<a<b+c"},
-  {id:"quadrilateral",pattern:/cuadrilater/,mode:"polygon",label:"Cuadriláteros",formula:"\\alpha+\\beta+\\gamma+\\delta=360^\\circ,\\quad A_{\\text{trapecio}}=\\frac{(B+b)h}{2}"},
+  {id:"quadrilateral",pattern:/cuadrilater/,mode:"polygon",label:"Cuadriláteros",formula:"\\alpha+\\beta+\\gamma+\\delta=360^\\circ,\\quad A_{\\text{cuadrado}}=l^2"},
   {id:"polygon",pattern:/poligon/,mode:"polygon",label:"Polígonos",formula:"S_i=180^\\circ(n-2),\\quad N_D=\\frac{n(n-3)}{2},\\quad n\\ge3"},
   {id:"circle",pattern:/circunferencia|circulo/,mode:"circle",label:"Circunferencia y círculo",formula:"L=2\\pi r,\\quad A=\\pi r^2"},
   {id:"shaded-area",pattern:/region(?:es)? sombreada/,mode:"area",label:"Regiones sombreadas",formula:"A_{\\text{sombreada}}=A_{\\text{total}}-\\sum A_{\\text{regiones excluidas}}"},
