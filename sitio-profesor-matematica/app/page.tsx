@@ -79,9 +79,9 @@ const subjectGroups = [
 ] as const;
 
 const routes = [
-  { n: "01", title: "Secundaria", text: "Construye una base sólida en matemática y ciencias.", href: "/aprende/matematica-preuniversitaria" },
-  { n: "02", title: "Preuniversitario", text: "Practica con temas, problemas y explicaciones que te preparan para avanzar.", href: "/blog" },
-  { n: "03", title: "Universidad", text: "Profundiza en cálculo, álgebra lineal y ciencias exactas.", href: "/aprende/matematica-universitaria" },
+  { n: "01", title: "Secundaria", text: "Refuerza las bases y aprende a resolver con criterio.", href: "/aprende" },
+  { n: "02", title: "Preuniversitario", text: "Prepara tu ingreso con álgebra, aritmética, geometría y más.", href: "/aprende/matematica-preuniversitaria" },
+  { n: "03", title: "Universidad", text: "Da el siguiente paso con cálculo y matemática superior.", href: "/aprende/matematica-universitaria" },
 ] as const;
 
 export default function Home() {
@@ -170,7 +170,12 @@ export default function Home() {
           <div className="home-innovation-copy">
             <span className="home-visual-kicker">Zénit Lab · Aprendizaje interactivo</span>
             <h2 id="home-innovation-title">La mejor explicación es la que <em>puedes comprobar.</em></h2>
-            <p>Explora representaciones, modifica variables y observa cómo cambia el resultado. Comprender también es experimentar.</p>
+            <p>Explora representaciones, cambia variables y comprueba cada resultado. Comprender también es experimentar.</p>
+            <div className="aura-lab-benefits" aria-label="Cómo aprender en el laboratorio">
+              <span><i aria-hidden="true"/> Visualiza</span>
+              <span><i aria-hidden="true"/> Experimenta</span>
+              <span><i aria-hidden="true"/> Comprende</span>
+            </div>
             <Link href="/herramientas" className="button">Abrir herramientas <span aria-hidden="true">↗</span></Link>
           </div>
           <div className="home-innovation-photo">
@@ -183,7 +188,13 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="home-human wrap" aria-label="Una forma humana de aprender">
+        <section className="home-human wrap" aria-labelledby="home-human-title">
+          <div className="aura-human-heading">
+            <span className="home-visual-kicker">Aprender también es crecer</span>
+            <h2 id="home-human-title">La confianza se construye <em>comprendiendo.</em></h2>
+            <p>Un aprendizaje sólido une ideas claras con práctica constante. Sin atajos ni fórmulas memorizadas sin sentido.</p>
+          </div>
+          <div className="aura-human-grid">
           <article className="home-human-card">
             <Image
               src={`${homeImages}/zenit-claridad.webp`}
@@ -193,8 +204,8 @@ export default function Home() {
             />
             <div>
               <span className="home-visual-kicker">Claridad mental</span>
-              <h2>Aprende con foco y confianza.</h2>
-              <p>La comprensión reduce la incertidumbre ante un problema nuevo.</p>
+              <h3>Piensa con claridad.</h3>
+              <p>Identifica lo importante, razona cada paso y afronta problemas nuevos con más seguridad.</p>
             </div>
           </article>
           <article className="home-human-card">
@@ -206,17 +217,18 @@ export default function Home() {
             />
             <div>
               <span className="home-visual-kicker">Aprendizaje humano</span>
-              <h2>Avanza a tu ritmo.</h2>
-              <p>Encuentra explicaciones que te orientan y problemas que te invitan a seguir.</p>
+              <h3>Avanza a tu ritmo.</h3>
+              <p>Lecciones y ejemplos para seguir practicando, con una ruta que puedes recorrer a tu manera.</p>
             </div>
           </article>
+          </div>
         </section>
 
         <section className="dark-section home-path-section" aria-labelledby="home-paths-title">
           <div className="wrap home-path-head">
             <div>
               <span className="home-visual-kicker">Tu camino de aprendizaje</span>
-              <h2 id="home-paths-title">Hay una ruta para cada momento de tu formación.</h2>
+              <h2 id="home-paths-title">De secundaria a la universidad. <em>A tu manera.</em></h2>
             </div>
             <div className="home-path-photo">
               <Image
@@ -230,7 +242,7 @@ export default function Home() {
           <div className="wrap path-grid">
             {routes.map((route) => (
               <Link href={route.href} className="path-card" key={route.n}>
-                <span>{route.n}</span>
+                <span className="aura-path-number">ETAPA {route.n}</span>
                 <h3>{route.title}</h3>
                 <p>{route.text}</p>
                 <b>Ver contenidos <span aria-hidden="true">→</span></b>
@@ -240,17 +252,22 @@ export default function Home() {
         </section>
 
         <section className="wrap trust home-trust" aria-labelledby="home-teacher-title">
-          <div className="home-teacher-portrait">
+          <figure className="home-teacher-portrait">
             <Image
               src="/juan-xavier.jpg" width={423} height={573} loading="lazy"
               sizes="(max-width: 850px) 100vw, 360px"
               alt="Retrato de Juan Xavier, docente y creador de Sistema Zénit."
             />
-          </div>
+            <figcaption className="aura-founder-caption">
+              <strong>Juan Xavier</strong>
+              <span>Docente y creador de Sistema Zénit</span>
+            </figcaption>
+          </figure>
           <div className="home-teacher-copy">
             <span className="home-visual-kicker">Una visión con rostro propio</span>
-            <h2 id="home-teacher-title">Enseñar a pensar también es enseñar a crecer.</h2>
-            <p>Juan Xavier impulsa Sistema Zénit desde su experiencia docente en secundaria y preparación preuniversitaria, con la convicción de que comprender importa tanto como resolver.</p>
+            <h2 id="home-teacher-title">Enseñar a pensar. <em>Inspirar a crecer.</em></h2>
+            <p>Sistema Zénit nace de la experiencia docente de Juan Xavier en secundaria y preparación preuniversitaria, con una convicción: comprender importa tanto como resolver.</p>
+            <p className="aura-founder-belief">Una educación que desarrolla criterio, confianza y autonomía.</p>
             <div className="actions">
               <Link href="/sobre-mi" className="button">Conocer el proyecto</Link>
               <Link href="/contacto" className="text-link">Hacer una consulta</Link>
@@ -265,11 +282,11 @@ export default function Home() {
           </div>
           <div className="wrap home-last-step-inner">
             <div>
-              <span className="home-visual-kicker">El siguiente paso es tuyo</span>
+              <span className="home-visual-kicker">Tu siguiente paso comienza aquí</span>
               <h2 id="home-end-title">Logra tus metas.</h2>
-              <p>Lo que hoy comprendes transforma tu mañana.</p>
+              <p>Lo que comprendes hoy abre oportunidades para mañana.</p>
             </div>
-            <Link className="button" href="/aprende">Comienza a aprender</Link>
+            <Link className="button" href="/aprende">Encuentra tu curso <span aria-hidden="true">↗</span></Link>
           </div>
         </section>
       </main>
