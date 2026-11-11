@@ -59,9 +59,9 @@ Meta WCAG AA: 4.5:1 para texto normal y 3:1 para texto grande. Pares de referenc
 
 - `public/brand/zenit-phoenix.svg`: fénix original del ecosistema Zénit (sin recolorear).
 - `public/brand/zenit-lockup.svg`: versión horizontal con nombre y lema.
-- `public/favicon.svg`: fénix original sobre índigo Aurora.
+- `public/favicon.svg`: fénix original sobre índigo Zénit Aura.
 - `public/brand/zenit-mark.svg`: alias visual actualizado del fénix para compatibilidad.
-- `public/brand/social-avatar.svg`: avatar vectorial Aurora.
+- `public/brand/social-avatar.svg`: avatar vectorial Zénit Aura.
 - `app/zenit-redesign.css`: tokens base compartidos con componentes heredados.
 - `app/zenit-aurora.css`: capa de marca **final**, cargada última en `app/layout.tsx`.
 - `app/design-system.css`, `app/globals.css`: compatibilidad, tipografía, estilos y accesibilidad.
