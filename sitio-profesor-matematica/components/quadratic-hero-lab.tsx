@@ -7,112 +7,103 @@ import {
   expandedLatex, vertexLatex,
 } from "@/lib/quadratic-hero.mjs";
 
-/**
- * Mini laboratorio real: el SVG deriva de la función cuadrática,
- * en lugar de dibujar una campana decorativa que contradiga la fórmula.
- */
+/** Una gráfica cartesiana auténtica, accesible y sin publicidad repetida. */
 export function QuadraticHeroLab() {
-  const [aIndex, setAIndex] = useState(5); // a = 1
+  const [aIndex, setAIndex] = useState(5);
   const [h, setH] = useState(2);
   const [k, setK] = useState(-1);
   const a = QUADRATIC_A_VALUES[aIndex];
+
   const graph = useMemo(() => quadraticPlot(a, h, k), [a, h, k]);
   const equation = useMemo(() => expandedLatex(a, h, k), [a, h, k]);
   const vertexEquation = useMemo(() => vertexLatex(a, h, k), [a, h, k]);
   const roots = graph.roots;
-  const rootSummary = roots.length === 0
-    ? "Sin raíces reales"
-    : roots.length === 1
-      ? "Raíz doble: x = " + tidy(roots[0].x)
-      : "Raíces: " + tidy(roots[0].x) + " y " + tidy(roots[1].x);
-  const opening = a > 0 ? "Abre hacia arriba" : "Abre hacia abajo";
+  const rootSummary = roots.length === 0 ? "Sin raíces reales"
+    : roots.length === 1 ? "Raíz doble: x = " + tidy(roots[0].x)
+    : "Raíces: " + tidy(roots[0].x) + " y " + tidy(roots[1].x);
+  const opening = a > 0 ? "Hacia arriba" : "Hacia abajo";
   const reset = () => { setAIndex(5); setH(2); setK(-1); };
 
   return (
-    <section className="formula-card zqh-lab" aria-label="Simulador interactivo de funciones cuadráticas">
+    <section className="formula-card zqh-lab" aria-label="Simulador de funciones cuadráticas">
       <div className="zqh-heading">
         <h2>Explora la parábola</h2>
         <button type="button" className="zqh-reset" onClick={reset}
-          title="Restablecer los valores iniciales">Reiniciar <span aria-hidden="true">↺</span></button>
+          aria-label="Restablecer la función cuadrática inicial">Reiniciar <span aria-hidden="true">↺</span></button>
       </div>
 
       <div className="zqh-equations">
         <div className="zqh-equation-primary">
-          <span className="zqh-equation-label">Forma desarrollada</span>
+          <span className="zqh-equation-label">Función</span>
           <MathFormula source={equation} displayMode={false} className="zqh-math" />
         </div>
-        <div className="zqh-equation-secondary">
-          <span className="zqh-equation-label">Forma de vértice</span>
-          <MathFormula source={vertexEquation} displayMode={false} className="zqh-math" />
-        </div>
+        {vertexEquation !== equation && (
+          <div className="zqh-equation-secondary">
+            <span className="zqh-equation-label">Forma de vértice</span>
+            <MathFormula source={vertexEquation} displayMode={false} className="zqh-math" />
+          </div>
+        )}
       </div>
 
-      <svg className="zqh-plot" viewBox="0 0 520 290" role="img"
-        aria-label={"Gráfica de la función cuadrática: a igual a " + tidy(a) +
-          ", h igual a " + tidy(h) + ", k igual a " + tidy(k) +
+      <svg className="zqh-plot" viewBox="0 0 620 294" role="img"
+        aria-label={"Plano cartesiano de la función cuadrática, con a igual a " + tidy(a) +
+          ", h igual a " + tidy(h) + " y k igual a " + tidy(k) +
           ". Vértice en " + tidy(h) + ", " + tidy(k) +
-          ". " + opening + ". " + rootSummary + "."}>
-        <title>Gráfica cartesiana exacta de una función cuadrática</title>
-        <desc>La curva se calcula a partir de y = a(x-h)²+k. Los controles actualizan la gráfica, las raíces y el vértice.</desc>
+          ". Abre " + (a > 0 ? "hacia arriba" : "hacia abajo") + ". " + rootSummary + "."}>
+        <title>Plano cartesiano y parábola</title>
+        <desc>Las cuadrículas, ejes numerados y curva corresponden a y igual a a por x menos h al cuadrado más k. Actualízalos con los deslizadores.</desc>
         <defs>
-          <linearGradient id="zqh-curve-gradient" x1="0" y1="1" x2="1" y2="0">
-            <stop offset="0%" stopColor="#B49AFF" />
-            <stop offset="100%" stopColor="#E8BC71" />
-          </linearGradient>
           <clipPath id="zqh-plot-clip">
-            <rect x={PLOT.left} y={PLOT.top} width={PLOT.width} height={PLOT.height} rx="9" />
+            <rect x={PLOT.left} y={PLOT.top} width={PLOT.width} height={PLOT.height} rx="7"/>
           </clipPath>
         </defs>
-        <rect x={PLOT.left} y={PLOT.top} width={PLOT.width} height={PLOT.height}
-          rx="9" fill="#21183F" stroke="#685688" strokeWidth="1" />
-        <g stroke="#9785BF" strokeOpacity=".22" strokeWidth="1">
-          {Array.from({ length: 5 }, (_, i) => (
-            <line key={"g-y-" + i} x1={PLOT.left} x2={PLOT.left + PLOT.width}
-              y1={PLOT.top + PLOT.height * i / 4}
-              y2={PLOT.top + PLOT.height * i / 4} />
+        <rect className="zqh-plot-paper" x={PLOT.left} y={PLOT.top}
+          width={PLOT.width} height={PLOT.height} rx="7" />
+        <g className="zqh-grid">
+          {graph.yTicks.map((tick) => (
+            <line key={"gy-" + tick} x1={PLOT.left} x2={PLOT.left + PLOT.width}
+              y1={graph.yToPixel(tick)} y2={graph.yToPixel(tick)} />
           ))}
           {graph.ticks.map((tick) => (
-            <line key={"g-x-" + tick} x1={graph.xToPixel(tick)}
-              x2={graph.xToPixel(tick)} y1={PLOT.top}
-              y2={PLOT.top + PLOT.height} />
+            <line key={"gx-" + tick} x1={graph.xToPixel(tick)} x2={graph.xToPixel(tick)}
+              y1={PLOT.top} y2={PLOT.top + PLOT.height} />
           ))}
         </g>
-        {graph.xAxisY !== null && (
-          <line x1={PLOT.left} y1={graph.xAxisY} x2={PLOT.left + PLOT.width}
-            y2={graph.xAxisY} stroke="#F2ECFF" strokeOpacity=".65" strokeWidth="1.5" />
-        )}
-        {graph.yAxisX !== null && (
-          <line x1={graph.yAxisX} y1={PLOT.top} x2={graph.yAxisX}
-            y2={PLOT.top + PLOT.height} stroke="#F2ECFF" strokeOpacity=".65" strokeWidth="1.5" />
-        )}
+        <g className="zqh-axes">
+          <line x1={PLOT.left} x2={PLOT.left + PLOT.width}
+            y1={graph.xAxisY} y2={graph.xAxisY} />
+          {graph.yAxisX !== null && (
+            <line x1={graph.yAxisX} x2={graph.yAxisX}
+              y1={PLOT.top} y2={PLOT.top + PLOT.height} />
+          )}
+        </g>
         <g clipPath="url(#zqh-plot-clip)">
-          <line x1={graph.vertex.px} y1={PLOT.top} x2={graph.vertex.px}
-            y2={PLOT.top + PLOT.height} stroke="#E8BC71"
-            strokeWidth="1.4" strokeDasharray="5 5" strokeOpacity=".7" />
-          <path d={graph.d} fill="none" stroke="url(#zqh-curve-gradient)"
+          <line className="zqh-symmetry" x1={graph.vertex.px} x2={graph.vertex.px}
+            y1={PLOT.top} y2={PLOT.top + PLOT.height} />
+          <path className="zqh-curve" d={graph.d} fill="none"
             strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" />
           {roots.map((root, i) => (
-            <circle key={"root-" + i} cx={root.px} cy={root.py}
-              r="5.5" fill="#FFF7E8" stroke="#9D78ED" strokeWidth="2.2" />
+            <circle className="zqh-root" key={"root-" + i} cx={root.px} cy={root.py} r="5.4" />
           ))}
-          <circle cx={graph.vertex.px} cy={graph.vertex.py} r="7.5"
-            fill="#E8BC71" stroke="#21183F" strokeWidth="2.5" />
+          <circle className="zqh-vertex" cx={graph.vertex.px} cy={graph.vertex.py} r="7.2" />
         </g>
-        <g fill="#DAD0F0" fontSize="12" fontFamily="system-ui, sans-serif">
+        <g className="zqh-axis-values">
           {graph.ticks.map((tick) => (
-            <text key={"label-x-" + tick} x={graph.xToPixel(tick)}
-              y={PLOT.top + PLOT.height + 17} textAnchor="middle">{tidy(tick)}</text>
+            <text key={"x-" + tick} x={graph.xToPixel(tick)}
+              y={PLOT.top + PLOT.height + 21} textAnchor="middle">{tidy(tick)}</text>
           ))}
-          <text x={PLOT.left + PLOT.width - 3} y={PLOT.top + PLOT.height + 31}
-            textAnchor="end" fill="#F4D8A2">x</text>
-          <text x={PLOT.left + 8} y={PLOT.top + 15} fill="#F4D8A2">y</text>
+          {graph.yTicks.map((tick) => (
+            <text key={"y-" + tick} x={PLOT.left - 12}
+              y={graph.yToPixel(tick) + 4.5} textAnchor="end">{tidy(tick)}</text>
+          ))}
         </g>
-        <g fill="#FFE1A2" fontSize="13" fontWeight="700" fontFamily="system-ui, sans-serif">
-          <text x={graph.vertex.px + 13}
-            y={graph.vertex.py + (a > 0 ? 22 : -11)}>
-            {"V(" + tidy(h) + ", " + tidy(k) + ")"}
-          </text>
-        </g>
+        <text className="zqh-axis-name" x={PLOT.left + PLOT.width + 12}
+          y={PLOT.top + PLOT.height - 2}>x</text>
+        <text className="zqh-axis-name" x={PLOT.left + 8} y={PLOT.top + 16}>y</text>
+        <text className="zqh-vertex-label" x={graph.vertex.px + 12}
+          y={graph.vertex.py + (a > 0 ? -12 : 21)}>
+          {"V(" + tidy(h) + ", " + tidy(k) + ")"}
+        </text>
       </svg>
 
       <div className="zqh-controls" aria-label="Parámetros de la función">
@@ -120,8 +111,7 @@ export function QuadraticHeroLab() {
           <span>Curvatura <b>a = {tidy(a)}</b></span>
           <input type="range" min={0} max={QUADRATIC_A_VALUES.length - 1}
             step={1} value={aIndex} onChange={(event) => setAIndex(Number(event.target.value))}
-            aria-label="Coeficiente a; amplitud y dirección de apertura"
-            aria-valuetext={tidy(a)} />
+            aria-label="Coeficiente a: apertura y concavidad" aria-valuetext={tidy(a)} />
         </label>
         <label className="zqh-control">
           <span>Horizontal <b>h = {tidy(h)}</b></span>
@@ -136,12 +126,12 @@ export function QuadraticHeroLab() {
             aria-label="Desplazamiento vertical k" />
         </label>
       </div>
+
       <div className="zqh-readout" aria-live="polite" aria-atomic="true">
         <span><strong>Vértice</strong> ({tidy(h)}, {tidy(k)})</span>
-        <span><strong>Apertura</strong> {opening}</span>
+        <span><strong>Concavidad</strong> {opening}</span>
         <span><strong>Raíces</strong> {rootSummary.replace(/^Raíces: /, "")}</span>
       </div>
-
     </section>
   );
 }
