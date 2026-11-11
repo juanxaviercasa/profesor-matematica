@@ -4,6 +4,8 @@
  * Este módulo jamás modifica los JSON extraídos de los libros; inyecta la fórmula
  * canónica verificada en KaTeX/MathML en tiempo de compilación y renderizado.
  */
+import { resolveGeometryTopic } from "./geometry-curriculum.mjs";
+
 export const EDITORIAL_RULES = [
   // ============================================================================
   // 1. ÁLGEBRA (100% de cobertura en 1.º a 5.º de secundaria)
@@ -175,6 +177,10 @@ const LESSON_FORMULA_CORRECTIONS = {
 export function resolveEditorialKeyFormula(lesson) {
   if(lesson?.slug && LESSON_FORMULA_CORRECTIONS[lesson.slug])return LESSON_FORMULA_CORRECTIONS[lesson.slug];
   if(!lesson||!Number.isInteger(lesson.grade)||lesson.grade<1||lesson.grade>5)return lesson?.keyFormula||"";
+  if(lesson.course==="geometria"){
+    const topic=resolveGeometryTopic(lesson.title);
+    if(topic)return topic.formula;
+  }
   const title=String(lesson.title||"").toLowerCase().normalize("NFC");
   const matched=EDITORIAL_RULES.find(rule=>rule.course===lesson.course&&rule.pattern.test(title));
   return matched ? matched.tex : lesson.keyFormula;
@@ -182,6 +188,7 @@ export function resolveEditorialKeyFormula(lesson) {
 
 export function isEditoriallyCurated(lesson) {
   if(!lesson||!Number.isInteger(lesson.grade)||lesson.grade<1||lesson.grade>5)return false;
+  if(lesson.course==="geometria")return Boolean(resolveGeometryTopic(lesson.title));
   const title=String(lesson.title||"").toLowerCase().normalize("NFC");
   return EDITORIAL_RULES.some(rule=>rule.course===lesson.course&&rule.pattern.test(title));
 }
