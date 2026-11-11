@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2560 1440" role="img" aria-labelledby="title">
   <title id="title">Portada de YouTube Juan Xavier</title>
-  <rect width="2560" height="1440" fill="#12372f"/>
-  <g opacity=".12" stroke="#f6f1e6" stroke-width="3"><path d="M0 240h2560M0 480h2560M0 720h2560M0 960h2560M0 1200h2560"/><path d="M320 0v1440M640 0v1440M960 0v1440M1280 0v1440M1600 0v1440M1920 0v1440M2240 0v1440"/></g>
-  <path d="M0 1210c390-30 510-730 1045-765 410-27 485 425 850 492 239 44 431-28 665-179" fill="none" stroke="#ff5a36" stroke-width="34" stroke-linecap="round" opacity=".9"/>
-  <circle cx="1045" cy="445" r="48" fill="#ddf277"/>
+  <rect width="2560" height="1440" fill="#241b4b"/>
+  <g opacity=".12" stroke="#fcfbff" stroke-width="3"><path d="M0 240h2560M0 480h2560M0 720h2560M0 960h2560M0 1200h2560"/><path d="M320 0v1440M640 0v1440M960 0v1440M1280 0v1440M1600 0v1440M1920 0v1440M2240 0v1440"/></g>
+  <path d="M0 1210c390-30 510-730 1045-765 410-27 485 425 850 492 239 44 431-28 665-179" fill="none" stroke="#9471e5" stroke-width="34" stroke-linecap="round" opacity=".9"/>
+  <circle cx="1045" cy="445" r="48" fill="#e8bc71"/>
   <g transform="translate(720 515)">
-    <text x="560" y="0" text-anchor="middle" fill="#ddf277" font-family="Arial,Helvetica,sans-serif" font-size="34" font-weight="800" letter-spacing="11">SISTEMA ZÉNIT</text>
-    <text x="560" y="120" text-anchor="middle" fill="#f6f1e6" font-family="Georgia,serif" font-size="104">Juan Xavier</text>
-    <text x="560" y="205" text-anchor="middle" fill="#f6f1e6" font-family="Arial,Helvetica,sans-serif" font-size="34">Matemática que conecta · Funciones · Álgebra · Cálculo</text>
-    <rect x="368" y="262" width="384" height="64" rx="32" fill="#ddf277"/>
-    <text x="560" y="304" text-anchor="middle" fill="#12372f" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="800">NUEVOS VIDEOS CADA SEMANA</text>
+    <text x="560" y="0" text-anchor="middle" fill="#e8bc71" font-family="Arial,Helvetica,sans-serif" font-size="34" font-weight="800" letter-spacing="11">SISTEMA ZÉNIT</text>
+    <text x="560" y="120" text-anchor="middle" fill="#fcfbff" font-family="Georgia,serif" font-size="104">Juan Xavier</text>
+    <text x="560" y="205" text-anchor="middle" fill="#fcfbff" font-family="Arial,Helvetica,sans-serif" font-size="34">Logra tu meta · Matemática · Ciencias · Cálculo</text>
+    <rect x="368" y="262" width="384" height="64" rx="32" fill="#e8bc71"/>
+    <text x="560" y="304" text-anchor="middle" fill="#241b4b" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="800">NUEVOS VIDEOS CADA SEMANA</text>
   </g>
 </svg>
