@@ -5,10 +5,10 @@
  * Inspiración metodológica: Impeccable, UI/UX Pro Max, shadcn, Radix y WCAG.
  */
 :root {
-  --zenit-premium-muted-on-dark: #d7e5dd;
-  --zenit-premium-text-on-dark: #f4f8f5;
-  --zenit-premium-focus-on-dark: #ddf17f;
-  --zenit-premium-ring-on-light: #12553f;
+  --zenit-premium-muted-on-dark: #ded4f1;
+  --zenit-premium-text-on-dark: #f9f6ff;
+  --zenit-premium-focus-on-dark: #f4d8a2;
+  --zenit-premium-ring-on-light: #6840c5;
   --zenit-premium-reading-width: 72ch;
   --zenit-premium-touch-size: 44px;
 }
@@ -144,7 +144,7 @@ html { scroll-padding-top: 6.5rem; }
   .topic-view .breadcrumb { gap: .5rem; line-height: 1.7; }
   .topic-view .breadcrumb a { overflow-wrap: anywhere; }
 }
-.lesson-original-practice-answer[open] summary { color: #f6ffdc; }
+.lesson-original-practice-answer[open] summary { color: #fff7e6; }
 .lesson-original-practice-answer summary:focus-visible {
   outline: 3px solid var(--zenit-premium-focus-on-dark);
   outline-offset: 3px;
