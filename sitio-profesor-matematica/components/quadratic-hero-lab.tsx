@@ -60,9 +60,10 @@ export function QuadraticHeroLab() {
       </div>
 
       <svg className="zqh-plot" viewBox="0 0 520 290" role="img"
-        aria-label={"Parábola correspondiente a " + tidy(a) + " por x menos " + tidy(h) +
-          " al cuadrado más " + tidy(k) + ". Vértice en " + tidy(h) +
-          ", " + tidy(k) + ". " + opening + ". " + rootSummary + "."}>
+        aria-label={"Gráfica de la función cuadrática: a igual a " + tidy(a) +
+          ", h igual a " + tidy(h) + ", k igual a " + tidy(k) +
+          ". Vértice en " + tidy(h) + ", " + tidy(k) +
+          ". " + opening + ". " + rootSummary + "."}>
         <title>Gráfica cartesiana exacta de una función cuadrática</title>
         <desc>La curva se calcula a partir de y = a(x-h)²+k. Los controles actualizan la gráfica, las raíces y el vértice.</desc>
         <defs>
