@@ -262,7 +262,7 @@ export default function Home() {
           <div className="wrap home-last-step-inner">
             <div>
               <span className="home-visual-kicker">El siguiente paso es tuyo</span>
-              <h2 id="home-end-title">Logra tu meta.</h2>
+              <h2 id="home-end-title">Logra tus metas.</h2>
               <p>Con conocimiento, práctica y una dirección clara.</p>
             </div>
             <Link className="button" href="/aprende">Comienza a aprender</Link>
