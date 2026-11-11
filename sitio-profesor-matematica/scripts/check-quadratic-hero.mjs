@@ -29,6 +29,10 @@ assert.ok(reference.ticks.includes(0) && reference.ticks.includes(1) && referenc
 assert.ok(reference.yMin < 0 && reference.yMax > 0, "La gráfica debe mostrar el eje X");
 assert.ok(reference.yTicks.some((t) => t === 0), "El eje Y debe mostrar el origen");
 assert.ok(reference.vertex.py >= PLOT.top && reference.vertex.py <= PLOT.top + PLOT.height);
+const scaleX = (reference.xToPixel(3)-reference.xToPixel(2));
+const scaleY = (reference.yToPixel(0)-reference.yToPixel(1));
+close(scaleX, scaleY, 1e-7); // una unidad en ambos ejes ocupa los mismos píxeles
+assert.ok(reference.yTicks.length >= 4 && reference.yTicks.includes(0));
 
 for (const a of QUADRATIC_A_VALUES) {
   for (const [h,k] of [[2,-1],[-2,1],[0,0],[3,-3]]) {
@@ -78,6 +82,10 @@ assert.match(css, /border-radius: 0;/);
 assert.match(css, /max-width: 700px;/);
 assert.match(css, /max-height: none;/);
 assert.match(component, /graph\.yTicks\.map/);
+assert.match(component, /zqh-axis-name/);
+assert.match(component, /zqh-vertex-label/);
+assert.match(component, /V\(/);
+assert.match(css, /\.zqh-plot \.zqh-axes line/);
 assert.match(component, /zqh-plot-paper/);
 assert.match(component, /zqh-axes/);
 assert.match(component, /zqh-axis-values/);
