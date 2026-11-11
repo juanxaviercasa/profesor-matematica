@@ -63,7 +63,7 @@ export default function Home() {
               <Link className="text-link" href="/herramientas?utm_source=sitio&utm_medium=home&utm_campaign=ruta_gratuita">Probar herramientas</Link>
             </div>
           </div>
-          <FormulaCard />
+          <FormulaCard/>
         </section>
 
         <section className="home-vision wrap" aria-labelledby="home-vision-title">
@@ -190,7 +190,7 @@ export default function Home() {
             <Image
               src="/juan-xavier.jpg" width={423} height={573} loading="lazy"
               sizes="(max-width: 850px) 100vw, 360px"
-              alt="Retrato real de Juan Xavier, docente y creador de Sistema Zénit."
+              alt="Retrato de Juan Xavier, docente y creador de Sistema Zénit."
             />
           </div>
           <div className="home-teacher-copy">
