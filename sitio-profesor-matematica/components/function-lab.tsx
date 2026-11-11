@@ -9,7 +9,7 @@ import { LabProgressBar, trackLab, useLabProgress } from "./lab-progress";
 function QuadraticEquationChallenge({a,h,k}:{a:number;h:number;k:number}){
  const[selected,setSelected]=useState<string|null>(null);
  const format=(factor:number,shift:number,offset:number)=>
-   String.raw`y=${factor}\\left(x${shift<0?"+":"-"}${Math.abs(shift)}\\right)^2${offset>=0?"+":""}${offset}`;
+   String.raw`y=${factor}\left(x${shift<0?"+":"-"}${Math.abs(shift)}\right)^2${offset>=0?"+":""}${offset}`;
  const options=[
    {id:"vertical",formula:a===0?`y=${k+1}`:format(a,h,k+1)},
    {id:"correct",formula:a===0?`y=${k}`:format(a,h,k)},
