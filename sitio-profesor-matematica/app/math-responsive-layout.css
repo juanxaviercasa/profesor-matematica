@@ -55,11 +55,11 @@
 /* Evitar etiquetas de poco contraste sobre los paneles oscuros. */
 :where(.zenit-tools-directory,.zenit-webapp-shell,.exercise-bank,
        .infinite-problem-generator) .text-stone-400 {
-  color: #d7e1db;
+  color: #ded4f1;
 }
 :where(.zenit-tools-directory,.zenit-webapp-shell,.exercise-bank,
        .infinite-problem-generator) .text-emerald-400 {
-  color: #87edbc;
+  color: #e8bc71;
 }
 
 /* Una explicación legible prevalece sobre la densidad visual de la tarjeta. */
@@ -88,16 +88,16 @@
 /* Biblioteca de herramientas: contraste y jerarquía de las fórmulas.
    El fondo negro anterior heredaba el texto verde casi negro del documento. */
 .zenit-tools-directory :is(.math-typeset-display,.math-typeset-inline) {
-  color: #f6faed;
+  color: #f9f6ff;
 }
 .zenit-tools-directory .math-typeset-display {
   font-size: clamp(1rem, .98rem + .22vw, 1.12rem);
 }
 .zenit-tools-directory .zenit-formula-tile {
   min-inline-size: 0;
-  background: #102a22;
-  color: #f6faed;
-  border: 1px solid #547d69;
+  background: #241b4b;
+  color: #f9f6ff;
+  border: 1px solid #65528f;
   border-radius: 14px;
   padding: 13px;
 }
