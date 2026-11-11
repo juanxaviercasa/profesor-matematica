@@ -146,3 +146,10 @@ footer .footer-base { font-size:.92rem; line-height:1.55; }
 .zqh-reset { font-size: .875rem; }
 .aprende-hub .course-card :is(small,.course-count),
 .aprende-hub .area-section small { font-size: .875rem; line-height: 1.5; }
+
+
+/* Rótulos identificados por la auditoría Chromium del 11/11/2026. */
+.tools-page-v2 .tools-engine-card__top small { font-size: .875rem; line-height: 1.4; }
+.blog-page-v2 .eyebrow, .about-page-v2 .about-signature {
+  font-size: .875rem; line-height: 1.5;
+}
