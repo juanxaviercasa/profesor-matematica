@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { MathFormula } from "./math-formula";
 import { regularPolygonVertices, polygonInteriorSum, polygonDiagonalCount } from "@/lib/geometry-polygon.mjs";
+import { equationIoGraphUrl } from "@/lib/equation-io";
 
 type Topic={id:string;mode:string;label:string;formula:string};
 const fmt=(x:number)=>Number(x.toFixed(2)).toLocaleString("es-PE");
@@ -52,6 +53,11 @@ export function GeometryCurriculumLab({topic,title}:{topic:Topic;title:string}){
   }).join(" ");
   const isCube=/nets|polyhedron|dihedral/.test(topic.id);
   const showRevolution=topic.id==="revolution";
+  const analyticGraph=mode==="analytic"?(topic.id==="circle-equation"?
+    ["x^2+y^2="+(size*size)]:
+    topic.id==="parabola-equation"?["y=0.25*(x-("+ (size-3)+"))^2-2"]:
+    topic.id==="line-equation"?["y="+fmt(size*.35).replace(",",".")+"*x+1"]:
+    ["(-2,1)","("+size+",3)"]):[];
   const readout=mode==="polygon"?
     "Polígono regular de "+n+" lados. Suma interior: "+polygonInteriorSum(n)+"°. Diagonales: "+polygonDiagonalCount(n)+".":
     mode==="circle"?
@@ -176,6 +182,10 @@ export function GeometryCurriculumLab({topic,title}:{topic:Topic;title:string}){
       </svg>
     </div>
     <p role="status" aria-live="polite" className="rounded-xl border border-violet-500 bg-[#34265a] p-4 text-base leading-relaxed text-[#ffe3ab]">{readout}</p>
+    {mode==="analytic"&&<a href={equationIoGraphUrl(analyticGraph)}
+      target="_blank" rel="noopener noreferrer" className="text-base font-semibold text-[#ffe3ab] underline underline-offset-4">
+      Explorar estas coordenadas y ecuaciones en Equation.io (nueva pestaña)
+    </a>}
     <p className="text-base leading-relaxed text-[#e7dcff]">El gráfico representa un caso concreto del tema. Usa la teoría y los ejercicios de la lección para estudiar los demás casos.</p>
   </section>;
 }
