@@ -4,7 +4,7 @@ import { MathFormula } from "./math-formula";
 import { CONTACT_EMAIL } from "@/lib/lead-message";
 
 function Brand({ inverse = false }: { inverse?: boolean }) {
-  return <span className={`brand${inverse ? " inverse" : ""}`}><Image src="/brand/zenit-mark.svg" alt="" width={42} height={42}/><span className="brand-copy"><b>SISTEMA ZÉNIT</b><small>POR JUAN XAVIER</small><span className="brand-founder-sr"><b>JUAN XAVIER</b></span></span></span>;
+  return <span className={`brand${inverse ? " inverse" : ""}`}><Image src="/brand/zenit-phoenix.svg" alt="" width={44} height={50}/><span className="brand-copy"><b>Sistema Zénit</b><small>Logra tu meta</small></span></span>;
 }
 
 export function Header() {
