@@ -27,6 +27,17 @@ for (const pattern of [/gaseoso/, /soluciones químicas/i, /equilibrio químico/
     cases.push({ lesson, why: "química-contextual" });
   }
 }
+// Asegurar cobertura de los tres laboratorios geométricos temáticos.
+const geometrySlugs=[
+  "segmentos-1sec-unidad1",
+  "congruencia-de-triangulos-1sec-unidad3",
+  "angulos-formados-por-2-rectas-paralelas-y-1-secante-1sec-unidad2"
+];
+for(const slug of geometrySlugs){
+  const lesson=published.find(l=>l.slug===slug);
+  if(!lesson)throw Error("No existe la lección geométrica publicada: "+slug);
+  if(!cases.some(item=>item.lesson.slug===slug))cases.push({lesson,why:"geometria-formativa"});
+}
 const results = [];
 const issues = [];
 const browser = await chromium.launch({ headless: true, args: ["--no-sandbox"] });
@@ -74,6 +85,33 @@ try {
           if (!entry.changed) addIssue("error", key, "El control del simulador no responde al teclado");
         } else {
           addIssue("warning", key, "Simulador sin controles numéricos editables");
+        }
+        // Pruebas funcionales de retroalimentación pedagógica en geometría.
+        if (lesson.slug==="segmentos-1sec-unidad1") {
+          const lengthAB=Number(await shell.locator("#segment-ab").inputValue());
+          const answer=shell.getByRole("textbox", {name:/Si AB =/});
+          await answer.fill(String(lengthAB+4));
+          if (!await shell.getByRole("status").filter({hasText:"¡Correcto! Has aplicado"}).count()) {
+            addIssue("error",key,"Segmentos no confirma correctamente la suma AB + BC = AC");
+          }
+          const link=await shell.locator('a[href^="https://equation.io/#"]').first().getAttribute("href");
+          if(!link || !decodeURIComponent(link.split("#")[1]||"").includes("("+lengthAB+",0)")){
+            addIssue("error",key,"La gráfica XY no conserva la posición actual del punto B");
+          }
+        }
+        if (lesson.slug==="angulos-formados-por-2-rectas-paralelas-y-1-secante-1sec-unidad2") {
+          const alpha=Number(await shell.locator("#parallel-angle").inputValue());
+          await shell.getByRole("textbox",{name:/colateral interno/}).fill(String(180-alpha));
+          if (!await shell.getByRole("status").filter({hasText:"¡Correcto! Has aplicado"}).count()) {
+            addIssue("error",key,"El ángulo colateral interno no valida 180° − α");
+          }
+        }
+        if (lesson.slug==="congruencia-de-triangulos-1sec-unidad3") {
+          const ratio=Number(await shell.locator("#congruence-ratio").inputValue());
+          await shell.getByRole("button",{name:ratio===100?"Sí":"No",exact:true}).click();
+          if(!await shell.getByRole("status").filter({hasText:"¡Correcto! Compara"}).count()){
+            addIssue("error",key,"La clasificación de congruencia no reconoce la razón de escala");
+          }
         }
         const v = await shell.evaluate(el => {
           // Excluir símbolos internos de KaTeX, donde los exponentes y
