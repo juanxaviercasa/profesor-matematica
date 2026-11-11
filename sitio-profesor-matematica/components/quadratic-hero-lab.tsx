@@ -101,7 +101,7 @@ export function QuadraticHeroLab() {
           y={PLOT.top + PLOT.height - 2}>x</text>
         <text className="zqh-axis-name" x={PLOT.left + 8} y={PLOT.top + 16}>y</text>
         <text className="zqh-vertex-label" x={graph.vertex.px + 12}
-          y={graph.vertex.py + (a > 0 ? -12 : 21)}>
+          y={graph.vertex.py + (a > 0 ? 25 : -14)}>
           {"V(" + tidy(h) + ", " + tidy(k) + ")"}
         </text>
       </svg>
