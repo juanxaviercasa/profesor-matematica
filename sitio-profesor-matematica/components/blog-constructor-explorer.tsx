@@ -39,11 +39,11 @@ export function BlogConstructorExplorer() {
   const publishedCount = useMemo(() => LESSONS_INDEX.filter(l => l.publishStatus === "published").length, []);
 
   return (
-    <div className="space-y-8">
+    <div className="blog-explorer space-y-8">
       {/* Filter Bar */}
-      <div className="rounded-3xl border border-stone-800 bg-stone-950/90 p-6 space-y-5 shadow-xl">
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
-          <div className="flex items-center text-sm font-semibold text-emerald-300">
+      <div className="blog-filter-panel">
+        <div className="blog-filter-header">
+          <div className="blog-filter-title">
             Explora las lecciones de la biblioteca
           </div>
 
@@ -58,14 +58,14 @@ export function BlogConstructorExplorer() {
                 setSearch(e.target.value);
                 setVisibleLimit(48);
               }}
-              className="w-full rounded-xl bg-stone-900 border border-stone-700 px-4 py-2 text-xs text-white placeholder:text-stone-500 focus:border-emerald-500 focus:outline-none"
+              className="blog-search"
             />
           </div>
         </div>
 
         {/* Grade Pills */}
         <div className="flex flex-wrap items-center gap-2">
-          <span className="text-xs font-mono text-stone-400 mr-1">Grado / Nivel:</span>
+          <span className="blog-filter-label">Grado / Nivel:</span>
           {[
             { id: "all", label: `Todos (${publishedCount})` },
             { id: 1, label: "1.° Secundaria" },
@@ -82,10 +82,10 @@ export function BlogConstructorExplorer() {
                 setSelectedGrade(g.id as number | "all");
                 setVisibleLimit(48);
               }}
-              className={`px-3 py-1 rounded-lg text-xs font-medium border transition-all ${
+              className={`blog-filter-pill ${
                 selectedGrade === g.id
-                  ? "bg-emerald-950 border-emerald-400 text-emerald-300 font-bold"
-                  : "bg-stone-900 border-stone-800 text-stone-400 hover:text-stone-200"
+                  ? "is-active"
+                  : ""
               }`}
             >
               {g.label}
@@ -96,7 +96,7 @@ export function BlogConstructorExplorer() {
         {/* Course & Engine Selects */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
           <div>
-            <label htmlFor="zenit-blog-course" className="text-[11px] font-mono text-stone-400 block mb-1">Filtrar por Curso / Rama:</label>
+            <label htmlFor="zenit-blog-course" className="blog-filter-label">Filtrar por Curso / Rama:</label>
             <select
               id="zenit-blog-course"
               value={selectedCourse}
@@ -104,7 +104,7 @@ export function BlogConstructorExplorer() {
                 setSelectedCourse(e.target.value);
                 setVisibleLimit(48);
               }}
-              className="w-full rounded-xl bg-stone-900 border border-stone-700 px-3 py-2 text-xs text-white"
+              className="blog-select"
             >
               <option value="all">Todas las Ramas y Cursos (Aritmética, Álgebra, Geometría, Trig, RM, Cálculo, Física, Química)</option>
               {Object.entries(COURSE_LABELS).map(([slug, info]) => (
@@ -116,7 +116,7 @@ export function BlogConstructorExplorer() {
           </div>
 
           <div>
-            <label htmlFor="zenit-blog-engine" className="text-[11px] font-mono text-stone-400 block mb-1">Filtrar por herramienta interactiva:</label>
+            <label htmlFor="zenit-blog-engine" className="blog-filter-label">Filtrar por herramienta interactiva:</label>
             <select
               id="zenit-blog-engine"
               value={selectedEngine}
@@ -124,7 +124,7 @@ export function BlogConstructorExplorer() {
                 setSelectedEngine(e.target.value);
                 setVisibleLimit(48);
               }}
-              className="w-full rounded-xl bg-stone-900 border border-stone-700 px-3 py-2 text-xs text-white"
+              className="blog-select"
             >
               <option value="all">Todas las herramientas</option>
               {Object.values(ZENIT_ENGINES).map((eng) => (
@@ -138,11 +138,11 @@ export function BlogConstructorExplorer() {
       </div>
 
       {/* Results Count */}
-      <div role="status" aria-live="polite" className="flex flex-wrap items-center justify-between gap-2 text-xs text-stone-400 px-1">
+      <div role="status" aria-live="polite" className="blog-results-meta">
         <span>
           Mostrando <strong>{Math.min(visibleLimit, filtered.length)}</strong> de <strong>{filtered.length}</strong> lecciones encontradas
         </span>
-        <span className="font-mono text-emerald-400">
+        <span className="blog-results-note">
           Selecciona una lección para estudiar y practicar
         </span>
       </div>
@@ -161,41 +161,41 @@ export function BlogConstructorExplorer() {
             <Link
               key={item.id}
               href={`/aprende/${item.area}/${item.course}/${item.slug}`}
-              className="group rounded-2xl border border-stone-800 bg-stone-950/80 p-5 hover:border-emerald-500/60 hover:bg-stone-900/70 transition-all flex flex-col justify-between shadow-md"
+              className="blog-lesson-card group"
             >
               <div>
                 <div className="flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono mb-2.5">
-                  <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800/50 font-bold">
+                  <span className="blog-lesson-tag">
                     {item.gradeLabel} · {item.unit}
                   </span>
 
                 </div>
 
-                <div className="text-[11px] text-amber-400 font-semibold mb-1">
+                <div className="blog-lesson-course">
                   {courseInfo ? `${courseInfo.icon} ${courseInfo.title}` : item.course}
                 </div>
 
-                <h3 className="text-base font-bold text-white group-hover:text-emerald-300 transition-colors leading-snug">
+                <h3 className="blog-lesson-title">
                   {item.title}
                 </h3>
 
-                <p className="text-xs text-stone-400 mt-2 line-clamp-2 leading-relaxed">
+                <p className="blog-lesson-summary">
                   {item.summary}
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-stone-800/80 space-y-2">
-                <div className="flex items-center justify-between text-[11px] text-stone-300 font-mono">
-                  <span className="truncate max-w-[210px] text-sky-400">
+              <div className="blog-lesson-footer">
+                <div className="blog-lesson-meta">
+                  <span>
                     ⚡ {engineInfo ? engineInfo.badge : item.appEngine}
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between text-[11px] text-stone-400 font-mono">
+                <div className="blog-lesson-meta blog-lesson-meta--bottom">
                   <span>
                     {exerciseTotal > 0 ? "📝 " : "📖 "}{exerciseLabel}
                   </span>
-                  <span className="text-emerald-400 font-bold group-hover:translate-x-1 transition-transform">
+                  <span className="blog-lesson-open">
                     Abrir →
                   </span>
                 </div>
@@ -210,7 +210,7 @@ export function BlogConstructorExplorer() {
         <div className="text-center pt-4">
           <button
             onClick={() => setVisibleLimit(prev => prev + 60)}
-            className="button primary px-8 py-3 text-sm"
+            className="button primary blog-load-more"
           >
             Cargar más lecciones ({filtered.length - visibleLimit} restantes) →
           </button>

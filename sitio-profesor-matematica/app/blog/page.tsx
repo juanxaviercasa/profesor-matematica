@@ -14,29 +14,33 @@ export default function BlogPage() {
   return (
     <>
       <Header />
-      <main className="learning-view blog-view wrap my-10 space-y-10">
-        <section className="rounded-3xl border border-stone-800 bg-gradient-to-br from-stone-900 via-stone-950 to-emerald-950/30 p-8 md:p-12 shadow-2xl">
-          <div className="flex flex-wrap items-center justify-between gap-6">
-            <div className="max-w-3xl space-y-3">
-              <span className="inline-block rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-300">
+      <main className="learning-view blog-view blog-page-v2 wrap my-10 space-y-10">
+        <section className="blog-library-intro">
+          <div className="blog-library-intro__copy">
+            <span className="blog-library-kicker">
                 {LESSONS_INDEX.filter(lesson => lesson.publishStatus === "published").length} temas · Matemática que conecta
-              </span>
-              <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            </span>
+            <h1>
                 Biblioteca de Matemática y Ciencias
-              </h1>
-              <p className="text-sm md:text-base text-stone-300 leading-relaxed">
+            </h1>
+            <p>
                 Encuentra teoría, ejercicios y laboratorios interactivos organizados por nivel y curso. Busca el tema que necesitas estudiar y avanza con explicaciones y actividades a tu ritmo.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3">
-              <Link href="/herramientas" className="button primary text-center">
+            </p>
+            <div className="blog-library-actions">
+              <Link href="/herramientas" className="button primary">
                 Explorar herramientas →
               </Link>
-              <Link href="/aprende" className="button secondary text-center">
+              <Link href="/aprende" className="button secondary">
                 Ver áreas y cursos →
               </Link>
             </div>
           </div>
+          <aside className="blog-library-index" aria-label="Cómo usar la biblioteca">
+            <span className="blog-library-index__line" aria-hidden="true" />
+            <p className="eyebrow">Una biblioteca para volver</p>
+            <strong>Busca una idea, elige tu nivel y sigue la conexión.</strong>
+            <span className="blog-library-index__meta">Teoría · práctica · laboratorio</span>
+          </aside>
         </section>
 
         <BlogConstructorExplorer />
