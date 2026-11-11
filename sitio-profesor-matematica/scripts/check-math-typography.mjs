@@ -76,7 +76,8 @@ const lessons=JSON.parse(read("content/catalog/lessons-index.json"));
 const katexAuditByLesson=new Map(lessons.map(l=>[l.slug,{
  slug:l.slug,title:l.title,area:l.area,course:l.course,publishStatus:l.publishStatus,
  route:"/aprende/"+l.area+"/"+l.course+"/"+l.slug,
- keyFormulaChecked:false,mathSegmentsChecked:0,invalidMathSegments:0,errors:[]
+ keyFormulaChecked:false,formulaSource:"original",responsiveLines:1,
+ sourceFormulaErrors:[],mathSegmentsChecked:0,invalidMathSegments:0,errors:[]
 }]));
 assert.ok(EDITORIAL_RULES.length>=40,"La cobertura editorial es demasiado reducida");
 for(const rule of EDITORIAL_RULES){
@@ -104,17 +105,31 @@ for(const grade of [1,2,3,4,5]){
 console.log("Fórmulas curadas por grado/asignatura: "+JSON.stringify([...grades.entries()].map(([key,v])=>({key,...v}))));
 
 const malformed=[];
+const displayedFailures=[];
 let examined=0;
 for(const l of lessons){
  if(typeof l.keyFormula!=="string"||!l.keyFormula.trim())continue;
  examined++;
  const auditRow=katexAuditByLesson.get(l.slug);
- if(auditRow)auditRow.keyFormulaChecked=true;
+ const effective=resolveEditorialKeyFormula(l);
+ const displayedTex=toLatex(effective);
+ const responsiveTex=prepareDisplayLatex(displayedTex);
+ if(auditRow){
+   auditRow.keyFormulaChecked=true;
+   auditRow.formulaSource=effective===l.keyFormula?"original":"editorial";
+   auditRow.responsiveLines=responsiveTex===displayedTex?1:responsiveTex.split(String.raw`\\[0.3em]`).length;
+ }
  try { katex.renderToString(toLatex(l.keyFormula),{throwOnError:true,strict:false,trust:false}); }
  catch(e) {
    const reason=String(e.message||e).slice(0,160);
    malformed.push({slug:l.slug,formula:l.keyFormula.slice(0,88),error:reason.slice(0,85)});
-   if(auditRow)auditRow.errors.push({location:"keyFormula",source:l.keyFormula.slice(0,180),reason});
+   if(auditRow)auditRow.sourceFormulaErrors.push({location:"originalFormula",source:l.keyFormula.slice(0,180),reason});
+ }
+ try { katex.renderToString(responsiveTex,{throwOnError:true,displayMode:true,strict:false,trust:false}); }
+ catch(e) {
+   const reason=String(e.message||e).slice(0,160);
+   displayedFailures.push({slug:l.slug,formula:effective.slice(0,120),error:reason});
+   if(auditRow)auditRow.errors.push({location:"displayedFormula",source:effective.slice(0,180),reason});
  }
 }
 console.log("Auditoría de fórmulas extraídas: "+JSON.stringify({examined,unsupported:malformed.length,samples:malformed.slice(0,8)}));
@@ -187,8 +202,10 @@ const katexAuditSummary={
  published:katexAuditRows.filter(r=>r.publishStatus==="published").length,
  scheduled:katexAuditRows.filter(r=>r.publishStatus==="scheduled").length,
  formulasChecked:examined,mathSegmentsChecked:mathPieces,
- invalidKeyFormulas:malformed.length,invalidMathSegments:malformedPieces,
- lessonsWithIssues:katexAuditRows.filter(r=>r.errors.length>0).length,
+ invalidKeyFormulas:malformed.length,invalidDisplayedFormulas:displayedFailures.length,
+ responsiveMultiline:katexAuditRows.filter(r=>r.responsiveLines>1).length,
+ invalidMathSegments:malformedPieces,
+ lessonsWithIssues:katexAuditRows.filter(r=>r.errors.length>0 || r.sourceFormulaErrors.length>0).length,
  publishedWithIssues:katexAuditRows.filter(r=>r.publishStatus==="published"&&r.errors.length>0).length
 };
 assert.equal(katexAuditSummary.totalLessons,lessons.length,"Faltan registros en la auditoría matemática");
@@ -198,6 +215,17 @@ writeFileSync(new URL("../.catalog-audit/katex-628.json",import.meta.url),
 console.log("Auditoría KaTeX individual: "+JSON.stringify(katexAuditSummary));
 console.log("Revisión editorial por grado y asignatura: "+JSON.stringify([...corpusByCourse.entries()].filter(([k])=>/^[1-5]°/.test(k)).sort((a,b)=>a[0].localeCompare(b[0])).map(([key,value])=>({key,paragraphs:value.paragraphs,candidates:value.math,invalid:value.invalid,examples:value.examples}))));
 
+const publishedDisplayFailures=displayedFailures.filter(f=>katexAuditByLesson.get(f.slug)?.publishStatus==="published");
+assert.equal(publishedDisplayFailures.length,0,"Fórmulas visibles inválidas en lecciones publicadas: "+JSON.stringify(publishedDisplayFailures.slice(0,8)));
+const editorialExamples=[
+ ["segmentos-1sec-unidad1",String.raw`AM=MB`],
+ ["congruencia-de-triangulos-1sec-unidad3",String.raw`\\cong`],
+ ["tabla-de-dist-de-frec-para-datos-sin-agrupar-1sec-unidad2",String.raw`F_j`]
+];
+for(const [slug,expected] of editorialExamples){
+ const lesson=lessons.find(l=>l.slug===slug);
+ assert.ok(lesson && resolveEditorialKeyFormula(lesson).includes(expected),"Falta la fórmula temática "+slug);
+}
 assert.ok(mathPieces>1000,"El análisis de ejercicios no identificó suficientes expresiones");
 assert.ok(malformedPieces/mathPieces<0.11,"Demasiados segmentos matemáticos del catálogo no interpretables");
 assert.match(read("app/scientific-typesetting.css"),/math-scroll-hint/);
