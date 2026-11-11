@@ -1,9 +1,9 @@
 {
   "version": "2.0.0",
-  "generatedAt": "2026-11-09T22:50:00.301Z",
+  "generatedAt": "2026-11-11T07:27:16.526Z",
   "totalLessons": 628,
-  "publishedLessons": 99,
-  "scheduledLessons": 529,
+  "publishedLessons": 108,
+  "scheduledLessons": 520,
   "baseUrl": "https://sistemazenit.com",
   "nodes": [
     {
@@ -338,7 +338,7 @@
       "course": "trigonometria",
       "grade": 1,
       "appEngine": "TrigonometryCircleLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 8
     },
@@ -350,7 +350,7 @@
       "course": "aritmetica",
       "grade": 1,
       "appEngine": "NumberTheoryLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 4
     },
@@ -362,7 +362,7 @@
       "course": "estadistica-y-probabilidad",
       "grade": 1,
       "appEngine": "StatisticsProbabilityLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 4
     },
@@ -374,7 +374,7 @@
       "course": "geometria",
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 16
     },
@@ -386,7 +386,7 @@
       "course": "razonamiento-matematico",
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 8
     },
@@ -398,7 +398,7 @@
       "course": "razonamiento-matematico",
       "grade": 1,
       "appEngine": "LogicalReasoningLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 8
     },
@@ -410,7 +410,7 @@
       "course": "estadistica-y-probabilidad",
       "grade": 1,
       "appEngine": "StatisticsProbabilityLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 9
     },
@@ -422,7 +422,7 @@
       "course": "estadistica-y-probabilidad",
       "grade": 1,
       "appEngine": "StatisticsProbabilityLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 0
     },
@@ -434,7 +434,7 @@
       "course": "geometria",
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 16
     },

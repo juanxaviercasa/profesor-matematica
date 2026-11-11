@@ -60,5 +60,16 @@
     ],
     "totalPublished": 105,
     "totalScheduled": 523
+  },
+  {
+    "date": "2026-11-11T07:27:16.496Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "grafico-de-barras-1sec-unidad3",
+      "grafico-de-barras-y-barras-agrupadas-1sec-unidad3",
+      "lineas-notables-asociadas-al-triangulo-1sec-unidad3"
+    ],
+    "totalPublished": 108,
+    "totalScheduled": 520
   }
 ]
