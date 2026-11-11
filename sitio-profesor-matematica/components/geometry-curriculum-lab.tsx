@@ -12,7 +12,7 @@ const fmt=(x:number)=>Number(x.toFixed(2)).toLocaleString("es-PE");
  * El catálogo programado no se hace público por usar este componente.
  */
 export function GeometryCurriculumLab({topic,title}:{topic:Topic;title:string}){
-  const [size,setSize]=useState(3);
+  const [size,setSize]=useState(5);
   const [n,setN]=useState(topic.id==="quadrilateral"?4:6);
   const [theta,setTheta]=useState(60);
   const [shift,setShift]=useState(2);
@@ -86,6 +86,14 @@ export function GeometryCurriculumLab({topic,title}:{topic:Topic;title:string}){
         onChange={e=>choose.change(Number(e.target.value))}
         className="w-full accent-[#e8bc71]"/>
     </label>
+    {mode==="polygon"&&<label className="block space-y-2">
+      <span className="block text-base font-semibold text-white">
+        Radio del polígono (u): <strong className="text-[#ffe3ab]">{size}</strong>
+      </span>
+      <input type="range" aria-label="Radio del polígono" min={1} max={10}
+        step={1} value={size} onChange={e=>setSize(Number(e.target.value))}
+        className="w-full accent-[#e8bc71]"/>
+    </label>}
     <div className="rounded-xl border border-[#8f78c0] bg-[#1e173c] p-3">
       <svg viewBox="0 0 420 300" role="img" aria-label={"Ejemplo dinámico de "+topic.label+"; "+readout} className="block h-auto w-full">
         <title>Representación geométrica de {topic.label}</title>
