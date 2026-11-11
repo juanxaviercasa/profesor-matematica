@@ -1,4 +1,4 @@
-# Sistema Zénit — Guía de identidad Aurora
+# Sistema Zénit — Guía de identidad Zénit Aura
 
 ## Identidad institucional
 
@@ -14,7 +14,7 @@ La firma del encabezado y del pie siempre presenta el fénix, a su derecha «Sis
 
 **Los colores del fénix NO definen la paleta de la interfaz.** El símbolo mantiene sus gradientes rojo, naranja y amarillo originales; la plataforma usa **violeta, índigo, lavanda y dorado**. Evitar superficies rojas o naranjas institucionales, cabeceras de fuego y botones rojos. Los degradados aportan profundidad y no deben restar legibilidad.
 
-## Paleta Zénit Aurora (vigente)
+## Paleta Zénit Aura (vigente)
 
 | Token | Color | Uso |
 |---|---|---|
