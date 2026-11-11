@@ -63,7 +63,7 @@ export const EDITORIAL_RULES = [
   // ============================================================================
   {course:"geometria",engineId:"jsxgraph",pattern:/segmento/,tex:String.raw`AB+BC=AC\ \text{si }B\text{ está entre }A\text{ y }C,\quad AM=MB=\frac{AB}{2}\ \text{si }M\text{ es punto medio de }AB`},
   {course:"geometria",engineId:"jsxgraph",pattern:/[aá]ngulos? (?:determinados|formados).*paralela/,tex:String.raw`\alpha_{\text{alt. int.}}=\beta,\quad \alpha_{\text{conj. int.}}+\theta=180^\circ\quad(L_1\parallel L_2)`},
-  {course:"geometria",engineId:"jsxgraph",pattern:/(?<!tri)[aá]ngulo/,tex:String.raw`m\angle AOB+m\angle BOC=m\angle AOC,\quad C(\alpha)=90^\circ-\alpha,\quad S(\alpha)=180^\circ-\alpha`},
+  {course:"geometria",engineId:"jsxgraph",pattern:/(?<!\p{L})[aá]ngulos?/u,tex:String.raw`m\angle AOB+m\angle BOC=m\angle AOC,\quad C(\alpha)=90^\circ-\alpha,\quad S(\alpha)=180^\circ-\alpha`},
   {course:"geometria",engineId:"geogebra",pattern:/tri[aá]ngulos? rect[aá]ngulos?|pit[aá]goras|relaciones m[eé]tricas/,tex:String.raw`a^2+b^2=c^2,\quad h^2=m\cdot n,\quad a\cdot b=c\cdot h`},
   {course:"geometria",engineId:"geogebra",pattern:/proporcionalidad|semejanza/,tex:String.raw`\frac{AB}{BC}=\frac{DE}{EF}\quad\text{(Teorema de Thales)},\quad \frac{a}{a'}=\frac{b}{b'}=\frac{h}{h'}=k`},
   {course:"geometria",engineId:"geogebra",pattern:/congruencia de tri[aá]ngulos/,tex:String.raw`\triangle ABC\cong\triangle DEF\implies AB=DE,\quad BC=EF,\quad AC=DF`},
