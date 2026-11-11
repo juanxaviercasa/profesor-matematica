@@ -130,7 +130,7 @@ export default function Home() {
           </div>
           <div className="home-subject-groups">
             {subjectGroups.map((group) => (
-              <div className="home-subject-group" key={group.id} aria-labelledby={group.id}>
+              <section className="home-subject-group" key={group.id} aria-labelledby={group.id}>
                 <div className="home-subject-group-heading">
                   <h3 id={group.id}>{group.title}</h3>
                   <p>{group.description}</p>
@@ -157,7 +157,7 @@ export default function Home() {
                     </Link>
                   ))}
                 </div>
-              </div>
+              </section>
             ))}
           </div>
         </section>
