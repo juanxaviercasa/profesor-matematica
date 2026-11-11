@@ -117,7 +117,7 @@ function AngleLab(){
           "Revisa la abertura: 0° es nulo, menos de 90° es agudo, 90° es recto, entre 90° y 180° es obtuso y 180° es llano."):""}
         </p>
       </div>
-      <Explanation>θ = <strong>{angle}°</strong>. Es un ángulo <strong>{category}</strong>.</Explanation>
+      <Explanation>{choice ? <>θ = <strong>{angle}°</strong>. Es un ángulo <strong>{category}</strong>.</> : <>Observa la abertura y elige una clasificación antes de comprobarla.</>}</Explanation>
     </div>
   );
 }
@@ -130,17 +130,17 @@ function SegmentLab() {
     <div className="space-y-4">
       <p className="text-base text-stone-200">Un punto determina una posición; el segmento tiene dos extremos. Si B está entre A y C, sus longitudes se suman.</p>
       <Slider id="segment-ab" title="Longitud AB" value={ab} min={2} max={8} unit=" cm" onChange={setAb}/>
-      <div className="rounded-xl bg-[#081914] border border-emerald-800 p-3">
+      <div className="rounded-xl bg-[#21183f] border border-violet-500/60 p-3">
         <svg viewBox="0 0 460 124" role="img" aria-label={"A, B y C son colineales. AB mide " + ab + " cm, BC mide 4 cm y AC mide " + (ab + bc) + " cm."} className="w-full h-auto">
-          <line x1="24" y1="70" x2="430" y2="70" stroke="#647d73" strokeWidth="2" strokeDasharray="4 5" />
-          <line x1={xA} y1="70" x2={xC} y2="70" stroke="#a7f3d0" strokeWidth="5"/>
-          <line x1={xA} y1="70" x2={xB} y2="70" stroke="#c9f37d" strokeWidth="5"/>
+          <line x1="24" y1="70" x2="430" y2="70" stroke="#a394c0" strokeWidth="2" strokeDasharray="4 5" />
+          <line x1={xA} y1="70" x2={xC} y2="70" stroke="#b49aff" strokeWidth="5"/>
+          <line x1={xA} y1="70" x2={xB} y2="70" stroke="#e8bc71" strokeWidth="5"/>
           {[{x:xA,label:"A"},{x:xB,label:"B"},{x:xC,label:"C"}].map(p=>(
             <g key={p.label}><circle cx={p.x} cy="70" r="6" fill="#f2f9ed"/>
               <text x={p.x} y="53" textAnchor="middle" fontSize="17" fill="#f2f9ed">{p.label}</text></g>
           ))}
-          <text x={(xA+xB)/2} y="100" textAnchor="middle" fontSize="14" fill="#c9f37d">{ab} cm</text>
-          <text x={(xB+xC)/2} y="100" textAnchor="middle" fontSize="14" fill="#a7f3d0">{bc} cm</text>
+          <text x={(xA+xB)/2} y="100" textAnchor="middle" fontSize="14" fill="#e8bc71">{ab} cm</text>
+          <text x={(xB+xC)/2} y="100" textAnchor="middle" fontSize="14" fill="#b49aff">{bc} cm</text>
         </svg>
       </div>
       <GeometryAnswer key={"segment-"+ab} question={"Si AB = "+ab+" cm y BC = "+bc+" cm, ¿cuánto mide AC?"} answer={ab+bc} unit="cm"/>
@@ -164,18 +164,18 @@ function CongruenceLab() {
     <div className="space-y-4">
       <p className="text-base text-stone-200">Compara dos triángulos rectángulos. La congruencia exige las mismas longitudes correspondientes; la semejanza, solo la misma forma.</p>
       <Slider id="congruence-ratio" title="Escala del segundo triángulo" value={percent} min={60} max={140} step={10} unit=" %" onChange={next=>{setPercent(next);setChoice(null);}}/>
-      <div className="rounded-xl bg-[#081914] border border-emerald-800 p-3">
+      <div className="rounded-xl bg-[#21183f] border border-violet-500/60 p-3">
         <svg viewBox="0 0 460 196" role="img" aria-label={"Primer triángulo de lados 3, 4, 5. Segundo triángulo de lados " + fmt(3*k) + ", " + fmt(4*k) + ", " + fmt(5*k) + "."} className="w-full h-auto">
-          <polygon points="34,157 169,157 34,56" fill="#16634c" fillOpacity=".35" stroke="#a7f3d0" strokeWidth="3"/>
-          <polygon points={"248,157 " + (248+135*k) + ",157 248," + (157-101*k)} fill="#5b6631" fillOpacity=".3" stroke="#c9f37d" strokeWidth="3"/>
-          <text x="96" y="185" textAnchor="middle" fontSize="14" fill="#e2f9ef">4</text>
-          <text x="18" y="112" textAnchor="middle" fontSize="14" fill="#e2f9ef">3</text>
-          <text x="104" y="100" textAnchor="middle" fontSize="14" fill="#e2f9ef">5</text>
-          <text x={248+63*k} y="185" textAnchor="middle" fontSize="14" fill="#e9f4c0">{fmt(4*k)}</text>
-          <text x="235" y={157-50*k} textAnchor="end" fontSize="14" fill="#e9f4c0">{fmt(3*k)}</text>
-          <text x={248+78*k} y={157-52*k} textAnchor="middle" fontSize="14" fill="#e9f4c0">{fmt(5*k)}</text>
-          <text x="90" y="24" textAnchor="middle" fontSize="16" fill="#a7f3d0">Triángulo A</text>
-          <text x="308" y="24" textAnchor="middle" fontSize="16" fill="#c9f37d">Triángulo B</text>
+          <polygon points="34,157 169,157 34,56" fill="#6840c5" fillOpacity=".35" stroke="#b49aff" strokeWidth="3"/>
+          <polygon points={"248,157 " + (248+135*k) + ",157 248," + (157-101*k)} fill="#b58d47" fillOpacity=".3" stroke="#e8bc71" strokeWidth="3"/>
+          <text x="96" y="185" textAnchor="middle" fontSize="14" fill="#e9dfff">4</text>
+          <text x="18" y="112" textAnchor="middle" fontSize="14" fill="#e9dfff">3</text>
+          <text x="104" y="100" textAnchor="middle" fontSize="14" fill="#e9dfff">5</text>
+          <text x={248+63*k} y="185" textAnchor="middle" fontSize="14" fill="#fff0ca">{fmt(4*k)}</text>
+          <text x="235" y={157-50*k} textAnchor="end" fontSize="14" fill="#fff0ca">{fmt(3*k)}</text>
+          <text x={248+78*k} y={157-52*k} textAnchor="middle" fontSize="14" fill="#fff0ca">{fmt(5*k)}</text>
+          <text x="90" y="24" textAnchor="middle" fontSize="16" fill="#b49aff">Triángulo A</text>
+          <text x="308" y="24" textAnchor="middle" fontSize="16" fill="#e8bc71">Triángulo B</text>
         </svg>
       </div>
       <div className="rounded-xl border border-violet-300/70 bg-[#302354] p-4 space-y-3">
@@ -210,15 +210,15 @@ function ParallelLab() {
     <div className="space-y-4">
       <p className="text-base text-stone-200">Dos rectas paralelas cortadas por una secante forman ángulos correspondientes de igual medida y ángulos colaterales internos suplementarios.</p>
       <Slider id="parallel-angle" title="Ángulo de referencia α" value={alpha} min={30} max={150} step={5} unit="°" onChange={setAlpha}/>
-      <div className="rounded-xl bg-[#081914] border border-emerald-800 p-3">
+      <div className="rounded-xl bg-[#21183f] border border-violet-500/60 p-3">
         <svg viewBox="0 0 460 210" role="img" aria-label={"Paralelas cortadas por una secante. Los ángulos correspondientes miden " + alpha + " grados."} className="w-full h-auto">
-          <line x1="18" y1="65" x2="440" y2="65" stroke="#a7f3d0" strokeWidth="3"/>
-          <line x1="18" y1="155" x2="440" y2="155" stroke="#a7f3d0" strokeWidth="3"/>
-          <line x1={230-dx} y1={110+dy} x2={230+dx} y2={110-dy} stroke="#f5db79" strokeWidth="3"/>
-          <text x="30" y="55" fontSize="15" fill="#a7f3d0">r</text>
-          <text x="30" y="144" fontSize="15" fill="#a7f3d0">s</text>
-          <rect x="280" y="82" width="138" height="31" rx="7" fill="#124531"/>
-          <text x="349" y="103" textAnchor="middle" fontSize="16" fill="#f0f7ef">α = {alpha}°</text>
+          <line x1="18" y1="65" x2="440" y2="65" stroke="#b49aff" strokeWidth="3"/>
+          <line x1="18" y1="155" x2="440" y2="155" stroke="#b49aff" strokeWidth="3"/>
+          <line x1={230-dx} y1={110+dy} x2={230+dx} y2={110-dy} stroke="#e8bc71" strokeWidth="3"/>
+          <text x="30" y="55" fontSize="15" fill="#b49aff">r</text>
+          <text x="30" y="144" fontSize="15" fill="#b49aff">s</text>
+          <rect x="280" y="82" width="138" height="31" rx="7" fill="#4b2a96"/>
+          <text x="349" y="103" textAnchor="middle" fontSize="16" fill="#fffaf0">α = {alpha}°</text>
         </svg>
       </div>
       <GeometryAnswer key={"parallel-"+alpha}

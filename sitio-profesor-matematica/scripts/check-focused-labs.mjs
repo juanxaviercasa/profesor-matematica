@@ -64,7 +64,7 @@ assert.match(source,/answer=\{180-alpha\}/);
 assert.match(source,/aria-pressed=\{choice===value\}/);
 assert.match(source, /type="range"/);
 assert.match(source, /aria-label=\{title\}/);
-assert.match(source, /className="zenit-webapp-shell zenit-focused-lab/);
+assert.match(source, /className=\{"zenit-webapp-shell zenit-focused-lab/);
 assert.match(browser, /SIMULATOR_MISSING/);
 assert.match(browser, /SIMULATOR_SLIDER/);
 assert.match(browser, /SIMULATOR_CAPTURE/);

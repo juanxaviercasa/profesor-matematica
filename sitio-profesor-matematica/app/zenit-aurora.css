@@ -230,3 +230,30 @@ footer .footer-base { color: #d7cde8; border-top-color: #ffffff2e; }
 .lab-controls .challenge-panel:not(.zenit-equation-match) button:focus-visible {
   color: #fff; background: var(--aurora-violet-deep);
 }
+
+
+/* Geometría: capa Aurora acotada. Mantiene los simuladores originales. */
+.zenit-geometry-lab {
+  background: var(--aurora-dark-gradient);
+  border-color: #8a70c2;
+  color: #f7f1ff;
+}
+.zenit-geometry-lab header > p:first-child { color: #ffe3ab; }
+.zenit-geometry-lab [class*="bg-[#0b211c]"],
+.zenit-geometry-lab [class*="bg-[#081914]"],
+.zenit-geometry-lab [class*="bg-emerald-950"] { background-color: #21183f; }
+.zenit-geometry-lab [class*="border-emerald"] { border-color: #8870b6; }
+.zenit-geometry-lab [class*="text-emerald"] { color: #e8dfff; }
+.zenit-geometry-lab [class*="text-lime"] { color: #ffe3ab; }
+.zenit-geometry-lab [class*="accent-emerald"] { accent-color: #e8bc71; }
+.zenit-geometry-lab .zenit-geometry-choice[aria-pressed="true"] {
+  color: #fff; background: #6840c5; border-color: #d5c5f5;
+}
+.zenit-geometry-lab :is(button,input):focus-visible {
+  outline: 3px solid #e8bc71;
+  outline-offset: 3px;
+}
+@media (max-width: 420px) {
+  .zenit-geometry-lab { padding: 16px; }
+  .zenit-geometry-lab svg { max-width: 100%; height: auto; }
+}
