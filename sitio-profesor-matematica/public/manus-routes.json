@@ -1,0 +1,26 @@
+{
+  "routes": [
+    { "path": "/", "title": "Inicio" },
+    { "path": "/aprende", "title": "Aprende Matemática y Ciencias" },
+    { "path": "/aprende/:area", "title": "Área de aprendizaje" },
+    { "path": "/aprende/:area/:curso", "title": "Curso de aprendizaje" },
+    { "path": "/aprende/:area/:curso/:slug", "title": "Lección" },
+    { "path": "/aprende/funciones", "title": "Funciones" },
+    { "path": "/blog", "title": "Biblioteca de temas" },
+    { "path": "/clase/funciones-antes-de-calculo", "title": "Clase de funciones" },
+    { "path": "/contacto", "title": "Contacto" },
+    { "path": "/curso/funciones-sin-vacios/modulo-1", "title": "Módulo gratuito" },
+    { "path": "/cursos/funciones-para-calculo", "title": "Curso de funciones" },
+    { "path": "/diagnostico/funciones", "title": "Diagnóstico de funciones" },
+    { "path": "/empieza", "title": "Elige tu ruta" },
+    { "path": "/herramientas", "title": "Herramientas interactivas" },
+    { "path": "/laboratorio", "title": "Zénit Lab" },
+    { "path": "/laboratorio/:slug", "title": "Laboratorio" },
+    { "path": "/privacidad", "title": "Privacidad" },
+    { "path": "/profesor-matematicas-lima", "title": "Clases en Lima" },
+    { "path": "/recursos", "title": "Recursos" },
+    { "path": "/ruta-funciones-uni", "title": "Ruta de funciones" },
+    { "path": "/sobre-mi", "title": "Sobre el proyecto" },
+    { "path": "/webinars/funciones-antes-del-calculo", "title": "Webinar de funciones" }
+  ]
+}

@@ -5,95 +5,31 @@ import { Footer, Header, FormulaCard } from "@/components/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
-  title: "Funciones, precálculo y aprendizaje visual | Sistema Zénit",
-  description: "Aprende a comprender funciones con diagnóstico gratuito, lecciones y laboratorios interactivos. Juan Xavier, matemática en Lima.",
+  title: "Matemática y ciencias para comprender | Sistema Zénit",
+  description: "Biblioteca gratuita de Matemática y Ciencias para secundaria, preparación preuniversitaria y primeros ciclos universitarios, con lecciones, ejercicios y laboratorios interactivos.",
 };
 
-const paths = [
-  { n: "01", title: "Lee una función", text: "Conecta la notación con entradas, salidas y restricciones.", href: "/aprende/funciones" },
-  { n: "02", title: "Interpreta su gráfica", text: "Reconoce crecimiento, cortes, dominio y rango sin memorizar recetas.", href: "/recursos" },
-  { n: "03", title: "Transforma y predice", text: "Cambia parámetros y comprueba sus efectos en un laboratorio.", href: "/laboratorio/transformaciones-de-funciones" },
+const routes = [
+  { n: "01", title: "Secundaria", text: "Refuerza aritmética, álgebra, geometría, trigonometría y ciencias desde las bases.", href: "/aprende/matematica-preuniversitaria" },
+  { n: "02", title: "Preuniversitario", text: "Practica razonamiento matemático y los temas que necesitas para avanzar con criterio.", href: "/blog" },
+  { n: "03", title: "Universidad y ciencias", text: "Explora cálculo, álgebra lineal, ecuaciones diferenciales, física y química.", href: "/aprende" },
 ];
-
 const nextSteps = [
-  { n: "01", title: "Descubre qué necesitas reforzar", text: "Un diagnóstico breve te ayuda a identificar los conceptos que conviene revisar.", href: "/diagnostico/funciones", action: "Hacer diagnóstico" },
-  { n: "02", title: "Prueba una lección completa", text: "Aprende a conectar notación, tabla y gráfica con explicaciones guiadas.", href: "/curso/funciones-sin-vacios/modulo-1", action: "Abrir módulo gratuito" },
-  { n: "03", title: "Practica por tu cuenta", text: "Explora simuladores y observa cómo cambia una función cuando modificas sus parámetros.", href: "/laboratorio", action: "Entrar al laboratorio" },
+  { n: "01", title: "Encuentra tu siguiente tema", text: "Navega por nivel y área para estudiar justo lo que necesitas hoy.", href: "/aprende", action: "Explorar la biblioteca" },
+  { n: "02", title: "Aprende con una explicación", text: "Lee una lección, revisa ejemplos y practica con ejercicios graduados.", href: "/blog", action: "Ver los temas" },
+  { n: "03", title: "Comprueba una idea", text: "Cambia valores en un laboratorio y observa qué sucede en tiempo real.", href: "/herramientas", action: "Probar herramientas" },
 ];
 
 export default function Home() {
   return <><a className="zenit-skip-link" href="#zenit-main">Saltar al contenido principal</a><Header/><main id="zenit-main" className="home-page-v2">
     <section className="hero wrap" aria-labelledby="home-title">
-      <div className="hero-copy">
-        <p className="eyebrow">Sistema Zénit · Matemática que conecta</p>
-        <h1 id="home-title">Entiende funciones.<br/><em>Prepárate para cálculo.</em></h1>
-        <p className="lead">Aprende con Juan Xavier, licenciado en Ciencias de la Educación con Especialidad en Matemática y experiencia docente escolar y preuniversitaria. Relaciona fórmulas, gráficas y comportamiento antes de entrar a cálculo.</p>
-        <div className="actions">
-          <Link className="button" href="/empieza?utm_source=sitio&utm_medium=home&utm_campaign=embudo_funciones">Empezar la ruta gratuita</Link>
-          <Link className="text-link" href="/diagnostico/funciones?utm_source=sitio&utm_medium=home&utm_campaign=embudo_funciones">Hacer diagnóstico</Link>
-        </div>
-        <div className="proof-line" aria-label="Formación y metodología de Juan Xavier"><span>Formación universitaria en Matemática</span><span>Docencia desde 2018</span><span>Aprendizaje visual</span></div>
-      </div>
-      <FormulaCard/>
+      <div className="hero-copy"><p className="eyebrow">Sistema Zénit · Biblioteca gratuita</p><h1 id="home-title">Matemática y ciencias para <em>comprender.</em></h1><p className="lead">Encuentra lecciones, ejercicios y laboratorios interactivos para estudiar desde secundaria hasta los primeros ciclos universitarios. Aprende una idea, represéntala y comprueba cómo funciona.</p><div className="actions"><Link className="button" href="/aprende?utm_source=sitio&utm_medium=home&utm_campaign=ruta_gratuita">Explorar la biblioteca</Link><Link className="text-link" href="/herramientas?utm_source=sitio&utm_medium=home&utm_campaign=ruta_gratuita">Probar un laboratorio</Link></div><div className="proof-line" aria-label="Características de Sistema Zénit"><span>Contenido gratuito</span><span>Matemática y Ciencias</span><span>Aprendizaje visual</span></div></div><FormulaCard/>
     </section>
-
-    <section className="home-start wrap" aria-labelledby="home-start-title">
-      <div className="public-section-head">
-        <p className="eyebrow">Empieza con claridad</p>
-        <h2 id="home-start-title">Tres formas de avanzar desde hoy.</h2>
-        <p>No tienes que recorrer todo el sitio: elige el siguiente paso que corresponda a tu nivel.</p>
-      </div>
-      <div className="home-start-grid">
-        {nextSteps.map(step => <article className="public-action-card" key={step.n}>
-          <span className="public-card-number">{step.n}</span>
-          <h3>{step.title}</h3>
-          <p>{step.text}</p>
-          <Link href={step.href}>{step.action} <span aria-hidden="true">→</span></Link>
-        </article>)}
-      </div>
-    </section>
-
-    <section className="dark-section">
-      <div className="wrap split-heading"><p className="eyebrow light">La transición que importa</p><h2>De operar expresiones a comprender <em>cómo cambia</em> una cantidad.</h2></div>
-      <div className="wrap path-grid">{paths.map(p => <Link href={p.href} className="path-card" key={p.n}><span>{p.n}</span><h3>{p.title}</h3><p>{p.text}</p><b>Explorar <span aria-hidden="true">→</span></b></Link>)}</div>
-    </section>
-
-    <section className="wrap feature-band">
-      <div><p className="eyebrow">Laboratorio abierto</p><h2>Mueve los parámetros.<br/>Observa la función.</h2><p>Explora <strong>f(x) = a(x − h)² + k</strong>, formula una predicción y compárala con la gráfica. Una herramienta gratuita para poner a prueba lo que aprendiste.</p><Link className="button secondary" href="/laboratorio/transformaciones-de-funciones">Abrir el explorador</Link></div>
-      <figure className="zenit-visual-figure">
-        <picture>
-          <source media="(max-width: 640px)" srcSet="/brand/zenit-connection-mobile.svg" width={640} height={940}/>
-          <Image src="/brand/zenit-connection-desktop.svg" width={960} height={640}
-            alt="Función f(x) igual a x al cuadrado menos cuatro x más tres. Su parábola abre hacia arriba, corta el eje X en 1 y 3 y tiene vértice en (2, menos 1)."
-            sizes="(max-width: 640px) calc(100vw - 28px), (max-width: 1050px) calc(100vw - 40px), 520px"/>
-        </picture>
-        <figcaption>Una expresión, una gráfica y una interpretación coherentes. <strong>Raíces: 1 y 3 · Vértice: (2, −1).</strong></figcaption>
-      </figure>
-    </section>
-
-    <section className="course-strip">
-      <div className="wrap course-grid">
-        <div><p className="eyebrow">Ruta guiada de funciones</p><h2>Funciones sin Vacíos</h2><p>Una ruta propuesta para conectar conceptos, practicar y prepararte mejor para cálculo. Consulta el calendario y las condiciones actuales.</p></div>
-        <div className="course-meta">
-          <span>Secundaria avanzada y primeros ciclos</span><span>Diagnóstico, laboratorios y ejercicios guiados</span><span>Consulta el programa y las condiciones actuales</span>
-          <Link className="button" href="/cursos/funciones-para-calculo">Conocer el programa</Link>
-        </div>
-      </div>
-    </section>
-
-    <section className="wrap trust home-trust" aria-labelledby="home-teacher-title">
-      <div className="home-teacher-portrait"><Image src="/juan-xavier.jpg" width={423} height={573} alt="Retrato de Juan Xavier" sizes="(max-width: 850px) 100vw, 360px"/></div>
-      <div className="home-teacher-copy">
-        <p className="eyebrow">Conoce a Juan Xavier</p>
-        <h2 id="home-teacher-title">Aprende con una persona, no solo con fórmulas.</h2>
-        <p>Soy Juan Xavier, licenciado en Ciencias de la Educación con Especialidad en Matemática por la Universidad Nacional de Educación Enrique Guzmán y Valle. He enseñado en secundaria y preparación preuniversitaria en Lima.</p>
-        <p>Mi enfoque combina explicaciones, práctica guiada y herramientas digitales para comprender lo que representa cada resultado.</p>
-        <div className="actions"><Link className="button" href="/sobre-mi">Conocer mi trayectoria</Link><Link className="text-link" href="/profesor-matematicas-lima">Clases en Lima</Link></div>
-      </div>
-    </section>
-
-    <section className="home-last-step">
-      <div className="wrap home-last-step-inner"><div><p className="eyebrow light">Tu siguiente paso</p><h2>Empieza por comprender.<br/>Luego practica y comprueba.</h2></div><Link className="button" href="/empieza">Elegir mi ruta gratuita</Link></div>
-    </section>
+    <section className="home-start wrap" aria-labelledby="home-start-title"><div className="public-section-head"><p className="eyebrow">Empieza donde estés</p><h2 id="home-start-title">Un camino claro para aprender.</h2><p>No tienes que recorrer todo el sitio. Elige una puerta de entrada y avanza a tu ritmo.</p></div><div className="home-start-grid">{nextSteps.map(step => <article className="public-action-card" key={step.n}><span className="public-card-number">{step.n}</span><h3>{step.title}</h3><p>{step.text}</p><Link href={step.href}>{step.action} <span aria-hidden="true">→</span></Link></article>)}</div></section>
+    <section className="dark-section"><div className="wrap split-heading"><p className="eyebrow light">Elige tu recorrido</p><h2>Del primer concepto a una explicación que puedes <em>defender.</em></h2></div><div className="wrap path-grid">{routes.map(route => <Link href={route.href} className="path-card" key={route.n}><span>{route.n}</span><h3>{route.title}</h3><p>{route.text}</p><b>Explorar <span aria-hidden="true">→</span></b></Link>)}</div></section>
+    <section className="wrap feature-band"><div><p className="eyebrow">Ruta recomendada</p><h2>Funciones antes de cálculo.</h2><p>Relaciona fórmula, tabla y gráfica antes de entrar a límites y derivadas. Una ruta gratuita para entender qué cambia y por qué.</p><Link className="button secondary" href="/curso/funciones-sin-vacios/modulo-1">Abrir el módulo gratuito</Link></div><figure className="zenit-visual-figure"><Image src="/brand/zenit-learning-map.svg" width={960} height={640} alt="Mapa visual que conecta una fórmula con su gráfica e interpretación" sizes="(max-width: 1050px) 100vw, 520px"/><figcaption>Una idea, varias representaciones: expresión, gráfica e interpretación.</figcaption></figure></section>
+    <section className="course-strip"><div className="wrap course-grid"><div><p className="eyebrow">Para seguir con guía</p><h2>Funciones sin Vacíos</h2><p>Una ruta propuesta para secundaria avanzada, preparación preuniversitaria y primeros ciclos. Primero prueba los recursos gratuitos; luego decide si necesitas acompañamiento.</p></div><div className="course-meta"><span>Diagnóstico y módulo abierto</span><span>Laboratorios y ejercicios guiados</span><span>Condiciones confirmadas antes de inscribirte</span><Link className="button" href="/cursos/funciones-para-calculo">Conocer la ruta</Link></div></div></section>
+    <section className="wrap trust home-trust" aria-labelledby="home-teacher-title"><div className="home-teacher-portrait"><Image src="/juan-xavier.jpg" width={423} height={573} alt="Retrato de Juan Xavier" sizes="(max-width: 850px) 100vw, 360px"/></div><div className="home-teacher-copy"><p className="eyebrow">Creado y dirigido por Juan Xavier</p><h2 id="home-teacher-title">Una plataforma hecha para explicar conexiones.</h2><p>Sistema Zénit nace de la experiencia docente en secundaria y preparación preuniversitaria, y de la convicción de que comprender una idea importa tanto como resolver un ejercicio.</p><p>La persona detrás del proyecto aparece como guía y responsable; el protagonista es tu proceso de aprendizaje.</p><div className="actions"><Link className="button" href="/sobre-mi">Conocer el proyecto</Link><Link className="text-link" href="/contacto">Hacer una consulta</Link></div></div></section>
+    <section className="home-last-step"><div className="wrap home-last-step-inner"><div><p className="eyebrow light">Tu siguiente paso</p><h2>Elige un tema.<br/>Entiéndelo y ponlo a prueba.</h2></div><Link className="button" href="/aprende">Entrar a la biblioteca</Link></div></section>
   </main><Footer/></>;
 }

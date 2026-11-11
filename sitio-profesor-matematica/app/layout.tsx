@@ -15,16 +15,17 @@ import "./zenit-editorial.css";
 import "./math-responsive-layout.css";
 import "./premium-responsive.css";
 import "./home-experience.css";
+import "./zenit-redesign.css";
 
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Juan Xavier · Sistema Zénit",
-    template: "%s · Juan Xavier",
+    default: "Sistema Zénit · Matemática y Ciencias",
+    template: "%s · Sistema Zénit",
   },
   description:
-    "Matemática que conecta: explora lecciones, laboratorios y ejercicios de secundaria, nivel preuniversitario y universitario con Juan Xavier.",
+    "Biblioteca gratuita de Matemática y Ciencias con lecciones, ejercicios y laboratorios para secundaria, preparación preuniversitaria y primeros ciclos universitarios.",
   keywords: [
     "profesor de matemática en Lima",
     "clases de matemática Lima",
@@ -39,20 +40,20 @@ export const metadata: Metadata = {
   authors: [{ name: "Juan Xavier", url: BASE_URL }],
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
   openGraph: {
-    title: "Juan Xavier · Sistema Zénit",
+    title: "Sistema Zénit · Matemática y Ciencias",
     images: [{ url: `${BASE_URL}/brand/social-avatar.png`, alt: "Identidad visual de Sistema Zénit" }],
     description:
       "Biblioteca de matemática y ciencias con simuladores interactivos, ejercicios graduados y materiales de aprendizaje.",
     type: "website",
     locale: "es_PE",
-    siteName: "Sistema Educativo Zénit",
+    siteName: "Sistema Zénit",
   },
   twitter: {
     card: "summary",
     images: [`${BASE_URL}/brand/social-avatar.png`],
-    title: "Juan Xavier · Sistema Zénit",
+    title: "Sistema Zénit · Matemática y Ciencias",
     description:
-      "Matemática que conecta: teoría, herramientas interactivas y práctica guiada.",
+      "Biblioteca gratuita de Matemática y Ciencias con teoría, herramientas interactivas y práctica guiada.",
   },
 };
 
@@ -83,7 +84,7 @@ const rootSchema = {
     {
       "@type": "EducationalOrganization",
       "@id": `${BASE_URL}/#organizacion`,
-      name: "Sistema Educativo Zénit",
+      name: "Sistema Zénit",
       url: BASE_URL,
       logo: `${BASE_URL}/brand/zenit-lockup.svg`,
       description:
@@ -107,7 +108,7 @@ const rootSchema = {
       "@type": "WebSite",
       "@id": `${BASE_URL}/#sitio`,
       url: BASE_URL,
-      name: "Sistema Educativo Zénit",
+      name: "Sistema Zénit",
       inLanguage: "es",
       publisher: {
         "@id": `${BASE_URL}/#organizacion`,

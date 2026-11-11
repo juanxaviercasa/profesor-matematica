@@ -1,0 +1,174 @@
+/* Sistema Zénit · Rediseño visual 2026
+ * Base clara de biblioteca y modo concentración reservado a laboratorios.
+ * Esta capa se carga al final para estabilizar la cascada heredada durante la migración.
+ */
+:root {
+  --z-paper: #faf8f2;
+  --z-surface: #ffffff;
+  --z-surface-soft: #eef2f7;
+  --z-ink: #182333;
+  --z-muted: #526174;
+  --z-blue: #2364d2;
+  --z-blue-dark: #1748a2;
+  --z-blue-soft: #dcebff;
+  --z-yellow: #f5c84b;
+  --z-orange: #e8794a;
+  --z-night: #172131;
+  --z-night-soft: #22324a;
+  --z-line: #d8e0ea;
+  --z-shadow: 0 14px 38px rgba(24,35,51,.08);
+  --z-radius: 18px;
+}
+body { background: var(--z-paper); color: var(--z-ink); }
+.brand-founder-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.site-header { background: rgba(250,248,242,.96); border-bottom: 1px solid var(--z-line); box-shadow: 0 6px 22px rgba(24,35,51,.06); }
+.site-header .brand-copy b { color: var(--z-ink); letter-spacing: .08em; }
+.site-header .brand-copy small { color: var(--z-blue); letter-spacing: .06em; }
+.site-header .desktop-links a { color: var(--z-ink); }
+.site-header .desktop-links a:hover,
+.site-header .desktop-links a:focus-visible { color: var(--z-blue); border-bottom-color: var(--z-blue); }
+.site-header .nav-cta { background: var(--z-blue); border-color: var(--z-blue); color: #fff; }
+.site-header .nav-cta:hover { background: var(--z-blue-dark); }
+.mobile-menu summary { border-color: var(--z-ink); color: var(--z-ink); background: var(--z-surface); }
+.mobile-menu .mobile-links a { color: var(--z-ink); }
+.mobile-menu .mobile-links a.mobile-start { background: var(--z-blue); color: #fff; }
+.zenit-skip-link { background: var(--z-yellow); color: var(--z-ink); }
+:where(a,button,input,textarea,select,summary):focus-visible { outline-color: var(--z-blue); }
+.eyebrow { color: var(--z-blue-dark); letter-spacing: .08em; }
+.button { background: var(--z-blue); color: #fff; border-radius: 12px; box-shadow: 0 7px 16px rgba(35,100,210,.18); }
+.button:hover { background: var(--z-blue-dark); }
+.button.secondary { background: var(--z-yellow); color: var(--z-ink); box-shadow: 0 7px 16px rgba(245,200,75,.18); }
+.button.secondary:hover { background: #e8b735; }
+.text-link { color: var(--z-blue-dark); border-bottom-color: var(--z-blue); }
+/* Portada: plataforma primero, ruta de funciones como una puerta de entrada. */
+.home-page-v2 .hero { min-height: auto; padding-block: clamp(72px,9vw,132px); }
+.home-page-v2 .hero h1 { color: var(--z-ink); letter-spacing: -.035em; }
+.home-page-v2 .hero h1 em { color: var(--z-blue); }
+.home-page-v2 .hero .eyebrow { color: var(--z-blue-dark); }
+.home-page-v2 .hero .lead { color: var(--z-muted); max-width: 58ch; }
+.home-page-v2 .formula-card { background: var(--z-night); border: 1px solid #3d5370; box-shadow: 0 24px 60px rgba(24,35,51,.18); }
+.home-page-v2 .formula-card svg path:last-of-type { stroke: var(--z-orange); }
+.home-page-v2 .formula-card svg circle { fill: var(--z-yellow); }
+.home-page-v2 .proof-line span { background: var(--z-blue-soft); border-color: #bed2f2; color: var(--z-ink); }
+.home-page-v2 .home-start { padding-block: clamp(65px,8vw,108px); }
+.home-page-v2 .public-action-card,
+.public-method-grid article { background: var(--z-surface); border-color: var(--z-line); border-radius: var(--z-radius); box-shadow: var(--z-shadow); }
+.home-page-v2 .public-action-card:hover,
+.home-page-v2 .public-action-card:focus-within { border-color: var(--z-blue); box-shadow: 0 18px 42px rgba(35,100,210,.14); }
+.public-card-number,.public-method-grid article > span { color: var(--z-blue); }
+.public-action-card a { color: var(--z-blue-dark); border-bottom-color: var(--z-blue); }
+.home-page-v2 .dark-section { background: var(--z-night); }
+.home-page-v2 .dark-section .eyebrow { color: var(--z-yellow); }
+.home-page-v2 .path-grid { background: #40506a; border-color: #40506a; }
+.home-page-v2 .path-card { background: var(--z-night); }
+.home-page-v2 .path-card:hover { background: var(--z-night-soft); }
+.home-page-v2 .path-card > span,.home-page-v2 .path-card b { color: var(--z-yellow); }
+.home-page-v2 .path-card p { color: #d6e0ed; }
+.home-page-v2 .feature-band { background: var(--z-paper); }
+.zenit-visual-figure { background: var(--z-night); box-shadow: var(--z-shadow); }
+.home-page-v2 .course-strip { background: var(--z-blue-soft); }
+.home-page-v2 .course-strip .eyebrow { color: var(--z-blue-dark); }
+.home-page-v2 .home-teacher-portrait { background: var(--z-surface-soft); box-shadow: var(--z-shadow); }
+.home-page-v2 .home-last-step { background: var(--z-ink); }
+.home-page-v2 .home-last-step .eyebrow.light { color: var(--z-yellow); }
+.home-page-v2 .home-last-step .button { background: var(--z-yellow); color: var(--z-ink); }
+/* Biblioteca: claridad, filtros y descubrimiento. */
+.aprende-hub .page-hero { padding-block: clamp(66px,8vw,108px) clamp(40px,5vw,70px); }
+.aprende-hub .page-hero h1 { max-width: 900px; }
+.aprende-hub .page-hero .lead { color: var(--z-muted); }
+.aprende-hub .page-hero .button.secondary { background: var(--z-yellow); color: var(--z-ink); }
+.aprende-hub .area-section { background: var(--z-surface); color: var(--z-ink); border: 1px solid var(--z-line); box-shadow: var(--z-shadow); }
+.aprende-hub .area-section h2 { color: var(--z-ink); }
+.aprende-hub .area-section .text-stone-300,
+.aprende-hub .area-section .text-stone-400,
+.aprende-hub .area-section .text-stone-500 { color: var(--z-muted); }
+.aprende-hub .area-section .border-stone-800 { border-color: var(--z-line); }
+.aprende-hub .area-section [class*="bg-emerald"] { background: var(--z-blue-soft); }
+.aprende-hub .area-section [class*="text-emerald"] { color: var(--z-blue-dark); }
+.aprende-hub .course-card { background: var(--z-surface); color: var(--z-ink); border-color: var(--z-line); box-shadow: none; }
+.aprende-hub .course-card:hover { border-color: var(--z-blue); box-shadow: 0 12px 28px rgba(35,100,210,.12); }
+.aprende-hub .course-card h3 { color: var(--z-ink); }
+.aprende-hub .course-card p { color: var(--z-muted); }
+.aprende-hub .course-card .border-stone-800 { border-color: var(--z-line); }
+.aprende-hub .course-card a { color: var(--z-blue-dark); }
+.aprende-hub .course-card .font-mono { color: var(--z-muted); background: var(--z-surface-soft); border-color: var(--z-line); }
+.aprende-hub .course-card .flex.h-12 { background: var(--z-blue-soft); color: var(--z-blue-dark); border-color: #bed2f2; }
+/* Herramientas: hero claro con modo oscuro solo en la demostración. */
+.tools-page-v2 { padding-block: clamp(42px,6vw,78px) clamp(80px,8vw,110px); }
+.public-tools-hero { background: var(--z-blue-soft); color: var(--z-ink); border: 1px solid #bed2f2; box-shadow: var(--z-shadow); }
+.public-tools-hero h1 { color: var(--z-ink); }
+.public-tools-hero p:not(.eyebrow) { color: var(--z-muted); }
+.public-tools-hero .eyebrow { color: var(--z-blue-dark); }
+.public-tools-hero .button { background: var(--z-blue); color: #fff; }
+.public-tools-hero .text-link { color: var(--z-blue-dark); border-color: var(--z-blue); }
+.public-tools-visual { background: var(--z-night); border-color: #3d5370; }
+.public-tools-visual-kicker { color: var(--z-yellow); }
+.public-tools-visual-note { color: #d6e0ed; }
+.public-tools-visual svg path:nth-of-type(2) { stroke: var(--z-blue); }
+.public-tools-visual svg circle { fill: var(--z-yellow); }
+.public-tools-benefits > div { background: var(--z-surface); border-color: var(--z-line); box-shadow: var(--z-shadow); }
+.public-tools-benefits b { color: var(--z-blue-dark); }
+.public-tools-benefits span { color: var(--z-muted); }
+.public-end-cta { background: var(--z-blue-soft); border-color: #bed2f2; }
+/* Superficies educativas internas: papel como base, concentración oscura en el módulo. */
+.learning-view { background: var(--z-surface); color: var(--z-ink); border-color: var(--z-line); box-shadow: var(--z-shadow); }
+.learning-view .breadcrumb,.learning-view .breadcrumb a { color: var(--z-muted); }
+.learning-view .breadcrumb a:hover { color: var(--z-blue); }
+.learning-view .text-stone-400,.learning-view .text-stone-500 { color: var(--z-muted); }
+.learning-view .text-stone-300 { color: var(--z-ink); }
+/* Footer institucional y menos personalista. */
+footer { background: var(--z-ink); color: #eaf0f7; }
+footer .brand-copy b { color: #fff; }
+footer .brand-copy small { color: var(--z-yellow); }
+footer .footer-grid p, footer .footer-grid span { color: #c2cfdf; }
+footer .footer-grid a:hover { color: var(--z-yellow); }
+/* Ocultar el flotante en superficies de estudio donde puede cubrir controles. */
+body:has(.learning-view) .conversion-dock,
+body:has(.tools-page-v2) .conversion-dock { display: none; }
+.conversion-dock { background: var(--z-yellow); color: var(--z-ink); box-shadow: 0 10px 24px rgba(24,35,51,.16); }
+.conversion-dock span { color: var(--z-ink); }
+@media (max-width: 850px) {
+  .home-page-v2 .hero { padding-block: 58px 68px; }
+  .public-tools-hero { border-radius: 22px; }
+}
+@media (max-width: 600px) {
+  .home-page-v2 .hero h1 { font-size: clamp(2.65rem, 11vw, 4rem); }
+  .home-page-v2 .hero .lead { font-size: 1.08rem; }
+  .home-page-v2 .hero .actions .button { width: auto; }
+  .public-tools-hero h1 { font-size: clamp(2.35rem, 10vw, 3.3rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+/* El progreso acompaña a la biblioteca; no debe parecer un panel de administración. */
+.aprende-hub .lesson-progress-overview {
+  background: var(--z-blue-soft);
+  border: 1px solid #bed2f2;
+  color: var(--z-ink);
+  box-shadow: var(--z-shadow);
+}
+.aprende-hub .lesson-progress-overview .lesson-progress-kicker { color: var(--z-blue-dark); }
+.aprende-hub .lesson-progress-overview h2 { color: var(--z-ink); }
+.aprende-hub .lesson-progress-overview p { color: var(--z-muted); }
+.aprende-hub .lesson-progress-overview small { color: var(--z-muted); }
+.aprende-hub .lesson-progress-overview a { background: var(--z-yellow); color: var(--z-ink); }
+body:has(.home-page-v2) .conversion-dock,
+body:has(.aprende-hub) .conversion-dock,
+body:has(.tools-page-v2) .conversion-dock { display: none; }
+/* Catálogo claro; la aplicación interactiva interna conserva su contraste de concentración. */
+.tools-page-v2 .zenit-engine-selector-card { background: var(--z-surface) !important; border-color: var(--z-line) !important; color: var(--z-ink); box-shadow: none; }
+.tools-page-v2 .zenit-engine-selector-card[aria-pressed="true"] { background: var(--z-blue-soft) !important; border-color: var(--z-blue) !important; box-shadow: 0 10px 24px rgba(35,100,210,.12); }
+.tools-page-v2 .zenit-engine-selector-card:hover { border-color: var(--z-blue) !important; }
+.tools-page-v2 .zenit-engine-selector-card h3 { color: var(--z-ink); }
+.tools-page-v2 .zenit-engine-selector-card .text-stone-300,
+.tools-page-v2 .zenit-engine-selector-card .text-stone-400 { color: var(--z-muted) !important; }
+.tools-page-v2 .zenit-engine-selector-card .text-emerald-300,
+.tools-page-v2 .zenit-engine-selector-card .text-emerald-400 { color: var(--z-blue-dark) !important; }
+.tools-page-v2 .zenit-engine-selector-card .bg-stone-900 { background: var(--z-surface-soft); }
+.tools-page-v2 .zenit-engine-selector-card .border-stone-800 { border-color: var(--z-line); }
+.tools-page-v2 .zenit-tools-directory > section { background: var(--z-surface) !important; border-color: var(--z-line) !important; color: var(--z-ink); }
+.tools-page-v2 .zenit-tools-directory > section h3 { color: var(--z-ink); }
+.tools-page-v2 .zenit-tools-directory > section .text-amber-300 { color: var(--z-blue-dark) !important; }
+.tools-page-v2 .zenit-tools-directory > section .text-white,
+.tools-page-v2 .zenit-tools-directory > section .text-stone-200 { color: var(--z-ink) !important; }
+.tools-page-v2 .zenit-tools-directory > section .text-stone-400 { color: var(--z-muted) !important; }
