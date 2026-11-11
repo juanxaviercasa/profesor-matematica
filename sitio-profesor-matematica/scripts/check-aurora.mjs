@@ -14,7 +14,7 @@ const guide = read("BRAND-GUIDE.md");
 
 assert.ok(
   layout.lastIndexOf('import "./zenit-aurora.css";') > layout.lastIndexOf('import "./zenit-redesign.css";'),
-  "Aurora debe cargarse después de los estilos heredados"
+  "La base visual debe cargarse después de los estilos heredados"
 );
 assert.match(layout, /themeColor: "#241B4B"/);
 for (const [token, hex] of Object.entries({
@@ -66,4 +66,4 @@ for (const [text, background] of [
   assert.ok(contrast(text,background) >= 4.5,
     "Contraste AA insuficiente: "+text+" sobre "+background);
 }
-console.log("✓ Zénit Aurora: fénix intacto, lema correcto, degradados y contraste AA.");
+console.log("✓ Zénit Aura: fénix intacto, lema correcto, degradados y contraste AA.");
