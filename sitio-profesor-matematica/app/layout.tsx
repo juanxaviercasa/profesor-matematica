@@ -18,6 +18,7 @@ import "./home-experience.css";
 import "./zenit-redesign.css";
 import "./zenit-aurora.css";
 import "./hero-quadratic-lab.css";
+import "./home-cinematic.css";
 
 
 export const viewport: Viewport = { themeColor: "#241B4B" };
