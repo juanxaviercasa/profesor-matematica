@@ -5,8 +5,8 @@ import { Footer, Header, FormulaCard } from "@/components/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
-  title: "Matemática y ciencias para comprender | Sistema Zénit",
-  description: "Biblioteca gratuita de Matemática y Ciencias para secundaria, preparación preuniversitaria y primeros ciclos universitarios, con lecciones, ejercicios y laboratorios interactivos.",
+  title: "Aprende a pensar. Llega más alto. | Sistema Zénit",
+  description: "Aprende matemática y ciencias con explicaciones claras, lecciones, ejercicios y simuladores interactivos. Sistema Zénit: logra tus metas.",
 };
 
 const homeImages = "/images/home";
@@ -90,18 +90,20 @@ export default function Home() {
       <a className="zenit-skip-link" href="#zenit-main">Saltar al contenido principal</a>
       <Header />
       <main id="zenit-main" className="home-page-v2">
-        <section className="hero wrap" aria-labelledby="home-title">
+        <section className="hero wrap aura-hero" aria-labelledby="home-title">
           <div className="hero-copy">
-            <h1 id="home-title">Matemática y ciencias para <em>comprender.</em></h1>
+            <span className="aura-hero-kicker"><span aria-hidden="true" className="aura-sparkle">✦</span> Donde la curiosidad se convierte en comprensión</span>
+            <h1 id="home-title">Aprende a pensar.<br/><em>Llega más alto.</em></h1>
             <p className="lead">
-              Aprende matemática y ciencias con explicaciones claras, ejercicios y simuladores que responden a tus cambios. Desde secundaria hasta universidad.
+              Matemática y ciencias con explicaciones claras, práctica real y herramientas interactivas que puedes explorar por ti mismo.
             </p>
             <div className="actions">
-              <Link className="button" href="/aprende?utm_source=sitio&utm_medium=home&utm_campaign=ruta_gratuita">Ver materias y niveles</Link>
-              <Link className="text-link" href="/herramientas?utm_source=sitio&utm_medium=home&utm_campaign=ruta_gratuita">Probar herramientas</Link>
+              <Link className="button" href="/aprende?utm_source=sitio&utm_medium=home&utm_campaign=ruta_gratuita">Explorar materias <span aria-hidden="true">↗</span></Link>
+              <Link className="text-link" href="/laboratorio?utm_source=sitio&utm_medium=home&utm_campaign=ruta_gratuita">Probar laboratorios <span aria-hidden="true">→</span></Link>
             </div>
+            <p className="aura-hero-footnote"><span aria-hidden="true" className="aura-footnote-rule"/> Explora una idea. Comprueba el resultado.</p>
           </div>
-          <FormulaCard/>
+          <div className="aura-hero-lab"><FormulaCard/></div>
         </section>
 
         <section className="home-vision wrap" aria-labelledby="home-vision-title">
@@ -114,19 +116,20 @@ export default function Home() {
             />
           </div>
           <div className="home-vision-copy">
-            <span className="home-visual-kicker">La idea detrás de Zénit</span>
-            <h2 id="home-vision-title">Tu punto más alto comienza con <em>claridad.</em></h2>
-            <p>La comprensión fortalece la confianza. Cada problema resuelto con sentido es un paso hacia nuevas metas.</p>
+            <span className="home-visual-kicker">El sentido de Zénit</span>
+            <h2 id="home-vision-title">El conocimiento transforma. <em>La confianza impulsa.</em></h2>
+            <p>Aprender deja de ser memorizar cuando descubres por qué funcionan las cosas. Cada concepto comprendido te acerca a nuevas metas.</p>
+            <span className="aura-vision-signature">Un paso firme en cada concepto.</span>
           </div>
         </section>
 
         <section className="home-subjects wrap" aria-labelledby="home-subjects-title">
           <div className="public-section-head home-cinematic-head">
             <div>
-              <span className="home-visual-kicker">Siete caminos para explorar</span>
-              <h2 id="home-subjects-title">El conocimiento no tiene fronteras.</h2>
+              <span className="home-visual-kicker">Encuentra tu camino</span>
+              <h2 id="home-subjects-title">Siete caminos. <em>Infinitas posibilidades.</em></h2>
             </div>
-            <p>Elige el curso que necesitas: cada disciplina tiene su propia ruta de aprendizaje.</p>
+            <p>Álgebra, Aritmética, Geometría, Trigonometría, Razonamiento Matemático, Física y Química: encuentra el curso que necesitas.</p>
           </div>
           <div className="home-subject-groups">
             {subjectGroups.map((group) => (
@@ -136,7 +139,7 @@ export default function Home() {
                   <p>{group.description}</p>
                 </div>
                 <div className={`home-subject-grid home-image-subject-grid ${group.kind === "math" ? "home-math-subject-grid" : "home-science-subject-grid"}`}>
-                  {group.subjects.map((subject) => (
+                  {group.subjects.map((subject, index) => (
                     <Link href={subject.href} className="home-subject-card home-image-subject" key={subject.title}>
                       <div className="home-subject-photo">
                         <Image
@@ -150,6 +153,7 @@ export default function Home() {
                         />
                       </div>
                       <div className="home-subject-info">
+                        <span className="aura-course-index">{String(index + 1).padStart(2, "0")} · {group.kind === "math" ? "MATEMÁTICAS" : "CIENCIAS"}</span>
                         <h4>{subject.title}</h4>
                         <p>{subject.description}</p>
                         <span>Ver temas <span aria-hidden="true">↗</span></span>
@@ -164,10 +168,10 @@ export default function Home() {
 
         <section className="home-innovation wrap" aria-labelledby="home-innovation-title">
           <div className="home-innovation-copy">
-            <span className="home-visual-kicker">Aprendizaje interactivo</span>
-            <h2 id="home-innovation-title">No solo lo ves. <em>Lo compruebas.</em></h2>
-            <p>Representa ideas, modifica parámetros y observa qué cambia. La tecnología tiene sentido cuando te ayuda a comprender.</p>
-            <Link href="/herramientas" className="button">Explorar herramientas</Link>
+            <span className="home-visual-kicker">Zénit Lab · Aprendizaje interactivo</span>
+            <h2 id="home-innovation-title">La mejor explicación es la que <em>puedes comprobar.</em></h2>
+            <p>Explora representaciones, modifica variables y observa cómo cambia el resultado. Comprender también es experimentar.</p>
+            <Link href="/herramientas" className="button">Abrir herramientas <span aria-hidden="true">↗</span></Link>
           </div>
           <div className="home-innovation-photo">
             <Image
@@ -211,8 +215,8 @@ export default function Home() {
         <section className="dark-section home-path-section" aria-labelledby="home-paths-title">
           <div className="wrap home-path-head">
             <div>
-              <span className="home-visual-kicker">Una ruta para cada etapa</span>
-              <h2 id="home-paths-title">Desde tu primera idea hasta el siguiente gran desafío.</h2>
+              <span className="home-visual-kicker">Tu camino de aprendizaje</span>
+              <h2 id="home-paths-title">Hay una ruta para cada momento de tu formación.</h2>
             </div>
             <div className="home-path-photo">
               <Image
@@ -263,7 +267,7 @@ export default function Home() {
             <div>
               <span className="home-visual-kicker">El siguiente paso es tuyo</span>
               <h2 id="home-end-title">Logra tus metas.</h2>
-              <p>Con conocimiento, práctica y una dirección clara.</p>
+              <p>Lo que hoy comprendes transforma tu mañana.</p>
             </div>
             <Link className="button" href="/aprende">Comienza a aprender</Link>
           </div>
