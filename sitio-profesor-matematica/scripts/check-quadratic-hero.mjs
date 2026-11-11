@@ -23,6 +23,12 @@ assert.deepEqual(quadraticRoots(1, 0, 0), [0], "Raíz doble en el vértice");
 assert.deepEqual(quadraticRoots(-1, -2, 4), [-4, 0], "Apertura negativa con raíces");
 assert.throws(() => quadraticY(0,1,1,2), /a distinto de cero/);
 assert.throws(() => quadraticPlot(0,1,1), /a distinto de cero/);
+const reference = quadraticPlot(1, 2, -1);
+assert.ok(reference.yTicks.length >= 4, "El eje Y debe incluir números legibles");
+assert.ok(reference.ticks.includes(0) && reference.ticks.includes(1) && reference.ticks.includes(3));
+assert.ok(reference.yMin < 0 && reference.yMax > 0, "La gráfica debe mostrar el eje X");
+assert.ok(reference.yTicks.some((t) => t === 0), "El eje Y debe mostrar el origen");
+assert.ok(reference.vertex.py >= PLOT.top && reference.vertex.py <= PLOT.top + PLOT.height);
 
 for (const a of QUADRATIC_A_VALUES) {
   for (const [h,k] of [[2,-1],[-2,1],[0,0],[3,-3]]) {
@@ -61,16 +67,26 @@ assert.match(home,/<FormulaCard\/>/);
 
 
 assert.ok(layout.indexOf('import "./hero-quadratic-lab.css"') > layout.indexOf('import "./zenit-aurora.css"'));
-for(const selector of [".zqh-plot", ".zqh-controls", ".zqh-math", "max-width: 1120px", "max-width: 700px", "max-width: 540px", "prefers-reduced-motion"]){
+for(const selector of [".zqh-plot", ".zqh-controls", ".zqh-math", "max-width: 1100px", "max-width: 640px", "max-width: 360px", "prefers-reduced-motion"]){
   assert.ok(css.includes(selector), "Estilo responsive faltante: "+selector);
 }
 assert.match(css, /\.home-page-v2 \.hero\.wrap\s*\{/);
-assert.match(css, /width: min\(1450px/);
-assert.match(css, /grid-template-columns: minmax\(0, \.88fr\) minmax\(0, 1\.12fr\)/);
+assert.match(css, /width: min\(1370px/);
+assert.match(css, /grid-template-columns: minmax\(0, \.96fr\) minmax\(0, 1\.04fr\)/);
 assert.match(css, /background: transparent;/);
 assert.match(css, /border-radius: 0;/);
-assert.match(css, /max-width: 740px;/);
+assert.match(css, /max-width: 700px;/);
 assert.match(css, /max-height: none;/);
+assert.match(component, /graph\.yTicks\.map/);
+assert.match(component, /zqh-plot-paper/);
+assert.match(component, /zqh-axes/);
+assert.match(component, /zqh-axis-values/);
+assert.match(component, /zqh-curve/);
+assert.match(css, /background: #ffffff;/);
+assert.match(css, /fill: #ffffff;/);
+assert.match(css, /stroke: #6045bc;/);
+assert.match(css, /font-size: 23px;/);
+assert.doesNotMatch(css, /background: linear-gradient\(145deg,#241b4b/, "La miniaplicación no debe ser un bloque morado");
 assert.match(home, /Ver materias y niveles/);
 assert.match(home, /Probar herramientas/);
 assert.doesNotMatch(component, /zenit-phoenix\.svg|Logra tu meta|Laboratorio interactivo|zqh-brand|zqh-live/,
