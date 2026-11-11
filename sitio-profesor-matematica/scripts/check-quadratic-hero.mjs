@@ -61,9 +61,18 @@ assert.match(home,/<FormulaCard\/>/);
 
 
 assert.ok(layout.indexOf('import "./hero-quadratic-lab.css"') > layout.indexOf('import "./zenit-aurora.css"'));
-for(const selector of [".zqh-plot", ".zqh-controls", ".zqh-math", "max-width: 610px", "prefers-reduced-motion"]){
+for(const selector of [".zqh-plot", ".zqh-controls", ".zqh-math", "max-width: 1120px", "max-width: 700px", "max-width: 540px", "prefers-reduced-motion"]){
   assert.ok(css.includes(selector), "Estilo responsive faltante: "+selector);
 }
+assert.match(css, /\.home-page-v2 \.hero\.wrap\s*\{/);
+assert.match(css, /width: min\(1450px/);
+assert.match(css, /grid-template-columns: minmax\(0, \.88fr\) minmax\(0, 1\.12fr\)/);
+assert.match(css, /background: transparent;/);
+assert.match(css, /border-radius: 0;/);
+assert.match(css, /max-width: 740px;/);
+assert.match(css, /max-height: none;/);
+assert.match(home, /Ver materias y niveles/);
+assert.match(home, /Probar herramientas/);
 assert.doesNotMatch(component, /zenit-phoenix\.svg|Logra tu meta|Laboratorio interactivo|zqh-brand|zqh-live/,
   "La miniaplicación no debe repetir la identidad del encabezado");
 assert.doesNotMatch(home, /feature-band|zenit-connection-aurora-|Funciones antes de cálculo\./,
