@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { existsSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import {
   QUADRATIC_A_VALUES, tidy, quadraticY, quadraticRoots,
   expandedCoefficients, expandedLatex, vertexLatex, quadraticPlot, PLOT,
@@ -54,25 +54,19 @@ assert.match(component,/expandedLatex\(a, h, k\)/);
 assert.match(component,/vertexLatex\(a, h, k\)/);
 assert.match(component,/role="img"/);
 assert.match(component,/aria-live="polite"/);
-assert.match(component,/zenit-phoenix\.svg/);
-assert.match(component,/Logra tu meta/);
+
+
 assert.match(site,/export function FormulaCard\(\) \{ return <QuadraticHeroLab\/>; \}/);
 assert.match(home,/<FormulaCard\/>/);
-assert.match(home,/zenit-connection-aurora-desktop\.svg/);
-assert.match(home,/zenit-connection-aurora-mobile\.svg/);
+
+
 assert.ok(layout.indexOf('import "./hero-quadratic-lab.css"') > layout.indexOf('import "./zenit-aurora.css"'));
 for(const selector of [".zqh-plot", ".zqh-controls", ".zqh-math", "max-width: 610px", "prefers-reduced-motion"]){
   assert.ok(css.includes(selector), "Estilo responsive faltante: "+selector);
 }
-for(const name of ["desktop","mobile"]){
-  const image="public/brand/zenit-connection-aurora-"+name+".svg";
-  assert.ok(existsSync(new URL("../"+image,import.meta.url)), "Ilustración Aurora no encontrada: "+image);
-  const content=read(image);
-  assert.match(content,/SISTEMA ZÉNIT · LOGRA TU META/);
-  assert.match(content,/fill="url\(#flame\)"/);
-  assert.match(content,/x² − 4x \+ 3/);
-  assert.match(content,/Vértice: \(2, −1\)|V\(2, −1\)/);
-  assert.doesNotMatch(content,/#(?:12372f|d9ef78|ff5a36)\b/i,"SVG conserva tema anterior");
-}
+assert.doesNotMatch(component, /zenit-phoenix\.svg|Logra tu meta|Laboratorio interactivo|zqh-brand|zqh-live/,
+  "La miniaplicación no debe repetir la identidad del encabezado");
+assert.doesNotMatch(home, /feature-band|zenit-connection-aurora-|Funciones antes de cálculo\./,
+  "La portada no debe repetir la parábola del hero como ilustración");
 assert.match(aurora,/--aurora-brand-gradient/);
-console.log("✓ Portada: parábola exacta, controles a/h/k, raíces, vértice, SVG Aurora y responsive.");
+console.log("✓ Portada: parábola exacta, controles a/h/k, y sin logotipos ni diagramas duplicados.");
