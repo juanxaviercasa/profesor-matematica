@@ -20,11 +20,18 @@ export function GeometryCurriculumLab({topic,title}:{topic:Topic;title:string}){
   const isMedian=topic.id==="triangle-lines";
   const cx=210,cy=145,rad=size*22;
   const secant=topic.id==="circle-metric",inscribed=topic.id==="circle-angle";
+  const P={x:48,y:cy},D=cx-P.x,dir=-Math.asin(rad/(2*D));
+  const cs=Math.cos(dir),sn=Math.sin(dir),proj=D*cs;
+  const delta=Math.sqrt(Math.max(0,proj*proj-(D*D-rad*rad)));
+  const qNear=proj-delta,qFar=proj+delta;
+  const secantNear={x:P.x+qNear*cs,y:P.y+qNear*sn};
+  const secantFar={x:P.x+qFar*cs,y:P.y+qFar*sn};
+  const secantPower=(D*D-rad*rad)/(20*20);
   const mode=topic.mode;
   const polygon=mode==="polygon"?regularPolygonVertices(n,size):[];
   const angleRad=theta*Math.PI/180;
-  const upperX=isMedian?210:isRight?70:70+180*Math.cos(angleRad);
-  const upperY=isMedian?35:isRight?55:230-180*Math.sin(angleRad);
+  const upperX=isMedian?210:isRight?70:140+130*Math.cos(angleRad);
+  const upperY=isMedian?35:isRight?55:230-130*Math.sin(angleRad);
   const choose=mode==="polygon"?{title:"Número de lados",value:n,min:3,max:12,change:setN}:
     mode==="triangles"?{title:isRight?"Escala de ejemplo":"Ángulo comprendido γ (grados)",value:isRight?size:theta,min:isRight?1:30,max:isRight?5:120,change:isRight?setSize:setTheta}:
     mode==="transform"?{title:"Desplazamiento horizontal (u)",value:shift,min:-3,max:5,change:setShift}:
@@ -40,10 +47,10 @@ export function GeometryCurriculumLab({topic,title}:{topic:Topic;title:string}){
   const readout=mode==="polygon"?
     "Polígono regular de "+n+" lados. Suma interior: "+polygonInteriorSum(n)+"°. Diagonales: "+polygonDiagonalCount(n)+".":
     mode==="circle"?
-      (secant?"Dos secantes desde un punto exterior cumplen PA·PB = PC·PD.":"Longitud = "+fmt(2*Math.PI*size)+" u; área = "+fmt(Math.PI*size*size)+" u².") :
+      (secant?"Dos secantes desde P: PA·PB = PC·PD = "+fmt(secantPower)+" u². Las longitudes son proporcionales al dibujo.":"Longitud = "+fmt(2*Math.PI*size)+" u; área = "+fmt(Math.PI*size*size)+" u².") :
     mode==="triangles"?
       (isMedian?"La mediana divide BC por la mitad y el baricentro G cumple AG=2GM.":isRight?"Ejemplo de triángulo rectángulo; compara catetos e hipotenusa.":"Dos lados de 6 y 4 u, con ángulo comprendido "+theta+"°: tercer lado = "+fmt(Math.sqrt(36+16-48*Math.cos(angleRad)))+" u.") :
-    mode==="area"?"Ejemplo de rectángulo: base "+size+" u, altura 4 u, área "+4*size+" u².":
+    mode==="area"?(topic.id==="shaded-area"?"Ejemplo de región sombreada: área total "+(4*size)+" u² menos un cuarto sin sombrear; área sombreada "+(3*size)+" u².":"Ejemplo de rectángulo: base "+size+" u, altura 4 u, área "+4*size+" u²."):
     mode==="scale"?"A escala 1:"+size+", 5 cm del plano equivalen a "+(5*size)+" cm reales.":
     mode==="transform"?"Traslación T("+shift+",0): las longitudes y medidas de los ángulos se conservan.":
     mode==="solids"?
@@ -81,22 +88,25 @@ export function GeometryCurriculumLab({topic,title}:{topic:Topic;title:string}){
           <circle cx="210" cy="135" r="4" fill="#e8bc71"/>
         </g>}
         {mode==="triangles"&&<g>
-          <polygon points={"70,230 340,230 "+upperX+","+upperY} fill="#6840c5" fillOpacity=".28" stroke="#b49aff" strokeWidth="3"/>
+          <polygon points={(isMedian||isRight?"70,230 340,230 ":"140,230 335,230 ")+upperX+","+upperY} fill="#6840c5" fillOpacity=".28" stroke="#b49aff" strokeWidth="3"/>
           {isMedian&&<g>
             <line x1={upperX} y1={upperY} x2="205" y2="230" stroke="#e8bc71" strokeWidth="3" strokeDasharray="6 4"/>
             <circle cx={(upperX+2*205)/3} cy={(upperY+460)/3} r="5" fill="#e8bc71"/>
             <text x="216" y="175" fontSize="17" fill="#ffe3ab">G</text>
           </g>}
           <text x={upperX+9} y={upperY-5} fill="#fff" fontSize="18">A</text>
-          <text x="48" y="252" fill="#fff" fontSize="18">B</text>
-          <text x="347" y="252" fill="#fff" fontSize="18">C</text>
+          <text x={isMedian||isRight?48:116} y="252" fill="#fff" fontSize="18">B</text>
+          <text x={isMedian||isRight?347:343} y="252" fill="#fff" fontSize="18">C</text>
         </g>}
         {mode==="circle"&&<g>
           <circle cx={cx} cy={cy} r={rad} fill="#6840c5" fillOpacity=".22" stroke="#b49aff" strokeWidth="3"/>
           <circle cx={cx} cy={cy} r="4" fill="#ffe3ab"/>
           {secant&&<g stroke="#e8bc71" strokeWidth="2.5">
-            <line x1="48" y1={cy} x2={cx+rad} y2={cy}/>
-            <line x1="48" y1={cy} x2="340" y2="28"/>
+            <line x1={P.x} y1={P.y} x2={cx+rad} y2={cy}/>
+            <line x1={P.x} y1={P.y} x2={secantFar.x} y2={secantFar.y}/>
+            <circle cx={P.x} cy={P.y} r="4" fill="#ffe3ab"/>
+            <circle cx={secantNear.x} cy={secantNear.y} r="4" fill="#ffe3ab"/>
+            <text x={P.x-14} y={P.y-11} fill="#ffe3ab" fontSize="16" stroke="none">P</text>
           </g>}
           {inscribed&&<g stroke="#ffe3ab" strokeWidth="2.5" fill="none">
             <path d={"M"+(cx-rad*.65)+" "+(cy-rad*.76)+" L"+cx+" "+(cy+rad)+" L"+(cx+rad*.65)+" "+(cy-rad*.76)}/>
@@ -110,8 +120,8 @@ export function GeometryCurriculumLab({topic,title}:{topic:Topic;title:string}){
           <text x="100" y="247" fill="#ffe3ab" fontSize="18">b={size}, h=4</text>
         </g>}
         {mode==="scale"&&<g strokeWidth="4">
-          <line x1="46" y1="80" x2="162" y2="80" stroke="#e8bc71"/>
-          <line x1="46" y1="170" x2="370" y2="170" stroke="#b49aff"/>
+          <line x1="46" y1="80" x2="78" y2="80" stroke="#e8bc71"/>
+          <line x1="46" y1="170" x2={46+32*size} y2="170" stroke="#b49aff"/>
           <g fill="#fff" stroke="none" fontSize="18"><text x="45" y="55">Plano: 5 cm</text><text x="45" y="146">Real: {5*size} cm</text></g>
         </g>}
         {mode==="transform"&&<g>
@@ -121,7 +131,11 @@ export function GeometryCurriculumLab({topic,title}:{topic:Topic;title:string}){
           <text x="29" y="45" fill="#fff" fontSize="16">Original: violeta · Trasladado: oro</text>
         </g>}
         {mode==="solids"&&<g fill="#6840c5" fillOpacity=".32" stroke="#b49aff" strokeWidth="2.7">
-          {isCube?<g><polygon points="125,68 230,68 275,112 170,112"/><polygon points="125,68 170,112 170,228 125,182"/><polygon points="170,112 275,112 275,228 170,228"/></g>:
+          {isCube?(topic.id==="nets"?
+             <g>{[[168,47],[168,89],[126,89],[210,89],[168,131],[168,173]].map(([x,y],i)=>
+               <rect key={i} x={x} y={y} width="42" height="42" stroke="#e8bc71" fill="#6840c5" fillOpacity=".23"/>)}
+             </g>:
+             <g><polygon points="125,68 230,68 275,112 170,112"/><polygon points="125,68 170,112 170,228 125,182"/><polygon points="170,112 275,112 275,228 170,228"/></g>):
             showRevolution?<g><path d="M40 75 L40 210 Q100 230 160 210 L160 75 Z"/><ellipse cx="100" cy="75" rx="60" ry="17"/><path d="M245 215 L305 45 L365 215 Z"/><ellipse cx="305" cy="215" rx="60" ry="16"/></g>:
             <g><polygon points="44,85 138,85 170,113 76,113"/><polygon points="44,85 76,113 76,225 44,196"/><polygon points="76,113 170,113 170,225 76,225"/><polygon points="250,225 305,48 380,225"/></g>}
         </g>}
