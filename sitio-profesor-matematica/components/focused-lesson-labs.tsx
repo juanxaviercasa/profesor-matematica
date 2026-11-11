@@ -105,6 +105,9 @@ function AngleLab(){
           <text x="78" y="192" textAnchor="middle" fontSize="15" fill="#e8dffd">180°</text>
         </svg>
       </div>
+      <p className="sm:hidden rounded-lg bg-[#302354] p-3 text-center text-base text-white">
+        Abertura: <strong className="text-[#ffe3ab]">{angle}°</strong>
+      </p>
       <div className="rounded-xl border border-violet-300/70 bg-[#302354] p-4 space-y-3">
         <p className="font-semibold text-base text-white">¿Cómo se clasifica un ángulo de {angle}°?</p>
         <div role="group" aria-label="Clasificación de ángulos" className="flex flex-wrap gap-2">
@@ -143,6 +146,11 @@ function SegmentLab() {
           <text x={(xB+xC)/2} y="100" textAnchor="middle" fontSize="14" fill="#b49aff">{bc} cm</text>
         </svg>
       </div>
+      <div className="sm:hidden grid grid-cols-3 gap-2 text-center text-base text-white" aria-label="Medidas actuales de los segmentos">
+        <p className="rounded-lg bg-[#302354] p-2">AB <strong className="block text-[#ffe3ab]">{ab} cm</strong></p>
+        <p className="rounded-lg bg-[#302354] p-2">BC <strong className="block text-[#ffe3ab]">{bc} cm</strong></p>
+        <p className="rounded-lg bg-[#302354] p-2">AC <strong className="block text-[#ffe3ab]">{ab+bc} cm</strong></p>
+      </div>
       <GeometryAnswer key={"segment-"+ab} question={"Si AB = "+ab+" cm y BC = "+bc+" cm, ¿cuánto mide AC?"} answer={ab+bc} unit="cm"/>
       <a href={equationIoGraphUrl(["y=0","(0,0)","("+ab+",0)","("+(ab+bc)+",0)"])}
          target="_blank" rel="noopener noreferrer"
@@ -177,6 +185,10 @@ function CongruenceLab() {
           <text x="90" y="24" textAnchor="middle" fontSize="16" fill="#b49aff">Triángulo A</text>
           <text x="308" y="24" textAnchor="middle" fontSize="16" fill="#e8bc71">Triángulo B</text>
         </svg>
+      </div>
+      <div className="sm:hidden grid grid-cols-2 gap-2 text-center text-base text-white" aria-label="Longitudes de los triángulos comparados">
+        <p className="rounded-lg bg-[#302354] p-2">Triángulo A <strong className="block text-[#ffe3ab]">3, 4 y 5</strong></p>
+        <p className="rounded-lg bg-[#302354] p-2">Triángulo B <strong className="block text-[#ffe3ab]">{fmt(3*k)}, {fmt(4*k)}, {fmt(5*k)}</strong></p>
       </div>
       <div className="rounded-xl border border-violet-300/70 bg-[#302354] p-4 space-y-3">
         <p className="font-semibold text-base text-white">¿Son congruentes los dos triángulos?</p>
@@ -221,6 +233,9 @@ function ParallelLab() {
           <text x="349" y="103" textAnchor="middle" fontSize="16" fill="#fffaf0">α = {alpha}°</text>
         </svg>
       </div>
+      <p className="sm:hidden rounded-lg bg-[#302354] p-3 text-center text-base text-white">
+        α = <strong className="text-[#ffe3ab]">{alpha}°</strong> · Suplemento = <strong className="text-[#ffe3ab]">{180-alpha}°</strong>
+      </p>
       <GeometryAnswer key={"parallel-"+alpha}
         question={"Si α = "+alpha+"°, ¿cuánto mide su ángulo colateral interno?"}
         answer={180-alpha} unit="°"/>
