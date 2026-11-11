@@ -11,14 +11,17 @@ import vm from "node:vm";
 const read = path => readFileSync(new URL("../" + path, import.meta.url), "utf8");
 const source = read("components/focused-lesson-labs.tsx");
 const topics = read("lib/focused-lesson-topics.ts");
+const angleSource=read("lib/geometry-angles.mjs");
+const {classifyAngle,anglePoint}=await import("../lib/geometry-angles.mjs");
 const page = read("app/aprende/[area]/[curso]/[slug]/page.tsx");
 const browser = read("scripts/qa-catalog-browser.mjs");
 const catalog = JSON.parse(read("content/catalog/lessons-index.json"));
-const keys = [...topics.matchAll(/"([a-z0-9-]+)": "(segments|congruence|parallel|cryptarithm|square|sequence|expression|frequency)",/g)];
+const keys = [...topics.matchAll(/"([a-z0-9-]+)": "(segments|angles|congruence|parallel|cryptarithm|square|sequence|expression|frequency)",/g)];
 const mapping = new Map(keys.map(([, slug, kind]) => [slug, kind]));
-assert.equal(mapping.size, 16, "Revisar cobertura de 16 lecciones con laboratorio específico");
-assert.equal(new Set(mapping.values()).size, 8, "Falta alguna de las ocho familias matemáticas");
+assert.equal(mapping.size, 17, "Revisar cobertura de 17 lecciones con laboratorio específico");
+assert.equal(new Set(mapping.values()).size, 9, "Falta alguna de las nueve familias matemáticas");
 assert.equal(mapping.get("segmentos-1sec-unidad1"), "segments", "La lección Segmentos debe usar el laboratorio de longitudes, no polígonos");
+assert.equal(mapping.get("angulos-1sec-unidad2"), "angles", "La lección Ángulos debe usar el transportador y no polígonos");
 for (const [slug, kind] of mapping) {
   const item = catalog.find(l => l.slug === slug);
   assert.ok(item, "El laboratorio no corresponde a una lección real: " + slug);
@@ -33,6 +36,15 @@ assert.match(page, /<FocusedLessonLab slug=\{lesson\.slug\} title=\{lesson\.titl
 assert.match(page, /<ZenitInteractiveApp/);
 assert.match(source, /role="status" aria-live="polite"/);
 assert.match(source,/function GeometryAnswer\(/);
+assert.match(source,/function AngleLab\(/);
+assert.match(source,/aria-label="Clasificación de ángulos"/);
+assert.match(source,/zenit-geometry-lab/);
+for(const [value,kind] of [[0,"nulo"],[5,"agudo"],[85,"agudo"],[90,"recto"],[95,"obtuso"],[175,"obtuso"],[180,"llano"]]){
+  assert.equal(classifyAngle(value),kind);
+  const point=anglePoint(value);
+  assert.ok(point.x>=90&&point.x<=330&&point.y>=40&&point.y<=180);
+}
+assert.throws(()=>classifyAngle(181),RangeError);
 assert.match(source,/equationIoGraphUrl\(/);
 assert.match(source,/answer=\{ab\+bc\}/);
 assert.match(source,/answer=\{180-alpha\}/);
@@ -75,4 +87,4 @@ for(let x=-4;x<=4;x++) assert.equal(4*x+3*x-2*x,5*x);
 const freq=[2,1,3];assert.equal(freq.reduce((a,b)=>a+b,0),6);
 assert.ok(Math.abs(freq.reduce((s,n)=>s+(n/6*100),0)-100)<1e-9);
 
-console.log("✓ 15 lecciones con ocho laboratorios temáticos: TSX, accesibilidad y relaciones matemáticas comprobadas.");
+console.log("✓ 17 lecciones con nueve laboratorios temáticos: TSX, accesibilidad y relaciones matemáticas comprobadas.");

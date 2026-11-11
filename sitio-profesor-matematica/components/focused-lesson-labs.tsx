@@ -2,6 +2,7 @@
 
 import { useId, useState, type ReactNode } from "react";
 import { equationIoGraphUrl } from "@/lib/equation-io";
+import { classifyAngle, anglePoint } from "@/lib/geometry-angles.mjs";
 import { FOCUSED_LABS, type FocusedLabKind } from "@/lib/focused-lesson-topics";
 
 /**
@@ -64,6 +65,59 @@ function GeometryAnswer({question,answer,unit}:{question:string;answer:number;un
       <p role="status" aria-live="polite" className="min-h-6 text-base text-[#ffe3ab]">
         {correct?"¡Correcto! Has aplicado la propiedad matemática.":""}
       </p>
+    </div>
+  );
+}
+
+function AngleLab(){
+  const [angle,setAngle]=useState(45);
+  const [choice,setChoice]=useState<string|null>(null);
+  const category=classifyAngle(angle);
+  const ray=anglePoint(angle);
+  const arc=anglePoint(angle,50);
+  const label=anglePoint(angle/2,77);
+  const options=["nulo","agudo","recto","obtuso","llano"] as const;
+  return (
+    <div className="space-y-4">
+      <p className="text-base text-stone-100">
+        Un ángulo mide el giro entre dos semirrectas con un origen común.
+        Mueve el control y observa cómo cambia la abertura, desde 0° hasta 180°.
+      </p>
+      <Slider id="angle-measure" title="Medida del ángulo θ" value={angle} min={0} max={180}
+        step={5} unit="°" onChange={next=>{setAngle(next);setChoice(null)}}/>
+      <div className="rounded-xl border border-violet-400/60 bg-[#21183f] p-3">
+        <svg viewBox="0 0 420 240" className="block h-auto w-full" role="img"
+          aria-label={"Ángulo de "+angle+" grados. Tiene clasificación "+category+". Una semirrecta es horizontal y la otra gira hacia arriba."}>
+          <title>Construcción dinámica del ángulo</title>
+          <desc>La medida se modifica con un deslizador y se representa con dos semirrectas y un arco.</desc>
+          <path d="M32 170H390" stroke="#9d8ac2" strokeWidth="1.5" strokeDasharray="5 6"/>
+          <line x1="210" y1="170" x2="360" y2="170" stroke="#e8bc71" strokeWidth="4" strokeLinecap="round"/>
+          <line x1="210" y1="170" x2={ray.x} y2={ray.y} stroke="#b49aff"
+            strokeWidth="4" strokeLinecap="round"/>
+          {angle>0&&<path d={"M260 170 A50 50 0 0 0 "+arc.x.toFixed(2)+" "+arc.y.toFixed(2)}
+            fill="none" stroke="#f0d8a3" strokeWidth="2.5"/>}
+          <circle cx="210" cy="170" r="5" fill="#fff" />
+          <text x="200" y="190" textAnchor="end" fontSize="16" fill="#fff">O</text>
+          <text x={label.x} y={label.y-6} textAnchor="middle" fontSize="18"
+            fontWeight="700" fill="#ffe3ab">{angle}°</text>
+          <text x="352" y="192" textAnchor="middle" fontSize="15" fill="#ffe3ab">0°</text>
+          <text x="210" y="27" textAnchor="middle" fontSize="15" fill="#e8dffd">90°</text>
+          <text x="78" y="192" textAnchor="middle" fontSize="15" fill="#e8dffd">180°</text>
+        </svg>
+      </div>
+      <div className="rounded-xl border border-violet-300/70 bg-[#302354] p-4 space-y-3">
+        <p className="font-semibold text-base text-white">¿Cómo se clasifica un ángulo de {angle}°?</p>
+        <div role="group" aria-label="Clasificación de ángulos" className="flex flex-wrap gap-2">
+          {options.map(value=><button key={value} type="button" aria-pressed={choice===value}
+            className="zenit-geometry-choice min-h-[44px] rounded-lg border border-violet-200 bg-white px-4 py-2 font-semibold text-[#241b4b]"
+            onClick={()=>setChoice(value)}>{value[0].toUpperCase()+value.slice(1)}</button>)}
+        </div>
+        <p role="status" aria-live="polite" className="min-h-6 text-base text-[#ffe3ab]">
+          {choice?(choice===category?"¡Correcto! La clasificación depende de la medida.":
+          "Revisa la abertura: 0° es nulo, menos de 90° es agudo, 90° es recto, entre 90° y 180° es obtuso y 180° es llano."):""}
+        </p>
+      </div>
+      <Explanation>θ = <strong>{angle}°</strong>. Es un ángulo <strong>{category}</strong>.</Explanation>
     </div>
   );
 }
@@ -280,8 +334,10 @@ function FrequencyLab() {
 export function FocusedLessonLab({slug,title}:{slug:string;title:string}) {
   const kind=TOPIC_LABS[slug];
   if(!kind) return null;
+  const isGeometry=["segments","angles","congruence","parallel"].includes(kind);
   const descriptions:Record<Kind,string>={
     segments:"Puntos, rectas y segmentos",
+    angles:"Clasificación y medida de ángulos",
     congruence:"Congruencia de triángulos",
     parallel:"Paralelas y secante",
     cryptarithm:"Criptoaritmética y valor posicional",
@@ -291,13 +347,14 @@ export function FocusedLessonLab({slug,title}:{slug:string;title:string}) {
     frequency:"Distribución de frecuencias"
   };
   return (
-    <section className="zenit-webapp-shell zenit-focused-lab rounded-3xl border border-emerald-700/70 bg-[#0e261f] p-5 md:p-8 space-y-5 shadow-xl" aria-label={"Laboratorio de " + title}>
+    <section className={"zenit-webapp-shell zenit-focused-lab rounded-3xl border p-5 md:p-8 space-y-5 shadow-xl "+(isGeometry?"zenit-geometry-lab border-violet-500/70 bg-[#241b4b]":"border-emerald-700/70 bg-[#0e261f]")} aria-label={"Laboratorio de " + title}>
       <header className="space-y-2">
         <p className="text-sm font-bold uppercase tracking-wide text-emerald-200">Laboratorio interactivo · Matemática aplicada</p>
         <h2 className="text-2xl md:text-3xl font-bold text-white">{descriptions[kind]}</h2>
         <p className="text-base leading-relaxed text-stone-200">Modifica el control, observa el cambio y explica la propiedad matemática que se conserva.</p>
       </header>
       {kind==="segments"&&<SegmentLab/>}
+      {kind==="angles"&&<AngleLab/>}
       {kind==="congruence"&&<CongruenceLab/>}
       {kind==="parallel"&&<ParallelLab/>}
       {kind==="cryptarithm"&&<CryptarithmLab/>}

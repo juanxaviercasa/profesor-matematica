@@ -30,6 +30,7 @@ for (const pattern of [/gaseoso/, /soluciones químicas/i, /equilibrio químico/
 // Asegurar cobertura de los tres laboratorios geométricos temáticos.
 const geometrySlugs=[
   "segmentos-1sec-unidad1",
+  "angulos-1sec-unidad2",
   "congruencia-de-triangulos-1sec-unidad3",
   "angulos-formados-por-2-rectas-paralelas-y-1-secante-1sec-unidad2"
 ];
@@ -87,6 +88,18 @@ try {
           addIssue("warning", key, "Simulador sin controles numéricos editables");
         }
         // Pruebas funcionales de retroalimentación pedagógica en geometría.
+        if (lesson.slug==="angulos-1sec-unidad2") {
+          const degrees=Number(await shell.locator("#angle-measure").inputValue());
+          const correct=degrees===0?"Nulo":degrees<90?"Agudo":degrees===90?"Recto":degrees<180?"Obtuso":"Llano";
+          await shell.getByRole("button",{name:correct,exact:true}).click();
+          if(!await shell.getByRole("status").filter({hasText:"¡Correcto! La clasificación depende"}).count()){
+            addIssue("error",key,"La clasificación interactiva del ángulo es incorrecta");
+          }
+          const graphic=await shell.locator('svg[aria-label^="Ángulo de"]').first().getAttribute("aria-label");
+          if(!graphic?.includes(degrees+" grados")){
+            addIssue("error",key,"El dibujo no anuncia la medida del ángulo actual");
+          }
+        }
         if (lesson.slug==="segmentos-1sec-unidad1") {
           const lengthAB=Number(await shell.locator("#segment-ab").inputValue());
           const answer=shell.getByRole("textbox", {name:/Si AB =/});
