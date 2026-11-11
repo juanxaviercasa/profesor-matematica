@@ -32,7 +32,8 @@ const geometrySlugs=[
   "segmentos-1sec-unidad1",
   "angulos-1sec-unidad2",
   "congruencia-de-triangulos-1sec-unidad3",
-  "angulos-formados-por-2-rectas-paralelas-y-1-secante-1sec-unidad2"
+  "angulos-formados-por-2-rectas-paralelas-y-1-secante-1sec-unidad2",
+  "angulos-determinados-por-dos-rectas-paralelas-y-una-recta-secante-1sec-unidad2"
 ];
 for(const slug of geometrySlugs){
   const lesson=published.find(l=>l.slug===slug);
@@ -63,7 +64,10 @@ async function open(url, size) {
 }
 try {
   for (const { lesson, why } of cases) {
-    for (const size of sizes) {
+    const geometrySizes=geometrySlugs.includes(lesson.slug)
+      ? [...sizes,{ name:"movil320",width:320,height:760 }]
+      : sizes;
+    for (const size of geometrySizes) {
       const key = lesson.slug + "-" + size.name;
       const entry = { slug: lesson.slug, engine: lesson.appEngine, course: lesson.course,
         size: size.name, why, slider: null, changed: null,
@@ -112,7 +116,8 @@ try {
             addIssue("error",key,"La gráfica XY no conserva la posición actual del punto B");
           }
         }
-        if (lesson.slug==="angulos-formados-por-2-rectas-paralelas-y-1-secante-1sec-unidad2") {
+        if (lesson.slug==="angulos-formados-por-2-rectas-paralelas-y-1-secante-1sec-unidad2" ||
+            lesson.slug==="angulos-determinados-por-dos-rectas-paralelas-y-una-recta-secante-1sec-unidad2") {
           const alpha=Number(await shell.locator("#parallel-angle").inputValue());
           await shell.getByRole("textbox",{name:/colateral interno/}).fill(String(180-alpha));
           if (!await shell.getByRole("status").filter({hasText:"¡Correcto! Has aplicado"}).count()) {
