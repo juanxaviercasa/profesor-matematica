@@ -222,6 +222,33 @@
   background:rgba(255,255,255,.075);
   border-color:rgba(235,225,255,.24);
 }
+/* Alternancia clara/oscura: tres rutas visibles sin otro bloque violeta masivo. */
+.home-page-v2 .home-path-section.dark-section{
+  background:#f4f0fc;
+  color:#241b4b;
+}
+.home-page-v2 .home-path-head .home-visual-kicker{color:#6840c5}
+.home-page-v2 .home-path-head h2{color:#241b4b}
+.home-page-v2 .home-path-photo{
+  border:1px solid #e3d9f4;
+  box-shadow:0 19px 40px rgba(36,27,75,.11);
+}
+.home-page-v2 .home-path-section .path-card{
+  background:#fff;
+  border:1px solid #e4dcf0;
+  color:#241b4b;
+  box-shadow:0 9px 23px rgba(36,27,75,.035);
+}
+.home-page-v2 .home-path-section .path-card:hover,
+.home-page-v2 .home-path-section .path-card:focus-visible{
+  border-color:#b7a5da;
+  background:#fff;
+  box-shadow:0 18px 38px rgba(36,27,75,.085);
+}
+.home-page-v2 .home-path-section .path-card>span{color:#6840c5}
+.home-page-v2 .home-path-section .path-card h3{color:#241b4b}
+.home-page-v2 .home-path-section .path-card p{color:#645d74}
+.home-page-v2 .home-path-section .path-card b{color:#4b2a96}
 .home-page-v2 .home-trust.wrap{
   width:min(1110px,calc(100% - 58px));max-width:1110px;
   padding-block:clamp(74px,8vw,112px);
