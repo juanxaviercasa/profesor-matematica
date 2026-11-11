@@ -1,0 +1,92 @@
+/*
+ * Hero · mini web matemática Zénit Aurora.
+ * Aislado de lecciones y simuladores de curso para evitar regresiones.
+ * Se carga después de zenit-aurora.css.
+ */
+.home-page-v2 .formula-card.zqh-lab {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(11px, 1.6vw, 16px);
+  width: 100%;
+  min-width: 0;
+  max-width: 620px;
+  padding: clamp(16px, 2.2vw, 25px);
+  margin-inline: auto;
+  color: #f9f6ff;
+  border: 1px solid #65528f;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #241b4b 0%, #35265f 58%, #19152f 100%);
+  box-shadow: 0 28px 62px rgba(36, 27, 75, .2);
+  overflow: hidden;
+  transform: none;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+.zqh-lab * { box-sizing: border-box; }
+.zqh-header, .zqh-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-width: 0; }
+.zqh-header { padding-bottom: 11px; border-bottom: 1px solid #ffffff26; }
+.zqh-brand { display: inline-flex; align-items: center; gap: 9px; min-width: 0; }
+.zqh-brand img { flex: none; display: block; width: 23px; height: 32px; object-fit: contain; }
+.zqh-brand > span { display: flex; flex-direction: column; line-height: 1.12; gap: 3px; }
+.zqh-brand b { color: #fff; font-size: .87rem; letter-spacing: .008em; }
+.zqh-brand small { color: #f4d8a2; font-size: .76rem; font-weight: 700; }
+.zqh-live { display: inline-flex; align-items: center; gap: 7px; padding: 6px 10px; border: 1px solid #bda9e754; border-radius: 999px; color: #e9e0ff; background: #a791d218; font-size: .69rem; font-weight: 750; white-space: nowrap; }
+.zqh-live > span { background: #e8bc71; width: 7px; height: 7px; border-radius: 50%; }
+.zqh-heading { align-items: flex-end; }
+.zqh-heading > div { min-width: 0; }
+.zqh-eyebrow { margin: 0 0 5px; font-size: .71rem; font-weight: 750; text-transform: uppercase; color: #e7cffc; letter-spacing: .09em; line-height: 1.4; }
+.home-page-v2 .zqh-heading h2 { margin: 0; color: #fff; font: 800 clamp(1.16rem, 1.55vw, 1.48rem)/1.18 ui-sans-serif,system-ui,sans-serif; letter-spacing: -.025em; text-wrap: balance; }
+.zqh-reset { flex: none; min-width: 93px; min-height: 36px; padding: 6px 10px; background: #ffffff13; color: #f6edff; border: 1px solid #bda9e75c; border-radius: 10px; cursor: pointer; font-size: .76rem; font-weight: 750; }
+.zqh-reset:hover { background: #ffffff28; border-color: #d8c7ff; }
+.zqh-reset:focus-visible { outline: 3px solid #e8bc71; outline-offset: 3px; }
+.zqh-equations { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 8px; }
+.zqh-equation-primary,.zqh-equation-secondary { display: flex; flex-direction: column; gap: 8px; min-width: 0; padding: 11px 12px 12px; border: 1px solid #7e6aa3; border-radius: 12px; background: #ffffff0c; }
+.zqh-equation-primary { background: #efe9fc; border-color: #efe9fc; color: #241b4b; }
+.zqh-equation-secondary { color: #f6f0ff; }
+.zqh-equation-label { color: inherit; opacity: .83; font-size: .66rem; font-weight: 800; letter-spacing: .055em; text-transform: uppercase; line-height: 1.4; }
+.home-page-v2 .zqh-lab .zqh-math { display: block; max-width: 100%; font-size: clamp(.93rem, 1.26vw, 1.17rem); line-height: 1.35; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; white-space: nowrap; }
+.zqh-math .katex { font-size: 1em; }
+.home-page-v2 .formula-card.zqh-lab .zqh-plot { display: block; width: 100%; height: auto; margin: 0; aspect-ratio: 520/290; max-height: 290px; border-radius: 12px; background: #21183f; }
+.home-page-v2 .formula-card.zqh-lab .zqh-plot path[stroke^="url("] { stroke: url(#zqh-curve-gradient); }
+.zqh-controls { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; min-width: 0; }
+.zqh-control { display: grid; gap: 6px; align-content: start; min-width: 0; }
+.zqh-control > span { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 5px; color: #e5dcf7; font-size: .75rem; line-height: 1.35; font-weight: 600; }
+.zqh-control b { font-variant-numeric: tabular-nums; color: #f6d394; font-size: .83rem; }
+.zqh-control input[type=range] { display: block; width: 100%; min-width: 0; height: 30px; margin: 0; cursor: pointer; accent-color: #e8bc71; background: none; }
+.zqh-control input[type=range]:focus-visible { outline: 3px solid #e8bc71; outline-offset: 2px; border-radius: 4px; }
+.zqh-readout { display: grid; grid-template-columns: .9fr 1.1fr 1.3fr; gap: 7px; }
+.zqh-readout > span { display: flex; flex-direction: column; gap: 4px; min-width: 0; border: 1px solid #ffffff25; border-radius: 10px; padding: 9px 10px; color: #f8f3ff; font-size: .75rem; line-height: 1.35; overflow-wrap: anywhere; }
+.zqh-readout strong { color: #f5d99a; font-size: .7rem; text-transform: uppercase; letter-spacing: .05em; }
+.zqh-help { margin: 0; color: #dfd3f1; font-size: .75rem; line-height: 1.4; }
+.zqh-help strong { color: #fff; }
+@media(max-width: 1150px) {
+  .home-page-v2 .formula-card.zqh-lab { max-width: 600px; }
+  .zqh-equations { grid-template-columns: 1fr; }
+}
+@media(max-width: 850px) {
+  .home-page-v2 .formula-card.zqh-lab { max-width: min(100%,680px); }
+  .zqh-equations { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .home-page-v2 .zqh-lab .zqh-math { font-size: 1.05rem; }
+}
+@media(max-width: 610px) {
+  .home-page-v2 .formula-card.zqh-lab { padding: 15px; border-radius: 20px; gap: 12px; }
+  .zqh-header { align-items: flex-start; flex-wrap: wrap; }
+  .zqh-heading { align-items: flex-start; }
+  .zqh-reset { min-width: 88px; }
+  .zqh-equations { grid-template-columns: 1fr; }
+  .zqh-equation-primary,.zqh-equation-secondary { padding: 10px 12px; }
+  .home-page-v2 .zqh-lab .zqh-math { font-size: 1.06rem; }
+  .zqh-controls { grid-template-columns: 1fr; gap: 9px; }
+  .zqh-control { grid-template-columns: 1fr minmax(100px, 1fr); gap: 11px; align-items: center; }
+  .zqh-control > span { font-size: .79rem; }
+  .zqh-readout { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .zqh-readout > span:last-child { grid-column: 1/-1; }
+  .zqh-plot { min-height: 0; }
+}
+@media(max-width: 355px) {
+  .zqh-live { font-size: .65rem; }
+  .zqh-heading h2 { font-size: 1.12rem; }
+  .zqh-control { grid-template-columns: 1fr; gap: 3px; }
+}
+@media(prefers-reduced-motion: reduce) {
+  .zqh-lab * { transition: none !important; animation: none !important; }
+}
