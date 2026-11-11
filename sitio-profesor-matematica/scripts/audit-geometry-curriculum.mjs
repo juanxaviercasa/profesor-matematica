@@ -40,6 +40,24 @@ for(const lesson of geometry){
   if(item.findings.length)errors.push(item);
   audits.push(item);
 }
+// Invariantes matemáticos de los ejemplos visuales de esta fase.
+for(let size=1;size<=5;size++){
+  const a=3*size,b=4*size,c=5*size;
+  const h=2.4*size,m=1.8*size,n=3.2*size;
+  assert.ok(Math.abs(a*a+b*b-c*c)<1e-8,"Modelo 3-4-5 inválido");
+  assert.ok(Math.abs(h*h-m*n)<1e-8,"Altura y proyecciones incompatibles");
+  assert.ok(Math.abs(a*a-c*m)<1e-8&&Math.abs(b*b-c*n)<1e-8,"Teorema de catetos inválido");
+  const D=210-48,rad=size*22,phi=Math.asin(rad/(2*D));
+  const near=D*Math.cos(phi)-Math.sqrt(D*D*Math.cos(phi)**2-(D*D-rad*rad));
+  const far=D*Math.cos(phi)+Math.sqrt(D*D*Math.cos(phi)**2-(D*D-rad*rad));
+  assert.ok(Math.abs(near*far-(D-rad)*(D+rad))<1e-8,"Potencia de punto inválida");
+  assert.equal(4*size-(4*size)/4,3*size,"Área sombreada incoherente");
+  assert.ok(Math.abs(Math.PI*size*size*5/3-(Math.PI*size*size*5)/3)<1e-8,"Volumen de cono");
+}
+for(const size of [-4,-2,0,2,4]){
+  const A=210+size*18,M=205,G=(A+2*M)/3;
+  assert.ok(Math.abs((G-A)-2*(M-G))<1e-9,"Baricentro no divide mediana 2:1");
+}
 for(const path of ["components/geometry-curriculum-lab.tsx","components/zenit-app-engines.tsx"]){
   const source=read(path);
   const ast=ts.createSourceFile(path,source,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
