@@ -73,3 +73,6 @@ Se identificó una incompatibilidad pedagógica: las 8 lecciones de Álgebra Lin
 `npm run check:curricular-problems` ensaya 300 semillas por cada una de las 22 unidades: **6600 problemas**, verificando resultados con cálculos independientes, cinco alternativas distintas, pasos desarrollados y correspondencia con la asignatura.
 
 **Límite:** las preguntas específicas son ejercicios de refuerzo calibrados, no demostraciones exhaustivas de todos los subtemas del título. Los simuladores visuales genéricos de estas áreas siguen necesitando especialización por tema, al igual que las 38 lecciones de Cálculo y las 8 de EDO. No presentar esta mejora como certificación completa del contenido académico.
+
+## Fase 2E — verificaciones de navegador de las prácticas temáticas
+Se añade `scripts/qa-curricular-browser.mjs`, que abre **37 lecciones publicadas** y comprueba en Chromium móvil: HTTP 200, enunciado contextual, 5 alternativas, bloqueo tras responder, explicación paso a paso, regeneración de datos, ausencia de scroll horizontal y ausencia de errores JavaScript. Genera un registro por ruta y capturas de evidencia. Se ejecuta en `zenit-pedagogy-qa.yml` después de la batería general de simuladores.

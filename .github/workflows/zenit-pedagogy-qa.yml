@@ -17,6 +17,7 @@ on:
       - "sitio-profesor-matematica/scripts/check-focused-problems.mjs"
       - "sitio-profesor-matematica/lib/curricular-problem-generator.ts"
       - "sitio-profesor-matematica/scripts/check-curricular-problems.mjs"
+      - "sitio-profesor-matematica/scripts/qa-curricular-browser.mjs"
       - "sitio-profesor-matematica/components/chemistry-learning-lab.tsx"
       - "sitio-profesor-matematica/app/learning-experience.css"
       - "sitio-profesor-matematica/lib/lesson-study-guides.ts"
@@ -78,6 +79,10 @@ jobs:
         env:
           QA_BASE_URL: http://127.0.0.1:8787
         run: node scripts/qa-pedagogy-ui.mjs
+      - name: Verificar las 37 prácticas temáticas en móvil
+        env:
+          QA_BASE_URL: http://127.0.0.1:8787
+        run: node scripts/qa-curricular-browser.mjs
       - name: Publicar evidencias aunque fallen pruebas
         if: always()
         uses: actions/upload-artifact@v4
