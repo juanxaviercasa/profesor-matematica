@@ -45,7 +45,7 @@ export function QuadraticHeroLab() {
         )}
       </div>
 
-      <svg className="zqh-plot" viewBox="0 0 620 294" role="img"
+      <svg className="zqh-plot" viewBox="0 0 620 346" role="img"
         aria-label={"Plano cartesiano de la función cuadrática, con a igual a " + tidy(a) +
           ", h igual a " + tidy(h) + " y k igual a " + tidy(k) +
           ". Vértice en " + tidy(h) + ", " + tidy(k) +
