@@ -14,6 +14,7 @@ const topics = read("lib/focused-lesson-topics.ts");
 const angleSource=read("lib/geometry-angles.mjs");
 const {regularPolygonVertices,polygonInteriorSum,polygonDiagonalCount}=await import("../lib/geometry-polygon.mjs");
 const {classifyAngle,anglePoint}=await import("../lib/geometry-angles.mjs");
+const {resolveGeometryTopic}=await import("../lib/geometry-curriculum.mjs");
 const page = read("app/aprende/[area]/[curso]/[slug]/page.tsx");
 const browser = read("scripts/qa-catalog-browser.mjs");
 const catalog = JSON.parse(read("content/catalog/lessons-index.json"));
@@ -25,7 +26,8 @@ assert.equal(mapping.get("segmentos-1sec-unidad1"), "segments", "La lección Seg
 assert.equal(mapping.get("angulos-1sec-unidad2"), "angles", "La lección Ángulos debe usar el transportador y no polígonos");
 const publishedGeometry=catalog.filter(l=>l.course==="geometria"&&l.publishStatus==="published");
 for(const lesson of publishedGeometry){
-  assert.ok(mapping.has(lesson.slug),"Lección geométrica publicada sin laboratorio del tema: "+lesson.slug);
+  assert.ok(mapping.has(lesson.slug)||Boolean(resolveGeometryTopic(lesson.title)),
+    "Lección geométrica publicada sin laboratorio contextual: "+lesson.slug);
 }
 
 for (const [slug, kind] of mapping) {
@@ -63,6 +65,8 @@ for(let sides=3;sides<=12;sides++){
   }
 }
 assert.match(read("components/zenit-app-engines.tsx"),/regularPolygonVertices\(sides,radius\)/);
+assert.match(read("components/zenit-app-engines.tsx"),/resolveGeometryTopic\(topicTitle\)/);
+assert.match(read("components/zenit-app-engines.tsx"),/GeometryCurriculumLab/);
 assert.match(source,/equationIoGraphUrl\(/);
 assert.match(source,/answer=\{ab\+bc\}/);
 assert.match(source,/answer=\{180-alpha\}/);
