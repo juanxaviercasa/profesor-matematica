@@ -29,7 +29,7 @@ export function QuadraticHeroLab() {
       <div className="zqh-heading">
         <h2>Explora la parábola</h2>
         <button type="button" className="zqh-reset" onClick={reset}
-          aria-label="Restablecer la función cuadrática inicial">Reiniciar <span aria-hidden="true">↺</span></button>
+          title="Restablecer los parámetros iniciales">Reiniciar <span aria-hidden="true">↺</span></button>
       </div>
 
       <div className="zqh-equations">

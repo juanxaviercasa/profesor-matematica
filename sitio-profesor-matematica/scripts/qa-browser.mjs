@@ -247,7 +247,7 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
         const drawing = await graph.evaluate(svg => {
           const r = svg.getBoundingClientRect();
           const card = svg.closest(".zqh-lab")?.getBoundingClientRect();
-          const curve = svg.querySelector('path[stroke="url(#zqh-curve-gradient)"]');
+          const curve = svg.querySelector('path.zqh-curve');
           return {
             width: r.width, height: r.height, cardWidth: card?.width ?? 0,
             curve: curve?.getAttribute("d") || "",
@@ -278,7 +278,7 @@ async function inspectRoute(label, path, size, motion = "no-preference") {
           previous => document.querySelector(".hero svg.zqh-plot")?.getAttribute("aria-label") !== previous,
           before, { timeout: 3000 }
         );
-        await heroLab.getByRole("button", { name: "Reiniciar" }).click();
+        await heroLab.getByRole("button", { name: /^Reiniciar/ }).click({ timeout: 5000 });
         if (await graph.getAttribute("aria-label") !== before) {
           addFinding("error", key, "Reiniciar no recuperó los parámetros originales de la parábola");
         }
