@@ -4,7 +4,7 @@ import { QuadraticHeroLab } from "./quadratic-hero-lab";
 import { CONTACT_EMAIL } from "@/lib/lead-message";
 
 function Brand({ inverse = false }: { inverse?: boolean }) {
-  return <span className={`brand${inverse ? " inverse" : ""}`}><Image src="/brand/zenit-phoenix.svg" alt="" width={44} height={50}/><span className="brand-copy"><b>Sistema Zénit</b><small>Logra tu meta</small></span></span>;
+  return <span className={`brand${inverse ? " inverse" : ""}`}><Image src="/brand/zenit-phoenix.svg" alt="" width={44} height={50}/><span className="brand-copy"><b>Sistema Zénit</b><small>Logra tus metas</small></span></span>;
 }
 
 export function Header() {
