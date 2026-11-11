@@ -7,142 +7,31 @@ import { LessonProgressOverview } from "@/components/lesson-completion";
 export const metadata: Metadata = {
   alternates: { canonical: "/aprende" },
   title: "Aprende matemática y ciencias · Sistema Zénit",
-  description: "Explora matemática de secundaria, preparación preuniversitaria, nivel universitario y ciencias exactas, con lecciones y aplicaciones interactivas del Sistema Zénit."
+  description: "Explora matemática de secundaria, preparación preuniversitaria, nivel universitario y ciencias exactas, con lecciones y aplicaciones interactivas del Sistema Zénit.",
 };
 
+const areaDefinitions = [
+  { slug: "matematica-preuniversitaria", title: "Matemática Secundaria y Preuniversitaria", badge: "Secundaria · preparación preuniversitaria", description: "Aritmética, álgebra, geometría, trigonometría, estadística y razonamiento matemático con explicaciones, ejemplos y ejercicios.", courses: ["aritmetica", "algebra", "geometria", "trigonometria", "estadistica-y-probabilidad", "razonamiento-matematico"] },
+  { slug: "matematica-universitaria", title: "Matemática Universitaria", badge: "Cálculo · álgebra lineal · ecuaciones diferenciales", description: "Rigor formal, demostraciones analíticas y laboratorios interactivos para los primeros ciclos de ciencias e ingeniería.", courses: ["calculo-1", "calculo-2", "calculo-3", "algebra-lineal", "ecuaciones-diferenciales"] },
+  { slug: "ciencias", title: "Ciencias Exactas", badge: "Física · química · modelado", description: "Modelado físico-matemático, cinemática, dinámica, estructura atómica y reacciones químicas para comprender fenómenos.", courses: ["fisica", "quimica"] },
+];
+
 export default function AprendeIndexPage() {
-  const areaDefinitions = [
-    {
-      slug: "matematica-preuniversitaria",
-      title: "Matemática Secundaria (1.° a 5.°) y Preuniversitaria",
-      badge: "Secundaria y preparación preuniversitaria",
-      description: "Estudia aritmética, álgebra, geometría, trigonometría, estadística y razonamiento matemático con explicaciones, ejemplos y ejercicios.",
-      courses: [
-        "aritmetica",
-        "algebra",
-        "geometria",
-        "trigonometria",
-        "estadistica-y-probabilidad",
-        "razonamiento-matematico",
-      ],
-    },
-    {
-      slug: "matematica-universitaria",
-      title: "Matemática Universitaria (Ciencias e Ingeniería)",
-      badge: "Cálculo · Álgebra Lineal · Ecuaciones Diferenciales",
-      description: "Rigor formal, demostraciones analíticas y laboratorios interactivos para los primeros ciclos universitarios.",
-      courses: [
-        "calculo-1",
-        "calculo-2",
-        "calculo-3",
-        "algebra-lineal",
-        "ecuaciones-diferenciales",
-      ],
-    },
-    {
-      slug: "ciencias",
-      title: "Ciencias Exactas (Física y Química)",
-      badge: "Física Clásica · Química General y Estequiometría",
-      description: "Modelado físico-matemático de la naturaleza, cinemática vectorial, dinámica, estructura atómica y reacciones químicas.",
-      courses: ["fisica", "quimica"],
-    },
-  ];
-
-  return (
-    <>
-      <Header />
-      <main className="aprende-hub">
-        <section className="page-hero wrap">
-          <p className="eyebrow">APRENDE MATEMÁTICA Y CIENCIAS</p>
-          <h1>Portal Integral de Matemática y Ciencias</h1>
-          <p className="lead">
-            Encuentra temas de secundaria, preparación preuniversitaria, matemática universitaria, física y química. Lee explicaciones, resuelve ejercicios y practica con herramientas interactivas.
-          </p>
-          <div className="flex flex-wrap gap-4 mt-6">
-            <Link href="/blog" className="button primary">
-              Explorar {LESSONS_INDEX.filter(lesson => lesson.publishStatus === "published").length} temas →
-            </Link>
-            <Link href="/herramientas" className="button secondary">
-              Probar herramientas interactivas →
-            </Link>
-            <Link href="/laboratorio" className="button secondary">
-              Explorar laboratorios →
-            </Link>
-          </div>
-        </section>
-
-        <div className="wrap"><LessonProgressOverview total={LESSONS_INDEX.filter(lesson => lesson.publishStatus === "published").length}/></div>
-
-        <section className="wrap my-12 space-y-12">
-          {areaDefinitions.map((area) => {
-            const areaLessonsCount = LESSONS_INDEX.filter(l => area.courses.includes(l.course) && l.publishStatus === "published").length;
-
-            return (
-              <div key={area.slug} className="area-section rounded-3xl border border-stone-800 bg-stone-900/40 p-8 shadow-xl">
-                <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-5">
-                  <div>
-                    <span className="inline-block rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-semibold text-emerald-400">
-                      {area.badge}
-                    </span>
-                    <h2 className="mt-2 text-2xl font-bold text-white">{area.title}</h2>
-                    <p className="text-sm text-stone-300 mt-1 max-w-2xl">{area.description}</p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1.5 rounded-xl border border-emerald-800/50">
-                      {areaLessonsCount} temas en la biblioteca
-                    </span>
-                  </div>
-                </div>
-
-                <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {area.courses.map((cSlug) => {
-                    const cMeta = COURSE_LABELS[cSlug];
-                    const cLessons = LESSONS_INDEX.filter(l => l.course === cSlug && l.publishStatus === "published");
-                    const exCount = cLessons.reduce((acc, l) => acc + l.f0Count + l.faCount, 0);
-
-                    return (
-                      <div
-                        key={cSlug}
-                        className="course-card flex flex-col justify-between rounded-2xl border border-stone-800 bg-stone-950/70 p-6 hover:border-emerald-600/50 transition-all shadow-md group"
-                      >
-                        <div>
-                          <div className="flex items-center justify-between">
-                            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-950/80 text-xl font-bold text-emerald-400 border border-emerald-800/40">
-                              {cMeta.icon}
-                            </span>
-                            <span className="text-xs font-mono text-emerald-300 bg-stone-900 px-2.5 py-1 rounded-full border border-stone-800">
-                              {cLessons.length} temas
-                            </span>
-                          </div>
-                          <h3 className="mt-4 text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">
-                            {cMeta.title}
-                          </h3>
-                          <p className="mt-2 text-xs text-stone-400 leading-relaxed">
-                            {cMeta.desc}
-                          </p>
-                        </div>
-
-                        <div className="mt-6 pt-4 border-t border-stone-800/80 flex items-center justify-between">
-                          <span className="text-xs text-stone-500 font-mono">
-                            {exCount} ejercicios
-                          </span>
-                          <Link
-                            href={`/aprende/${area.slug}/${cSlug}`}
-                            className="text-xs font-bold text-emerald-400 hover:text-emerald-300"
-                          >
-                            Ver los {cLessons.length} temas →
-                          </Link>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
-        </section>
-      </main>
-      <Footer />
-    </>
-  );
+  const publishedLessons = LESSONS_INDEX.filter((lesson) => lesson.publishStatus === "published");
+  return <><Header /><main className="learn-portal">
+    <section className="learn-portal-hero wrap"><div>
+      <p className="eyebrow">SISTEMA ZÉNIT · BIBLIOTECA GRATUITA</p>
+      <h1>Encuentra una idea. <em>Entiéndela y ponla a prueba.</em></h1>
+      <p className="learn-portal-lead">Lee explicaciones, resuelve ejercicios y practica con laboratorios para estudiar desde secundaria hasta los primeros ciclos universitarios. Elige un nivel, abre un tema y avanza a tu ritmo.</p>
+      <div className="learn-portal-actions"><Link href="/blog" className="button">Explorar la biblioteca →</Link><Link href="/laboratorio" className="button secondary">Probar un laboratorio →</Link></div>
+    </div><aside className="learn-portal-index" aria-label="Resumen de la biblioteca"><span>MAPA DE APRENDIZAJE</span><strong>Idea → representación → comprobación</strong><p>Empieza donde estés y conecta cada explicación con una acción.</p><b>{publishedLessons.length} temas disponibles</b></aside></section>
+    <section className="wrap learn-portal-progress" aria-label="Tu progreso"><LessonProgressOverview total={publishedLessons.length} /></section>
+    <section className="wrap learn-areas" aria-labelledby="learn-areas-title"><div className="learn-section-heading"><div><p className="eyebrow">Elige tu recorrido</p><h2 id="learn-areas-title">Descubre por nivel y área.</h2></div><p>Explora una familia completa o entra directamente al curso que necesitas hoy.</p></div>
+      <div className="learn-area-list">{areaDefinitions.map((area) => { const areaLessons = publishedLessons.filter((lesson) => area.courses.includes(lesson.course)); return <section key={area.slug} className="learn-area" aria-labelledby={`${area.slug}-title`}>
+        <div className="learn-area-heading"><div><span className="learn-area-badge">{area.badge}</span><h3 id={`${area.slug}-title`}>{area.title}</h3><p>{area.description}</p></div><span className="learn-area-count">{areaLessons.length} temas</span></div>
+        <div className="learn-course-grid">{area.courses.map((courseSlug) => { const course = COURSE_LABELS[courseSlug]; const lessons = publishedLessons.filter((lesson) => lesson.course === courseSlug); const exercises = lessons.reduce((total, lesson) => total + lesson.f0Count + lesson.faCount, 0); if (!course) return null; return <article key={courseSlug} className="learn-course-card"><div className="learn-course-top"><span className="learn-course-icon">{course.icon}</span><span className="learn-course-count">{lessons.length} temas</span></div><h4>{course.title}</h4><p>{course.desc}</p><div className="learn-course-footer"><span>{exercises} ejercicios</span><Link href={`/aprende/${area.slug}/${courseSlug}`}>Ver temas →</Link></div></article>; })}</div>
+      </section>; })}</div>
+    </section>
+    <section className="wrap learn-portal-end"><div><p className="eyebrow">Siguiente paso</p><h2>¿Quieres comprobar una idea en tiempo real?</h2></div><Link href="/herramientas" className="button">Explorar herramientas →</Link></section>
+  </main><Footer /></>;
 }

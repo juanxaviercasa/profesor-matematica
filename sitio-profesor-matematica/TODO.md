@@ -11,10 +11,10 @@
 ## Plantillas maestras
 
 - [ ] La portada comunica Matemática y Ciencias gratuitas antes de destacar la ruta de funciones.
-- [ ] `/aprende` prioriza descubrir por nivel y área, con tarjetas claras y menor densidad oscura.
+- [x] `/aprende` prioriza descubrir por nivel y área, con tarjetas claras y menor densidad oscura.
 - [ ] `/herramientas` presenta los simuladores como experiencias de aprendizaje y conserva su interactividad.
 - [x] Cursos, Sobre mí y Blog tienen composiciones editoriales diferenciadas, con contenido, enlaces, formularios y lógica educativa conservados.
-- [ ] Laboratorio y Contacto heredan la nueva base sin perder contenido ni enlaces.
+- [x] Laboratorio y Contacto heredan la nueva base sin perder contenido ni enlaces.
 
 ## Calidad
 

@@ -490,3 +490,53 @@ body:has(.tools-page-v2) .conversion-dock { display: none; }
 @media (max-width: 950px) { .tools-engine-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .tools-concept-grid, .tools-topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 700px) { .tools-section-heading { grid-template-columns: 1fr; } .tools-view-switcher { justify-content: flex-start; } .tools-concept-grid, .tools-topic-grid { grid-template-columns: 1fr; } }
 @media (max-width: 520px) { .tools-engine-grid { grid-template-columns: 1fr; } .tools-engine-card { min-height: 132px; } .tools-engine-selector, .tools-concept-library, .tools-related-topics { padding: 18px; } }
+
+/* Fase 3 · portal de aprendizaje, fichas de laboratorio y decisiones de contacto */
+.learn-portal { color: var(--z-ink); }
+.learn-portal-hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(260px, .65fr); gap: clamp(30px, 7vw, 90px); align-items: center; padding-block: clamp(62px, 8vw, 116px) clamp(44px, 6vw, 78px); }
+.learn-portal-hero h1 { max-width: 780px; margin: 0 0 20px; color: var(--z-ink); font: 500 clamp(3rem, 6vw, 5.9rem)/1.03 Georgia, serif; letter-spacing: -.045em; text-wrap: balance; }
+.learn-portal-hero h1 em { color: var(--z-blue); font-style: normal; }
+.learn-portal-lead { max-width: 65ch; margin: 0; color: var(--z-muted); font-size: clamp(1.05rem, 1.5vw, 1.2rem); line-height: 1.7; }
+.learn-portal-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.learn-portal-index { display: grid; gap: 18px; padding: 26px; border-left: 3px solid var(--z-yellow); background: var(--z-night); color: #fff; box-shadow: var(--z-shadow); }
+.learn-portal-index span { color: var(--z-yellow); font-size: .78rem; font-weight: 800; letter-spacing: .1em; }
+.learn-portal-index strong { font: 500 clamp(1.4rem, 2.4vw, 2.1rem)/1.15 Georgia, serif; }
+.learn-portal-index p { margin: 0; color: #eee7fa; }
+.learn-portal-index b { color: var(--z-yellow); font-size: .92rem; }
+.learn-portal-progress { margin-bottom: clamp(32px, 5vw, 62px); }
+.learn-areas { padding-bottom: clamp(48px, 7vw, 100px); }
+.learn-section-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, .65fr); gap: 28px; align-items: end; margin-bottom: 28px; }
+.learn-section-heading h2 { margin: 0; color: var(--z-ink); font: 500 clamp(2rem, 4vw, 3.9rem)/1.06 Georgia, serif; }
+.learn-section-heading > p { margin: 0; color: var(--z-muted); }
+.learn-area-list { display: grid; gap: 22px; }
+.learn-area { padding: clamp(20px, 3vw, 32px); border: 1px solid var(--z-line); border-radius: var(--z-radius); background: var(--z-surface); box-shadow: var(--z-shadow); }
+.learn-area-heading { display: flex; justify-content: space-between; gap: 24px; align-items: start; padding-bottom: 22px; border-bottom: 1px solid var(--z-line); }
+.learn-area-badge { display: inline-flex; padding: 6px 10px; border: 1px solid #d9cdef; border-radius: 999px; background: var(--z-blue-soft); color: var(--z-blue-dark); font-size: .8rem; font-weight: 800; }
+.learn-area-heading h3 { margin: 12px 0 7px; color: var(--z-ink); font: 500 clamp(1.55rem, 2.7vw, 2.35rem)/1.15 Georgia, serif; }
+.learn-area-heading p { max-width: 70ch; margin: 0; color: var(--z-muted); }
+.learn-area-count { flex: 0 0 auto; padding: 8px 11px; border-radius: 10px; background: var(--z-surface-soft); color: var(--z-blue-dark); font-size: .86rem; font-weight: 800; }
+.learn-course-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; padding-top: 22px; }
+.learn-course-card { min-width: 0; display: flex; flex-direction: column; padding: 18px; border: 1px solid var(--z-line); border-radius: 14px; background: var(--z-paper); transition: transform .18s, border-color .18s, box-shadow .18s; }
+.learn-course-card:hover, .learn-course-card:focus-within { border-color: var(--z-blue); box-shadow: 0 12px 26px rgba(104,64,197,.12); transform: translateY(-2px); }
+.learn-course-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.learn-course-icon { display: grid; width: 46px; height: 46px; place-items: center; border: 1px solid #d9cdef; border-radius: 12px; background: var(--z-blue-soft); font-size: 1.25rem; }
+.learn-course-count { color: var(--z-muted); font-size: .82rem; }
+.learn-course-card h4 { margin: 17px 0 8px; color: var(--z-ink); font-size: 1.1rem; line-height: 1.3; }
+.learn-course-card p { margin: 0; color: var(--z-muted); font-size: .95rem; line-height: 1.58; }
+.learn-course-footer { display: flex; justify-content: space-between; gap: 8px; align-items: center; margin-top: auto; padding-top: 16px; color: var(--z-muted); font-size: .86rem; }
+.learn-course-footer a { min-height: 44px; display: inline-flex; align-items: center; color: var(--z-blue-dark); font-weight: 800; }
+.learn-portal-end { display: flex; justify-content: space-between; align-items: center; gap: 22px; margin-bottom: clamp(58px, 8vw, 110px); padding: clamp(24px, 4vw, 42px); border: 1px solid #d9cdef; border-radius: var(--z-radius); background: var(--z-blue-soft); }
+.learn-portal-end h2 { margin: 0; color: var(--z-ink); font: 500 clamp(1.8rem, 3.4vw, 3rem)/1.1 Georgia, serif; }
+.lab-card-top > span { background: transparent; color: var(--z-blue); }
+.lab-card-details { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 18px 0; color: var(--z-muted); font-size: .86rem; }
+.lab-card-details span + span { padding-left: 16px; border-left: 1px solid var(--z-line); }
+.contact-choices { padding-block: clamp(38px, 5vw, 68px) 0; }
+.contact-choice-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.contact-choice-card { min-width: 0; display: flex; flex-direction: column; padding: clamp(22px, 4vw, 34px); border: 1px solid var(--z-line); border-radius: var(--z-radius); background: var(--z-surface); box-shadow: var(--z-shadow); }
+.contact-choice-card--guided { background: var(--z-blue-soft); border-color: #d9cdef; }
+.contact-choice-card > span { color: var(--z-blue-dark); font-size: .78rem; font-weight: 800; letter-spacing: .08em; }
+.contact-choice-card h3 { margin: 17px 0 9px; color: var(--z-ink); font: 500 clamp(1.6rem, 3vw, 2.4rem)/1.12 Georgia, serif; }
+.contact-choice-card p { max-width: 56ch; margin: 0 0 22px; color: var(--z-muted); }
+.contact-choice-card .button { align-self: flex-start; margin-top: auto; }
+@media (max-width: 900px) { .learn-portal-hero { grid-template-columns: 1fr; } .learn-portal-index { max-width: 560px; } .learn-course-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 650px) { .learn-section-heading { grid-template-columns: 1fr; } .learn-area-heading, .learn-portal-end { flex-direction: column; } .learn-course-grid, .contact-choice-grid { grid-template-columns: 1fr; } .learn-portal-hero h1 { font-size: clamp(2.6rem, 12vw, 4rem); } .learn-portal-actions, .learn-portal-actions .button { width: 100%; } .learn-area-count { align-self: flex-start; } .lab-card-details span + span { padding-left: 0; border-left: 0; } }
