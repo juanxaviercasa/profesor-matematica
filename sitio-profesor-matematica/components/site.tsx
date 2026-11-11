@@ -1,6 +1,6 @@
 import Link from "./safe-link";
 import Image from "next/image";
-import { MathFormula } from "./math-formula";
+import { QuadraticHeroLab } from "./quadratic-hero-lab";
 import { CONTACT_EMAIL } from "@/lib/lead-message";
 
 function Brand({ inverse = false }: { inverse?: boolean }) {
@@ -39,4 +39,4 @@ export function Footer() {
 
 export function PlaceholderNote({ text }: { text: string }) { return <p className="placeholder-note"><b>Dato pendiente:</b> {text}</p>; }
 export function PageHero({ kicker, title, text }: { kicker: string; title: string; text: string }) { return <section className="page-hero wrap"><p className="eyebrow">{kicker}</p><h1>{title}</h1><p className="lead">{text}</p></section>; }
-export function FormulaCard() { return <div className="formula-card" aria-label="Representación de una función cuadrática"><div className="formula-top"><span>SISTEMA ZÉNIT · MAPA DE IDEAS</span><i>01</i></div><MathFormula className="formula" source="f(x)=a(x−h)²+k"/><svg viewBox="0 0 520 320" role="img" aria-label="Gráfica de una parábola"><g stroke="currentColor" opacity=".2"><path d="M30 160H490M260 25V295"/><path d="M30 80H490M30 240H490M140 25V295M380 25V295"/></g><path d="M58 278 C136 270 195 214 230 122 C250 70 270 70 290 122 C325 214 384 270 462 278" fill="none" stroke="#9471e5" strokeWidth="6"/><circle cx="260" cy="82" r="7" fill="#e8bc71" stroke="#241b4b" strokeWidth="3"/></svg><div className="formula-bottom"><span>idea</span><span>representación</span><span>comprobación</span></div></div>; }
+export function FormulaCard() { return <QuadraticHeroLab/>; }
