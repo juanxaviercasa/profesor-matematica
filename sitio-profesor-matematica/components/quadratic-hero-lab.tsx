@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Image from "next/image";
 import { MathFormula } from "@/components/math-formula";
 import {
   QUADRATIC_A_VALUES, PLOT, tidy, quadraticPlot,
@@ -31,19 +30,8 @@ export function QuadraticHeroLab() {
 
   return (
     <section className="formula-card zqh-lab" aria-label="Simulador interactivo de funciones cuadráticas">
-      <div className="zqh-header">
-        <div className="zqh-brand">
-          <Image src="/brand/zenit-phoenix.svg" width={24} height={32} alt="" />
-          <span><b>Sistema Zénit</b><small>Logra tu meta</small></span>
-        </div>
-        <span className="zqh-live"><span aria-hidden="true" /> Laboratorio interactivo</span>
-      </div>
-
       <div className="zqh-heading">
-        <div>
-          <p className="zqh-eyebrow">Explora la función cuadrática</p>
-          <h2>La parábola cambia contigo</h2>
-        </div>
+        <h2>Explora la parábola</h2>
         <button type="button" className="zqh-reset" onClick={reset}
           aria-label="Restablecer función cuadrática original">Reiniciar ↺</button>
       </div>
@@ -153,7 +141,7 @@ export function QuadraticHeroLab() {
         <span><strong>Apertura</strong> {opening}</span>
         <span><strong>Raíces</strong> {rootSummary.replace(/^Raíces: /, "")}</span>
       </div>
-      <p className="zqh-help">Mueve los controles y observa cómo cambia una <strong>parábola real</strong>.</p>
+
     </section>
   );
 }
