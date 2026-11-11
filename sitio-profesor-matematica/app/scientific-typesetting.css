@@ -1,7 +1,7 @@
 /* CAPA 8 · composición matemática consistente en móviles, tablets y escritorio. */
 .math-scientific-paragraph {
   min-width:0;
-  color:#e2e8e4;
+  color:#e4daf4;
   font-size:clamp(.94rem,1.2vw,1.04rem);
   line-height:1.8;
   font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
@@ -56,7 +56,7 @@
 /* Las fórmulas de bloque conservan su propio scroll horizontal. */
 .zenit-engine-formula-panel {
   flex:0 1 34rem; width:min(100%,34rem);
-  min-width:0; overflow:hidden; color:#f1f8ef;
+  min-width:0; overflow:hidden; color:#f1edff;
 }
 .zenit-engine-formula-panel .math-typeset-display { text-align:center; }
 @media(max-width:640px) {
@@ -72,7 +72,7 @@
 
 .math-scroll-hint {
   display:none; text-align:center; font-size:.76rem; line-height:1.35;
-  color:#d5e5d8; padding:0 8px 5px; font-weight:600;
+  color:#d9cdef; padding:0 8px 5px; font-weight:600;
 }
 @media(max-width:767px) { .math-scroll-hint { display:block; } }
 
