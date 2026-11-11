@@ -14,6 +14,7 @@ import "./reading-comfort.css";
 import "./zenit-editorial.css";
 import "./math-responsive-layout.css";
 import "./premium-responsive.css";
+import "./home-experience.css";
 
 
 export const metadata: Metadata = {
