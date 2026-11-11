@@ -3,19 +3,19 @@
  * Esta capa se carga al final para estabilizar la cascada heredada durante la migración.
  */
 :root {
-  --z-paper: #faf8f2;
+  --z-paper: #fcfbff;
   --z-surface: #ffffff;
-  --z-surface-soft: #eef2f7;
-  --z-ink: #182333;
-  --z-muted: #526174;
-  --z-blue: #2364d2;
-  --z-blue-dark: #1748a2;
-  --z-blue-soft: #dcebff;
-  --z-yellow: #f5c84b;
-  --z-orange: #e8794a;
-  --z-night: #172131;
-  --z-night-soft: #22324a;
-  --z-line: #d8e0ea;
+  --z-surface-soft: #f1ecfa;
+  --z-ink: #19243d;
+  --z-muted: #5b6276;
+  --z-blue: #6840c5;
+  --z-blue-dark: #4b2a96;
+  --z-blue-soft: #eee8fd;
+  --z-yellow: #e8bc71;
+  --z-orange: #d79a57;
+  --z-night: #231e42;
+  --z-night-soft: #302850;
+  --z-line: #e5e1ee;
   --z-shadow: 0 14px 38px rgba(24,35,51,.08);
   --z-radius: 18px;
 }
@@ -35,7 +35,7 @@ body { background: var(--z-paper); color: var(--z-ink); }
 .zenit-skip-link { background: var(--z-yellow); color: var(--z-ink); }
 :where(a,button,input,textarea,select,summary):focus-visible { outline-color: var(--z-blue); }
 .eyebrow { color: var(--z-blue-dark); letter-spacing: .08em; }
-.button { background: var(--z-blue); color: #fff; border-radius: 12px; box-shadow: 0 7px 16px rgba(35,100,210,.18); }
+.button { background: var(--z-blue); color: #fff; border-radius: 12px; box-shadow: 0 7px 16px rgba(104,64,197,.18); }
 .button:hover { background: var(--z-blue-dark); }
 .button.secondary { background: var(--z-yellow); color: var(--z-ink); box-shadow: 0 7px 16px rgba(245,200,75,.18); }
 .button.secondary:hover { background: #e8b735; }
@@ -46,24 +46,24 @@ body { background: var(--z-paper); color: var(--z-ink); }
 .home-page-v2 .hero h1 em { color: var(--z-blue); }
 .home-page-v2 .hero .eyebrow { color: var(--z-blue-dark); }
 .home-page-v2 .hero .lead { color: var(--z-muted); max-width: 58ch; }
-.home-page-v2 .formula-card { background: var(--z-night); border: 1px solid #3d5370; box-shadow: 0 24px 60px rgba(24,35,51,.18); }
+.home-page-v2 .formula-card { background: var(--z-night); border: 1px solid #655483; box-shadow: 0 24px 60px rgba(24,35,51,.18); }
 .home-page-v2 .formula-card svg path:last-of-type { stroke: var(--z-orange); }
 .home-page-v2 .formula-card svg circle { fill: var(--z-yellow); }
-.home-page-v2 .proof-line span { background: var(--z-blue-soft); border-color: #bed2f2; color: var(--z-ink); }
+.home-page-v2 .proof-line span { background: var(--z-blue-soft); border-color: #d9cdef; color: var(--z-ink); }
 .home-page-v2 .home-start { padding-block: clamp(65px,8vw,108px); }
 .home-page-v2 .public-action-card,
 .public-method-grid article { background: var(--z-surface); border-color: var(--z-line); border-radius: var(--z-radius); box-shadow: var(--z-shadow); }
 .home-page-v2 .public-action-card:hover,
-.home-page-v2 .public-action-card:focus-within { border-color: var(--z-blue); box-shadow: 0 18px 42px rgba(35,100,210,.14); }
+.home-page-v2 .public-action-card:focus-within { border-color: var(--z-blue); box-shadow: 0 18px 42px rgba(104,64,197,.14); }
 .public-card-number,.public-method-grid article > span { color: var(--z-blue); }
 .public-action-card a { color: var(--z-blue-dark); border-bottom-color: var(--z-blue); }
 .home-page-v2 .dark-section { background: var(--z-night); }
 .home-page-v2 .dark-section .eyebrow { color: var(--z-yellow); }
-.home-page-v2 .path-grid { background: #40506a; border-color: #40506a; }
+.home-page-v2 .path-grid { background: #574773; border-color: #574773; }
 .home-page-v2 .path-card { background: var(--z-night); }
 .home-page-v2 .path-card:hover { background: var(--z-night-soft); }
 .home-page-v2 .path-card > span,.home-page-v2 .path-card b { color: var(--z-yellow); }
-.home-page-v2 .path-card p { color: #d6e0ed; }
+.home-page-v2 .path-card p { color: #eee7fa; }
 .home-page-v2 .feature-band { background: var(--z-paper); }
 .zenit-visual-figure { background: var(--z-night); box-shadow: var(--z-shadow); }
 .home-page-v2 .course-strip { background: var(--z-blue-soft); }
@@ -86,30 +86,30 @@ body { background: var(--z-paper); color: var(--z-ink); }
 .aprende-hub .area-section [class*="bg-emerald"] { background: var(--z-blue-soft); }
 .aprende-hub .area-section [class*="text-emerald"] { color: var(--z-blue-dark); }
 .aprende-hub .course-card { background: var(--z-surface); color: var(--z-ink); border-color: var(--z-line); box-shadow: none; }
-.aprende-hub .course-card:hover { border-color: var(--z-blue); box-shadow: 0 12px 28px rgba(35,100,210,.12); }
+.aprende-hub .course-card:hover { border-color: var(--z-blue); box-shadow: 0 12px 28px rgba(104,64,197,.12); }
 .aprende-hub .course-card h3 { color: var(--z-ink); }
 .aprende-hub .course-card p { color: var(--z-muted); }
 .aprende-hub .course-card .border-stone-800 { border-color: var(--z-line); }
 .aprende-hub .course-card a { color: var(--z-blue-dark); }
 .aprende-hub .course-card .font-mono { color: var(--z-muted); background: var(--z-surface-soft); border-color: var(--z-line); }
-.aprende-hub .course-card .flex.h-12 { background: var(--z-blue-soft); color: var(--z-blue-dark); border-color: #bed2f2; }
+.aprende-hub .course-card .flex.h-12 { background: var(--z-blue-soft); color: var(--z-blue-dark); border-color: #d9cdef; }
 /* Herramientas: hero claro con modo oscuro solo en la demostración. */
 .tools-page-v2 { padding-block: clamp(42px,6vw,78px) clamp(80px,8vw,110px); }
-.public-tools-hero { background: var(--z-blue-soft); color: var(--z-ink); border: 1px solid #bed2f2; box-shadow: var(--z-shadow); }
+.public-tools-hero { background: var(--z-blue-soft); color: var(--z-ink); border: 1px solid #d9cdef; box-shadow: var(--z-shadow); }
 .public-tools-hero h1 { color: var(--z-ink); }
 .public-tools-hero p:not(.eyebrow) { color: var(--z-muted); }
 .public-tools-hero .eyebrow { color: var(--z-blue-dark); }
 .public-tools-hero .button { background: var(--z-blue); color: #fff; }
 .public-tools-hero .text-link { color: var(--z-blue-dark); border-color: var(--z-blue); }
-.public-tools-visual { background: var(--z-night); border-color: #3d5370; }
+.public-tools-visual { background: var(--z-night); border-color: #655483; }
 .public-tools-visual-kicker { color: var(--z-yellow); }
-.public-tools-visual-note { color: #d6e0ed; }
+.public-tools-visual-note { color: #eee7fa; }
 .public-tools-visual svg path:nth-of-type(2) { stroke: var(--z-blue); }
 .public-tools-visual svg circle { fill: var(--z-yellow); }
 .public-tools-benefits > div { background: var(--z-surface); border-color: var(--z-line); box-shadow: var(--z-shadow); }
 .public-tools-benefits b { color: var(--z-blue-dark); }
 .public-tools-benefits span { color: var(--z-muted); }
-.public-end-cta { background: var(--z-blue-soft); border-color: #bed2f2; }
+.public-end-cta { background: var(--z-blue-soft); border-color: #d9cdef; }
 /* Superficies educativas internas: papel como base, concentración oscura en el módulo. */
 .learning-view:not(.topic-view) { background: var(--z-surface); color: var(--z-ink); border-color: var(--z-line); box-shadow: var(--z-shadow); }
 .learning-view:not(.topic-view) .breadcrumb,.learning-view:not(.topic-view) .breadcrumb a { color: var(--z-muted); }
@@ -117,10 +117,10 @@ body { background: var(--z-paper); color: var(--z-ink); }
 .learning-view:not(.topic-view) .text-stone-400,.learning-view:not(.topic-view) .text-stone-500 { color: var(--z-muted); }
 .learning-view:not(.topic-view) .text-stone-300 { color: var(--z-ink); }
 /* Footer institucional y menos personalista. */
-footer { background: var(--z-ink); color: #eaf0f7; }
+footer { background: var(--z-ink); color: #f5f0fc; }
 footer .brand-copy b { color: #fff; }
 footer .brand-copy small { color: var(--z-yellow); }
-footer .footer-grid p, footer .footer-grid span { color: #c2cfdf; }
+footer .footer-grid p, footer .footer-grid span { color: #ded4f1; }
 footer .footer-grid a:hover { color: var(--z-yellow); }
 /* Ocultar el flotante en superficies de estudio donde puede cubrir controles. */
 body:has(.learning-view) .conversion-dock,
@@ -143,7 +143,7 @@ body:has(.tools-page-v2) .conversion-dock { display: none; }
 /* El progreso acompaña a la biblioteca; no debe parecer un panel de administración. */
 .aprende-hub .lesson-progress-overview {
   background: var(--z-blue-soft);
-  border: 1px solid #bed2f2;
+  border: 1px solid #d9cdef;
   color: var(--z-ink);
   box-shadow: var(--z-shadow);
 }
@@ -157,7 +157,7 @@ body:has(.aprende-hub) .conversion-dock,
 body:has(.tools-page-v2) .conversion-dock { display: none; }
 /* Catálogo claro; la aplicación interactiva interna conserva su contraste de concentración. */
 .tools-page-v2 .zenit-engine-selector-card { background: var(--z-surface) !important; border-color: var(--z-line) !important; color: var(--z-ink); box-shadow: none; }
-.tools-page-v2 .zenit-engine-selector-card[aria-pressed="true"] { background: var(--z-blue-soft) !important; border-color: var(--z-blue) !important; box-shadow: 0 10px 24px rgba(35,100,210,.12); }
+.tools-page-v2 .zenit-engine-selector-card[aria-pressed="true"] { background: var(--z-blue-soft) !important; border-color: var(--z-blue) !important; box-shadow: 0 10px 24px rgba(104,64,197,.12); }
 .tools-page-v2 .zenit-engine-selector-card:hover { border-color: var(--z-blue) !important; }
 .tools-page-v2 .zenit-engine-selector-card h3 { color: var(--z-ink); }
 .tools-page-v2 .zenit-engine-selector-card .text-stone-300,
@@ -192,7 +192,7 @@ body:has(.tools-page-v2) .conversion-dock { display: none; }
   display: inline-flex;
   color: var(--z-blue-dark);
   background: var(--z-blue-soft);
-  border: 1px solid #bed2f2;
+  border: 1px solid #d9cdef;
   border-radius: 999px;
   padding: 7px 12px;
   font-size: .82rem;
@@ -247,7 +247,7 @@ body:has(.tools-page-v2) .conversion-dock { display: none; }
   box-shadow: 0 8px 22px rgba(24,35,51,.05);
 }
 .blog-page-v2 > div:last-child > .grid > a:hover,
-.blog-page-v2 > div:last-child > .grid > a:focus-visible { border-color: var(--z-blue); box-shadow: 0 16px 34px rgba(35,100,210,.12); }
+.blog-page-v2 > div:last-child > .grid > a:focus-visible { border-color: var(--z-blue); box-shadow: 0 16px 34px rgba(104,64,197,.12); }
 .blog-page-v2 > div:last-child > .grid > a :is(.text-white, .text-stone-200) { color: var(--z-ink) !important; }
 .blog-page-v2 > div:last-child > .grid > a .text-stone-400 { color: var(--z-muted) !important; }
 .blog-page-v2 > div:last-child > .grid > a .text-emerald-300,
@@ -258,7 +258,7 @@ body:has(.tools-page-v2) .conversion-dock { display: none; }
 
 /* Curso: oferta guiada sobria, con la banda oscura limitada al programa. */
 .course-editorial-page { background: var(--z-paper); color: var(--z-ink); }
-.course-editorial-page .offer-hero { background: var(--z-blue-soft); color: var(--z-ink); border-bottom: 1px solid #bed2f2; }
+.course-editorial-page .offer-hero { background: var(--z-blue-soft); color: var(--z-ink); border-bottom: 1px solid #d9cdef; }
 .course-editorial-page .offer-hero .eyebrow.light { color: var(--z-blue-dark); }
 .course-editorial-page .offer-hero h1 { color: var(--z-ink); }
 .course-editorial-page .offer-hero h1 em { color: var(--z-blue); }
@@ -288,12 +288,12 @@ body:has(.tools-page-v2) .conversion-dock { display: none; }
 .course-editorial-page .offer-price h2,
 .course-editorial-page .offer-faq h2,
 .course-editorial-page .final-offer h2 { color: var(--z-ink); }
-.course-editorial-page .offer-modules article { border-color: #40506a; }
+.course-editorial-page .offer-modules article { border-color: #574773; }
 .course-editorial-page .bonus-section { background: var(--z-surface-soft); }
 .course-editorial-page .bonus-grid article { background: var(--z-surface); border-color: var(--z-line); }
 .course-editorial-page .bonus-grid article h3 { color: var(--z-ink); }
 .course-editorial-page .bonus-grid article p { color: var(--z-muted); }
-.course-editorial-page .offer-price aside { background: var(--z-blue-soft); border-color: #bed2f2; }
+.course-editorial-page .offer-price aside { background: var(--z-blue-soft); border-color: #d9cdef; }
 .course-editorial-page .offer-price aside h3 { color: var(--z-ink); }
 .course-editorial-page .offer-price aside p,
 .course-editorial-page .offer-price aside small { color: var(--z-muted); }
@@ -303,7 +303,7 @@ body:has(.tools-page-v2) .conversion-dock { display: none; }
 .course-editorial-page .final-offer { border-top: 1px solid var(--z-line); }
 
 /* Sobre el proyecto: firma humana, institución primero y retrato sobre papel. */
-.about-page-v2 .page-hero { background: var(--z-blue-soft); border-bottom: 1px solid #bed2f2; }
+.about-page-v2 .page-hero { background: var(--z-blue-soft); border-bottom: 1px solid #d9cdef; }
 .about-page-v2 .page-hero h1 { max-width: 850px; color: var(--z-ink); font-size: clamp(2.8rem, 6vw, 5.8rem); letter-spacing: -.045em; }
 .about-page-v2 .page-hero .lead { max-width: 68ch; color: var(--z-muted); }
 .about-page-v2 .portrait { background: var(--z-surface-soft); border: 1px solid var(--z-line); border-radius: 22px; box-shadow: var(--z-shadow); padding: 12px; }
@@ -318,7 +318,7 @@ body:has(.tools-page-v2) .conversion-dock { display: none; }
 .about-page-v2 .experience-list article > span { color: var(--z-blue-dark); }
 .about-page-v2 .experience-list h3 { color: var(--z-ink); }
 .about-page-v2 .experience-list p { color: var(--z-muted); }
-.about-page-v2 .public-end-cta { background: var(--z-blue-soft); border-color: #bed2f2; }
+.about-page-v2 .public-end-cta { background: var(--z-blue-soft); border-color: #d9cdef; }
 
 @media (max-width: 700px) {
   .blog-page-v2 { margin-top: 0; padding-top: 10px; }
@@ -364,7 +364,7 @@ body:has(.tools-page-v2) .conversion-dock { display: none; }
 }
 .blog-search { max-width: 520px; }
 .blog-search::placeholder { color: #657386; }
-.blog-search:focus, .blog-select:focus { border-color: var(--z-blue); outline: 3px solid rgba(35,100,210,.18); outline-offset: 1px; }
+.blog-search:focus, .blog-select:focus { border-color: var(--z-blue); outline: 3px solid rgba(104,64,197,.18); outline-offset: 1px; }
 .blog-filter-label { display: block; margin-bottom: 8px; color: var(--z-muted); font-size: .92rem; font-weight: 700; }
 .blog-filter-pill {
   min-height: 42px;
@@ -378,7 +378,7 @@ body:has(.tools-page-v2) .conversion-dock { display: none; }
   cursor: pointer;
   transition: border-color .18s, background .18s, color .18s;
 }
-.blog-filter-pill:hover { color: var(--z-blue-dark); border-color: #9dbbe8; background: var(--z-blue-soft); }
+.blog-filter-pill:hover { color: var(--z-blue-dark); border-color: #bda9e7; background: var(--z-blue-soft); }
 .blog-filter-pill.is-active { color: #fff; background: var(--z-blue); border-color: var(--z-blue); font-weight: 800; }
 .blog-results-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; padding-inline: 2px; color: var(--z-muted); font-size: .95rem; }
 .blog-results-note { color: var(--z-blue-dark); font-weight: 700; }
@@ -395,8 +395,8 @@ body:has(.tools-page-v2) .conversion-dock { display: none; }
   box-shadow: 0 8px 22px rgba(24,35,51,.06);
   transition: transform .18s, border-color .18s, box-shadow .18s;
 }
-.blog-lesson-card:hover, .blog-lesson-card:focus-visible { transform: translateY(-3px); border-color: var(--z-blue); box-shadow: 0 16px 34px rgba(35,100,210,.14); }
-.blog-lesson-tag { display: inline-flex; width: fit-content; padding: 6px 9px; color: var(--z-blue-dark); background: var(--z-blue-soft); border: 1px solid #bed2f2; border-radius: 7px; font-size: .85rem; font-weight: 800; }
+.blog-lesson-card:hover, .blog-lesson-card:focus-visible { transform: translateY(-3px); border-color: var(--z-blue); box-shadow: 0 16px 34px rgba(104,64,197,.14); }
+.blog-lesson-tag { display: inline-flex; width: fit-content; padding: 6px 9px; color: var(--z-blue-dark); background: var(--z-blue-soft); border: 1px solid #d9cdef; border-radius: 7px; font-size: .85rem; font-weight: 800; }
 .blog-lesson-course { margin: 14px 0 4px; color: #a35b18; font-size: .94rem; font-weight: 800; }
 .blog-lesson-title { margin: 0; color: var(--z-ink); font-size: 1.2rem; line-height: 1.35; }
 .blog-lesson-summary { margin: 9px 0 0; color: var(--z-muted); font-size: 1rem; line-height: 1.6; }
@@ -412,3 +412,13 @@ body:has(.tools-page-v2) .conversion-dock { display: none; }
   .blog-results-meta { display: grid; }
   .blog-lesson-card { padding: 18px; }
 }
+
+/* Identidad compartida con Química Zenit: acabado institucional. */
+:root { --zenit-brand-primary: #6840c5; --zenit-brand-primary-deep: #4b2a96; --zenit-brand-gold: #e8bc71; --zenit-brand-night: #231e42; }
+.site-header .nav-cta, .button, .blog-filter-pill.is-active { min-height: 44px; }
+.site-header .brand-copy b { letter-spacing: .045em; }
+.home-page-v2 .hero h1, .home-page-v2 .public-section-head h2, .blog-page-v2 .blog-library-intro h1 { text-wrap: balance; }
+.home-page-v2 .formula-card, .public-tools-visual { background: linear-gradient(150deg,#302850,#17172e); }
+.home-page-v2 .formula-card .formula { max-width:100%; min-width:0; overflow-wrap:anywhere; }
+:where(.home-page-v2,.aprende-hub,.blog-page-v2,.tools-page-v2) :is(a,button,summary):focus-visible { outline: 3px solid #6840c5; outline-offset: 3px; }
+@media (max-width:600px) { .site-header .brand-copy b { font-size: .83rem; } .home-page-v2 .hero .actions .button { min-height: 48px; } }
