@@ -82,5 +82,16 @@
     ],
     "totalPublished": 111,
     "totalScheduled": 517
+  },
+  {
+    "date": "2026-11-12T07:54:28.338Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "problemas-sobre-mcd-y-mcm-1sec-unidad3",
+      "productos-notables-1sec-unidad3",
+      "razones-trigonometricas-de-angulos-agudos-1sec-unidad3"
+    ],
+    "totalPublished": 114,
+    "totalScheduled": 514
   }
 ]
