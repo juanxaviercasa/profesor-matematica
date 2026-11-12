@@ -93,5 +93,16 @@
     ],
     "totalPublished": 114,
     "totalScheduled": 514
+  },
+  {
+    "date": "2026-11-12T20:37:42.309Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "rt-de-un-angulo-agudo-1sec-unidad3",
+      "triangulos-1sec-unidad3",
+      "adicion-y-sustraccion-en-z-1sec-unidad4"
+    ],
+    "totalPublished": 117,
+    "totalScheduled": 511
   }
 ]
