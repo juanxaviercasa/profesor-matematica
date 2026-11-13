@@ -21,35 +21,35 @@ const subjectGroups = [
         title: "Álgebra",
         description: "Expresiones, ecuaciones, factorización y funciones.",
         href: "/aprende/matematica-preuniversitaria/algebra",
-        image: "algebra-aura.webp", width: 600, height: 375,
+        image: "algebra-aura-hd.webp", width: 1200, height: 750,
         alt: "Mesa de estudio con cuaderno de factorización, parábola y útiles de álgebra.",
       },
       {
         title: "Aritmética",
         description: "Números, fracciones, proporciones y porcentajes.",
         href: "/aprende/matematica-preuniversitaria/aritmetica",
-        image: "aritmetica-aura.webp", width: 600, height: 375,
+        image: "aritmetica-aura-hd.webp", width: 1200, height: 750,
         alt: "Cuaderno con fracciones, operaciones, porcentajes y calculadora de aritmética.",
       },
       {
         title: "Geometría",
         description: "Figuras, ángulos, áreas y sólidos geométricos.",
         href: "/aprende/matematica-preuniversitaria/geometria",
-        image: "geometria-aura.webp", width: 600, height: 375,
+        image: "geometria-aura-hd.webp", width: 1200, height: 750,
         alt: "Cuaderno de geometría con figuras, instrumentos de dibujo y cuerpos geométricos.",
       },
       {
         title: "Trigonometría",
         description: "Ángulos, razones trigonométricas e identidades.",
         href: "/aprende/matematica-preuniversitaria/trigonometria",
-        image: "trigonometria-aura.webp", width: 600, height: 375,
+        image: "trigonometria-aura-hd.webp", width: 1200, height: 750,
         alt: "Cuaderno con circunferencia trigonométrica, senos, cosenos y compás.",
       },
       {
         title: "Razonamiento Matemático",
         description: "Patrones, lógica, ingenio y estrategias de solución.",
         href: "/aprende/matematica-preuniversitaria/razonamiento-matematico",
-        image: "razonamiento-matematico-aura.webp", width: 600, height: 375,
+        image: "razonamiento-matematico-aura-hd.webp", width: 1200, height: 750,
         alt: "Cuaderno con patrones numéricos, lógica, secuencias y acertijos.",
       },
     ],
@@ -64,21 +64,21 @@ const subjectGroups = [
         title: "Física",
         description: "Movimiento, fuerzas y fenómenos que podemos modelar.",
         href: "/aprende/ciencias/fisica",
-        image: "fisica-aura.webp", width: 600, height: 375,
+        image: "fisica-aura-hd.webp", width: 1200, height: 750,
         alt: "Mesa de física con péndulo, prismas, circuitos y apuntes de movimiento.",
       },
       {
         title: "Química",
         description: "Materia, estructura atómica y transformaciones.",
         href: "/aprende/ciencias/quimica",
-        image: "quimica-aura.webp", width: 600, height: 375,
+        image: "quimica-aura-hd.webp", width: 1200, height: 750,
         alt: "Mesa de química con matraces, modelos moleculares y un cuaderno de estudio.",
       },
       {
         title: "Biología",
         description: "Células, genética, seres vivos y sistemas del cuerpo humano.",
         href: "/aprende/ciencias/biologia",
-        image: "biologia-aura.webp", width: 600, height: 375,
+        image: "biologia-aura-hd.webp", width: 1200, height: 750,
         alt: "Microscopio, modelo de ADN, plantas y apuntes de biología en una mesa de estudio.",
       },
     ],
@@ -116,8 +116,8 @@ export default function Home() {
         <section className="home-vision wrap" aria-labelledby="home-vision-title">
           <div className="home-vision-photo">
             <Image
-              src={`${homeImages}/zenit-aspiracion.webp`}
-              width={880} height={495} loading="eager" unoptimized
+              src={`${homeImages}/zenit-aspiracion-hd.webp`}
+              width={1600} height={900} loading="eager" unoptimized
               sizes="(max-width: 850px) 100vw, 53vw"
               alt="Estudiante concentrado en un espacio de estudio moderno, entre cuadernos y representaciones científicas."
             />
@@ -152,10 +152,9 @@ export default function Home() {
                         <Image
                           src={`${homeImages}/zenit-${subject.image}`}
                           width={subject.width} height={subject.height}
-                          loading="eager"
+                          loading="eager" unoptimized
                           sizes="(max-width: 700px) 100vw, (max-width: 1050px) 50vw, 33vw"
                           alt={subject.alt}
-                          quality={80}
                         />
                       </div>
                       <div className="home-subject-info">
@@ -186,8 +185,8 @@ export default function Home() {
           </div>
           <div className="home-innovation-photo">
             <Image
-              src={`${homeImages}/zenit-tecnologia.webp`}
-              width={780} height={438} loading="eager" unoptimized
+              src={`${homeImages}/zenit-tecnologia-hd.webp`}
+              width={1600} height={900} loading="eager" unoptimized
               sizes="(max-width: 850px) 100vw, 52vw"
               alt="Estudiante usando una pantalla con representaciones gráficas y geométricas."
             />
@@ -203,10 +202,10 @@ export default function Home() {
           <div className="aura-human-grid">
           <article className="home-human-card">
             <Image
-              src={`${homeImages}/zenit-claridad.webp`}
-              width={560} height={260} loading="eager" unoptimized
+              src={`${homeImages}/zenit-claridad-hd.webp`}
+              width={1600} height={900} loading="eager" unoptimized
               sizes="(max-width: 750px) 100vw, 50vw"
-              alt="Joven en un momento de calma y concentración, con una representación luminosa del pensamiento."
+              alt="Estudiante concentrada tomando apuntes frente a una gráfica matemática en un espacio de estudio."
             />
             <div>
               <span className="home-visual-kicker">Claridad mental</span>
@@ -216,10 +215,10 @@ export default function Home() {
           </article>
           <article className="home-human-card">
             <Image
-              src={`${homeImages}/zenit-mentoria.webp`}
-              width={520} height={235} loading="eager" unoptimized
+              src={`${homeImages}/zenit-mentoria-hd.webp`}
+              width={1600} height={900} loading="eager" unoptimized
               sizes="(max-width: 750px) 100vw, 50vw"
-              alt="Dos estudiantes compartiendo una experiencia de aprendizaje en un entorno moderno."
+              alt="Estudiante explorando un péndulo de Newton y resolviendo ejercicios en un espacio de estudio."
             />
             <div>
               <span className="home-visual-kicker">Aprendizaje humano</span>
@@ -238,10 +237,10 @@ export default function Home() {
             </div>
             <div className="home-path-photo">
               <Image
-                src={`${homeImages}/zenit-versatilidad.webp`}
+                src={`${homeImages}/zenit-versatilidad-hd.webp`}
                 width={780} height={438} loading="eager" unoptimized
                 sizes="(max-width: 850px) 100vw, 42vw"
-                alt="Estudiante rodeada de modelos matemáticos, un péndulo y materiales de química."
+                alt="Estudiante en un laboratorio de matemática y ciencias con gráficas, modelos y experimentos."
               />
             </div>
           </div>
@@ -283,8 +282,11 @@ export default function Home() {
 
         <section className="home-last-step home-cinematic-end" aria-labelledby="home-end-title">
           <div className="home-end-picture" aria-hidden="true">
-            <Image src={`${homeImages}/zenit-meta.webp`} width={980} height={350}
-              loading="eager" unoptimized sizes="100vw" alt="" />
+            <picture>
+              <source media="(max-width: 700px)" srcSet={`${homeImages}/zenit-meta-hd-mobile.webp`} />
+              <Image src={`${homeImages}/zenit-meta-hd.webp`} width={1916} height={821}
+                loading="eager" unoptimized sizes="100vw" alt="" />
+            </picture>
           </div>
           <div className="wrap home-last-step-inner">
             <div>
