@@ -35,9 +35,9 @@ for (const token of ["--aurora-brand-gradient", "--aurora-lavender-gradient", "-
   assert.ok(aurora.includes(token), "Degradado faltante: " + token);
 }
 assert.match(header, /src="\/brand\/zenit-phoenix\.svg"/);
-assert.match(header, /<b>Sistema Zénit<\/b><small>Logra tus metas<\/small>/);
-assert.match(lockup, /Sistema Zénit — Logra tus metas/);
-assert.match(lockup, /Logra tus metas/);
+assert.match(header, /<b>Sistema Zénit<\/b><small>Comprende para llegar más alto.<\/small>/);
+assert.match(lockup, /Sistema Zénit — Comprende para llegar más alto./);
+assert.match(lockup, /Comprende para llegar más alto./);
 assert.match(guide, /Los colores del fénix NO definen la paleta de la interfaz/);
 assert.match(phoenix, /viewBox="470 105 1090 1840"/);
 assert.match(phoenix, /stop-color="#FF5300"/);
