@@ -21,36 +21,36 @@ const subjectGroups = [
         title: "Álgebra",
         description: "Expresiones, ecuaciones, factorización y funciones.",
         href: "/aprende/matematica-preuniversitaria/algebra",
-        image: "algebra.svg", width: 640, height: 390,
-        alt: "Expresión algebraica factorizada y representación de una parábola.",
+        image: "algebra-aura.webp", width: 600, height: 375,
+        alt: "Mesa de estudio con cuaderno de factorización, parábola y útiles de álgebra.",
       },
       {
         title: "Aritmética",
         description: "Números, fracciones, proporciones y porcentajes.",
         href: "/aprende/matematica-preuniversitaria/aritmetica",
-        image: "aritmetica.svg", width: 640, height: 390,
-        alt: "Equivalencia entre la fracción tres cuartos y el decimal cero coma setenta y cinco.",
+        image: "aritmetica-aura.webp", width: 600, height: 375,
+        alt: "Cuaderno con fracciones, operaciones, porcentajes y calculadora de aritmética.",
       },
       {
         title: "Geometría",
         description: "Figuras, ángulos, áreas y sólidos geométricos.",
         href: "/aprende/matematica-preuniversitaria/geometria",
-        image: "geometria.svg", width: 640, height: 390,
-        alt: "Triángulo rectángulo con lados de tres, cuatro y cinco unidades.",
+        image: "geometria-aura.webp", width: 600, height: 375,
+        alt: "Cuaderno de geometría con figuras, instrumentos de dibujo y cuerpos geométricos.",
       },
       {
         title: "Trigonometría",
         description: "Ángulos, razones trigonométricas e identidades.",
         href: "/aprende/matematica-preuniversitaria/trigonometria",
-        image: "trigonometria.svg", width: 640, height: 390,
-        alt: "Circunferencia trigonométrica con proyecciones de seno y coseno.",
+        image: "trigonometria-aura.webp", width: 600, height: 375,
+        alt: "Cuaderno con circunferencia trigonométrica, senos, cosenos y compás.",
       },
       {
         title: "Razonamiento Matemático",
         description: "Patrones, lógica, ingenio y estrategias de solución.",
         href: "/aprende/matematica-preuniversitaria/razonamiento-matematico",
-        image: "razonamiento-matematico.svg", width: 640, height: 390,
-        alt: "Secuencia numérica de duplicación que invita a descubrir el siguiente término.",
+        image: "razonamiento-matematico-aura.webp", width: 600, height: 375,
+        alt: "Cuaderno con patrones numéricos, lógica, secuencias y acertijos.",
       },
     ],
   },
@@ -58,21 +58,28 @@ const subjectGroups = [
     id: "home-science-courses",
     kind: "science",
     title: "Ciencias",
-    description: "Explora los fenómenos físicos y las transformaciones de la materia.",
+    description: "Física, Química y Biología para comprender la naturaleza y preparar tus próximos desafíos académicos.",
     subjects: [
       {
         title: "Física",
         description: "Movimiento, fuerzas y fenómenos que podemos modelar.",
         href: "/aprende/ciencias/fisica",
-        image: "fisica.webp", width: 640, height: 400,
-        alt: "Estudiante observando un péndulo de Newton en una mesa de estudio.",
+        image: "fisica-aura.webp", width: 600, height: 375,
+        alt: "Mesa de física con péndulo, prismas, circuitos y apuntes de movimiento.",
       },
       {
         title: "Química",
         description: "Materia, estructura atómica y transformaciones.",
         href: "/aprende/ciencias/quimica",
-        image: "quimica.webp", width: 600, height: 400,
-        alt: "Matraces de laboratorio y modelo molecular bajo luz violeta.",
+        image: "quimica-aura.webp", width: 600, height: 375,
+        alt: "Mesa de química con matraces, modelos moleculares y un cuaderno de estudio.",
+      },
+      {
+        title: "Biología",
+        description: "Células, genética, seres vivos y sistemas del cuerpo humano.",
+        href: "/aprende/ciencias/biologia",
+        image: "biologia-aura.webp", width: 600, height: 375,
+        alt: "Microscopio, modelo de ADN, plantas y apuntes de biología en una mesa de estudio.",
       },
     ],
   },
@@ -127,9 +134,9 @@ export default function Home() {
           <div className="public-section-head home-cinematic-head">
             <div>
               <span className="home-visual-kicker">Encuentra tu camino</span>
-              <h2 id="home-subjects-title">Siete caminos. <em>Infinitas posibilidades.</em></h2>
+              <h2 id="home-subjects-title">Cada curso, un nuevo horizonte. <em>Infinitas posibilidades.</em></h2>
             </div>
-            <p>Álgebra, Aritmética, Geometría, Trigonometría, Razonamiento Matemático, Física y Química: encuentra el curso que necesitas.</p>
+            <p>Elige tu materia de secundaria y preparación preuniversitaria. Explora ocho cursos y sigue avanzando con nuevas incorporaciones.</p>
           </div>
           <div className="home-subject-groups">
             {subjectGroups.map((group) => (
@@ -146,10 +153,9 @@ export default function Home() {
                           src={`${homeImages}/zenit-${subject.image}`}
                           width={subject.width} height={subject.height}
                           loading="lazy"
-                          sizes={group.kind === "math"
-                            ? "(max-width: 700px) 100vw, (max-width: 1050px) 50vw, 33vw"
-                            : "(max-width: 700px) 100vw, 50vw"}
+                          sizes="(max-width: 700px) 100vw, (max-width: 1050px) 50vw, 33vw"
                           alt={subject.alt}
+                          quality={80}
                         />
                       </div>
                       <div className="home-subject-info">
