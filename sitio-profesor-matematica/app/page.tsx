@@ -152,7 +152,7 @@ export default function Home() {
                         <Image
                           src={`${homeImages}/zenit-${subject.image}`}
                           width={subject.width} height={subject.height}
-                          loading="lazy"
+                          loading="eager"
                           sizes="(max-width: 700px) 100vw, (max-width: 1050px) 50vw, 33vw"
                           alt={subject.alt}
                           quality={80}
@@ -204,7 +204,7 @@ export default function Home() {
           <article className="home-human-card">
             <Image
               src={`${homeImages}/zenit-claridad.webp`}
-              width={560} height={260} loading="lazy" unoptimized
+              width={560} height={260} loading="eager" unoptimized
               sizes="(max-width: 750px) 100vw, 50vw"
               alt="Joven en un momento de calma y concentración, con una representación luminosa del pensamiento."
             />
@@ -217,7 +217,7 @@ export default function Home() {
           <article className="home-human-card">
             <Image
               src={`${homeImages}/zenit-mentoria.webp`}
-              width={520} height={235} loading="lazy" unoptimized
+              width={520} height={235} loading="eager" unoptimized
               sizes="(max-width: 750px) 100vw, 50vw"
               alt="Dos estudiantes compartiendo una experiencia de aprendizaje en un entorno moderno."
             />
@@ -260,7 +260,7 @@ export default function Home() {
         <section className="wrap trust home-trust" aria-labelledby="home-teacher-title">
           <figure className="home-teacher-portrait">
             <Image
-              src="/juan-xavier.jpg" width={423} height={573} loading="lazy"
+              src="/juan-xavier.jpg" width={423} height={573} loading="eager"
               sizes="(max-width: 850px) 100vw, 360px"
               alt="Retrato de Juan Xavier, docente y creador de Sistema Zénit."
             />
