@@ -43,8 +43,8 @@ assert.ok(mobileBytes.length>50000 && mobileBytes.length<250000,"Banner móvil d
 assert.ok(home.includes('zenit-meta-hd-mobile.webp'),"Falta imagen móvil alternativa en el banner");
 assert.ok(home.includes('width={1916} height={821}'),"Usar medidas nativas de la escena panorámica");
 assert.ok(home.includes('width={1600} height={900}'),"Usar las medidas reales de las fotografías editoriales");
-assert.ok(home.includes('width={1200} height={750}'),"Usar las medidas reales de las tarjetas");
-assert.doesNotMatch(home,/zenit-(?:claridad|mentoria|meta|aspiracion|tecnologia|versatilidad)\\.webp/,"No utilizar miniaturas pixeladas");
+assert.ok(home.includes('width: 1200, height: 750'),"Usar las medidas reales de las tarjetas en los datos");
+assert.doesNotMatch(home,/zenit-(?:claridad|mentoria|meta|aspiracion|tecnologia|versatilidad)\.webp/,"No utilizar miniaturas pixeladas");
 assert.equal((home.match(/<FormulaCard\/>/g)||[]).length,1,"Debe existir solo un graficador");
 assert.ok(home.includes('src="/juan-xavier.jpg"'),"Conservar el retrato real de Juan Xavier");
 assert.ok(home.includes('import Image from "next/image"'));
