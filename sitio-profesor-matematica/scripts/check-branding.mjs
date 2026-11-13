@@ -36,15 +36,15 @@ assert.match(layout,/authors: \[\{ name: "Juan Xavier"/);
 assert.match(layout,/name: "Juan Xavier"/);
 const header=readFileSync(path.join(root,"components/site.tsx"),"utf8");
 assert.match(header, /<b>Sistema Zénit<\/b>/);
-assert.match(header, /<small>Logra tus metas<\/small>/);
+assert.match(header, /<small>Comprende para llegar más alto.<\/small>/);
 assert.match(header, /src="\/brand\/zenit-phoenix\.svg"/);
 const phoenix=readFileSync(path.join(root,"public/brand/zenit-phoenix.svg"),"utf8");
 assert.match(phoenix,/viewBox="470 105 1090 1840"/);
 const lockup=readFileSync(path.join(root,"public/brand/zenit-lockup.svg"),"utf8");
-assert.match(lockup,/Logra tus metas/);
+assert.match(lockup,/Comprende para llegar más alto./);
 for (const branded of ["components/site.tsx", "app/page.tsx", "public/brand/zenit-lockup.svg", "BRAND-GUIDE.md", "public/brand/youtube-banner.svg", "public/brand/vertical-cover-template.svg"]) {
   assert.doesNotMatch(readFileSync(path.join(root, branded), "utf8"),
-    /Logra tu meta(?!s)|LOGRA TU META(?!S)/,
+    /Logra tus metas|LOGRA TUS METAS/,
     "Eslogan antiguo detectado en " + branded);
 }
 
@@ -57,4 +57,4 @@ const site=readFileSync(path.join(root,"app/page.tsx"),"utf8");
 assert.ok(site.includes('src="/juan-xavier.jpg"'));
 assert.ok(existsSync(path.join(root,"public/juan-xavier.jpg")),"La fotografía de Juan Xavier debe mantenerse accesible");
 assert.ok(!existsSync(path.join(root,"public/juan-xavier-cabello.jpg")),"El nombre anterior del archivo no debe persistir");
-console.log("✓ Marca: logo Fénix y lema Logra tus metas en header/footer; autoría de Juan Xavier conservada.");
+console.log("✓ Marca: fénix y nuevo lema en header/footer; autoría de Juan Xavier conservada.");
