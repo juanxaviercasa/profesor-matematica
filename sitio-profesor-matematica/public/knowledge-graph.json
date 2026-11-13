@@ -1,9 +1,9 @@
 {
   "version": "2.0.0",
-  "generatedAt": "2026-11-13T07:31:47.262Z",
+  "generatedAt": "2026-11-13T20:14:30.053Z",
   "totalLessons": 628,
-  "publishedLessons": 120,
-  "scheduledLessons": 508,
+  "publishedLessons": 123,
+  "scheduledLessons": 505,
   "baseUrl": "https://sistemazenit.com",
   "nodes": [
     {
@@ -590,7 +590,7 @@
       "course": "estadistica-y-probabilidad",
       "grade": 1,
       "appEngine": "StatisticsProbabilityLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 6
     },
@@ -602,7 +602,7 @@
       "course": "aritmetica",
       "grade": 1,
       "appEngine": "NumberTheoryLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 16
     },
@@ -614,7 +614,7 @@
       "course": "aritmetica",
       "grade": 1,
       "appEngine": "NumberTheoryLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 0
     },

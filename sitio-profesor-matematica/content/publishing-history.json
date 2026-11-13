@@ -115,5 +115,16 @@
     ],
     "totalPublished": 120,
     "totalScheduled": 508
+  },
+  {
+    "date": "2026-11-13T20:14:30.017Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "grafico-lineal-1sec-unidad4",
+      "multiplicacion-y-division-en-z-1sec-unidad4",
+      "multiplicacion-y-division-en-z-1-1sec-unidad4"
+    ],
+    "totalPublished": 123,
+    "totalScheduled": 505
   }
 ]
