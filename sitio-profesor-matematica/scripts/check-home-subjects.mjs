@@ -11,7 +11,7 @@ assert.ok(begin >= 0 && end > begin, "Bloque de materias no encontrado");
 const groups = page.slice(begin, end);
 assert.match(groups, /id: "home-math-courses"/);
 assert.match(groups, /id: "home-science-courses"/);
-assert.match(page, /Cada curso, un nuevo horizonte/);
+assert.match(page, /De la base al examen de admisión/);
 assert.doesNotMatch(groups, /title: "Matemática",/, "No volver a fusionar los cinco cursos");
 
 const expected = [
