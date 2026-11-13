@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s · Sistema Zénit",
   },
   description:
-    "Biblioteca gratuita de Matemática y Ciencias con lecciones, ejercicios y laboratorios para secundaria, preparación preuniversitaria y primeros ciclos universitarios.",
+    "Sistema Zénit: comprende para llegar más alto. Matemática y ciencias con lecciones, ejercicios y laboratorios interactivos para secundaria y preparación académica.",
   keywords: [
     "profesor de matemática en Lima",
     "clases de matemática Lima",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     images: [`${BASE_URL}/brand/social-avatar.png`],
     title: "Sistema Zénit · Matemática y Ciencias",
     description:
-      "Biblioteca gratuita de Matemática y Ciencias con teoría, herramientas interactivas y práctica guiada.",
+      "Matemática y ciencias para comprender: lecciones, ejercicios y laboratorios interactivos de Sistema Zénit.",
   },
 };
 
