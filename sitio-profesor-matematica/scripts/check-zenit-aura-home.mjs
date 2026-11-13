@@ -41,12 +41,17 @@ for (const selector of [
   ".home-path-section", ".home-cinematic-end", ".home-math-subject-grid",
 ]) assert.ok(refinement.includes(selector), "Falta diseño refinado: " + selector);
 
-assert.match(refinement, /grid-template-columns:repeat\(6,minmax\(0,1fr\)\)/, "Los cinco cursos matemáticos deben tener ancho suficiente en escritorio");
-assert.match(refinement, /nth-child\(n \+ 4\)\{grid-column:span 3\}/, "Los dos últimos cursos deben ocupar media fila cada uno");
+assert.ok(refinement.includes("grid-template-columns:repeat(3,minmax(0,1fr))"),
+  "Matemáticas y Ciencias requieren tres columnas en escritorio");
+assert.ok(refinement.includes("grid-template-columns:repeat(2,minmax(0,1fr))"),
+  "En tablet debe haber dos columnas");
+assert.ok(refinement.includes("grid-template-columns:minmax(0,1fr)"),
+  "En móvil debe haber una columna");
 assert.match(refinement, /@media\(max-width:920px\)/, "Falta ajuste de dos columnas en tablet");
 assert.match(refinement, /@media\(max-width:700px\)/, "Falta ajuste a una columna en móvil");
 
 assert.match(home, /Logra tus metas\./);
+assert.match(home, /Biología/);
 assert.match(home, /src="\/juan-xavier\.jpg"/);
 const imports = [
   'import "./hero-quadratic-lab.css";',
@@ -71,13 +76,15 @@ for (const [course,area] of [
   ["geometria","matematica-preuniversitaria"],
   ["trigonometria","matematica-preuniversitaria"],
   ["razonamiento-matematico","matematica-preuniversitaria"],
-  ["fisica","ciencias"],["quimica","ciencias"],
+  ["fisica","ciencias"],["quimica","ciencias"],["biologia","ciencias"],
 ]) {
   assert.ok(home.includes('href: "/aprende/' + area + '/' + course + '"'),
     "Falta ruta académica: " + course);
-  assert.ok(curriculum.some(x => x.area === area && x.course === course && x.publishStatus === "published"),
-    "Curso no publicado: " + course);
+  if (course !== "biologia") {
+    assert.ok(curriculum.some(x => x.area === area && x.course === course && x.publishStatus === "published"),
+      "Curso no publicado: " + course);
+  }
 }
 assert.doesNotMatch(home, /zenit-connection-aurora-|feature-band/,
   "No agregar diagramas cuadráticos duplicados a la portada");
-console.log("✓ Zénit Aura: portada editorial, graficador único, siete cursos, identidad y responsive verificados.");
+console.log("✓ Zénit Aura: portada editorial, graficador único, ocho cursos, identidad y responsive verificados.");
