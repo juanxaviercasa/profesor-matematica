@@ -1,5 +1,5 @@
 /*
- * Sistema Zénit · Aurora
+ * Sistema Zénit · Zénit Aura
  * Capa visual institucional final: violeta / índigo / lavanda / oro.
  * Los colores del Fénix en /brand/zenit-phoenix.svg NO se alteran.
  * Mantener estados semánticos de evaluación y series de gráficas.
@@ -257,3 +257,8 @@ footer .footer-base { color: #d7cde8; border-top-color: #ffffff2e; }
   .zenit-geometry-lab { padding: 16px; }
   .zenit-geometry-lab svg { max-width: 100%; height: auto; }
 }
+
+/* Firma institucional: no recortar el lema en móviles. */
+.site-header .brand-copy small,footer .brand-copy small{white-space:normal;text-wrap:balance;max-width:235px;font-size:clamp(.72rem,.82vw,.81rem);line-height:1.24;letter-spacing:0}
+@media(max-width:520px){.site-header .brand-copy small{max-width:165px;font-size:.71rem;line-height:1.2}.site-header .brand-copy b{white-space:nowrap}}
+@media(max-width:370px){.site-header .brand-copy small{max-width:146px;font-size:.68rem}}
