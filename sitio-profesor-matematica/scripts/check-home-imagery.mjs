@@ -8,7 +8,7 @@ const read=(name)=>readFileSync(path.join(root,name),"utf8");
 const home=read("app/page.tsx");
 const css=read("app/home-cinematic.css");
 const layout=read("app/layout.tsx");
-const names=["aspiracion","versatilidad","tecnologia","fisica","quimica","claridad","mentoria","meta"];
+const names=["aspiracion","versatilidad","tecnologia","claridad","mentoria","meta"];
 let total=0;
 for(const name of names){
   const file=path.join(root,"public/images/home/zenit-"+name+".webp");
@@ -21,16 +21,19 @@ for(const name of names){
   assert.ok(home.includes("zenit-"+name+".webp") || home.includes('image: "'+name+'.webp"'),
     "Imagen no utilizada en la portada: "+name);
 }
-const mathArtworks=["algebra","aritmetica","geometria","trigonometria","razonamiento-matematico"];
-for (const course of mathArtworks) {
-  const asset=path.join(root,"public/images/home/zenit-"+course+".svg");
-  assert.ok(existsSync(asset),"Falta ilustración matemática: "+course);
-  const svg=readFileSync(asset,"utf8");
-  assert.match(svg,/<svg[^>]+viewBox="0 0 640 390"/);
-  assert.match(svg,/<title id="title">/);
-  assert.ok(svg.length<12000,"Ilustración SVG demasiado pesada: "+course);
-  assert.ok(home.includes('image: "'+course+'.svg"'),"No se muestra la ilustración: "+course);
+const courseArtworks=["algebra","aritmetica","geometria","trigonometria","razonamiento-matematico","fisica","quimica","biologia"];
+let coursesBytes=0;
+for(const course of courseArtworks){
+  const image=path.join(root,"public/images/home/zenit-"+course+"-aura.webp");
+  assert.ok(existsSync(image),"Falta foto hiperrealista de curso: "+course);
+  const bytes=readFileSync(image);
+  assert.equal(bytes.toString("ascii",0,4),"RIFF","Firma RIFF incorrecta: "+course);
+  assert.equal(bytes.toString("ascii",8,12),"WEBP","WebP incorrecto: "+course);
+  assert.ok(bytes.length>5000 && bytes.length<60000,"Imagen de curso fuera de presupuesto: "+course);
+  assert.ok(home.includes('image: "'+course+'-aura.webp"'),"Curso sin imagen: "+course);
+  coursesBytes+=bytes.length;
 }
+assert.ok(coursesBytes<240000,"Ocho imágenes de curso demasiado pesadas: "+coursesBytes);
 assert.ok(total<180000,"El paquete visual es demasiado pesado: "+total+" bytes");
 assert.equal((home.match(/<FormulaCard\/>/g)||[]).length,1,"Debe existir solo un graficador");
 assert.ok(home.includes('src="/juan-xavier.jpg"'),"Conservar el retrato real de Juan Xavier");
@@ -46,4 +49,4 @@ for(const bp of ["max-width: 1050px","max-width: 850px","max-width: 700px"]){
   assert.ok(css.includes(bp),"Falta breakpoint "+bp);
 }
 assert.doesNotMatch(home,/https?:\/\/\S+\.(?:jpg|png|webp)/i,"Las fotos deben ser locales y optimizadas");
-console.log("✓ 8 WebP locales ("+(total/1024).toFixed(0)+" KiB) + 5 SVG matemáticos, fundador auténtico y responsive.");
+console.log("✓ "+names.length+" WebP editoriales ("+(total/1024).toFixed(0)+" KiB) + 8 fotos de cursos ("+(coursesBytes/1024).toFixed(0)+" KiB), fundador auténtico y responsive.");
