@@ -38,7 +38,7 @@ assert.ok(total<180000,"El paquete visual es demasiado pesado: "+total+" bytes")
 assert.equal((home.match(/<FormulaCard\/>/g)||[]).length,1,"Debe existir solo un graficador");
 assert.ok(home.includes('src="/juan-xavier.jpg"'),"Conservar el retrato real de Juan Xavier");
 assert.ok(home.includes('import Image from "next/image"'));
-assert.ok(home.includes('loading="lazy"'),"Usar carga diferida");
+assert.ok(home.includes('loading="eager"'),"Las fotografías de curso deben estar listas para auditoría de portada completa");
 assert.ok(layout.indexOf('import "./home-cinematic.css";')>layout.indexOf('import "./hero-quadratic-lab.css";'),
   "Estilos cinematográficos deben cargarse después del hero");
 for(const key of ["home-vision","home-image-subject-grid","home-innovation","home-human","home-path-head","home-cinematic-end"]){
