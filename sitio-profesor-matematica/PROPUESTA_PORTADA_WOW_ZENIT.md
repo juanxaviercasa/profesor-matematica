@@ -4,7 +4,7 @@
 **Objetivo:** una portada editorial de alta calidad que demuestre matemáticas auténticas y lleve al usuario a una lección útil, no una colección de tarjetas de marketing.
 
 ## Diagnóstico de causa raíz
-1. **Identidad redundante.** El encabezado ya presenta el fénix, Sistema Zénit y «Logra tus metas». Repetir esos tres elementos en el laboratorio añade ruido.
+1. **Identidad redundante.** El encabezado ya presenta el fénix, Sistema Zénit y «Comprende para llegar más alto.». Repetir esos tres elementos en el laboratorio añade ruido.
 2. **Demostración duplicada.** La parábola f(x)=x²−4x+3 aparecía como minisimulador y como infografía estática más abajo. No aporta una idea diferente.
 3. **Tres menús dentro de una misma página.** `home-subjects`, `home-start` y `dark-section/path-grid` ofrecen variaciones de «elige tu camino», sin una prioridad visible.
 4. **Exceso de interfaz verbal.** Etiquetas, microcopy, badges y descripciones de lo que el usuario ya ve consumen espacio sin añadir comprensión.
