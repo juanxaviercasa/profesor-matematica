@@ -6,7 +6,7 @@ import { Footer, Header, FormulaCard } from "@/components/site";
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
   title: "Aprende a pensar. Llega más alto.",
-  description: "Aprende matemática y ciencias con explicaciones claras, lecciones, ejercicios y simuladores interactivos. Sistema Zénit: logra tus metas.",
+  description: "Sistema Zénit: comprende para llegar más alto. Matemática y ciencias con lecciones, ejercicios y laboratorios interactivos para comprobar conceptos.",
 };
 
 const homeImages = "/images/home";
@@ -102,13 +102,13 @@ export default function Home() {
             <span className="aura-hero-kicker"><span aria-hidden="true" className="aura-sparkle">✦</span> Donde la curiosidad se convierte en comprensión</span>
             <h1 id="home-title">Aprende a pensar.<br/><em>Llega más alto.</em></h1>
             <p className="lead">
-              Matemática y ciencias con explicaciones claras, práctica real y herramientas interactivas que puedes explorar por ti mismo.
+              No basta con memorizar una fórmula. Cambia las variables, observa la gráfica y comprueba por qué funciona. Así aprendemos matemática y ciencias en Sistema Zénit.
             </p>
             <div className="actions">
               <Link className="button" href="/aprende?utm_source=sitio&utm_medium=home&utm_campaign=ruta_gratuita">Explorar materias <span aria-hidden="true">↗</span></Link>
               <Link className="text-link" href="/laboratorio?utm_source=sitio&utm_medium=home&utm_campaign=ruta_gratuita">Probar laboratorios <span aria-hidden="true">→</span></Link>
             </div>
-            <p className="aura-hero-footnote"><span aria-hidden="true" className="aura-footnote-rule"/> Explora una idea. Comprueba el resultado.</p>
+            <p className="aura-hero-footnote"><span aria-hidden="true" className="aura-footnote-rule"/> Prueba con a, h y k: descubre cómo se transforma una parábola.</p>
           </div>
           <div className="aura-hero-lab"><FormulaCard/></div>
         </section>
@@ -124,8 +124,8 @@ export default function Home() {
           </div>
           <div className="home-vision-copy">
             <span className="home-visual-kicker">El sentido de Zénit</span>
-            <h2 id="home-vision-title">El conocimiento transforma. <em>La confianza impulsa.</em></h2>
-            <p>Aprender deja de ser memorizar cuando descubres por qué funcionan las cosas. Cada concepto comprendido te acerca a nuevas metas.</p>
+            <h2 id="home-vision-title">Aprender no es memorizar. <em>Es descubrir la estructura.</em></h2>
+            <p>Comprender una fórmula es saber de dónde viene, representarla y verificar el resultado. Ese es el criterio que buscamos desarrollar.</p>
             <span className="aura-vision-signature">Un paso firme en cada concepto.</span>
           </div>
         </section>
@@ -134,7 +134,7 @@ export default function Home() {
           <div className="public-section-head home-cinematic-head">
             <div>
               <span className="home-visual-kicker">Encuentra tu camino</span>
-              <h2 id="home-subjects-title">Cada curso, un nuevo horizonte. <em>Infinitas posibilidades.</em></h2>
+              <h2 id="home-subjects-title">De la base al examen de admisión. <em>Curso por curso.</em></h2>
             </div>
             <p>Elige tu materia de secundaria y preparación preuniversitaria. Explora ocho cursos y sigue avanzando con nuevas incorporaciones.</p>
           </div>
@@ -291,8 +291,8 @@ export default function Home() {
           <div className="wrap home-last-step-inner">
             <div>
               <span className="home-visual-kicker">Tu siguiente paso comienza aquí</span>
-              <h2 id="home-end-title">Logra tus metas.</h2>
-              <p>Lo que comprendes hoy abre oportunidades para mañana.</p>
+              <h2 id="home-end-title">Tu próximo gran logro <em>comienza cuando comprendes.</em></h2>
+              <p>Practica, comprueba tus ideas y sigue una ruta de estudio que tenga sentido para ti.</p>
             </div>
             <Link className="button" href="/aprende">Encuentra tu curso <span aria-hidden="true">↗</span></Link>
           </div>
