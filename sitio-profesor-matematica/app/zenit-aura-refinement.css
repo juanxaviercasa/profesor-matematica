@@ -500,3 +500,34 @@
     aspect-ratio:8 / 5;
   }
 }
+
+/* Fotografía original de IA en resolución nativa, sin textos rasterizados.
+   El elemento picture permite una composición panorámica y otra móvil. */
+.home-page-v2 .home-end-picture picture {
+  display:block;
+  width:100%;
+  height:100%;
+}
+.home-page-v2 .home-end-picture picture img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:36% center;
+  image-rendering:auto;
+}
+.home-page-v2 .aura-human-grid .home-human-card>img {
+  object-position:center 52%;
+  image-rendering:auto;
+}
+.home-page-v2 .home-vision-photo img,
+.home-page-v2 .home-innovation-photo img,
+.home-page-v2 .home-path-photo img,
+.home-page-v2 .home-subject-photo img {
+  image-rendering:auto;
+}
+@media (max-width:700px) {
+  .home-page-v2 .home-end-picture picture img {
+    object-position:50% 32%;
+  }
+}
