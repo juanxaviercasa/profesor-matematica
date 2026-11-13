@@ -4,7 +4,7 @@ import { QuadraticHeroLab } from "./quadratic-hero-lab";
 import { CONTACT_EMAIL } from "@/lib/lead-message";
 
 function Brand({ inverse = false }: { inverse?: boolean }) {
-  return <span className={`brand${inverse ? " inverse" : ""}`}><Image src="/brand/zenit-phoenix.svg" alt="" width={44} height={50}/><span className="brand-copy"><b>Sistema Zénit</b><small>Logra tus metas</small></span></span>;
+  return <span className={`brand${inverse ? " inverse" : ""}`}><Image src="/brand/zenit-phoenix.svg" alt="" width={44} height={50}/><span className="brand-copy"><b>Sistema Zénit</b><small>Comprende para llegar más alto.</small></span></span>;
 }
 
 export function Header() {
@@ -34,7 +34,7 @@ export function Header() {
 }
 
 export function Footer() {
-  return <footer><div className="wrap footer-grid"><div><Link href="/" className="brand-link"><Brand inverse/></Link><p><strong>Matemática y ciencias para comprender.</strong><br/>Una biblioteca gratuita con lecciones, práctica y laboratorios interactivos.</p></div><div><b>Explora</b><Link href="/aprende">Portal de aprendizaje</Link><Link href="/blog">Biblioteca de temas</Link><Link href="/herramientas">Herramientas interactivas</Link><Link href="/laboratorio">Zénit Lab</Link></div><div><b>El proyecto</b><Link href="/sobre-mi">Sobre Sistema Zénit</Link><Link href="/profesor-matematicas-lima">Clases en Lima</Link><Link href="/contacto">Contacto</Link></div><div><b>Conecta</b><a href="https://www.tiktok.com/@sistemazenit" target="_blank" rel="noreferrer">TikTok · @sistemazenit</a><a href={"mailto:" + CONTACT_EMAIL}>Correo</a><Link href="/privacidad">Privacidad y consultas</Link></div></div><div className="wrap footer-base"><span>© 2026 Sistema Zénit · Creado y dirigido por Juan Xavier</span><span className="brand-founder-sr">© 2026 Juan Xavier · Sistema Zénit</span><span>Educación matemática y científica · Lima, Perú</span></div></footer>;
+  return <footer><div className="wrap footer-grid"><div><Link href="/" className="brand-link"><Brand inverse/></Link><p><strong>Aprender no es memorizar. Es comprender.</strong><br/>Lecciones abiertas, práctica y laboratorios donde puedes comprobar conceptos. También puedes consultar por orientación académica.</p></div><div><b>Explora</b><Link href="/aprende">Portal de aprendizaje</Link><Link href="/blog">Biblioteca de temas</Link><Link href="/herramientas">Herramientas interactivas</Link><Link href="/laboratorio">Zénit Lab</Link></div><div><b>El proyecto</b><Link href="/sobre-mi">Sobre Sistema Zénit</Link><Link href="/profesor-matematicas-lima">Clases en Lima</Link><Link href="/contacto">Contacto</Link></div><div><b>Conecta</b><a href="https://www.tiktok.com/@sistemazenit" target="_blank" rel="noreferrer">TikTok · @sistemazenit</a><a href={"mailto:" + CONTACT_EMAIL}>Correo</a><Link href="/privacidad">Privacidad y consultas</Link></div></div><div className="wrap footer-base"><span>© 2026 Sistema Zénit · Creado y dirigido por Juan Xavier</span><span className="brand-founder-sr">© 2026 Juan Xavier · Sistema Zénit</span><span>Educación matemática y científica · Lima, Perú</span></div></footer>;
 }
 
 export function PlaceholderNote({ text }: { text: string }) { return <p className="placeholder-note"><b>Dato pendiente:</b> {text}</p>; }
