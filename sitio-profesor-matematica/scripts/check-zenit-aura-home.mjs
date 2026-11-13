@@ -12,9 +12,10 @@ const brand = read("BRAND-GUIDE.md");
 
 assert.match(brand, /Zénit Aura/);
 assert.doesNotMatch(brand, /Zénit Aurora/, "No reutilizar el nombre anterior de la identidad");
-assert.match(site, /Logra tus metas/);
+assert.match(site, /Comprende para llegar más alto/);
 assert.match(home, /Aprende a pensar/);
 assert.match(home, /Llega más alto/);
+assert.match(home, /Aprender no es memorizar/);
 assert.match(home, /aura-hero-lab/);
 assert.equal((home.match(/<FormulaCard\/>/g) || []).length, 1, "Conservar un solo graficador auténtico");
 assert.match(home, /La mejor explicación es la que/);
@@ -50,7 +51,9 @@ assert.ok(refinement.includes("grid-template-columns:minmax(0,1fr)"),
 assert.match(refinement, /@media\(max-width:920px\)/, "Falta ajuste de dos columnas en tablet");
 assert.match(refinement, /@media\(max-width:700px\)/, "Falta ajuste a una columna en móvil");
 
-assert.match(home, /Logra tus metas\./);
+assert.match(home, /Tu próximo gran logro/);
+assert.match(home, /comienza cuando comprendes/);
+assert.doesNotMatch(home, /Infinitas posibilidades/);
 assert.match(home, /Biología/);
 assert.match(home, /src="\/juan-xavier\.jpg"/);
 const imports = [
