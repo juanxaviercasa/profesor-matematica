@@ -162,7 +162,7 @@ export default function Home() {
                         <span className="aura-course-index">{String(index + 1).padStart(2, "0")} · {group.kind === "math" ? "MATEMÁTICAS" : "CIENCIAS"}</span>
                         <h4>{subject.title}</h4>
                         <p>{subject.description}</p>
-                        <span>Ver temas <span aria-hidden="true">↗</span></span>
+                        <span>{subject.title === "Biología" ? "Explorar introducción" : "Ver temas"} <span aria-hidden="true">↗</span></span>
                       </div>
                     </Link>
                   ))}
