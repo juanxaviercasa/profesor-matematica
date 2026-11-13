@@ -3,12 +3,22 @@
 ## Identidad institucional
 
 **Nombre público:** Sistema Zénit  
-**Lema oficial:** **Logra tus metas**  
+**Lema oficial:** **Comprende para llegar más alto.**  
 **Símbolo original:** fénix amarillo/dorado dentro de una llama roja y anaranjada.  
 **Autor y fundador:** Juan Xavier (mantener reconocimiento en biografía, autoría y datos estructurados).  
 **Aplicaciones:** Matemática, Química Zenit, laboratorios y herramientas del sistema educativo.
 
-La firma del encabezado y del pie siempre presenta el fénix, a su derecha «Sistema Zénit» en primera línea y «Logra tus metas» en segunda. Es importante conservar el acento en **Zénit**. No volver a mostrar «POR JUAN XAVIER» en lugar del lema, aunque la autoría permanezca en otros sitios adecuados.
+La firma del encabezado y del pie siempre presenta el fénix, a su derecha «Sistema Zénit» en primera línea y «Comprende para llegar más alto.» en segunda. Es importante conservar el acento en **Zénit**. No volver a mostrar «POR JUAN XAVIER» en lugar del lema, aunque la autoría permanezca en otros sitios adecuados.
+
+## Filosofía y voz pedagógica
+
+**Línea visual:** Zénit Aura.  
+**Declaración pedagógica:** «Aprender no es memorizar. Es ver la estructura detrás de las cosas».  
+**Frase de cierre de portada:** «Tu próximo gran logro comienza cuando comprendes».
+
+El tono es **rigor analítico con cercanía pedagógica**: demostrar antes de prometer, usar conceptos precisos, escribir con contención y no descalificar a otros docentes. Mover las variables `a`, `h` y `k` en el simulador muestra de manera observable cómo cambia una parábola. No inventar resultados académicos, testimonios, precios ni cupos.
+
+**Fuente editorial interna:** [Manifiesto y pautas de voz Zénit Aura](MARCA-ZENIT-AURA-VOZ-Y-MANIFIESTO.md), basado en los documentos entregados por Juan Xavier. Este manual guía el contenido, no se muestra como texto técnico al visitante.
 
 ## Principio esencial
 
@@ -63,7 +73,7 @@ Meta WCAG AA: 4.5:1 para texto normal y 3:1 para texto grande. Pares de referenc
 - `public/brand/zenit-mark.svg`: alias visual actualizado del fénix para compatibilidad.
 - `public/brand/social-avatar.svg`: avatar vectorial Zénit Aura.
 - `app/zenit-redesign.css`: tokens base compartidos con componentes heredados.
-- `app/zenit-aurora.css`: capa de marca **final**, cargada última en `app/layout.tsx`.
+- `app/zenit-aurora.css`: tokens institucionales heredados, cargados antes de las hojas específicas de Zénit Aura.
 - `app/design-system.css`, `app/globals.css`: compatibilidad, tipografía, estilos y accesibilidad.
 - `components/site.tsx`: único componente Brand compartido entre header y footer.
 - `scripts/check-aurora.mjs`: prueba de integridad del branding.
