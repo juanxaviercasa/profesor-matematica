@@ -40,8 +40,8 @@ export default function BiologyIntroPage() {
               <Link href="/aprende" className="bio-btn bio-secondary">Ver los cursos disponibles</Link>
             </div>
           </div>
-          <Image className="bio-hero-image" src="/images/home/zenit-biologia-aura.webp"
-            width={600} height={375} alt="Estudio de Biología con microscopio, modelo de ADN y apuntes ilustrados."
+          <Image className="bio-hero-image" src="/images/home/zenit-biologia-aura-hd.webp"
+            width={1200} height={750} alt="Estudio de Biología con microscopio, modelo de ADN y apuntes ilustrados."
             priority sizes="(max-width: 850px) 100vw, 45vw" />
         </section>
         <section className="bio-topics" aria-labelledby="bio-topics-title">
