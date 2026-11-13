@@ -24,7 +24,7 @@ const expected = [
   ["Química", "ciencias", "quimica"],
   ["Biología", "ciencias", "biologia"],
 ];
-assert.equal((groups.match(/href: "\\/aprende\\//g) ?? []).length, expected.length,
+assert.equal((groups.split('href: "/aprende/').length - 1), expected.length,
   "Se esperan ocho tarjetas de acceso, sin duplicados");
 for (const [title, area, slug] of expected) {
   assert.ok(groups.includes('title: "' + title + '"'), "Falta curso: " + title);
