@@ -29,9 +29,9 @@ assert.equal((groups.split('href: "/aprende/').length - 1), expected.length,
 for (const [title, area, slug] of expected) {
   assert.ok(groups.includes('title: "' + title + '"'), "Falta curso: " + title);
   assert.ok(groups.includes('href: "/aprende/' + area + '/' + slug + '"'), "Ruta incorrecta: " + slug);
-  assert.ok(groups.includes('image: "' + slug + '-aura.webp"'), "Imagen Aura incorrecta: " + slug);
-  assert.ok(existsSync(new URL("../public/images/home/zenit-" + slug + "-aura.webp", import.meta.url)),
-    "Falta fotografía hiperrealista: " + slug);
+  assert.ok(groups.includes('image: "' + slug + '-aura-hd.webp"'), "Imagen Aura incorrecta: " + slug);
+  assert.ok(existsSync(new URL("../public/images/home/zenit-" + slug + "-aura-hd.webp", import.meta.url)),
+    "Falta fotografía hiperrealista HD: " + slug);
   if (slug !== "biologia") {
     const available = lessons.filter((lesson) =>
       lesson.area === area && lesson.course === slug && lesson.publishStatus === "published");
@@ -50,4 +50,4 @@ assert.match(css, /max-width:1050px/);
 assert.match(css, /max-width:700px/);
 assert.match(page, /<h3 id=\{group\.id\}>/);
 assert.match(page, /<h4>\{subject\.title\}<\/h4>/);
-console.log("✓ Inicio: 5 cursos matemáticos + 3 ciencias, 8 fotografías, enlaces y Biología introductoria.");
+console.log("✓ Inicio: 5 cursos matemáticos + 3 ciencias, 8 fotografías HD originales, enlaces y Biología introductoria.");
