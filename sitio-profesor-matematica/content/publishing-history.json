@@ -104,5 +104,16 @@
     ],
     "totalPublished": 117,
     "totalScheduled": 511
+  },
+  {
+    "date": "2026-11-13T07:31:47.218Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "cuadrilateros-1sec-unidad4",
+      "factorizacion-1sec-unidad4",
+      "factorizacion-de-expresiones-algebraicas-1sec-unidad4"
+    ],
+    "totalPublished": 120,
+    "totalScheduled": 508
   }
 ]
