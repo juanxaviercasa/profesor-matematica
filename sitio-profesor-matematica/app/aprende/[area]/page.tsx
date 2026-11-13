@@ -66,7 +66,7 @@ export default async function AreaPage({ params }: PageProps) {
         {/* Courses Breakdown */}
         <section className="space-y-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <h2 className="text-2xl font-bold text-white">Cursos en esta Área ({coursesInArea.length})</h2>
+            <h2 className="text-2xl font-bold text-white">Cursos en esta Área ({coursesInArea.length + (areaSlug === "ciencias" ? 1 : 0)})</h2>
             <Link
               href="/blog"
               className="rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-4 py-2 text-xs font-bold text-emerald-300 hover:bg-emerald-500/20"
@@ -129,6 +129,22 @@ export default async function AreaPage({ params }: PageProps) {
                 </div>
               );
             })}
+            {areaSlug === "ciencias" && (
+              <article className="course-detailed-card rounded-2xl border border-violet-200 bg-white p-6 md:p-8 shadow-lg">
+                <div className="flex flex-wrap items-center justify-between gap-5">
+                  <div className="flex items-center gap-4">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-violet-200 bg-violet-100 text-2xl" aria-hidden="true">🧬</span>
+                    <div>
+                      <h3 className="text-xl font-bold text-violet-950">Biología</h3>
+                      <p className="text-sm leading-relaxed text-violet-700">Introducción a células, genética, anatomía y ecología.</p>
+                    </div>
+                  </div>
+                  <Link href="/aprende/ciencias/biologia" className="button secondary">
+                    Explorar guía introductoria →
+                  </Link>
+                </div>
+              </article>
+            )}
           </div>
         </section>
       </main>
