@@ -137,5 +137,16 @@
     ],
     "totalPublished": 126,
     "totalScheduled": 502
+  },
+  {
+    "date": "2026-11-14T18:37:35.487Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "potenciacion-y-radicacion-de-numeros-enteros-1sec-unidad4",
+      "potenciacion-y-radicacion-en-z-1sec-unidad4",
+      "problemas-sobre-cuatro-operaciones-1sec-unidad4"
+    ],
+    "totalPublished": 129,
+    "totalScheduled": 499
   }
 ]
