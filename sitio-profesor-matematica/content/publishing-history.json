@@ -148,5 +148,16 @@
     ],
     "totalPublished": 129,
     "totalScheduled": 499
+  },
+  {
+    "date": "2026-11-14T22:50:44.489Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "propiedades-de-las-razones-trigonometricas-1sec-unidad4",
+      "propiedades-de-las-razones-trigonometricas-de-angulos-agudos-1sec-unidad4",
+      "propiedades-de-las-razones-trigonometricas-de-un-angulo-agudo-1sec-unidad4"
+    ],
+    "totalPublished": 132,
+    "totalScheduled": 496
   }
 ]
