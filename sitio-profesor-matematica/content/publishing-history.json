@@ -126,5 +126,16 @@
     ],
     "totalPublished": 123,
     "totalScheduled": 505
+  },
+  {
+    "date": "2026-11-14T07:16:51.275Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "numeros-enteros-1sec-unidad4",
+      "numeros-enteros-adicion-y-sustraccion-1sec-unidad4",
+      "poligonos-1sec-unidad4"
+    ],
+    "totalPublished": 126,
+    "totalScheduled": 502
   }
 ]
