@@ -159,5 +159,16 @@
     ],
     "totalPublished": 132,
     "totalScheduled": 496
+  },
+  {
+    "date": "2026-11-15T07:27:21.188Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "relaciones-de-parentesco-1sec-unidad4",
+      "adicion-sustraccion-multiplicacion-y-division-de-fracciones-1sec-unidad5",
+      "adicion-y-sustraccion-con-fracciones-1sec-unidad5"
+    ],
+    "totalPublished": 135,
+    "totalScheduled": 493
   }
 ]
