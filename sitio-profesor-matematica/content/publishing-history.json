@@ -170,5 +170,16 @@
     ],
     "totalPublished": 135,
     "totalScheduled": 493
+  },
+  {
+    "date": "2026-11-15T19:13:11.560Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "circunferencia-1sec-unidad5",
+      "ecuacion-de-primer-grado-1sec-unidad5",
+      "ecuacion-lineal-o-de-primer-grado-1sec-unidad5"
+    ],
+    "totalPublished": 138,
+    "totalScheduled": 490
   }
 ]
