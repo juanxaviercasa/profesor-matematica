@@ -181,5 +181,16 @@
     ],
     "totalPublished": 138,
     "totalScheduled": 490
+  },
+  {
+    "date": "2026-11-16T07:32:48.427Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "ecuaciones-de-primer-grado-1sec-unidad5",
+      "grafico-circular-1sec-unidad5",
+      "multiplicacion-y-division-con-fracciones-1sec-unidad5"
+    ],
+    "totalPublished": 141,
+    "totalScheduled": 487
   }
 ]
