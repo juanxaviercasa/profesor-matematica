@@ -192,5 +192,16 @@
     ],
     "totalPublished": 141,
     "totalScheduled": 487
+  },
+  {
+    "date": "2026-11-16T22:41:48.082Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "numeros-racionales-fracciones-1sec-unidad5",
+      "planteo-de-ecuaciones-1sec-unidad5",
+      "potenciacion-y-radicacion-de-fracciones-1sec-unidad5"
+    ],
+    "totalPublished": 144,
+    "totalScheduled": 484
   }
 ]
