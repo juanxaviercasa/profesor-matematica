@@ -214,5 +214,16 @@
     ],
     "totalPublished": 147,
     "totalScheduled": 481
+  },
+  {
+    "date": "2026-11-17T21:28:40.129Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "analogias-numericas-literales-y-graficas-1sec-unidad6",
+      "angulos-verticales-1sec-unidad6",
+      "cortes-estacas-y-campanadas-1sec-unidad6"
+    ],
+    "totalPublished": 150,
+    "totalScheduled": 478
   }
 ]
