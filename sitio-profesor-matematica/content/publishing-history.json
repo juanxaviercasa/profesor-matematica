@@ -236,5 +236,16 @@
     ],
     "totalPublished": 153,
     "totalScheduled": 475
+  },
+  {
+    "date": "2026-11-18T21:03:28.295Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "distribuciones-1sec-unidad6",
+      "distribuciones-numericas-1sec-unidad6",
+      "intervalos-1sec-unidad6"
+    ],
+    "totalPublished": 156,
+    "totalScheduled": 472
   }
 ]
