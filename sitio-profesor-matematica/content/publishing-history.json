@@ -225,5 +225,16 @@
     ],
     "totalPublished": 150,
     "totalScheduled": 478
+  },
+  {
+    "date": "2026-11-18T08:08:39.562Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "cortes-postes-estacas-y-campanadas-1sec-unidad6",
+      "desigualdad-e-intervalos-1sec-unidad6",
+      "desigualdades-e-intervalos-1sec-unidad6"
+    ],
+    "totalPublished": 153,
+    "totalScheduled": 475
   }
 ]
