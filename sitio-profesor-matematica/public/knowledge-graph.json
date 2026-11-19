@@ -1,9 +1,9 @@
 {
   "version": "2.0.0",
-  "generatedAt": "2026-11-19T08:18:40.935Z",
+  "generatedAt": "2026-11-19T21:07:54.161Z",
   "totalLessons": 628,
-  "publishedLessons": 159,
-  "scheduledLessons": 469,
+  "publishedLessons": 162,
+  "scheduledLessons": 466,
   "baseUrl": "https://sistemazenit.com",
   "nodes": [
     {
@@ -1058,7 +1058,7 @@
       "course": "aritmetica",
       "grade": 1,
       "appEngine": "NumberTheoryLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 16
     },
@@ -1070,7 +1070,7 @@
       "course": "aritmetica",
       "grade": 1,
       "appEngine": "NumberTheoryLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 16
     },
@@ -1082,7 +1082,7 @@
       "course": "geometria",
       "grade": 1,
       "appEngine": "GeometryInteractiveLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 0
     },

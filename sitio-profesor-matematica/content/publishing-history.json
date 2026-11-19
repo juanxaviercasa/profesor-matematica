@@ -258,5 +258,16 @@
     ],
     "totalPublished": 159,
     "totalScheduled": 469
+  },
+  {
+    "date": "2026-11-19T21:07:54.040Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "numeros-decimales-1sec-unidad6",
+      "operaciones-con-numeros-decimales-1sec-unidad6",
+      "perimetro-y-area-1sec-unidad6"
+    ],
+    "totalPublished": 162,
+    "totalScheduled": 466
   }
 ]
