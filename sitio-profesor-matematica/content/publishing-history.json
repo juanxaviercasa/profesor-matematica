@@ -247,5 +247,16 @@
     ],
     "totalPublished": 156,
     "totalScheduled": 472
+  },
+  {
+    "date": "2026-11-19T08:18:40.898Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "intervalos-desigualdades-e-inecuaciones-de-primer-grado-1sec-unidad6",
+      "medidas-de-tendencia-central-1sec-unidad6",
+      "medidas-de-tendencia-central-para-datos-sin-agrupar-1sec-unidad6"
+    ],
+    "totalPublished": 159,
+    "totalScheduled": 469
   }
 ]
