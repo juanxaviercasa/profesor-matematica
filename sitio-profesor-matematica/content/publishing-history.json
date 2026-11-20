@@ -280,5 +280,16 @@
     ],
     "totalPublished": 165,
     "totalScheduled": 463
+  },
+  {
+    "date": "2026-11-20T20:52:54.896Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "conteo-de-figuras-i-1sec-unidad7",
+      "funcion-lineal-y-funcion-afin-1sec-unidad7",
+      "magnitudes-proporcionales-1sec-unidad7"
+    ],
+    "totalPublished": 168,
+    "totalScheduled": 460
   }
 ]
