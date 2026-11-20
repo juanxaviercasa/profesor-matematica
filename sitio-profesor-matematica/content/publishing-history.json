@@ -269,5 +269,16 @@
     ],
     "totalPublished": 162,
     "totalScheduled": 466
+  },
+  {
+    "date": "2026-11-20T07:58:29.415Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "perimetro-y-area-de-figuras-geometricas-1sec-unidad6",
+      "analisis-combinatorio-1sec-unidad7",
+      "conteo-de-figuras-1sec-unidad7"
+    ],
+    "totalPublished": 165,
+    "totalScheduled": 463
   }
 ]
