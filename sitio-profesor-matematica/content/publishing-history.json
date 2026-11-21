@@ -302,5 +302,16 @@
     ],
     "totalPublished": 171,
     "totalScheduled": 457
+  },
+  {
+    "date": "2026-11-21T19:54:42.625Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "producto-cartesiano-y-relacion-binaria-1sec-unidad7",
+      "productos-cartesianos-y-relacion-binaria-1sec-unidad7",
+      "razones-trigonometricas-de-un-angulo-en-posicion-normal-1sec-unidad7"
+    ],
+    "totalPublished": 174,
+    "totalScheduled": 454
   }
 ]
