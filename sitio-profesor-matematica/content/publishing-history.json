@@ -291,5 +291,16 @@
     ],
     "totalPublished": 168,
     "totalScheduled": 460
+  },
+  {
+    "date": "2026-11-21T07:55:57.121Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "operadores-matematicos-1sec-unidad7",
+      "planos-y-mapas-a-escala-1sec-unidad7",
+      "producto-cartesiano-1sec-unidad7"
+    ],
+    "totalPublished": 171,
+    "totalScheduled": 457
   }
 ]
