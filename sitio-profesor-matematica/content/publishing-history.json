@@ -324,5 +324,16 @@
     ],
     "totalPublished": 177,
     "totalScheduled": 451
+  },
+  {
+    "date": "2026-11-22T20:06:03.404Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "sucesiones-numericas-1sec-unidad7",
+      "sucesiones-numericas-y-literales-1sec-unidad7",
+      "transformaciones-geometricas-1sec-unidad7"
+    ],
+    "totalPublished": 180,
+    "totalScheduled": 448
   }
 ]
