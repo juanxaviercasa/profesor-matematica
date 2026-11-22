@@ -313,5 +313,16 @@
     ],
     "totalPublished": 174,
     "totalScheduled": 454
+  },
+  {
+    "date": "2026-11-22T07:41:37.973Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "razones-y-proporciones-1sec-unidad7",
+      "regla-de-tres-1sec-unidad7",
+      "regla-de-tres-simples-1sec-unidad7"
+    ],
+    "totalPublished": 177,
+    "totalScheduled": 451
   }
 ]
