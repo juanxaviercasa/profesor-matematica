@@ -335,5 +335,16 @@
     ],
     "totalPublished": 180,
     "totalScheduled": 448
+  },
+  {
+    "date": "2026-11-23T08:31:17.230Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "conteo-de-figuras-1sec-unidad8",
+      "conteo-de-figuras-ii-1sec-unidad8",
+      "figuras-de-un-solo-trazo-1sec-unidad8"
+    ],
+    "totalPublished": 183,
+    "totalScheduled": 445
   }
 ]
