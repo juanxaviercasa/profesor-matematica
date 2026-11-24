@@ -368,5 +368,16 @@
     ],
     "totalPublished": 189,
     "totalScheduled": 439
+  },
+  {
+    "date": "2026-11-24T22:52:47.556Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "progresion-aritmetica-1sec-unidad8",
+      "razones-trigonometricas-de-angulos-cuadrantales-1sec-unidad8",
+      "solidos-de-revolucion-1sec-unidad8"
+    ],
+    "totalPublished": 192,
+    "totalScheduled": 436
   }
 ]
