@@ -346,5 +346,16 @@
     ],
     "totalPublished": 183,
     "totalScheduled": 445
+  },
+  {
+    "date": "2026-11-24T00:32:23.189Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "patrones-geometricos-1sec-unidad8",
+      "poliedro-y-poliedros-regulares-1sec-unidad8",
+      "porcentaje-1sec-unidad8"
+    ],
+    "totalPublished": 186,
+    "totalScheduled": 442
   }
 ]
