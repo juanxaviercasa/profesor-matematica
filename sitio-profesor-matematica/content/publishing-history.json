@@ -357,5 +357,16 @@
     ],
     "totalPublished": 186,
     "totalScheduled": 442
+  },
+  {
+    "date": "2026-11-24T10:37:55.663Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "porcentajes-1sec-unidad8",
+      "prisma-y-piramide-1sec-unidad8",
+      "probabilidades-1sec-unidad8"
+    ],
+    "totalPublished": 189,
+    "totalScheduled": 439
   }
 ]
