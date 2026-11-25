@@ -379,5 +379,16 @@
     ],
     "totalPublished": 192,
     "totalScheduled": 436
+  },
+  {
+    "date": "2026-11-25T09:28:21.631Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "solidos-geometricos-1sec-unidad8",
+      "unidades-de-medida-1sec-unidad8",
+      "unidades-de-medida-y-superficie-1sec-unidad8"
+    ],
+    "totalPublished": 195,
+    "totalScheduled": 433
   }
 ]
