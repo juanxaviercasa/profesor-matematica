@@ -412,5 +412,16 @@
     ],
     "totalPublished": 201,
     "totalScheduled": 427
+  },
+  {
+    "date": "2026-11-26T22:04:17.079Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "figura-discordante-2sec-unidad1",
+      "introduccion-a-la-estadistica-2sec-unidad1",
+      "operaciones-con-polinomios-2sec-unidad1"
+    ],
+    "totalPublished": 204,
+    "totalScheduled": 424
   }
 ]
