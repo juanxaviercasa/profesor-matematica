@@ -434,5 +434,16 @@
     ],
     "totalPublished": 207,
     "totalScheduled": 421
+  },
+  {
+    "date": "2026-11-27T21:46:23.100Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "situaciones-logicas-2sec-unidad1",
+      "teoria-de-conjuntos-2sec-unidad1",
+      "teoria-de-conjuntos-y-operaciones-con-conjuntos-2sec-unidad1"
+    ],
+    "totalPublished": 210,
+    "totalScheduled": 418
   }
 ]

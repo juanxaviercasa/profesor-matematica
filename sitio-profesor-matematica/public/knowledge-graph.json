@@ -1,9 +1,9 @@
 {
   "version": "2.0.0",
-  "generatedAt": "2026-11-27T09:21:59.106Z",
+  "generatedAt": "2026-11-27T21:46:23.145Z",
   "totalLessons": 628,
-  "publishedLessons": 207,
-  "scheduledLessons": 421,
+  "publishedLessons": 210,
+  "scheduledLessons": 418,
   "baseUrl": "https://sistemazenit.com",
   "nodes": [
     {
@@ -1634,7 +1634,7 @@
       "course": "razonamiento-matematico",
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 8
     },
@@ -1646,7 +1646,7 @@
       "course": "aritmetica",
       "grade": 2,
       "appEngine": "SetVennLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 0
     },
@@ -1658,7 +1658,7 @@
       "course": "aritmetica",
       "grade": 2,
       "appEngine": "SetVennLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 16
     },
