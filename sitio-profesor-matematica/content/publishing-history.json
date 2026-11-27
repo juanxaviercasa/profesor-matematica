@@ -423,5 +423,16 @@
     ],
     "totalPublished": 204,
     "totalScheduled": 424
+  },
+  {
+    "date": "2026-11-27T09:21:59.063Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "problemas-con-conjuntos-2sec-unidad1",
+      "segmentos-2sec-unidad1",
+      "segmentos-de-rectas-2sec-unidad1"
+    ],
+    "totalPublished": 207,
+    "totalScheduled": 421
   }
 ]
