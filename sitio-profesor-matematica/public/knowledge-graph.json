@@ -1,9 +1,9 @@
 {
   "version": "2.0.0",
-  "generatedAt": "2026-11-27T21:46:23.145Z",
+  "generatedAt": "2026-11-28T08:38:02.121Z",
   "totalLessons": 628,
-  "publishedLessons": 210,
-  "scheduledLessons": 418,
+  "publishedLessons": 213,
+  "scheduledLessons": 415,
   "baseUrl": "https://sistemazenit.com",
   "nodes": [
     {
@@ -1670,7 +1670,7 @@
       "course": "aritmetica",
       "grade": 2,
       "appEngine": "NumberTheoryLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 3
     },
@@ -1682,7 +1682,7 @@
       "course": "estadistica-y-probabilidad",
       "grade": 2,
       "appEngine": "StatisticsProbabilityLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 3
     },
@@ -1694,7 +1694,7 @@
       "course": "razonamiento-matematico",
       "grade": 2,
       "appEngine": "LogicalReasoningLab",
-      "publishStatus": "scheduled",
+      "publishStatus": "published",
       "onionLayer": 3,
       "exerciseCount": 8
     },

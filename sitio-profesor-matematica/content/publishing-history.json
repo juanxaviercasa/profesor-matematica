@@ -445,5 +445,16 @@
     ],
     "totalPublished": 210,
     "totalScheduled": 418
+  },
+  {
+    "date": "2026-11-28T08:38:02.079Z",
+    "batchCount": 3,
+    "publishedSlugs": [
+      "analisis-e-inter-de-tablas-de-dist-de-frec-2sec-unidad2",
+      "analisis-e-interpretacion-de-tablas-de-distribucion-de-frecuencias-2sec-unidad2",
+      "cuadrados-magicos-2sec-unidad2"
+    ],
+    "totalPublished": 213,
+    "totalScheduled": 415
   }
 ]

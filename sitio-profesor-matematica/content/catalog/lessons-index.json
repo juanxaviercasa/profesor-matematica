@@ -4602,7 +4602,7 @@
       "Libro del Área"
     ],
     "onionLayer": 3,
-    "publishStatus": "scheduled",
+    "publishStatus": "published",
     "scheduledDate": "2026-12-19",
     "dripBatch": 41,
     "slidesCount": 0,
@@ -4635,7 +4635,7 @@
       "Libro del Área"
     ],
     "onionLayer": 3,
-    "publishStatus": "scheduled",
+    "publishStatus": "published",
     "scheduledDate": "2026-12-19",
     "dripBatch": 41,
     "slidesCount": 7,
@@ -4668,7 +4668,7 @@
       "Libro del Área"
     ],
     "onionLayer": 3,
-    "publishStatus": "scheduled",
+    "publishStatus": "published",
     "scheduledDate": "2026-12-19",
     "dripBatch": 41,
     "slidesCount": 10,
